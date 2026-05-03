@@ -1,2 +1,9 @@
-# hello
-hello
+git add .
+git commit -m “message”
+git push
+
+esc:wq
+git config –global –edit
+git branch (to check your branch)
+git branch (name) to create a new branch
+git checkout (branch name)

@@ -1,0 +1,12 @@
+# Ignore local dataset files (do not commit large data)
+datasets/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+.pytest_cache/

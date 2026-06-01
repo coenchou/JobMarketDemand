@@ -10,3 +10,6 @@ venv/
 # Python cache
 __pycache__/
 .pytest_cache/
+
+# macOS metadata
+.DS_Store

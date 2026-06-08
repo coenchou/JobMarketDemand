@@ -1,0 +1,43 @@
+MARCUS THOMPSON
+marcus.thompson@email.com | (704) 555-0391 | Charlotte, NC
+
+SUMMARY
+Recent business administration graduate with a concentration in information systems. Completed two internships involving data entry, reporting, and basic Excel analysis. Eager to start a career in data analytics or business intelligence. Comfortable with Microsoft Office Suite and learning Python through online courses.
+
+EDUCATION
+Bachelor of Business Administration — Information Systems
+University of North Carolina Charlotte | Graduated December 2023
+GPA: 3.2
+Relevant Coursework: Database Management, Business Statistics, Information Systems Analysis, Intro to Programming
+
+EXPERIENCE
+
+Operations Intern — Logistics Partners Inc., Charlotte, NC
+May 2023 – August 2023
+- Tracked shipment data and updated records in the company's internal database system
+- Created weekly Excel reports summarising delivery performance for operations manager
+- Identified and corrected data entry errors, improving record accuracy by 15%
+- Assisted with scheduling and coordinating between warehouse and transport teams
+
+Administrative Intern — Charlotte Community Credit Union
+January 2023 – April 2023
+- Maintained spreadsheets tracking member account activity and flagged unusual transactions
+- Prepared PowerPoint presentations for monthly department meetings
+- Responded to member inquiries via phone and email, developing strong communication skills
+
+PROJECTS
+Student Enrollment Dashboard (University Capstone)
+- Built an interactive Excel dashboard using pivot tables and charts to visualise enrollment trends across 5 departments over 3 academic years
+- Presented findings to a panel of 4 faculty members
+
+Sales Data Analysis (Personal Project)
+- Downloaded a public Kaggle dataset and used Python (pandas) to explore sales trends
+- Created basic matplotlib charts showing seasonal patterns in the data
+
+SKILLS
+Software: Microsoft Excel (pivot tables, VLOOKUP, basic macros), PowerPoint, Word, Google Sheets
+Programming: Python (beginner — pandas, matplotlib), SQL (basic SELECT queries)
+Other: Data entry, report preparation, communication, attention to detail, teamwork
+
+CERTIFICATIONS
+- Microsoft Office Specialist: Excel Associate (2023)

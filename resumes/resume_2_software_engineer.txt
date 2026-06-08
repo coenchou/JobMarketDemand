@@ -1,0 +1,41 @@
+PRIYA NAIR
+priya.nair@email.com | (312) 555-0287 | GitHub: github.com/priyanair | Chicago, IL
+
+SUMMARY
+Full-stack software engineer with 5 years of experience building scalable web applications. Strong background in backend development with Python and Node.js, and frontend experience with React. Passionate about clean code, system design, and mentoring junior developers.
+
+EXPERIENCE
+
+Senior Software Engineer — FinTech Solutions LLC, Chicago, IL
+March 2022 – Present
+- Designed and built a RESTful API serving 500K daily requests using Python and FastAPI, deployed on AWS
+- Led migration of monolithic application to microservices architecture, reducing deployment time by 60%
+- Implemented CI/CD pipelines using GitHub Actions and Docker, cutting release cycles from 2 weeks to 2 days
+- Mentored 3 junior engineers through code reviews, pair programming, and weekly 1-on-1s
+- Optimised database queries in PostgreSQL, reducing average query time by 35%
+
+Software Engineer — Webcraft Agency, Chicago, IL
+January 2020 – February 2022
+- Developed full-stack features for 8 client web applications using React, Node.js, and MongoDB
+- Built reusable React component library adopted across 5 internal projects
+- Integrated third-party APIs including Stripe payments, Twilio SMS, and Google Maps
+- Participated in agile sprint planning, daily standups, and retrospectives
+
+Software Engineering Intern — DevBase Inc., Remote
+June 2019 – December 2019
+- Contributed to backend services in Python and wrote unit tests using pytest
+- Fixed bugs and improved documentation across legacy codebase
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Illinois Urbana-Champaign | Graduated May 2019
+
+SKILLS
+Languages: Python, JavaScript, TypeScript, SQL, HTML/CSS
+Frameworks: FastAPI, Django, React, Node.js, Express
+Cloud & DevOps: AWS (EC2, S3, Lambda), Docker, Kubernetes, GitHub Actions
+Databases: PostgreSQL, MongoDB, Redis
+Other: REST APIs, microservices, agile/scrum, system design, Git, code review, mentoring
+
+CERTIFICATIONS
+- AWS Certified Developer – Associate (2023)

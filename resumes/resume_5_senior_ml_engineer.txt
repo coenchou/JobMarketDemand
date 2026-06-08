@@ -1,0 +1,47 @@
+DAVID CHEN
+david.chen@email.com | (628) 555-0445 | San Francisco, CA | GitHub: github.com/davidchen-ml
+
+SUMMARY
+Senior machine learning engineer with 8 years of experience building and deploying ML systems at scale. Deep expertise in NLP, recommendation systems, and MLOps. Led cross-functional teams of up to 12 people. Comfortable working across the full ML lifecycle from problem framing and data collection through model deployment and monitoring. Looking for a principal or staff ML engineer role.
+
+EXPERIENCE
+
+Senior Machine Learning Engineer — StreamVault (Streaming Platform), San Francisco, CA
+April 2020 – Present
+- Architected and deployed a real-time recommendation system serving 8M daily active users, increasing average watch time by 22%
+- Led a team of 6 ML engineers and 2 data scientists, setting technical direction and conducting performance reviews
+- Built end-to-end MLOps infrastructure using MLflow, Kubeflow, and AWS SageMaker, reducing model deployment time from 3 weeks to 4 hours
+- Developed a two-tower neural network for content embedding using TensorFlow, replacing rule-based system that had been in place for 5 years
+- Implemented A/B testing framework for ML experiments with statistical guardrails to prevent false positives
+- Reduced model training costs by 40% by migrating batch jobs to spot instances and optimising data pipelines in Apache Spark
+
+Machine Learning Engineer — AdTech Dynamics, New York, NY
+July 2017 – March 2020
+- Built click-through rate prediction models using gradient boosted trees (XGBoost, LightGBM) for programmatic advertising
+- Developed NLP pipeline for ad copy classification using BERT fine-tuning, replacing manual tagging process
+- Created feature store used by 4 different ML teams, standardising feature engineering across the organisation
+- Collaborated with data engineers to build real-time feature pipelines using Kafka and Apache Flink
+
+Data Scientist — InsightMetrics, Boston, MA
+June 2015 – June 2017
+- Developed propensity models for customer lifetime value prediction using logistic regression and survival analysis
+- Conducted statistical analysis and hypothesis testing for product experiments
+- Presented findings to non-technical stakeholders including C-suite executives
+
+EDUCATION
+Master of Science in Computer Science — Machine Learning Track
+Carnegie Mellon University | Graduated May 2015
+
+Bachelor of Science in Statistics and Computer Science
+University of Michigan | Graduated May 2013
+
+SKILLS
+Languages: Python, Scala, SQL, bash
+ML Frameworks: TensorFlow, PyTorch, scikit-learn, XGBoost, LightGBM, HuggingFace Transformers
+MLOps: MLflow, Kubeflow, AWS SageMaker, Docker, Kubernetes, Airflow
+Data Engineering: Apache Spark, Kafka, Apache Flink, dbt
+Databases: PostgreSQL, Redshift, BigQuery, DynamoDB
+Other: NLP, recommendation systems, A/B testing, feature engineering, system design, team leadership, technical mentoring
+
+PUBLICATIONS
+- Chen, D. et al. (2022). "Scalable Two-Tower Models for Real-Time Recommendation." RecSys Workshop.

@@ -1,0 +1,50 @@
+ELENA VASQUEZ
+elena.vasquez@email.com | (503) 555-0162 | Portland, OR
+
+SUMMARY
+Former high school mathematics teacher with 7 years of classroom experience, now transitioning into data science. Recently completed a data science bootcamp and a series of online certifications. Strong foundation in statistics, linear algebra, and mathematical reasoning. Built 4 end-to-end machine learning projects. Looking for a junior data scientist or analyst role where I can apply both my analytical skills and communication abilities.
+
+EXPERIENCE
+
+Mathematics Teacher — Jefferson High School, Portland, OR
+August 2016 – June 2023
+- Taught algebra, statistics, and pre-calculus to 120+ students per semester
+- Analysed student performance data to identify learning gaps and adjust lesson plans, improving average test scores by 18% over 2 years
+- Developed data-driven progress reports using Excel and Google Sheets
+- Led after-school coding club introducing students to Python and basic programming concepts
+- Collaborated with department team of 8 teachers to standardise curriculum and assessments
+
+DATA SCIENCE PROJECTS (2023–2024)
+
+Job Market Salary Predictor
+- Built a regression model using scikit-learn to predict salaries from job postings features (title, skills, location, experience)
+- Scraped data using BeautifulSoup and cleaned with pandas; achieved R² of 0.81 on test set
+
+Customer Churn Classification
+- Developed a random forest classifier on telecom dataset with 94% accuracy
+- Used SHAP values to explain feature importance and presented findings in a Jupyter notebook
+
+Housing Price Analysis
+- Performed EDA and feature engineering on 15,000-row dataset
+- Compared linear regression, ridge regression, and XGBoost; documented results in a GitHub repository
+
+NLP Sentiment Analysis
+- Applied TF-IDF and logistic regression to classify product reviews as positive or negative
+- Experimented with a pre-trained BERT model using HuggingFace Transformers library
+
+EDUCATION
+Bachelor of Science in Mathematics
+Oregon State University | Graduated June 2016
+
+Data Science Bootcamp Certificate
+Springboard | Completed March 2024 (6-month, 500+ hours)
+
+SKILLS
+Programming: Python (pandas, NumPy, scikit-learn, matplotlib, seaborn, NLTK, HuggingFace), SQL (intermediate)
+Machine Learning: regression, classification, clustering, random forests, XGBoost, NLP, model evaluation
+Tools: Jupyter Notebook, Git, GitHub, Tableau (basic), Google Colab
+Other: statistics, linear algebra, data storytelling, public speaking, curriculum design, mentoring
+
+CERTIFICATIONS
+- IBM Data Science Professional Certificate (2023)
+- DeepLearning.AI Machine Learning Specialization (2024)

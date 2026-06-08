@@ -1,0 +1,1165 @@
+skill_a,skill_b,support_occupations,support_rate,freq_a,freq_b,lift,synergy_score
+Office suite software,Spreadsheet software,799,0.9069239500567536,813,854,1.0138513211830011,810.0672056252179
+Spreadsheet software,Word processing software,778,0.8830874006810443,854,785,1.0224168021599367,795.4402720804308
+Office suite software,Word processing software,744,0.8444948921679909,813,785,1.0270430347615578,764.120017862599
+Presentation software,Word processing software,610,0.6923950056753689,629,785,1.0883922513746418,663.9192733385315
+Configuration management software,Expert system software,26,0.029511918274687854,31,29,25.47942157953281,662.4649610678531
+Office suite software,Presentation software,619,0.70261066969353,813,629,1.0664128421888353,660.109549314889
+Electronic mail software,Word processing software,612,0.6946651532349603,638,785,1.0765569155202364,658.8528322983847
+Electronic mail software,Spreadsheet software,635,0.720771850170261,638,854,1.026765066476768,651.9958172127477
+Presentation software,Spreadsheet software,628,0.7128263337116912,629,854,1.0299758361474851,646.8248251006206
+Electronic mail software,Office suite software,612,0.6946651532349603,638,813,1.03947992457981,636.1617138428438
+Electronic mail software,Presentation software,524,0.5947786606129398,638,629,1.1503655601018685,602.7915534933791
+Internet directory services software,Network security and virtual private network VPN equipment software,10,0.011350737797956867,14,11,57.20779220779221,572.077922077922
+Internet directory services software,Switch or router software,9,0.01021566401816118,14,9,62.92857142857143,566.3571428571429
+Application server software,Expert system software,27,0.03064699205448354,41,29,20.00588730025231,540.1589571068124
+Data base user interface and query software,Presentation software,393,0.4460839954597049,413,629,1.3328085242342471,523.7937500240591
+Configuration management software,Object oriented data base management software,24,0.02724177071509648,31,32,21.31451612903226,511.54838709677426
+Application server software,Configuration management software,26,0.029511918274687854,41,31,18.022029897718333,468.5727773406767
+Application server software,Object oriented data base management software,26,0.029511918274687854,41,32,17.458841463414636,453.92987804878055
+Analytical or scientific software,Object or component oriented development software,137,0.15550510783200908,186,198,3.2773161724774624,448.99231562941236
+Cloud-based management software,Expert system software,25,0.028376844494892167,43,29,17.662389735364876,441.5597433841219
+Desktop publishing software,Graphics or photo imaging software,87,0.09875141884222474,88,172,5.063887420718816,440.55820560253693
+Network security and virtual private network VPN equipment software,Switch or router software,7,0.007945516458569807,11,9,62.292929292929294,436.0505050505051
+Development environment software,Object or component oriented development software,119,0.13507377979568672,145,198,3.6516544757924065,434.54688261929635
+Cloud-based management software,Object oriented data base management software,26,0.029511918274687854,43,32,16.646802325581397,432.81686046511635
+Data base user interface and query software,Office suite software,404,0.4585698070374574,413,813,1.0600263871888114,428.2506604242798
+Application server software,File versioning software,32,0.036322360953461974,41,52,13.223264540337711,423.14446529080675
+Application server software,Cloud-based management software,29,0.032917139614074914,41,43,14.491775382870108,420.2614861032331
+Data base user interface and query software,Spreadsheet software,410,0.46538024971623154,413,854,1.024122346910423,419.89016223327343
+Data base user interface and query software,Word processing software,393,0.4460839954597049,413,785,1.0679446646411992,419.7022532039913
+Expert system software,Object oriented data base management software,21,0.02383654937570942,29,32,19.936422413793103,418.6648706896552
+Cloud-based management software,Configuration management software,25,0.028376844494892167,43,31,16.522880720180044,413.0720180045011
+Data base user interface and query software,Electronic mail software,350,0.39727582292849034,413,638,1.1702353753785664,409.5823813824982
+Expert system software,Program testing software,19,0.021566401816118047,29,28,20.614532019704434,391.6761083743842
+Configuration management software,Program testing software,19,0.021566401816118047,31,28,19.284562211981566,366.40668202764977
+Expert system software,File versioning software,25,0.028376844494892167,29,52,14.605437665782492,365.1359416445623
+Analytical or scientific software,Development environment software,105,0.1191827468785471,186,145,3.4299221357063403,360.1418242491657
+File versioning software,Object oriented data base management software,26,0.029511918274687854,52,32,13.765625,357.90625
+Process mapping and design software,Project management software,113,0.1282633371169126,146,221,3.0853839955370983,348.6483914956921
+Data base user interface and query software,Project management software,189,0.21452894438138478,413,221,1.8242963417439988,344.79200858961576
+Application server software,Content workflow software,25,0.028376844494892167,41,39,13.774233896185116,344.3558474046279
+Content workflow software,Object oriented data base management software,22,0.024971623155505107,39,32,15.530448717948719,341.6698717948718
+Business intelligence and data analysis software,Data base management system software,52,0.05902383654937571,80,91,6.292857142857144,327.22857142857146
+Data base user interface and query software,Document management software,196,0.2224744608399546,413,252,1.6591337099811676,325.1902071563089
+Office suite software,Operating system software,312,0.35414301929625425,813,326,1.0371041133724221,323.5764833721957
+Data base management system software,Development environment software,69,0.07832009080590238,91,145,4.606972338006821,317.88109132247064
+Data base user interface and query software,Enterprise resource planning ERP software,210,0.2383654937570942,413,297,1.5083033727101522,316.74370826913196
+Enterprise resource planning ERP software,Office suite software,294,0.3337116912599319,297,813,1.0726949693739363,315.3723209959373
+Document management software,Presentation software,238,0.27014755959137343,252,629,1.322822822822823,314.83183183183183
+Configuration management software,File versioning software,24,0.02724177071509648,31,52,13.116625310173697,314.79900744416875
+Operating system software,Spreadsheet software,315,0.35754824063564133,326,854,0.9968067987528916,313.9941416071608
+Enterprise resource planning ERP software,Word processing software,287,0.3257661748013621,297,785,1.084505350747389,311.25303566450066
+Data mining software,Sales and marketing software,21,0.02383654937570942,36,35,14.683333333333332,308.34999999999997
+Application server software,Program testing software,20,0.022701475595913734,41,28,15.348432055749129,306.9686411149826
+Enterprise resource planning ERP software,Spreadsheet software,296,0.33598183881952326,297,854,1.0281424707654214,304.3301713465647
+Enterprise resource planning ERP software,Presentation software,252,0.28603859250851305,297,629,1.188418364888953,299.4814279520162
+Analytical or scientific software,Data base user interface and query software,161,0.18274687854710556,186,413,1.8464552578822673,297.27929651904503
+Application server software,Data base reporting software,20,0.022701475595913734,41,29,14.819175777964675,296.3835155592935
+Presentation software,Project management software,216,0.24517593643586832,629,221,1.3689473343452583,295.6926242185758
+Cloud-based management software,Data base management system software,36,0.04086265607264472,43,91,8.105290058778431,291.79044211602354
+Electronic mail software,Enterprise resource planning ERP software,250,0.28376844494892167,638,297,1.1623550024803944,290.5887506200986
+Data base user interface and query software,Object or component oriented development software,164,0.18615209988649262,413,198,1.7668696651747497,289.76662508865894
+Cloud-based management software,File versioning software,27,0.03064699205448354,43,52,10.638193202146692,287.23121645796067
+Development environment software,Process mapping and design software,83,0.094211123723042,145,146,3.4540859707132734,286.6891355692017
+Analytical or scientific software,Process mapping and design software,94,0.10669693530079455,186,146,3.049565473560171,286.65915451465605
+Enterprise resource planning ERP software,Project management software,146,0.16572077185017026,297,221,1.9596569008333715,286.10990752167226
+Enterprise application integration software,Web platform development software,67,0.07604994324631101,96,144,4.269892939814815,286.0828269675926
+Object oriented data base management software,Program testing software,17,0.019296254256526674,32,28,16.715401785714285,284.16183035714283
+Operating system software,Presentation software,257,0.2917139614074915,326,629,1.1041823129517103,283.77485442858955
+Object or component oriented development software,Process mapping and design software,96,0.10896708286038592,198,146,2.9256953092569535,280.86674968866754
+Cloud-based management software,Content workflow software,23,0.026106696935300794,43,39,12.08288610614192,277.90638044126416
+Development environment software,Enterprise application integration software,66,0.07491486946651532,145,96,4.177155172413793,275.69224137931036
+Data base reporting software,Object oriented data base management software,17,0.019296254256526674,29,32,16.139008620689655,274.3631465517241
+Application server software,Data base management system software,34,0.03859250851305335,41,91,8.028410613776467,272.96596086839986
+Desktop publishing software,Video creation and editing software,33,0.03745743473325766,88,40,8.259375,272.559375
+Data base user interface and query software,Operating system software,204,0.23155505107832008,413,326,1.3348683135518946,272.3131359645865
+Operating system software,Word processing software,281,0.318955732122588,326,785,0.9673752491110156,271.8324450001954
+Content workflow software,File versioning software,25,0.028376844494892167,39,52,10.860453648915188,271.5113412228797
+Document management software,Project management software,131,0.14869466515323496,252,221,2.072308410543705,271.47240178122536
+Document management software,Office suite software,251,0.2849035187287174,252,813,1.0793406743591245,270.91450926414024
+Data base reporting software,Expert system software,16,0.018161180476730987,29,29,16.76099881093936,268.17598097502974
+Data base management system software,Object or component oriented development software,74,0.08399545970488081,91,198,3.6182706182706186,267.75202575202576
+Document management software,Electronic mail software,221,0.2508513053348468,252,638,1.211007861869931,267.63273747325474
+Document management software,Word processing software,245,0.27809307604994327,252,785,1.091118188251946,267.3239561217268
+Data base user interface and query software,Process mapping and design software,135,0.1532349602724177,413,146,1.9724534810441472,266.2812199409599
+Document management software,Graphics or photo imaging software,114,0.12939841089670828,252,172,2.3171373200442966,264.1536544850498
+Analytical or scientific software,Project management software,111,0.12599318955732122,186,221,2.378995767041308,264.0685301415852
+Configuration management software,Content workflow software,19,0.021566401816118047,31,39,13.845326716294458,263.0612076095947
+Data base user interface and query software,Development environment software,133,0.15096481271282633,413,145,1.9566335476329633,260.2322618351841
+Application server software,Enterprise application integration software,34,0.03859250851305335,41,96,7.6102642276422765,258.7489837398374
+Development environment software,Project management software,97,0.11010215664018161,145,221,2.6667810890934622,258.6777656420658
+Object or component oriented development software,Presentation software,191,0.21679909194097616,198,629,1.3511184981773219,258.0636331518685
+Analytical or scientific software,Business intelligence and data analysis software,66,0.07491486946651532,186,80,3.9076612903225807,257.90564516129035
+Content workflow software,Enterprise application integration software,33,0.03745743473325766,39,96,7.7652243589743595,256.25240384615387
+Document management software,Spreadsheet software,250,0.28376844494892167,252,854,1.023428497081893,255.85712427047324
+Cloud-based management software,Data base reporting software,19,0.021566401816118047,43,29,13.423416198877305,255.0449077786688
+Data base management system software,Process mapping and design software,62,0.07037457434733257,91,146,4.111244919464098,254.89718500677407
+Data base management system software,Object oriented data base management software,29,0.032917139614074914,91,32,8.773695054945055,254.4371565934066
+Content workflow software,Expert system software,18,0.02043132803632236,39,29,14.021220159151193,252.3819628647215
+Content workflow software,Data base reporting software,18,0.02043132803632236,39,29,14.021220159151193,252.3819628647215
+Business intelligence and data analysis software,Object oriented data base management software,27,0.03064699205448354,80,32,9.291796875000001,250.87851562500003
+Configuration management software,Data base reporting software,16,0.018161180476730987,31,29,15.679644048943269,250.8743047830923
+Cloud-based data access and sharing software,Sales and marketing software,17,0.019296254256526674,29,35,14.755665024630543,250.84630541871923
+Object or component oriented development software,Web platform development software,90,0.1021566401816118,198,144,2.7809343434343434,250.2840909090909
+Analytical or scientific software,Presentation software,182,0.20658342792281498,186,629,1.3705147272509701,249.43368035967657
+Development environment software,File versioning software,46,0.05221339387060159,145,52,5.3748010610079575,247.24084880636605
+Enterprise application integration software,Object or component oriented development software,73,0.08286038592508513,96,198,3.3834701178451176,246.9933186026936
+Electronic mail software,Operating system software,240,0.2724177071509648,638,326,1.01659711137181,243.98330672923439
+Data base management system software,Enterprise application integration software,49,0.05561861520998865,91,96,4.94150641025641,242.1338141025641
+Desktop publishing software,Document management software,78,0.08853575482406356,88,252,3.098755411255411,241.70292207792207
+Enterprise application integration software,File versioning software,37,0.04199772985244041,96,52,6.529847756410256,241.60436698717947
+Data base management system software,File versioning software,36,0.04086265607264472,91,52,6.702451394759088,241.28825021132715
+Enterprise application integration software,Object oriented data base management software,29,0.032917139614074914,96,32,8.316731770833334,241.18522135416669
+Customer relationship management CRM software,Sales and marketing software,29,0.032917139614074914,88,35,8.29512987012987,240.55876623376622
+Content workflow software,Data base management system software,31,0.03518728717366629,39,91,7.695407156945618,238.55762186531416
+Business intelligence and data analysis software,Development environment software,56,0.06356413166855845,80,145,4.253103448275862,238.17379310344828
+Office suite software,Project management software,220,0.24971623155505107,813,221,1.0787374842074213,237.3222465256327
+Cloud-based management software,Program testing software,18,0.02043132803632236,43,28,13.17109634551495,237.0797342192691
+Object or component oriented development software,Project management software,108,0.12258796821793416,198,221,2.174413821472645,234.83669271904566
+Document management software,Process mapping and design software,99,0.11237230419977298,252,146,2.3705968688845402,234.68909001956948
+Object or component oriented development software,Operating system software,131,0.14869466515323496,198,326,1.7879872343062526,234.2263276941191
+Data base management system software,Web platform development software,59,0.06696935300794551,91,144,3.9666514041514045,234.03243284493286
+Document management software,Enterprise resource planning ERP software,141,0.16004540295119182,252,297,1.6597322430655765,234.0222462722463
+Enterprise application integration software,Process mapping and design software,61,0.06923950056753689,96,146,3.8342608447488584,233.88991152968038
+Data base reporting software,File versioning software,20,0.022701475595913734,29,52,11.684350132625994,233.68700265251988
+Data base management system software,Project management software,73,0.08286038592508513,91,221,3.197901645865447,233.4468201481776
+Cloud-based management software,Enterprise application integration software,33,0.03745743473325766,43,96,7.042877906976744,232.41497093023256
+Project management software,Word processing software,212,0.24063564131668558,221,785,1.076588754070957,228.23681586304292
+Electronic mail software,Project management software,191,0.21679909194097616,638,221,1.193428275578377,227.94480063547
+Configuration management software,Data base management system software,27,0.03064699205448354,31,91,8.432116270825949,227.66713931230063
+Data base management system software,Data mining software,29,0.032917139614074914,91,36,7.7988400488400496,226.16636141636144
+Project management software,Spreadsheet software,220,0.24971623155505107,221,854,1.0269479796962921,225.92855553318427
+Development environment software,Web platform development software,73,0.08286038592508513,145,144,3.080124521072797,224.8490900383142
+Data base reporting software,Sales and marketing software,16,0.018161180476730987,29,35,13.88768472906404,222.20295566502463
+Enterprise application integration software,Program testing software,26,0.029511918274687854,96,28,8.521577380952381,221.56101190476193
+Development environment software,Operating system software,109,0.12372304199772985,145,326,2.031499894224667,221.4334884704887
+Metadata management software,Procedure management software,3,0.00340522133938706,6,6,73.41666666666667,220.25
+Analytical or scientific software,Data base management system software,65,0.07377979568671963,186,91,3.3832565284178187,219.91167434715823
+Business intelligence and data analysis software,Data base reporting software,24,0.02724177071509648,80,29,9.113793103448277,218.73103448275864
+File versioning software,Program testing software,19,0.021566401816118047,52,28,11.496565934065934,218.43475274725276
+Expert system software,Internet directory services software,10,0.011350737797956867,29,14,21.699507389162562,216.99507389162562
+Expert system software,Switch or router software,8,0.009080590238365494,29,9,27.003831417624518,216.03065134099614
+Cloud-based data access and sharing software,Data mining software,16,0.018161180476730987,29,36,13.501915708812259,216.03065134099614
+Cloud-based management software,Development environment software,39,0.04426787741203178,43,145,5.510665597433841,214.91595829991982
+Application server software,Development environment software,38,0.043132803632236094,41,145,5.631286795626577,213.98889823380995
+Analytical or scientific software,Geographic information system,64,0.07264472190692395,186,91,3.3312064279806215,213.19721139075978
+Business intelligence and data analysis software,Sales and marketing software,26,0.029511918274687854,80,35,8.180714285714286,212.69857142857143
+Data base reporting software,Program testing software,14,0.015891032917139614,29,28,15.189655172413794,212.6551724137931
+Enterprise resource planning ERP software,Process mapping and design software,102,0.11577752553916004,297,146,2.072367510723675,211.38148609381486
+Application server software,Business intelligence and data analysis software,28,0.03178206583427923,41,80,7.520731707317073,210.58048780487803
+Object or component oriented development software,Office suite software,196,0.2224744608399546,198,813,1.072694969373936,210.24821399729146
+Data base user interface and query software,Web platform development software,119,0.13507377979568672,413,144,1.7628295668549907,209.7767184557439
+Data base management system software,Expert system software,25,0.028376844494892167,91,29,8.345964380447139,208.64910951117847
+Data base management system software,Data base reporting software,25,0.028376844494892167,91,29,8.345964380447139,208.64910951117847
+Business intelligence and data analysis software,Object or component oriented development software,61,0.06923950056753689,80,198,3.392739898989899,206.95713383838384
+Content workflow software,Program testing software,16,0.018161180476730987,39,28,12.908424908424907,206.5347985347985
+Graphics or photo imaging software,Presentation software,159,0.18047673098751418,172,629,1.2947739120789736,205.8690520205568
+Cloud-based management software,Data mining software,19,0.021566401816118047,43,36,10.813307493540051,205.452842377261
+Business intelligence and data analysis software,Process mapping and design software,52,0.05902383654937571,80,146,3.9222602739726025,203.95753424657534
+Data base management system software,Sales and marketing software,27,0.03064699205448354,91,35,7.468445839874412,201.6480376766091
+Business intelligence and data analysis software,Cloud-based management software,28,0.03178206583427923,80,43,7.17093023255814,200.78604651162792
+Object or component oriented development software,Spreadsheet software,196,0.2224744608399546,198,854,1.0211955621791688,200.1543301871171
+Configuration management software,Enterprise application integration software,26,0.029511918274687854,31,96,7.696908602150538,200.11962365591398
+Analytical or scientific software,Office suite software,185,0.20998864926220204,186,813,1.0778148104061687,199.3957399251412
+Presentation software,Process mapping and design software,144,0.16345062429057888,629,146,1.3814491364853976,198.92867565389724
+Enterprise application integration software,Expert system software,25,0.028376844494892167,96,29,7.911278735632184,197.7819683908046
+File versioning software,Object or component oriented development software,48,0.05448354143019296,52,198,4.107226107226108,197.14685314685318
+Computer aided design CAD software,Spreadsheet software,191,0.21679909194097616,192,854,1.026242925448868,196.01239876073382
+Data mining software,Object oriented data base management software,16,0.018161180476730987,36,32,12.23611111111111,195.77777777777777
+Computer aided design CAD software,Office suite software,186,0.21112372304199772,192,813,1.0497770602706027,195.2585332103321
+Cloud-based management software,Web platform development software,37,0.04199772985244041,43,144,5.264373385012919,194.78181524547801
+Graphics or photo imaging software,Web platform development software,74,0.08399545970488081,172,144,2.6321866925064596,194.78181524547801
+Customer relationship management CRM software,Data base management system software,42,0.04767309875141884,88,91,4.620629370629371,194.06643356643357
+Object or component oriented development software,Word processing software,185,0.20998864926220204,198,785,1.0486070900083637,193.99231165154728
+Data base user interface and query software,Graphics or photo imaging software,125,0.14188422247446084,413,172,1.5502702854890478,193.78378568613098
+Application server software,Data mining software,18,0.02043132803632236,41,36,10.74390243902439,193.39024390243904
+Application server software,Web platform development software,36,0.04086265607264472,41,144,5.371951219512195,193.39024390243904
+Computer aided design CAD software,Object or component oriented development software,91,0.10329171396140749,192,198,2.10887521043771,191.90764414983164
+Analytical or scientific software,Spreadsheet software,186,0.21112372304199772,186,854,1.031615925058548,191.88056206088993
+Computer aided design CAD software,Word processing software,181,0.2054483541430193,192,785,1.057994957537155,191.49708731422504
+Analytical or scientific software,Word processing software,177,0.20090805902383654,186,785,1.0679884939387714,189.03396342716255
+File versioning software,Web platform development software,40,0.04540295119182747,52,144,4.706196581196581,188.24786324786322
+Computer aided design CAD software,Project management software,95,0.10783200908059024,192,221,1.9724500377073908,187.38275358220213
+Project management software,Web platform development software,82,0.09307604994324631,221,144,2.2700477626948214,186.14391654097537
+Analytical or scientific software,Web platform development software,75,0.0851305334846765,186,144,2.4669578853046596,185.02184139784947
+Operating system software,Project management software,123,0.13961407491486946,326,221,1.5040807262027036,185.00192932293254
+Graphics or photo imaging software,Video creation and editing software,38,0.043132803632236094,172,40,4.865988372093024,184.9075581395349
+Analytical or scientific software,File versioning software,45,0.0510783200908059,186,52,4.09894540942928,184.4525434243176
+Computer aided design CAD software,Presentation software,159,0.18047673098751418,192,629,1.1599016295707472,184.4243591017488
+Development environment software,Presentation software,138,0.15664018161180476,145,629,1.333019023079875,183.95662518502277
+Development environment software,Object oriented data base management software,31,0.03518728717366629,145,32,5.885991379310345,182.46573275862067
+Business intelligence and data analysis software,Customer relationship management CRM software,38,0.043132803632236094,80,88,4.755397727272728,180.70511363636365
+Graphics or photo imaging software,Office suite software,169,0.19182746878547105,172,813,1.0647401241454275,179.94108098057725
+Analytical or scientific software,Operating system software,111,0.12599318955732122,186,326,1.6127547991292301,179.01578270334454
+Content workflow software,Process mapping and design software,34,0.03859250851305335,39,146,5.260625219529329,178.8612574639972
+Document management software,Operating system software,129,0.14642451759364358,252,326,1.3833990651475314,178.45847940403155
+Operating system software,Process mapping and design software,98,0.1112372304199773,326,146,1.8139759643667535,177.76964450794185
+Presentation software,Web platform development software,135,0.1532349602724177,629,144,1.3130961844197138,177.26798489666135
+Cloud-based management software,Internet directory services software,11,0.012485811577752554,43,14,16.09800664451827,177.07807308970098
+Computer aided design CAD software,Enterprise resource planning ERP software,107,0.12145289443813848,192,297,1.6531109708193041,176.88287387766553
+Expert system software,Network security and virtual private network VPN equipment software,8,0.009080590238365494,29,11,22.094043887147333,176.75235109717866
+Configuration management software,Development environment software,30,0.0340522133938706,31,145,5.879866518353727,176.39599555061181
+Business intelligence and data analysis software,Data mining software,24,0.02724177071509648,80,36,7.341666666666667,176.2
+Geographic information system,Object or component oriented development software,60,0.0681044267877412,91,198,2.9337329337329336,176.02397602397602
+Enterprise application integration software,Project management software,65,0.07377979568671963,96,221,2.699142156862745,175.44424019607843
+Business intelligence and data analysis software,Enterprise application integration software,39,0.04426787741203178,80,96,4.473828125,174.479296875
+Development environment software,Document management software,85,0.09648127128263337,145,252,2.049397920087575,174.19882320744387
+Analytical or scientific software,Computer aided design CAD software,84,0.09534619750283768,186,192,2.072244623655914,174.06854838709677
+Data mining software,Web platform development software,32,0.036322360953461974,36,144,5.438271604938271,174.02469135802468
+Data base management system software,Data base user interface and query software,86,0.09761634506242906,91,413,2.0159646648750766,173.37296117925658
+Graphics or photo imaging software,Word processing software,163,0.18501702610669693,172,785,1.063568360242927,173.36164271959709
+Enterprise resource planning ERP software,Operating system software,138,0.15664018161180476,297,326,1.2556856912685133,173.28462539505483
+Analytical or scientific software,Graphics or photo imaging software,79,0.08967082860385925,186,172,2.175512628157039,171.8654976244061
+Graphics or photo imaging software,Spreadsheet software,168,0.19069239500567536,172,854,1.0076248570339306,169.28097598170032
+Data base reporting software,Enterprise application integration software,23,0.026106696935300794,29,96,7.27837643678161,167.40265804597703
+Computer aided design CAD software,Electronic mail software,152,0.17253121452894438,192,638,1.0931948798328108,166.16562173458723
+Analytical or scientific software,Enterprise application integration software,58,0.06583427922814983,186,96,2.861671146953405,165.9769265232975
+Analytical or scientific software,Enterprise resource planning ERP software,102,0.11577752553916004,186,297,1.6266970783099814,165.9231019876181
+Cloud-based management software,Object or component oriented development software,40,0.04540295119182747,43,198,4.139065069297627,165.56260277190506
+Expert system software,Web platform development software,28,0.03178206583427923,29,144,5.907088122605364,165.39846743295018
+Configuration management software,Network security and virtual private network VPN equipment software,8,0.009080590238365494,31,11,20.668621700879765,165.34897360703812
+Object oriented data base management software,Procedure management software,6,0.00681044267877412,32,6,27.53125,165.1875
+Configuration management software,Internet directory services software,9,0.01021566401816118,31,14,18.26958525345622,164.426267281106
+Development environment software,Expert system software,28,0.03178206583427923,145,29,5.866349583828775,164.2577883472057
+Graphics or photo imaging software,Project management software,84,0.09534619750283768,172,221,1.9468588866673682,163.53614648005893
+Customer relationship management CRM software,Project management software,60,0.0681044267877412,88,221,2.7180172768408064,163.0810366104484
+Business intelligence and data analysis software,Content workflow software,24,0.02724177071509648,80,39,6.776923076923077,162.64615384615385
+Analytical or scientific software,Document management software,93,0.10556186152099886,186,252,1.748015873015873,162.5654761904762
+Data base management system software,Document management software,65,0.07377979568671963,91,252,2.4971655328798184,162.3157596371882
+Development environment software,Enterprise resource planning ERP software,89,0.10102156640181612,145,297,1.8207128758852897,162.04344595379078
+Enterprise resource planning ERP software,Object or component oriented development software,104,0.11804767309875142,297,198,1.5580723055470531,162.0395197768935
+Process mapping and design software,Web platform development software,62,0.07037457434733257,146,144,2.598078386605784,161.08085996955862
+Content workflow software,Development environment software,32,0.036322360953461974,39,145,4.985322723253757,159.53032714412024
+Office suite software,Process mapping and design software,146,0.16572077185017026,813,146,1.083640836408364,158.21156211562115
+Business intelligence and data analysis software,Data base user interface and query software,77,0.08740068104426787,80,413,2.053177966101695,158.0947033898305
+Data base user interface and query software,Enterprise application integration software,84,0.09534619750283768,413,96,1.8665254237288136,156.78813559322035
+Business intelligence and data analysis software,Configuration management software,21,0.02383654937570942,80,31,7.46008064516129,156.6616935483871
+Business intelligence and data analysis software,Project management software,56,0.06356413166855845,80,221,2.790497737556561,156.26787330316742
+Enterprise application integration software,Graphics or photo imaging software,54,0.06129398410896708,96,172,2.8811773255813953,155.58357558139534
+Document management software,Web platform development software,80,0.09080590238365494,252,144,1.9422398589065257,155.37918871252205
+Electronic mail software,Graphics or photo imaging software,139,0.15777525539160045,638,172,1.1159418969162354,155.1159236713567
+Human resources software,Time accounting software,4,0.004540295119182747,7,13,38.72527472527473,154.90109890109892
+Configuration management software,Switch or router software,7,0.007945516458569807,31,9,22.10394265232975,154.72759856630825
+Configuration management software,Data mining software,14,0.015891032917139614,31,36,11.051971326164875,154.72759856630825
+Business intelligence and data analysis software,File versioning software,27,0.03064699205448354,80,52,5.718028846153846,154.38677884615385
+Office suite software,Web platform development software,143,0.1623155505107832,813,144,1.0761155528221948,153.88452405357387
+Development environment software,Geographic information system,48,0.05448354143019296,145,91,3.2048503220917017,153.8328154604017
+Data base user interface and query software,Geographic information system,81,0.09194097616345062,413,91,1.8987574169172232,153.7993507702951
+Application server software,Internet directory services software,10,0.011350737797956867,41,14,15.348432055749129,153.4843205574913
+Graphics or photo imaging software,Object or component oriented development software,77,0.08740068104426787,172,198,1.991925064599483,153.3782299741602
+Development environment software,Office suite software,143,0.1623155505107832,145,813,1.0686940662510074,152.82325147389406
+Cloud-based management software,Process mapping and design software,33,0.03745743473325766,43,146,4.630933418286078,152.82080280344059
+Application server software,Switch or router software,8,0.009080590238365494,41,9,19.100271002710027,152.80216802168022
+Cloud-based data access and sharing software,Customer relationship management CRM software,21,0.02383654937570942,29,88,7.249608150470219,152.2417711598746
+Content workflow software,Web platform development software,31,0.03518728717366629,39,144,4.8630698005698,150.7551638176638
+Process mapping and design software,Word processing software,140,0.15891032917139614,146,785,1.076171363755344,150.66399092574818
+Process mapping and design software,Spreadsheet software,146,0.16572077185017026,146,854,1.031615925058548,150.615925058548
+Enterprise application integration software,Operating system software,73,0.08286038592508513,96,326,2.054991053169734,150.0143468813906
+Object oriented data base management software,Web platform development software,28,0.03178206583427923,32,144,5.353298611111112,149.89236111111111
+Document management software,Enterprise application integration software,64,0.07264472190692395,252,96,2.3306878306878307,149.16402116402116
+Application server software,Object or component oriented development software,37,0.04199772985244041,41,198,4.015397881251539,148.56972160630696
+Customer relationship management CRM software,Data mining software,23,0.026106696935300794,88,36,6.3961489898989905,147.1114267676768
+Desktop publishing software,Web platform development software,46,0.05221339387060159,88,144,3.1980744949494953,147.1114267676768
+Data mining software,Procedure management software,6,0.00681044267877412,36,6,24.47222222222222,146.83333333333331
+Data mining software,Enterprise application integration software,24,0.02724177071509648,36,96,6.118055555555555,146.83333333333331
+Geographic information system,Object oriented data base management software,22,0.024971623155505107,91,32,6.655906593406594,146.42994505494508
+Computer aided design CAD software,Development environment software,68,0.0771850170261067,192,145,2.1518678160919538,146.32701149425284
+Customer relationship management CRM software,Development environment software,46,0.05221339387060159,88,145,3.1760188087774295,146.09686520376175
+Sales and marketing software,Video conferencing software,20,0.022701475595913734,35,69,7.296066252587992,145.92132505175985
+Cloud-based management software,Switch or router software,8,0.009080590238365494,43,9,18.21188630490956,145.69509043927647
+Process mapping and design software,Program testing software,26,0.029511918274687854,146,28,5.6032289628180045,145.68395303326812
+Analytical or scientific software,Electronic mail software,140,0.15891032917139614,186,638,1.0393703441534363,145.51184818148107
+Development environment software,Spreadsheet software,143,0.1623155505107832,145,854,1.0173867398853267,145.48630380360171
+Spreadsheet software,Web platform development software,142,0.1611804767309875,854,144,1.0172879260994014,144.454885506115
+Computer aided design CAD software,Data base user interface and query software,114,0.12939841089670828,192,413,1.266570823244552,144.38907384987894
+Enterprise system management software,Network security and virtual private network VPN equipment software,3,0.00340522133938706,5,11,48.054545454545455,144.16363636363636
+Configuration management software,Web platform development software,27,0.03064699205448354,31,144,5.328629032258064,143.87298387096774
+Internet directory services software,Program testing software,8,0.009080590238365494,14,28,17.979591836734695,143.83673469387756
+Data mining software,Project management software,36,0.04086265607264472,36,221,3.986425339366516,143.5113122171946
+Document management software,Object or component oriented development software,90,0.1021566401816118,252,198,1.5891053391053391,143.0194805194805
+Cloud-based data access and sharing software,Video conferencing software,18,0.02043132803632236,29,69,7.925037481259371,142.65067466266868
+Electronic mail software,Object or component oriented development software,143,0.1623155505107832,638,198,0.9973005921281785,142.61398467432952
+Data base reporting software,Data mining software,13,0.014755959137343927,29,36,10.97030651340996,142.6139846743295
+Data mining software,Expert system software,13,0.014755959137343927,36,29,10.97030651340996,142.6139846743295
+Computer aided design CAD software,Geographic information system,53,0.060158910329171394,192,91,2.672447344322344,141.63970924908423
+Data base reporting software,Development environment software,26,0.029511918274687854,29,145,5.447324613555292,141.6304399524376
+Data base management system software,Operating system software,69,0.07832009080590238,91,326,2.0491134632238928,141.3888289624486
+Content workflow software,Data mining software,15,0.0170261066969353,39,36,9.412393162393162,141.18589743589743
+Network security and virtual private network VPN equipment software,Program testing software,7,0.007945516458569807,11,28,20.022727272727273,140.1590909090909
+Analytical or scientific software,Customer relationship management CRM software,51,0.05788876276958002,186,88,2.745051319648094,139.9976173020528
+Web platform development software,Word processing software,134,0.15209988649262202,144,785,1.0443559801840059,139.9437013446568
+Electronic mail software,Process mapping and design software,121,0.1373439273552781,638,146,1.1444260746339159,138.47555503070382
+Data base management system software,Program testing software,20,0.022701475595913734,91,28,6.9152276295133435,138.30455259026687
+Application server software,Sales and marketing software,15,0.0170261066969353,41,35,9.209059233449477,138.13588850174216
+Computer aided design CAD software,Document management software,87,0.09875141884222474,192,252,1.5841393849206349,137.82012648809524
+Graphical user interface development software,Video creation and editing software,9,0.01021566401816118,13,40,15.248076923076923,137.2326923076923
+Business intelligence and data analysis software,Expert system software,19,0.021566401816118047,80,29,7.215086206896552,137.0866379310345
+Customer relationship management CRM software,Data base user interface and query software,75,0.0851305334846765,88,413,1.8180442438917015,136.3533182918776
+Development environment software,Graphics or photo imaging software,62,0.07037457434733257,145,172,2.1901363271852445,135.78845228548516
+Development environment software,Program testing software,25,0.028376844494892167,145,28,5.424876847290641,135.62192118226602
+Operating system software,Web platform development software,85,0.09648127128263337,326,144,1.5951985344239945,135.59187542603954
+Graphics or photo imaging software,Web page creation and editing software,60,0.0681044267877412,172,136,2.259746922024624,135.58481532147744
+Content workflow software,Metadata management software,6,0.00681044267877412,39,6,22.58974358974359,135.53846153846155
+Graphics or photo imaging software,Process mapping and design software,62,0.07037457434733257,172,146,2.1751353934374005,134.85839439311883
+Computer aided design CAD software,Graphics or photo imaging software,71,0.08059023836549375,192,172,1.894107315891473,134.48161942829458
+Object or component oriented development software,Object oriented data base management software,31,0.03518728717366629,198,32,4.310448232323233,133.6238952020202
+Computer aided design CAD software,Process mapping and design software,65,0.07377979568671963,192,146,2.042843892694064,132.78485302511416
+Geographic information system,Project management software,55,0.06242905788876277,91,221,2.4093779523643777,132.51578738004076
+Cloud-based management software,Sales and marketing software,15,0.0170261066969353,43,35,8.780730897009967,131.7109634551495
+Customer relationship management CRM software,Object or component oriented development software,51,0.05788876276958002,88,198,2.578684573002755,131.51291322314052
+Development environment software,Word processing software,130,0.14755959137343927,145,785,1.0061937184274106,130.80518339556338
+Graphics or photo imaging software,Operating system software,91,0.10329171396140749,172,326,1.4297867028106719,130.11058995577113
+Data base reporting software,Process mapping and design software,25,0.028376844494892167,29,146,5.201936702881436,130.0484175720359
+Geographic information system,Graphics or photo imaging software,48,0.05448354143019296,91,172,2.701763352926144,129.68464094045493
+Application server software,Customer relationship management CRM software,23,0.026106696935300794,41,88,5.616130820399113,129.17100886917962
+Application server software,Procedure management software,6,0.00681044267877412,41,6,21.48780487804878,128.9268292682927
+Video creation and editing software,Web platform development software,29,0.032917139614074914,40,144,4.435590277777778,128.63211805555557
+Business intelligence and data analysis software,Web platform development software,41,0.046538024971623154,80,144,3.135503472222222,128.5556423611111
+Office suite software,Web page creation and editing software,127,0.1441543700340522,813,136,1.0119293104695752,128.51502242963605
+Object oriented data base management software,Process mapping and design software,26,0.029511918274687854,32,146,4.9028253424657535,127.47345890410959
+Business intelligence and data analysis software,Program testing software,18,0.02043132803632236,80,28,7.079464285714286,127.43035714285715
+Analytical or scientific software,Cloud-based management software,34,0.03859250851305335,186,43,3.7451862965741434,127.33633408352088
+Computer aided design CAD software,Operating system software,95,0.10783200908059024,192,326,1.3371517126789365,127.02941270449897
+Expert system software,Procedure management software,5,0.0056753688989784334,29,6,25.31609195402299,126.58045977011496
+Data base reporting software,Metadata management software,5,0.0056753688989784334,29,6,25.31609195402299,126.58045977011496
+Content workflow software,Sales and marketing software,14,0.015891032917139614,39,35,9.035897435897436,126.5025641025641
+File versioning software,Process mapping and design software,33,0.03745743473325766,52,146,3.829425711275026,126.37104847207586
+File versioning software,Geographic information system,26,0.029511918274687854,52,91,4.840659340659341,125.85714285714288
+Analytical or scientific software,Application server software,33,0.03745743473325766,186,41,3.812352478363494,125.8076317859953
+Customer relationship management CRM software,Operating system software,64,0.07264472190692395,88,326,1.9654210819854991,125.78694924707195
+Customer relationship management CRM software,Enterprise resource planning ERP software,61,0.06923950056753689,88,297,2.0562059993878177,125.42856596265688
+Application server software,Cloud-based data access and sharing software,13,0.014755959137343927,41,29,9.63246425567704,125.2220353238015
+Content workflow software,Project management software,35,0.039727582292849034,39,221,3.577561201995591,125.2146420698457
+Application server software,Network security and virtual private network VPN equipment software,8,0.009080590238365494,41,11,15.62749445676275,125.019955654102
+Customer relationship management CRM software,Document management software,56,0.06356413166855845,88,252,2.224747474747475,124.5858585858586
+Analytical or scientific software,Object oriented data base management software,29,0.032917139614074914,186,32,4.292506720430108,124.48269489247313
+Analytical or scientific software,Content workflow software,32,0.036322360953461974,186,39,3.8864074993107254,124.36503997794321
+Geographic information system,Web platform development software,43,0.04880817253121453,91,144,2.8909493284493286,124.31082112332113
+Content workflow software,Object or component oriented development software,33,0.03745743473325766,39,198,3.764957264957265,124.24358974358974
+Project management software,Sales and marketing software,33,0.03745743473325766,221,35,3.7586296056884287,124.03477698771815
+Application server software,Process mapping and design software,29,0.032917139614074914,41,146,4.268125626461744,123.77564316739058
+Enterprise application integration software,Presentation software,92,0.10442678774120318,96,629,1.3422760996290408,123.48940116587175
+Cloud-based management software,Customer relationship management CRM software,23,0.026106696935300794,43,88,5.354915433403805,123.16305496828753
+Content workflow software,Switch or router software,7,0.007945516458569807,39,9,17.56980056980057,122.98860398860398
+Spreadsheet software,Web page creation and editing software,127,0.1441543700340522,854,136,0.9633472241355558,122.34509746521559
+Geographic information system,Presentation software,89,0.10102156640181612,91,629,1.3698527227938995,121.91689232865706
+Data base reporting software,Switch or router software,6,0.00681044267877412,29,9,20.25287356321839,121.51724137931035
+Customer relationship management CRM software,Process mapping and design software,42,0.04767309875141884,88,146,2.879981320049813,120.95921544209216
+Configuration management software,Object or component oriented development software,29,0.032917139614074914,31,198,4.162430759204953,120.71049201694363
+Cloud-based management software,Project management software,36,0.04086265607264472,43,221,3.3374723771440595,120.14900557718614
+File versioning software,Operating system software,48,0.05448354143019296,52,326,2.4945729117508257,119.73949976403964
+Cloud-based management software,Network security and virtual private network VPN equipment software,8,0.009080590238365494,43,11,14.900634249471459,119.20507399577167
+Data base management system software,Graphics or photo imaging software,46,0.05221339387060159,91,172,2.5891898798875546,119.10273447482751
+Cloud-based data access and sharing software,Configuration management software,11,0.012485811577752554,29,31,10.779755283648498,118.57730812013348
+Configuration management software,Procedure management software,5,0.0056753688989784334,31,6,23.682795698924732,118.41397849462366
+Business intelligence and data analysis software,Document management software,52,0.05902383654937571,80,252,2.2724206349206346,118.165873015873
+Electronic mail software,Web platform development software,111,0.12599318955732122,638,144,1.064426593521421,118.15135188087773
+Process mapping and design software,Sales and marketing software,26,0.029511918274687854,146,35,4.4825831702544034,116.54716242661449
+Business intelligence and data analysis software,Geographic information system,31,0.03518728717366629,80,91,3.7515109890109892,116.29684065934066
+Object or component oriented development software,Program testing software,27,0.03064699205448354,198,28,4.290584415584416,115.84577922077922
+Program testing software,Web platform development software,23,0.026106696935300794,28,144,5.025545634920635,115.58754960317461
+Data mining software,Video conferencing software,18,0.02043132803632236,36,69,6.384057971014492,114.91304347826086
+Metadata management software,Object oriented data base management software,5,0.0056753688989784334,6,32,22.942708333333336,114.71354166666669
+Expert system software,Graphical user interface development software,7,0.007945516458569807,29,13,16.358090185676392,114.50663129973475
+Data base management system software,Presentation software,86,0.09761634506242906,91,629,1.323677911913206,113.83630042453572
+Data base management system software,Enterprise resource planning ERP software,59,0.06696935300794551,91,297,1.9232249232249232,113.47027047027046
+Data mining software,Process mapping and design software,26,0.029511918274687854,36,146,4.35806697108067,113.30974124809742
+Enterprise system management software,Internet directory services software,3,0.00340522133938706,5,14,37.75714285714286,113.27142857142857
+Object oriented data base management software,Sales and marketing software,12,0.01362088535754824,32,35,9.439285714285715,113.27142857142857
+Customer relationship management CRM software,Object oriented data base management software,19,0.021566401816118047,88,32,5.944247159090909,112.94069602272728
+Data base reporting software,Video conferencing software,16,0.018161180476730987,29,69,7.04447776111944,112.71164417791104
+Business intelligence and data analysis software,Enterprise resource planning ERP software,55,0.06242905788876277,80,297,2.0393518518518516,112.16435185185183
+Object oriented data base management software,Project management software,30,0.0340522133938706,32,221,3.7372737556561084,112.11821266968326
+Expert system software,Object or component oriented development software,27,0.03064699205448354,29,198,4.1426332288401255,111.85109717868339
+Customer relationship management CRM software,Data base reporting software,18,0.02043132803632236,88,29,6.213949843260187,111.85109717868337
+Enterprise application integration software,Enterprise resource planning ERP software,60,0.0681044267877412,96,297,1.8539562289562288,111.23737373737373
+Web page creation and editing software,Word processing software,116,0.13166855845629966,136,785,0.9572499063319596,111.04098913450731
+File versioning software,Project management software,38,0.043132803632236094,52,221,2.913156978767838,110.69996519317785
+Business intelligence and data analysis software,Cloud-based data access and sharing software,17,0.019296254256526674,80,29,6.455603448275863,109.74525862068967
+Customer relationship management CRM software,Presentation software,83,0.094211123723042,88,629,1.3210543431131665,109.64751047839282
+Presentation software,Web page creation and editing software,103,0.11691259931895573,629,136,1.0607757411390628,109.25990133732347
+Development environment software,Electronic mail software,107,0.12145289443813848,145,638,1.0189925413468814,109.03220192411631
+Cloud-based management software,Geographic information system,22,0.024971623155505107,43,91,4.95323281369793,108.97112190135446
+Cloud-based data access and sharing software,Program testing software,10,0.011350737797956867,29,28,10.849753694581281,108.49753694581281
+Development environment software,Sales and marketing software,25,0.028376844494892167,145,35,4.3399014778325125,108.49753694581281
+Cloud-based data access and sharing software,Data base management system software,18,0.02043132803632236,29,91,6.00909435392194,108.16369837059491
+Data base reporting software,Project management software,28,0.03178206583427923,29,221,3.8489623966297395,107.7709471056327
+Application server software,Enterprise system management software,5,0.0056753688989784334,41,5,21.48780487804878,107.4390243902439
+Configuration management software,Graphical user interface development software,7,0.007945516458569807,31,13,15.302729528535979,107.11910669975185
+Desktop publishing software,Enterprise application integration software,32,0.036322360953461974,88,96,3.3371212121212124,106.7878787878788
+Data base user interface and query software,File versioning software,51,0.05788876276958002,413,52,2.092149376047681,106.69961817843173
+Data base reporting software,Internet directory services software,7,0.007945516458569807,29,14,15.189655172413794,106.32758620689656
+Analytical or scientific software,Sales and marketing software,28,0.03178206583427923,186,35,3.789247311827957,106.09892473118279
+Data mining software,File versioning software,15,0.0170261066969353,36,52,7.059294871794872,105.88942307692308
+Application server software,Project management software,33,0.03745743473325766,41,221,3.2085862487584156,105.88334620902772
+Application server software,Graphical user interface development software,8,0.009080590238365494,41,13,13.223264540337711,105.78611632270169
+Customer relationship management CRM software,Video conferencing software,27,0.03064699205448354,88,69,3.917490118577075,105.77223320158103
+Data mining software,Program testing software,11,0.012485811577752554,36,28,9.614087301587302,105.75496031746033
+Data mining software,Development environment software,25,0.028376844494892167,36,145,4.219348659003831,105.48371647509578
+Cloud-based data access and sharing software,Expert system software,10,0.011350737797956867,29,29,10.475624256837099,104.756242568371
+Desktop publishing software,Presentation software,81,0.09194097616345062,88,629,1.2892217083393553,104.42695837548779
+Application server software,Geographic information system,21,0.02383654937570942,41,91,4.958724202626642,104.13320825515947
+Graphical user interface development software,Object oriented data base management software,7,0.007945516458569807,13,32,14.824519230769232,103.77163461538463
+Data mining software,Graphics or photo imaging software,27,0.03064699205448354,36,172,3.8415697674418605,103.72238372093024
+Content workflow software,Internet directory services software,8,0.009080590238365494,39,14,12.908424908424907,103.26739926739926
+Enterprise application integration software,Geographic information system,32,0.036322360953461974,96,91,3.2271062271062267,103.26739926739926
+Business intelligence and data analysis software,Operating system software,55,0.06242905788876277,80,326,1.8579371165644172,102.18654141104294
+Analytical or scientific software,Data base reporting software,25,0.028376844494892167,186,29,4.083240637745643,102.08101594364108
+Enterprise application integration software,Office suite software,95,0.10783200908059024,96,813,1.0723529110291103,101.87352654776548
+Medical software,Office suite software,103,0.11691259931895573,113,813,0.9877434172571814,101.73757197748968
+Graphical user interface development software,Procedure management software,3,0.00340522133938706,13,6,33.88461538461539,101.65384615384616
+File versioning software,Procedure management software,6,0.00681044267877412,52,6,16.942307692307693,101.65384615384616
+File versioning software,Metadata management software,6,0.00681044267877412,52,6,16.942307692307693,101.65384615384616
+Configuration management software,Geographic information system,18,0.02043132803632236,31,91,5.621410847217299,101.18539524991138
+Cloud-based management software,Graphical user interface development software,8,0.009080590238365494,43,13,12.608228980322005,100.86583184257604
+Sales and marketing software,Web platform development software,24,0.02724177071509648,35,144,4.195238095238095,100.68571428571428
+Medical software,Spreadsheet software,105,0.1191827468785471,113,854,0.9585811693021906,100.65102277673002
+Data mining software,Desktop publishing software,19,0.021566401816118047,36,88,5.283775252525253,100.39172979797979
+Customer relationship management CRM software,Web platform development software,38,0.043132803632236094,88,144,2.6418876262626263,100.39172979797979
+Cloud-based data access and sharing software,Desktop publishing software,17,0.019296254256526674,29,88,5.86873040752351,99.76841692789968
+Customer relationship management CRM software,Expert system software,17,0.019296254256526674,88,29,5.86873040752351,99.76841692789968
+Electronic mail software,Web page creation and editing software,99,0.11237230419977298,638,136,1.0051977687626774,99.51457910750506
+Data base reporting software,Network security and virtual private network VPN equipment software,6,0.00681044267877412,29,11,16.570532915360502,99.42319749216301
+Desktop publishing software,Word processing software,88,0.09988649262202043,88,785,1.1222929936305734,98.76178343949046
+Geographic information system,Office suite software,91,0.10329171396140749,91,813,1.083640836408364,98.61131611316112
+Business intelligence and data analysis software,Presentation software,75,0.0851305334846765,80,629,1.3130961844197138,98.48221383147853
+Configuration management software,Sales and marketing software,11,0.012485811577752554,31,35,8.93179723502304,98.24976958525345
+Customer relationship management CRM software,Graphics or photo imaging software,41,0.046538024971623154,88,172,2.3864297040169133,97.84361786469344
+Content workflow software,Document management software,33,0.03745743473325766,39,252,2.958180708180708,97.61996336996336
+Enterprise system management software,Expert system software,4,0.004540295119182747,5,29,24.30344827586207,97.21379310344828
+Project management software,Video conferencing software,41,0.046538024971623154,221,69,2.3687454915076396,97.11856515181323
+Expert system software,Geographic information system,17,0.019296254256526674,29,91,5.675255778704055,96.47934823796894
+Data base reporting software,Geographic information system,17,0.019296254256526674,29,91,5.675255778704055,96.47934823796894
+Data base management system software,Office suite software,90,0.1021566401816118,91,813,1.0717326953489317,96.45594258140385
+Internet directory services software,Object oriented data base management software,7,0.007945516458569807,14,32,13.765625,96.359375
+Document management software,Geographic information system,50,0.056753688989784334,252,91,1.9208965637537065,96.04482818768533
+Document management software,Sales and marketing software,31,0.03518728717366629,252,35,3.0964852607709754,95.99104308390024
+Data base reporting software,Object or component oriented development software,25,0.028376844494892167,29,198,3.835771508185301,95.89428770463253
+Data base management system software,Geographic information system,30,0.0340522133938706,91,91,3.1916435213138508,95.74930563941552
+Cloud-based management software,Operating system software,39,0.04426787741203178,43,326,2.451062919104009,95.59145384505636
+Customer relationship management CRM software,Office suite software,88,0.09988649262202043,88,813,1.083640836408364,95.36039360393603
+Application server software,Operating system software,38,0.043132803632236094,41,326,2.504713452042496,95.17911117761486
+Enterprise application integration software,Spreadsheet software,94,0.10669693530079455,96,854,1.0101239266198283,94.95164910226386
+Cloud-based data access and sharing software,Object oriented data base management software,10,0.011350737797956867,29,32,9.493534482758621,94.9353448275862
+Cloud-based data access and sharing software,Content workflow software,11,0.012485811577752554,29,39,8.568523430592396,94.25375773651636
+Configuration management software,Process mapping and design software,22,0.024971623155505107,31,146,4.282368537339814,94.21210782147591
+Content workflow software,Procedure management software,5,0.0056753688989784334,39,6,18.824786324786324,94.12393162393161
+Geographic information system,Spreadsheet software,91,0.10329171396140749,91,854,1.0316159250585482,93.87704918032789
+Medical software,Word processing software,97,0.11010215664018161,113,785,0.9633842511696071,93.44827236345189
+Desktop publishing software,Office suite software,87,0.09875141884222474,88,813,1.0713267359946326,93.20542603153304
+Customer relationship management CRM software,File versioning software,22,0.024971623155505107,88,52,4.235576923076923,93.18269230769232
+Desktop publishing software,Sales and marketing software,18,0.02043132803632236,88,35,5.148701298701298,92.67662337662337
+Enterprise resource planning ERP software,Web platform development software,67,0.07604994324631101,297,144,1.3801674148896372,92.47121679760569
+Data mining software,Graphical user interface development software,7,0.007945516458569807,36,13,13.177350427350428,92.24145299145299
+Customer relationship management CRM software,Word processing software,85,0.09648127128263337,88,785,1.0840330052113492,92.14280544296467
+Enterprise resource planning ERP software,Graphics or photo imaging software,73,0.08286038592508513,297,172,1.258965625244695,91.90449064286274
+Operating system software,Web page creation and editing software,68,0.0771850170261067,326,136,1.3512269938650308,91.88343558282209
+Data base management system software,Spreadsheet software,90,0.1021566401816118,91,854,1.020279486321641,91.82515376894769
+Cloud-based data access and sharing software,Process mapping and design software,21,0.02383654937570942,29,146,4.3696268304204064,91.76216343882854
+Desktop publishing software,Project management software,45,0.0510783200908059,88,221,2.038512957630605,91.73308309337722
+Geographic information system,Word processing software,86,0.09761634506242906,91,785,1.0606285434310911,91.21405473507384
+Configuration management software,Enterprise system management software,4,0.004540295119182747,31,5,22.73548387096774,90.94193548387096
+Customer relationship management CRM software,Spreadsheet software,88,0.09988649262202043,88,854,1.031615925058548,90.78220140515222
+Customer relationship management CRM software,Electronic mail software,76,0.08626560726447219,88,638,1.1925762325448845,90.63579367341123
+Data base user interface and query software,Web page creation and editing software,76,0.08626560726447219,413,136,1.1920666571713432,90.59706594502208
+Data base user interface and query software,Desktop publishing software,61,0.06923950056753689,413,88,1.478675985031917,90.19923508694694
+Desktop publishing software,Web page creation and editing software,35,0.039727582292849034,88,136,2.576453877005348,90.17588569518718
+Document management software,Video creation and editing software,32,0.036322360953461974,252,40,2.7968253968253967,89.4984126984127
+Analytical or scientific software,Program testing software,23,0.026106696935300794,186,28,3.8907450076804917,89.48713517665131
+Desktop publishing software,Spreadsheet software,87,0.09875141884222474,88,854,1.0198930168192464,88.73069246327444
+File versioning software,Graphics or photo imaging software,30,0.0340522133938706,52,172,2.9550536672629697,88.65161001788908
+Cloud-based management software,Document management software,33,0.03745743473325766,43,252,2.683001107419712,88.5390365448505
+Computer aided design CAD software,Enterprise application integration software,43,0.04880817253121453,192,96,2.0552842881944446,88.37722439236111
+Data mining software,Video creation and editing software,12,0.01362088535754824,36,40,7.341666666666667,88.1
+Accounting software,Document management software,46,0.05221339387060159,84,252,1.914493575207861,88.0667044595616
+Analytical or scientific software,Configuration management software,24,0.02724177071509648,186,31,3.6670135275754423,88.00832466181062
+Data base reporting software,Document management software,27,0.03064699205448354,29,252,3.2549261083743843,87.88300492610838
+Computer aided design CAD software,Desktop publishing software,41,0.046538024971623154,192,88,2.1378432765151514,87.6515743371212
+Cloud-based management software,Data base user interface and query software,42,0.04767309875141884,43,413,2.0835632636972803,87.50965707528577
+Application server software,Data base user interface and query software,41,0.046538024971623154,41,413,2.13317191283293,87.46004842615014
+Program testing software,Switch or router software,5,0.0056753688989784334,28,9,17.48015873015873,87.40079365079366
+Data mining software,Document management software,30,0.0340522133938706,36,252,2.9133597883597884,87.40079365079364
+Data base reporting software,Medical software,18,0.02043132803632236,29,113,4.839182178822093,87.10527921879768
+Configuration management software,Project management software,26,0.029511918274687854,31,221,3.3434535104364325,86.92979127134724
+Expert system software,Sales and marketing software,10,0.011350737797956867,29,35,8.679802955665025,86.79802955665025
+Enterprise application integration software,Word processing software,86,0.09761634506242906,96,785,1.0053874734607218,86.46332271762208
+Geographic information system,Process mapping and design software,36,0.04086265607264472,91,146,2.38717446936625,85.93828089718501
+Desktop publishing software,Electronic mail software,74,0.08399545970488081,88,638,1.161192647477914,85.92825591336563
+Graphics or photo imaging software,Video conferencing software,34,0.03859250851305335,172,69,2.5239298955173575,85.81361644759015
+Internet directory services software,Web platform development software,14,0.015891032917139614,14,144,6.118055555555555,85.65277777777777
+Cloud-based data access and sharing software,Cloud-based management software,11,0.012485811577752554,29,43,7.771451483560545,85.485966319166
+Cloud-based data access and sharing software,Graphics or photo imaging software,22,0.024971623155505107,29,172,3.8857257417802726,85.485966319166
+Accounting software,Data base user interface and query software,58,0.06583427922814983,84,413,1.4729044160036897,85.42845612821401
+Cloud-based management software,Procedure management software,5,0.0056753688989784334,43,6,17.073643410852714,85.36821705426357
+Cloud-based management software,Metadata management software,5,0.0056753688989784334,43,6,17.073643410852714,85.36821705426357
+Content workflow software,Graphical user interface development software,7,0.007945516458569807,39,13,12.163708086785011,85.14595660749508
+Enterprise application integration software,Sales and marketing software,18,0.02043132803632236,96,35,4.7196428571428575,84.95357142857144
+Cloud-based data access and sharing software,Data base reporting software,9,0.01021566401816118,29,29,9.42806183115339,84.8525564803805
+Business intelligence and data analysis software,Office suite software,79,0.08967082860385925,80,813,1.0700953259532595,84.5375307503075
+Graphics or photo imaging software,Sales and marketing software,24,0.02724177071509648,172,35,3.512292358803987,84.2950166112957
+Cloud-based data access and sharing software,Graphical user interface development software,6,0.00681044267877412,29,13,14.021220159151193,84.12732095490716
+Procedure management software,Program testing software,4,0.004540295119182747,6,28,20.976190476190478,83.90476190476191
+Expert system software,Process mapping and design software,20,0.022701475595913734,29,146,4.1615493623051485,83.23098724610297
+Content workflow software,Customer relationship management CRM software,18,0.02043132803632236,39,88,4.620629370629371,83.17132867132868
+Configuration management software,Customer relationship management CRM software,16,0.018161180476730987,31,88,5.167155425219941,82.67448680351906
+Business intelligence and data analysis software,Spreadsheet software,80,0.09080590238365494,80,854,1.031615925058548,82.52927400468383
+Analytical or scientific software,Data mining software,25,0.028376844494892167,186,36,3.289277180406213,82.23192951015533
+Program testing software,Project management software,24,0.02724177071509648,28,221,3.416936005171299,82.00646412411118
+Customer relationship management CRM software,Enterprise application integration software,28,0.03178206583427923,88,96,2.9199810606060606,81.75946969696969
+Sales and marketing software,Web page creation and editing software,21,0.02383654937570942,35,136,3.8867647058823533,81.62205882352941
+Accounting software,Word processing software,78,0.08853575482406356,84,785,1.0421292083712466,81.28607825295722
+Data base reporting software,Procedure management software,4,0.004540295119182747,29,6,20.25287356321839,81.01149425287356
+Data base management system software,Word processing software,81,0.09194097616345062,91,785,0.9989640932316092,80.91609155176035
+Cloud-based data access and sharing software,Web page creation and editing software,19,0.021566401816118047,29,136,4.244168356997972,80.63919878296146
+Customer relationship management CRM software,Program testing software,15,0.0170261066969353,88,28,5.36323051948052,80.44845779220779
+Geographic information system,Operating system software,52,0.05902383654937571,91,326,1.5442594215600352,80.30148992112183
+Content workflow software,Operating system software,34,0.03859250851305335,39,326,2.355985527764669,80.10350794399874
+Graphical user interface development software,Web platform development software,13,0.014755959137343927,13,144,6.118055555555555,79.53472222222221
+Enterprise application integration software,Internet directory services software,11,0.012485811577752554,96,14,7.210565476190476,79.31622023809524
+Cloud-based data access and sharing software,Project management software,24,0.02724177071509648,29,221,3.299110625682634,79.17865501638322
+Expert system software,Project management software,24,0.02724177071509648,29,221,3.299110625682634,79.17865501638322
+Analytical or scientific software,Expert system software,22,0.024971623155505107,186,29,3.593251761216166,79.05153874675565
+Content workflow software,Data base user interface and query software,38,0.043132803632236094,39,413,2.078475197119265,78.98205749053207
+Accounting software,Spreadsheet software,80,0.09080590238365494,84,854,0.9824913571986172,78.59930857588938
+Data base management system software,Video creation and editing software,18,0.02043132803632236,91,40,4.356593406593407,78.41868131868132
+Video creation and editing software,Web page creation and editing software,22,0.024971623155505107,40,136,3.5628676470588236,78.38308823529412
+Enterprise system management software,Switch or router software,2,0.0022701475595913734,5,9,39.15555555555556,78.31111111111112
+Geographic information system,Program testing software,15,0.0170261066969353,91,28,5.186420722135008,77.79631083202511
+Data mining software,Object or component oriented development software,25,0.028376844494892167,36,198,3.0899270482603813,77.24817620650953
+Data base management system software,Electronic mail software,71,0.08059023836549375,91,638,1.0773881291122671,76.49455716697096
+Accounting software,Office suite software,77,0.08740068104426787,84,813,0.9933374333743337,76.48698236982369
+Object oriented data base management software,Switch or router software,5,0.0056753688989784334,32,9,15.29513888888889,76.47569444444444
+Cloud-based data access and sharing software,Web platform development software,19,0.021566401816118047,29,144,4.00838122605364,76.15924329501915
+Data base reporting software,Web platform development software,19,0.021566401816118047,29,144,4.00838122605364,76.15924329501915
+Sales and marketing software,Video creation and editing software,11,0.012485811577752554,35,40,6.922142857142857,76.14357142857143
+Object oriented data base management software,Operating system software,30,0.0340522133938706,32,326,2.533550613496933,76.00651840490798
+Cloud-based data access and sharing software,Video creation and editing software,10,0.011350737797956867,29,40,7.594827586206897,75.94827586206897
+Accounting software,Project management software,40,0.04540295119182747,84,221,1.8982977806507217,75.93191122602887
+Presentation software,Video conferencing software,61,0.06923950056753689,629,69,1.238243358447962,75.53284486532569
+Accounting software,Enterprise resource planning ERP software,46,0.05221339387060159,84,297,1.6244187910854577,74.72326438993106
+Expert system software,Video conferencing software,13,0.014755959137343927,29,69,5.723638180909545,74.40729635182409
+Enterprise application integration software,Video creation and editing software,18,0.02043132803632236,96,40,4.1296875,74.33437500000001
+Content workflow software,Network security and virtual private network VPN equipment software,6,0.00681044267877412,39,11,12.321678321678322,73.93006993006993
+Development environment software,Internet directory services software,13,0.014755959137343927,145,14,5.6418719211822665,73.34433497536946
+Configuration management software,Operating system software,29,0.032917139614074914,31,326,2.5281021175539284,73.31496140906393
+Document management software,Video conferencing software,38,0.043132803632236094,252,69,1.9253508166551645,73.16333103289625
+Expert system software,Operating system software,28,0.03178206583427923,29,326,2.6092659191876453,73.05944573725407
+Program testing software,Sales and marketing software,9,0.01021566401816118,28,35,8.09081632653061,72.8173469387755
+Business intelligence and data analysis software,Word processing software,72,0.08172531214528944,80,785,1.0100636942675159,72.72458598726114
+Office suite software,Video conferencing software,68,0.0771850170261067,813,69,1.067935896750272,72.61964097901848
+Enterprise resource planning ERP software,Geographic information system,47,0.053348467650397274,297,91,1.532060532060532,72.00684500684501
+Data mining software,Web page creation and editing software,20,0.022701475595913734,36,136,3.598856209150327,71.97712418300654
+Inventory management software,Materials requirements planning logistics and supply chain software,2,0.0022701475595913734,7,7,35.95918367346939,71.91836734693878
+Video conferencing software,Video creation and editing software,15,0.0170261066969353,69,40,4.788043478260869,71.82065217391303
+Application server software,Document management software,29,0.032917139614074914,41,252,2.472802942315137,71.71128532713898
+Accounting software,Electronic mail software,66,0.07491486946651532,84,638,1.0849753694581281,71.60837438423646
+Medical software,Presentation software,76,0.08626560726447219,113,629,0.9420206255188036,71.59356753942907
+Cloud-based data access and sharing software,Enterprise application integration software,15,0.0170261066969353,29,96,4.7467672413793105,71.20150862068965
+Spreadsheet software,Video conferencing software,69,0.07832009080590238,854,69,1.031615925058548,71.18149882903981
+Video conferencing software,Word processing software,66,0.07491486946651532,69,785,1.0734976460814178,70.85084464137358
+Desktop publishing software,Operating system software,48,0.05448354143019296,88,326,1.4740658114891243,70.75515895147797
+Customer relationship management CRM software,Web page creation and editing software,31,0.03518728717366629,88,136,2.282002005347594,70.74206216577541
+Cloud-based management software,Enterprise resource planning ERP software,32,0.036322360953461974,43,297,2.207501370292068,70.64004384934617
+Enterprise application integration software,Graphical user interface development software,10,0.011350737797956867,96,13,7.059294871794872,70.59294871794873
+Accounting software,Presentation software,65,0.07377979568671963,84,629,1.0838254220607162,70.44865243394655
+Computer aided design CAD software,Web platform development software,47,0.053348467650397274,192,144,1.4976490162037037,70.38950376157408
+Project management software,Web page creation and editing software,49,0.05561861520998865,221,136,1.4362856002129358,70.37799441043386
+Operating system software,Program testing software,27,0.03064699205448354,326,28,2.605937773882559,70.36031989482909
+Electronic mail software,Geographic information system,68,0.0771850170261067,638,91,1.0318646870371009,70.16679871852286
+Application server software,Video conferencing software,15,0.0170261066969353,41,69,4.671261930010605,70.06892895015908
+Graphical user interface development software,Sales and marketing software,6,0.00681044267877412,13,35,11.617582417582419,69.70549450549451
+File versioning software,Sales and marketing software,12,0.01362088535754824,52,35,5.8087912087912095,69.70549450549451
+Configuration management software,Video conferencing software,13,0.014755959137343927,31,69,5.3543712014960265,69.60682561944834
+Document management software,Web page creation and editing software,52,0.05902383654937571,252,136,1.33671802054155,69.5093370681606
+Data base management system software,Switch or router software,8,0.009080590238365494,91,9,8.605616605616605,68.84493284493284
+Customer relationship management CRM software,Geographic information system,25,0.028376844494892167,88,91,2.7503746253746253,68.75936563436564
+Cloud-based management software,Graphics or photo imaging software,24,0.02724177071509648,43,172,2.8588426176311517,68.61222282314765
+Data base user interface and query software,Data mining software,34,0.03859250851305335,413,36,2.0146623621199895,68.49852031207965
+Data base user interface and query software,Video conferencing software,47,0.053348467650397274,413,69,1.4530301435238797,68.29241674562235
+Data base user interface and query software,Object oriented data base management software,32,0.036322360953461974,413,32,2.1331719128329296,68.26150121065375
+Data base management system software,Video conferencing software,22,0.024971623155505107,91,69,3.086797260710304,67.90953973562668
+File versioning software,Switch or router software,6,0.00681044267877412,52,9,11.294871794871796,67.76923076923077
+Data mining software,Operating system software,30,0.0340522133938706,36,326,2.252044989775051,67.56134969325153
+Object oriented data base management software,Video conferencing software,13,0.014755959137343927,32,69,5.187047101449275,67.43161231884058
+Electronic mail software,Video conferencing software,58,0.06583427922814983,638,69,1.1607378129117258,67.3227931488801
+Object or component oriented development software,Sales and marketing software,23,0.026106696935300794,198,35,2.923953823953824,67.25093795093795
+Development environment software,Network security and virtual private network VPN equipment software,11,0.012485811577752554,145,11,6.075862068965517,66.83448275862068
+Data base user interface and query software,Sales and marketing software,33,0.03745743473325766,413,35,2.0112763749567626,66.37212037357317
+Business intelligence and data analysis software,Electronic mail software,62,0.07037457434733257,80,638,1.070180250783699,66.35117554858934
+Business intelligence and data analysis software,Procedure management software,6,0.00681044267877412,80,6,11.012500000000001,66.075
+Business intelligence and data analysis software,Metadata management software,6,0.00681044267877412,80,6,11.012500000000001,66.075
+Desktop publishing software,Process mapping and design software,31,0.03518728717366629,88,146,2.125700498132005,65.89671544209216
+Program testing software,Video conferencing software,12,0.01362088535754824,28,69,5.472049689440994,65.66459627329193
+Procedure management software,Switch or router software,2,0.0022701475595913734,6,9,32.62962962962963,65.25925925925927
+Data mining software,Metadata management software,4,0.004540295119182747,36,6,16.314814814814817,65.25925925925927
+Enterprise application integration software,Switch or router software,8,0.009080590238365494,96,9,8.157407407407408,65.25925925925927
+Application server software,Enterprise resource planning ERP software,30,0.0340522133938706,41,297,2.1704853412170486,65.11456023651147
+File versioning software,Presentation software,49,0.05561861520998865,52,629,1.3198300110064816,64.6716705393176
+Electronic mail software,Enterprise application integration software,67,0.07604994324631101,638,96,0.9637375914315569,64.57041862591431
+Computer aided design CAD software,File versioning software,27,0.03064699205448354,192,52,2.382512019230769,64.32782451923077
+Content workflow software,Video conferencing software,14,0.015891032917139614,39,69,4.5834262356001485,64.16796729840208
+Content workflow software,Enterprise resource planning ERP software,29,0.032917139614074914,39,297,2.2057325390658726,63.966243632910306
+File versioning software,Graphical user interface development software,7,0.007945516458569807,52,13,9.122781065088757,63.8594674556213
+Business intelligence and data analysis software,Video conferencing software,20,0.022701475595913734,80,69,3.192028985507246,63.84057971014492
+Cloud-based data access and sharing software,Document management software,23,0.026106696935300794,29,252,2.7727148330596605,63.77244116037219
+Video conferencing software,Web page creation and editing software,26,0.029511918274687854,69,136,2.4409633418584824,63.46504688832054
+Data base reporting software,Operating system software,26,0.029511918274687854,29,326,2.4228897821028137,62.99513433467315
+Document management software,Object oriented data base management software,24,0.02724177071509648,252,32,2.6220238095238098,62.92857142857143
+Network security and virtual private network VPN equipment software,Object oriented data base management software,5,0.0056753688989784334,11,32,12.514204545454545,62.57102272727273
+Desktop publishing software,Graphical user interface development software,9,0.01021566401816118,88,13,6.930944055944056,62.3784965034965
+Configuration management software,Data base user interface and query software,30,0.0340522133938706,31,413,2.0643599156447707,61.93079746934312
+Data base reporting software,Data base user interface and query software,29,0.032917139614074914,29,413,2.1331719128329296,61.861985472154956
+Enterprise resource planning ERP software,Sales and marketing software,27,0.03064699205448354,297,35,2.2883116883116883,61.784415584415584
+Electronic mail software,Medical software,71,0.08059023836549375,638,113,0.8676311482231531,61.60181152384387
+Web page creation and editing software,Web platform development software,37,0.04199772985244041,136,144,1.6644709967320261,61.58542687908497
+Cloud-based data access and sharing software,Development environment software,17,0.019296254256526674,29,145,3.5617122473246137,60.54910820451843
+Graphical user interface development software,Program testing software,5,0.0056753688989784334,13,28,12.101648351648352,60.50824175824176
+Data mining software,Geographic information system,15,0.0170261066969353,36,91,4.033882783882784,60.50824175824176
+Data base management system software,Graphical user interface development software,9,0.01021566401816118,91,13,6.702451394759088,60.32206255283179
+Customer relationship management CRM software,Desktop publishing software,23,0.026106696935300794,88,88,2.6166064049586777,60.18194731404959
+Video conferencing software,Web platform development software,26,0.029511918274687854,69,144,2.305354267310789,59.939210950080515
+Data base user interface and query software,Program testing software,28,0.03178206583427923,413,28,2.1331719128329296,59.72881355932203
+File versioning software,Internet directory services software,7,0.007945516458569807,52,14,8.471153846153847,59.29807692307693
+Data base reporting software,Enterprise resource planning ERP software,24,0.02724177071509648,29,297,2.454893765238593,58.91745036572624
+Cloud-based data access and sharing software,File versioning software,10,0.011350737797956867,29,52,5.842175066312997,58.42175066312997
+Enterprise resource planning ERP software,File versioning software,32,0.036322360953461974,297,52,1.8254338254338254,58.41388241388241
+Cloud-based management software,Video conferencing software,14,0.015891032917139614,43,69,4.15706100438153,58.19885406134142
+Data base management system software,Desktop publishing software,23,0.026106696935300794,91,88,2.5303446553446554,58.19792707292707
+Data base management system software,Procedure management software,6,0.00681044267877412,91,6,9.68131868131868,58.08791208791209
+Data base management system software,Metadata management software,6,0.00681044267877412,91,6,9.68131868131868,58.08791208791209
+Desktop publishing software,Video conferencing software,20,0.022701475595913734,88,69,2.901844532279315,58.0368906455863
+Enterprise resource planning ERP software,Object oriented data base management software,25,0.028376844494892167,297,32,2.317445286195286,57.936132154882145
+Data base user interface and query software,Expert system software,28,0.03178206583427923,413,29,2.059614260666277,57.669199298655755
+Business intelligence and data analysis software,Graphics or photo imaging software,30,0.0340522133938706,80,172,1.9207848837209303,57.62354651162791
+Project management software,Video creation and editing software,24,0.02724177071509648,221,40,2.3918552036199094,57.40452488687782
+Application server software,Metadata management software,4,0.004540295119182747,41,6,14.325203252032521,57.300813008130085
+Medical software,Project management software,40,0.04540295119182747,113,221,1.41112401393505,56.444960557402
+Operating system software,Sales and marketing software,27,0.03064699205448354,326,35,2.0847502191060476,56.28825591586329
+Business intelligence and data analysis software,Medical software,24,0.02724177071509648,80,113,2.338938053097345,56.13451327433628
+Enterprise resource planning ERP software,Program testing software,23,0.026106696935300794,297,28,2.436628186628187,56.0424482924483
+Data base management system software,Internet directory services software,9,0.01021566401816118,91,14,6.223704866562009,56.013343799058084
+Content workflow software,Geographic information system,15,0.0170261066969353,39,91,3.7235841081994927,55.853761622992394
+Network security and virtual private network VPN equipment software,Web platform development software,10,0.011350737797956867,11,144,5.561868686868687,55.618686868686865
+File versioning software,Network security and virtual private network VPN equipment software,6,0.00681044267877412,52,11,9.241258741258742,55.447552447552454
+File versioning software,Video conferencing software,15,0.0170261066969353,52,69,3.6831103678929766,55.24665551839465
+Analytical or scientific software,Desktop publishing software,32,0.036322360953461974,186,88,1.7223851417399805,55.116324535679375
+Application server software,Graphics or photo imaging software,21,0.02383654937570942,41,172,2.6235110606920022,55.093732274532044
+Enterprise application integration software,Procedure management software,6,0.00681044267877412,96,6,9.177083333333334,55.0625
+Enterprise application integration software,Metadata management software,6,0.00681044267877412,96,6,9.177083333333334,55.0625
+Switch or router software,Web platform development software,9,0.01021566401816118,9,144,6.118055555555555,55.0625
+Development environment software,Switch or router software,9,0.01021566401816118,145,9,6.075862068965518,54.68275862068966
+Process mapping and design software,Video conferencing software,25,0.028376844494892167,146,69,2.186321222950169,54.658030573754225
+Geographic information system,Sales and marketing software,14,0.015891032917139614,91,35,3.8725274725274725,54.215384615384615
+File versioning software,Office suite software,51,0.05788876276958002,52,813,1.062801589554357,54.20288106727221
+Internet directory services software,Object or component oriented development software,13,0.014755959137343927,14,198,4.131673881673882,53.71176046176046
+Configuration management software,Graphics or photo imaging software,18,0.02043132803632236,31,172,2.974118529632408,53.53413353338334
+Analytical or scientific software,Cloud-based data access and sharing software,18,0.02043132803632236,186,29,2.939933259176863,52.91879866518353
+Document management software,File versioning software,28,0.03178206583427923,252,52,1.8824786324786327,52.70940170940172
+Expert system software,Medical software,14,0.015891032917139614,29,113,3.7638083613060727,52.69331705828502
+Content workflow software,Graphics or photo imaging software,20,0.022701475595913734,39,172,2.6267143709004173,52.53428741800835
+Accounting software,Web page creation and editing software,26,0.029511918274687854,84,136,2.0050770308123247,52.13200280112044
+Desktop publishing software,Object or component oriented development software,32,0.036322360953461974,88,198,1.617998163452709,51.77594123048669
+File versioning software,Spreadsheet software,51,0.05788876276958002,52,854,1.0117771572689607,51.60063502071699
+Operating system software,Video conferencing software,36,0.04086265607264472,326,69,1.4099759935982927,50.75913576953854
+Desktop publishing software,Development environment software,27,0.03064699205448354,88,145,1.8641849529780563,50.33299373040752
+Analytical or scientific software,Video conferencing software,27,0.03064699205448354,186,69,1.85343618513324,50.042776998597475
+Document management software,Program testing software,20,0.022701475595913734,252,28,2.4971655328798184,49.94331065759637
+Medical software,Video conferencing software,21,0.02383654937570942,113,69,2.3728357060407848,49.82954982685648
+Configuration management software,Document management software,21,0.02383654937570942,31,252,2.368279569892473,49.733870967741936
+Cloud-based data access and sharing software,Data base user interface and query software,26,0.029511918274687854,29,413,1.9124989563329715,49.72497286465726
+Cloud-based management software,Presentation software,39,0.04426787741203178,43,629,1.2703442156246534,49.543424409361485
+Data base management system software,Medical software,24,0.02724177071509648,91,113,2.0562092774482155,49.34902265875717
+Cloud-based data access and sharing software,Operating system software,23,0.026106696935300794,29,326,2.143325576475566,49.29648825893801
+Graphical user interface development software,Object or component oriented development software,12,0.01362088535754824,13,198,4.107226107226108,49.286713286713294
+Operating system software,Video creation and editing software,27,0.03064699205448354,326,40,1.8241564417177916,49.252223926380374
+Data base user interface and query software,Medical software,51,0.05788876276958002,413,113,0.9627590049068975,49.10070925025177
+Network security and virtual private network VPN equipment software,Object or component oriented development software,11,0.012485811577752554,11,198,4.44949494949495,48.94444444444445
+Process mapping and design software,Video creation and editing software,18,0.02043132803632236,146,40,2.7154109589041093,48.877397260273966
+Application server software,Medical software,16,0.018161180476730987,41,113,3.0425210446794733,48.68033671487157
+Accounting software,Process mapping and design software,26,0.029511918274687854,84,146,1.8677429876060012,48.56131767775603
+Process mapping and design software,Web page creation and editing software,33,0.03745743473325766,146,136,1.4641921837228042,48.31834206285254
+Enterprise application integration software,Video conferencing software,19,0.021566401816118047,96,69,2.5270229468599035,48.01343599033817
+Presentation software,Video creation and editing software,37,0.04199772985244041,629,40,1.2955882352941175,47.93676470588235
+Medical software,Object oriented data base management software,14,0.015891032917139614,113,32,3.4109513274336285,47.7533185840708
+Data mining software,Enterprise resource planning ERP software,24,0.02724177071509648,36,297,1.9775533108866443,47.46127946127946
+Metadata management software,Program testing software,3,0.00340522133938706,6,28,15.732142857142858,47.19642857142857
+Enterprise resource planning ERP software,Video conferencing software,33,0.03745743473325766,297,69,1.4186795491143318,46.81642512077295
+Application server software,Presentation software,37,0.04199772985244041,41,629,1.2639885222381635,46.76757532281205
+Development environment software,Graphical user interface development software,10,0.011350737797956867,145,13,4.673740053050398,46.73740053050398
+Development environment software,Video conferencing software,23,0.026106696935300794,145,69,2.0252873563218388,46.581609195402294
+Content workflow software,Presentation software,36,0.04086265607264472,39,629,1.2928947046594106,46.54420936773878
+Graphics or photo imaging software,Object oriented data base management software,17,0.019296254256526674,172,32,2.721111918604651,46.258902616279066
+Expert system software,Metadata management software,3,0.00340522133938706,29,6,15.189655172413794,45.56896551724138
+Expert system software,Graphics or photo imaging software,16,0.018161180476730987,29,172,2.8259823576583805,45.21571772253409
+Data base reporting software,Graphics or photo imaging software,16,0.018161180476730987,29,172,2.8259823576583805,45.21571772253409
+Cloud-based data access and sharing software,Enterprise resource planning ERP software,21,0.02383654937570942,29,297,2.148032044583769,45.10867293625915
+Data mining software,Presentation software,34,0.03859250851305335,36,629,1.3228228228228227,44.97597597597597
+Video creation and editing software,Word processing software,40,0.04540295119182747,40,785,1.1222929936305732,44.89171974522293
+Cloud-based management software,Office suite software,42,0.04767309875141884,43,813,1.0584398867244487,44.454475242426845
+Graphical user interface development software,Project management software,12,0.01362088535754824,13,221,3.6797772363383223,44.157326836059866
+Desktop publishing software,Geographic information system,20,0.022701475595913734,88,91,2.2002997002997002,44.005994005994005
+Presentation software,Sales and marketing software,33,0.03745743473325766,629,35,1.3205995911878265,43.57978650919828
+Computer based training software,Presentation software,31,0.03518728717366629,31,629,1.400635930047695,43.419713831478546
+Data base management system software,Network security and virtual private network VPN equipment software,7,0.007945516458569807,91,11,6.160839160839161,43.12587412587413
+Computer based training software,Electronic mail software,31,0.03518728717366629,31,638,1.3808777429467085,42.807210031347964
+Analytical or scientific software,Web page creation and editing software,35,0.039727582292849034,186,136,1.2189674256799494,42.66385989879823
+Configuration management software,Metadata management software,3,0.00340522133938706,31,6,14.20967741935484,42.62903225806452
+Configuration management software,Medical software,13,0.014755959137343927,31,113,3.269483300028547,42.50328290037111
+Computer aided design CAD software,Data base management system software,29,0.032917139614074914,192,91,1.4622825091575091,42.406192765567766
+Cloud-based management software,Spreadsheet software,42,0.04767309875141884,43,854,1.0076248570339306,42.32024399542508
+Application server software,Office suite software,40,0.04540295119182747,41,813,1.057210572105721,42.28842288422884
+Medical software,Operating system software,42,0.04767309875141884,113,326,1.0044519246430317,42.18698083500733
+Internet directory services software,Procedure management software,2,0.0022701475595913734,14,6,20.976190476190478,41.952380952380956
+Medical software,Process mapping and design software,28,0.03178206583427923,113,146,1.4952115407928235,41.86592314219906
+Customer relationship management CRM software,Metadata management software,5,0.0056753688989784334,88,6,8.342803030303031,41.714015151515156
+Accounting software,Operating system software,36,0.04086265607264472,84,326,1.1581945661700264,41.69500438212095
+Business intelligence and data analysis software,Graphical user interface development software,7,0.007945516458569807,80,13,5.929807692307692,41.50865384615385
+Desktop publishing software,Enterprise resource planning ERP software,35,0.039727582292849034,88,297,1.1797903275176003,41.29266146311601
+Office suite software,Video creation and editing software,39,0.04426787741203178,813,40,1.056549815498155,41.205442804428046
+Enterprise application integration software,Network security and virtual private network VPN equipment software,7,0.007945516458569807,96,11,5.839962121212121,40.879734848484844
+Content workflow software,Enterprise system management software,3,0.00340522133938706,39,5,13.553846153846154,40.66153846153846
+Electronic mail software,Sales and marketing software,32,0.036322360953461974,638,35,1.2625167935512764,40.400537393640846
+Application server software,Spreadsheet software,40,0.04540295119182747,41,854,1.0064545610327298,40.25818244130919
+Content workflow software,Office suite software,38,0.043132803632236094,39,813,1.0558551739363549,40.12249660958148
+Medical software,Program testing software,12,0.01362088535754824,113,28,3.3413400758533505,40.096080910240204
+Document management software,Medical software,36,0.04086265607264472,252,113,1.11378002528445,40.096080910240204
+Object or component oriented development software,Switch or router software,9,0.01021566401816118,198,9,4.449494949494949,40.04545454545454
+File versioning software,Word processing software,43,0.04880817253121453,52,785,0.9280499755022049,39.90614894659481
+Graphical user interface development software,Graphics or photo imaging software,10,0.011350737797956867,13,172,3.9400715563506266,39.40071556350627
+Spreadsheet software,Video creation and editing software,39,0.04426787741203178,854,40,1.0058255269320842,39.22719555035128
+Document management software,Expert system software,18,0.02043132803632236,252,29,2.1699507389162562,39.05911330049261
+Data mining software,Office suite software,36,0.04086265607264472,36,813,1.083640836408364,39.011070110701105
+Data base user interface and query software,Video creation and editing software,27,0.03064699205448354,413,40,1.4398910411622277,38.877058111380144
+Accounting software,Customer relationship management CRM software,18,0.02043132803632236,84,88,2.1452922077922074,38.61525974025973
+Configuration management software,Enterprise resource planning ERP software,20,0.022701475595913734,31,297,1.913761268599978,38.27522537199956
+Content workflow software,Spreadsheet software,38,0.043132803632236094,39,854,1.0051642346724314,38.196240917552394
+Office suite software,Sales and marketing software,35,0.039727582292849034,813,35,1.083640836408364,37.92742927429274
+Internet directory services software,Operating system software,14,0.015891032917139614,14,326,2.702453987730061,37.83435582822086
+Metadata management software,Sales and marketing software,3,0.00340522133938706,6,35,12.585714285714285,37.75714285714285
+Procedure management software,Sales and marketing software,3,0.00340522133938706,6,35,12.585714285714285,37.75714285714285
+Cloud-based data access and sharing software,Time accounting software,4,0.004540295119182747,29,13,9.347480106100795,37.38992042440318
+Data base reporting software,Graphical user interface development software,4,0.004540295119182747,29,13,9.347480106100795,37.38992042440318
+Data mining software,Spreadsheet software,36,0.04086265607264472,36,854,1.031615925058548,37.138173302107724
+Enterprise resource planning ERP software,Expert system software,19,0.021566401816118047,297,29,1.9434575641472194,36.92569371879717
+Computer aided design CAD software,Program testing software,15,0.0170261066969353,192,28,2.4581473214285716,36.87220982142858
+Object oriented data base management software,Presentation software,29,0.032917139614074914,32,629,1.2693263116057234,36.81046303656598
+Procedure management software,Web platform development software,6,0.00681044267877412,6,144,6.118055555555555,36.70833333333333
+Development environment software,Procedure management software,6,0.00681044267877412,145,6,6.075862068965517,36.4551724137931
+Development environment software,Metadata management software,6,0.00681044267877412,145,6,6.075862068965517,36.4551724137931
+Accounting software,Sales and marketing software,11,0.012485811577752554,84,35,3.296258503401361,36.25884353741497
+Business intelligence and data analysis software,Desktop publishing software,17,0.019296254256526674,80,88,2.1274147727272728,36.166051136363635
+Accounting software,Cloud-based data access and sharing software,10,0.011350737797956867,84,29,3.616584564860427,36.16584564860427
+Internet browser software,Time accounting software,4,0.004540295119182747,30,13,9.035897435897436,36.14358974358974
+Sales and marketing software,Spreadsheet software,35,0.039727582292849034,35,854,1.0316159250585482,36.106557377049185
+Object or component oriented development software,Video creation and editing software,18,0.02043132803632236,198,40,2.0022727272727274,36.040909090909096
+Customer relationship management CRM software,Video creation and editing software,12,0.01362088535754824,88,40,3.003409090909091,36.04090909090909
+Document management software,Internet directory services software,12,0.01362088535754824,252,14,2.996598639455782,35.95918367346938
+Enterprise application integration software,Medical software,21,0.02383654937570942,96,113,1.705475663716814,35.8149889380531
+Cloud-based management software,Word processing software,37,0.04199772985244041,43,785,0.9656939712635165,35.730676936750115
+Cloud-based management software,Medical software,14,0.015891032917139614,43,113,2.538382383206421,35.537353364889896
+Computer aided design CAD software,Customer relationship management CRM software,26,0.029511918274687854,192,88,1.3557054924242424,35.248342803030305
+Data base reporting software,Presentation software,27,0.03064699205448354,29,629,1.304040348665095,35.20908941395757
+Application server software,Desktop publishing software,12,0.01362088535754824,41,88,2.9301552106430155,35.16186252771619
+Accounting software,Graphics or photo imaging software,24,0.02724177071509648,84,172,1.4634551495016612,35.12292358803987
+Cloud-based management software,Electronic mail software,33,0.03745743473325766,43,638,1.0597433841218924,34.97153167602245
+Sales and marketing software,Word processing software,33,0.03745743473325766,35,785,1.058161965423112,34.919344858962695
+Internet directory services software,Process mapping and design software,9,0.01021566401816118,14,146,3.879158512720157,34.91242661448141
+Enterprise resource planning ERP software,Web page creation and editing software,40,0.04540295119182747,297,136,0.8724499900970489,34.897999603881956
+Computer based training software,Word processing software,31,0.03518728717366629,31,785,1.1222929936305732,34.79108280254777
+Cloud-based data access and sharing software,Internet directory services software,4,0.004540295119182747,29,14,8.679802955665025,34.7192118226601
+Data mining software,Electronic mail software,30,0.0340522133938706,36,638,1.1507314524555903,34.521943573667706
+Data base management system software,Web page creation and editing software,22,0.024971623155505107,91,136,1.5660956690368455,34.4541047188106
+Procedure management software,Video conferencing software,4,0.004540295119182747,6,69,8.51207729468599,34.04830917874396
+Content workflow software,Electronic mail software,31,0.03518728717366629,39,638,1.097620770034563,34.02624387107146
+Computer aided design CAD software,Content workflow software,17,0.019296254256526674,192,39,2.0001335470085473,34.0022702991453
+Data mining software,Word processing software,33,0.03745743473325766,36,785,1.0287685774946922,33.949363057324845
+File versioning software,Medical software,15,0.0170261066969353,52,113,2.2489788972089855,33.73468345813478
+Development environment software,Medical software,25,0.028376844494892167,145,113,1.344217271895026,33.60543179737565
+Computer based training software,Office suite software,31,0.03518728717366629,31,813,1.083640836408364,33.592865928659286
+Content workflow software,Word processing software,34,0.03859250851305335,39,785,0.9784092764984484,33.26591540094725
+Electronic mail software,Video creation and editing software,31,0.03518728717366629,638,40,1.070180250783699,33.17558777429467
+Business intelligence and data analysis software,Computer aided design CAD software,24,0.02724177071509648,80,192,1.3765625000000001,33.0375
+Configuration management software,Presentation software,27,0.03064699205448354,31,629,1.2199087132673472,32.937535258218375
+Object oriented data base management software,Office suite software,31,0.03518728717366629,32,813,1.0497770602706027,32.543088868388686
+Internet browser software,Operating system software,19,0.021566401816118047,30,326,1.711554192229039,32.51952965235174
+Business intelligence and data analysis software,Web page creation and editing software,20,0.022701475595913734,80,136,1.6194852941176472,32.38970588235294
+Medical software,Sales and marketing software,12,0.01362088535754824,113,35,2.67307206068268,32.07686472819216
+Customer relationship management CRM software,Medical software,19,0.021566401816118047,88,113,1.6833266291230893,31.983205953338697
+Computer based training software,Spreadsheet software,31,0.03518728717366629,31,854,1.031615925058548,31.980093676814985
+Configuration management software,Office suite software,30,0.0340522133938706,31,813,1.048684680395191,31.46054041185573
+Object or component oriented development software,Web page creation and editing software,31,0.03518728717366629,198,136,1.0142231134878195,31.440916518122403
+Cloud-based data access and sharing software,Office suite software,29,0.032917139614074914,29,813,1.083640836408364,31.42558425584256
+Data base reporting software,Office suite software,29,0.032917139614074914,29,813,1.083640836408364,31.42558425584256
+Presentation software,Program testing software,25,0.028376844494892167,629,28,1.2505677946854417,31.26419486713604
+Data mining software,Medical software,12,0.01362088535754824,36,113,2.5988200589970503,31.1858407079646
+Medical software,Web platform development software,24,0.02724177071509648,113,144,1.2994100294985251,31.1858407079646
+Content workflow software,Desktop publishing software,11,0.012485811577752554,39,88,2.8237179487179485,31.060897435897434
+Object oriented data base management software,Spreadsheet software,31,0.03518728717366629,32,854,0.9993779274004684,30.98071574941452
+Internet browser software,Spreadsheet software,30,0.0340522133938706,30,854,1.031615925058548,30.94847775175644
+Graphics or photo imaging software,Program testing software,13,0.014755959137343927,172,28,2.378114617940199,30.91549003322259
+Cloud-based management software,Computer aided design CAD software,17,0.019296254256526674,43,192,1.8140746124031009,30.839268410852714
+Project management software,Time accounting software,10,0.011350737797956867,221,13,3.066481030281935,30.66481030281935
+Business intelligence and data analysis software,Switch or router software,5,0.0056753688989784334,80,9,6.118055555555555,30.59027777777778
+Enterprise system management software,Web platform development software,5,0.0056753688989784334,5,144,6.118055555555555,30.59027777777778
+Enterprise system management software,File versioning software,3,0.00340522133938706,5,52,10.165384615384616,30.496153846153845
+Cloud-based data access and sharing software,Switch or router software,3,0.00340522133938706,29,9,10.126436781609195,30.379310344827587
+Development environment software,Enterprise system management software,5,0.0056753688989784334,145,5,6.075862068965518,30.379310344827587
+Office suite software,Program testing software,28,0.03178206583427923,813,28,1.083640836408364,30.341943419434195
+Graphical user interface development software,Switch or router software,2,0.0022701475595913734,13,9,15.05982905982906,30.11965811965812
+Cloud-based data access and sharing software,Object or component oriented development software,14,0.015891032917139614,29,198,2.148032044583769,30.072448624172765
+Configuration management software,Spreadsheet software,30,0.0340522133938706,31,854,0.9983379919921432,29.950139759764298
+Graphical user interface development software,Operating system software,12,0.01362088535754824,13,326,2.4945729117508257,29.93487494100991
+Cloud-based data access and sharing software,Spreadsheet software,29,0.032917139614074914,29,854,1.031615925058548,29.91686182669789
+Data base reporting software,Spreadsheet software,29,0.032917139614074914,29,854,1.031615925058548,29.91686182669789
+Data base user interface and query software,Internet directory services software,14,0.015891032917139614,413,14,2.1331719128329296,29.864406779661014
+Development environment software,Video creation and editing software,14,0.015891032917139614,145,40,2.126551724137931,29.771724137931034
+Network security and virtual private network VPN equipment software,Operating system software,11,0.012485811577752554,11,326,2.7024539877300615,29.72699386503068
+Graphical user interface development software,Process mapping and design software,8,0.009080590238365494,13,146,3.7133825079030554,29.707060063224443
+Enterprise application integration software,Enterprise system management software,4,0.004540295119182747,96,5,7.341666666666667,29.366666666666667
+Expert system software,Office suite software,28,0.03178206583427923,29,813,1.0462739110149721,29.29566950841922
+Accounting software,Time accounting software,6,0.00681044267877412,84,13,4.84065934065934,29.043956043956044
+Computer aided design CAD software,Configuration management software,14,0.015891032917139614,192,31,2.072244623655914,29.011424731182796
+Program testing software,Spreadsheet software,28,0.03178206583427923,28,854,1.0316159250585482,28.885245901639347
+Content workflow software,Medical software,12,0.01362088535754824,39,113,2.398910823689585,28.78692988427502
+Electronic mail software,Internet browser software,25,0.028376844494892167,638,30,1.1507314524555905,28.768286311389762
+Internet directory services software,Sales and marketing software,4,0.004540295119182747,14,35,7.191836734693877,28.767346938775507
+Application server software,Computer aided design CAD software,16,0.018161180476730987,41,192,1.7906504065040652,28.650406504065042
+Enterprise resource planning ERP software,Medical software,33,0.03745743473325766,297,113,0.8662733529990168,28.587020648967552
+Internet directory services software,Project management software,10,0.011350737797956867,14,221,2.847446670976083,28.47446670976083
+Analytical or scientific software,Procedure management software,6,0.00681044267877412,186,6,4.736559139784946,28.419354838709676
+Analytical or scientific software,Metadata management software,6,0.00681044267877412,186,6,4.736559139784946,28.419354838709676
+Project management software,Switch or router software,8,0.009080590238365494,221,9,3.543489190548014,28.34791352438411
+Business intelligence and data analysis software,Internet directory services software,6,0.00681044267877412,80,14,4.7196428571428575,28.317857142857143
+Cloud-based management software,Desktop publishing software,11,0.012485811577752554,43,88,2.561046511627907,28.171511627906977
+Application server software,Word processing software,32,0.036322360953461974,41,785,0.8759359950287402,28.029951840919686
+Data base reporting software,Desktop publishing software,9,0.01021566401816118,29,88,3.1069749216300937,27.962774294670844
+Expert system software,Spreadsheet software,28,0.03178206583427923,29,854,0.9960429621254946,27.889202939513847
+Cloud-based data access and sharing software,Presentation software,24,0.02724177071509648,29,629,1.1591469765911955,27.819527438188693
+Expert system software,Presentation software,24,0.02724177071509648,29,629,1.1591469765911955,27.819527438188693
+Content workflow software,Video creation and editing software,7,0.007945516458569807,39,40,3.9532051282051284,27.6724358974359
+Enterprise resource planning ERP software,Time accounting software,11,0.012485811577752554,297,13,2.50997150997151,27.609686609686612
+Geographic information system,Video conferencing software,14,0.015891032917139614,91,69,1.9643255295429207,27.50055741360089
+Cloud-based data access and sharing software,Electronic mail software,24,0.02724177071509648,29,638,1.142795373473138,27.42708896335531
+Internet browser software,Word processing software,27,0.03064699205448354,30,785,1.010063694267516,27.271719745222935
+Electronic mail software,File versioning software,32,0.036322360953461974,638,52,0.849770918736436,27.19266939956595
+Cloud-based data access and sharing software,Geographic information system,9,0.01021566401816118,29,91,3.00454717696097,27.04092459264873
+Document management software,Graphical user interface development software,10,0.011350737797956867,252,13,2.6892551892551895,26.892551892551893
+Cloud-based data access and sharing software,Medical software,10,0.011350737797956867,29,113,2.688434543790052,26.88434543790052
+Network security and virtual private network VPN equipment software,Process mapping and design software,7,0.007945516458569807,11,146,3.839975093399751,26.879825653798257
+Computer aided design CAD software,Expert system software,13,0.014755959137343927,192,29,2.0569324712643677,26.74012212643678
+Customer relationship management CRM software,Procedure management software,4,0.004540295119182747,88,6,6.674242424242425,26.6969696969697
+Object or component oriented development software,Procedure management software,6,0.00681044267877412,198,6,4.449494949494949,26.696969696969695
+Metadata management software,Object or component oriented development software,6,0.00681044267877412,6,198,4.449494949494949,26.696969696969695
+Internet browser software,Office suite software,27,0.03064699205448354,30,813,0.9752767527675277,26.33247232472325
+Application server software,Video creation and editing software,7,0.007945516458569807,41,40,3.7603658536585365,26.322560975609754
+Analytical or scientific software,Medical software,25,0.028376844494892167,186,113,1.0479113141117138,26.197782852792844
+Cloud-based data access and sharing software,Word processing software,26,0.029511918274687854,29,785,1.0061937184274106,26.161036679112676
+Data base reporting software,Word processing software,26,0.029511918274687854,29,785,1.0061937184274106,26.161036679112676
+Analytical or scientific software,Computer based training software,13,0.014755959137343927,186,31,1.9862989941033646,25.82188692334374
+Geographic information system,Procedure management software,4,0.004540295119182747,91,6,6.4542124542124535,25.816849816849814
+Geographic information system,Metadata management software,4,0.004540295119182747,91,6,6.4542124542124535,25.816849816849814
+Development environment software,Web page creation and editing software,24,0.02724177071509648,145,136,1.072210953346856,25.733062880324546
+Accounting software,Video conferencing software,13,0.014755959137343927,84,69,1.9760179434092477,25.68823326432022
+Metadata management software,Web platform development software,5,0.0056753688989784334,6,144,5.09837962962963,25.49189814814815
+Desktop publishing software,Object oriented data base management software,9,0.01021566401816118,88,32,2.815696022727273,25.341264204545457
+Cloud-based data access and sharing software,Internet browser software,5,0.0056753688989784334,29,30,5.063218390804598,25.316091954022987
+Enterprise system management software,Program testing software,2,0.0022701475595913734,5,28,12.585714285714285,25.17142857142857
+Sales and marketing software,Switch or router software,3,0.00340522133938706,35,9,8.39047619047619,25.17142857142857
+Metadata management software,Process mapping and design software,5,0.0056753688989784334,6,146,5.0285388127853885,25.142694063926943
+Business intelligence and data analysis software,Network security and virtual private network VPN equipment software,5,0.0056753688989784334,80,11,5.005681818181818,25.028409090909093
+Document management software,Switch or router software,8,0.009080590238365494,252,9,3.107583774250441,24.86067019400353
+Cloud-based data access and sharing software,Network security and virtual private network VPN equipment software,3,0.00340522133938706,29,11,8.285266457680251,24.855799373040753
+Object oriented data base management software,Video creation and editing software,6,0.00681044267877412,32,40,4.1296875,24.778125000000003
+Geographic information system,Medical software,17,0.019296254256526674,91,113,1.4564815715258193,24.76018671593893
+Internet browser software,Presentation software,23,0.026106696935300794,30,629,1.0738208797032327,24.697880233174352
+Medical software,Object or component oriented development software,25,0.028376844494892167,113,198,0.9844015374988826,24.610038437472063
+Graphics or photo imaging software,Internet browser software,12,0.01362088535754824,172,30,2.0488372093023255,24.586046511627906
+Application server software,Electronic mail software,27,0.03064699205448354,41,638,0.9093585136478324,24.552679868491474
+Enterprise application integration software,Web page creation and editing software,19,0.021566401816118047,96,136,1.282092524509804,24.359757965686278
+Operating system software,Switch or router software,9,0.01021566401816118,326,9,2.702453987730061,24.32208588957055
+Computer aided design CAD software,Object oriented data base management software,13,0.014755959137343927,192,32,1.8640950520833335,24.233235677083336
+Process mapping and design software,Switch or router software,6,0.00681044267877412,146,9,4.0228310502283104,24.136986301369863
+Accounting software,Human resources software,4,0.004540295119182747,84,7,5.993197278911564,23.972789115646258
+Procedure management software,Project management software,6,0.00681044267877412,6,221,3.986425339366516,23.918552036199095
+Object oriented data base management software,Word processing software,26,0.029511918274687854,32,785,0.9118630573248407,23.70843949044586
+Data base user interface and query software,Time accounting software,12,0.01362088535754824,413,13,1.969081765691935,23.62898118830322
+Data base user interface and query software,Network security and virtual private network VPN equipment software,11,0.012485811577752554,413,11,2.1331719128329296,23.464891041162225
+Accounting software,Desktop publishing software,14,0.015891032917139614,84,88,1.668560606060606,23.359848484848484
+Analytical or scientific software,Graphical user interface development software,8,0.009080590238365494,186,13,2.914805624483044,23.31844499586435
+Desktop publishing software,File versioning software,11,0.012485811577752554,88,52,2.1177884615384617,23.29567307692308
+Object or component oriented development software,Video conferencing software,19,0.021566401816118047,198,69,1.2252232469623774,23.27924169228517
+Analytical or scientific software,Video creation and editing software,14,0.015891032917139614,186,40,1.657795698924731,23.209139784946235
+Network security and virtual private network VPN equipment software,Project management software,8,0.009080590238365494,11,221,2.8992184286301934,23.193747429041547
+Program testing software,Word processing software,24,0.02724177071509648,28,785,0.9619654231119199,23.087170154686078
+Data base reporting software,Electronic mail software,22,0.024971623155505107,29,638,1.04756242568371,23.046373365041617
+Data base user interface and query software,Internet browser software,18,0.02043132803632236,413,30,1.279903147699758,23.038256658595643
+Document management software,Internet browser software,14,0.015891032917139614,252,30,1.6314814814814815,22.840740740740742
+Internet directory services software,Video conferencing software,5,0.0056753688989784334,14,69,4.560041407867495,22.800207039337476
+Analytical or scientific software,Internet browser software,12,0.01362088535754824,186,30,1.8946236559139784,22.73548387096774
+Switch or router software,Video conferencing software,4,0.004540295119182747,9,69,5.674718196457327,22.69887278582931
+Accounting software,Data base management system software,14,0.015891032917139614,84,91,1.6135531135531134,22.589743589743588
+Business intelligence and data analysis software,Video creation and editing software,9,0.01021566401816118,80,40,2.4778125,22.3003125
+Enterprise system management software,Object or component oriented development software,5,0.0056753688989784334,5,198,4.44949494949495,22.247474747474747
+Enterprise system management software,Object oriented data base management software,2,0.0022701475595913734,5,32,11.012500000000001,22.025000000000002
+Geographic information system,Network security and virtual private network VPN equipment software,5,0.0056753688989784334,91,11,4.4005994005994005,22.002997002997002
+Document management software,Time accounting software,9,0.01021566401816118,252,13,2.4203296703296706,21.782967032967036
+Computer aided design CAD software,Data mining software,13,0.014755959137343927,192,36,1.6569733796296298,21.540653935185187
+Desktop publishing software,Internet browser software,8,0.009080590238365494,88,30,2.66969696969697,21.35757575757576
+Configuration management software,Word processing software,24,0.02724177071509648,31,785,0.868871995068831,20.852927881651944
+Enterprise resource planning ERP software,Materials requirements planning logistics and supply chain software,7,0.007945516458569807,297,7,2.9663299663299663,20.764309764309765
+Enterprise resource planning ERP software,Inventory management software,7,0.007945516458569807,297,7,2.9663299663299663,20.764309764309765
+Enterprise resource planning ERP software,Human resources software,7,0.007945516458569807,297,7,2.9663299663299663,20.764309764309765
+File versioning software,Video creation and editing software,7,0.007945516458569807,52,40,2.964903846153846,20.754326923076924
+Configuration management software,Desktop publishing software,8,0.009080590238365494,31,88,2.5835777126099706,20.668621700879765
+Network security and virtual private network VPN equipment software,Sales and marketing software,3,0.00340522133938706,11,35,6.8649350649350644,20.594805194805193
+Document management software,Network security and virtual private network VPN equipment software,8,0.009080590238365494,252,11,2.5425685425685427,20.34054834054834
+Cloud-based data access and sharing software,Procedure management software,2,0.0022701475595913734,29,6,10.126436781609195,20.25287356321839
+Computer based training software,Graphics or photo imaging software,11,0.012485811577752554,31,172,1.8175168792198049,19.992685671417853
+Data base user interface and query software,Graphical user interface development software,11,0.012485811577752554,413,13,1.8049916185509405,19.854907804060346
+Program testing software,Video creation and editing software,5,0.0056753688989784334,28,40,3.9330357142857144,19.665178571428573
+Enterprise resource planning ERP software,Internet browser software,14,0.015891032917139614,297,30,1.3842873176206512,19.380022446689118
+Graphical user interface development software,Internet directory services software,2,0.0022701475595913734,13,14,9.681318681318682,19.362637362637365
+Customer relationship management CRM software,Time accounting software,5,0.0056753688989784334,88,13,3.8505244755244754,19.252622377622377
+Customer relationship management CRM software,Graphical user interface development software,5,0.0056753688989784334,88,13,3.8505244755244754,19.252622377622377
+Data base user interface and query software,Switch or router software,9,0.01021566401816118,413,9,2.13317191283293,19.19854721549637
+Metadata management software,Video conferencing software,3,0.00340522133938706,6,69,6.384057971014493,19.15217391304348
+Electronic mail software,Object oriented data base management software,21,0.02383654937570942,638,32,0.9062010188087773,19.030221394984324
+Data base reporting software,Video creation and editing software,5,0.0056753688989784334,29,40,3.7974137931034484,18.987068965517242
+Expert system software,Video creation and editing software,5,0.0056753688989784334,29,40,3.7974137931034484,18.987068965517242
+Accounting software,Business intelligence and data analysis software,12,0.01362088535754824,84,80,1.5732142857142857,18.878571428571426
+Expert system software,Word processing software,22,0.024971623155505107,29,785,0.8513946848231935,18.730683066110256
+Data base management system software,Time accounting software,5,0.0056753688989784334,91,13,3.723584108199493,18.617920540997467
+Network security and virtual private network VPN equipment software,Video conferencing software,4,0.004540295119182747,11,69,4.642951251646904,18.571805006587617
+Accounting software,Development environment software,16,0.018161180476730987,84,145,1.1573070607553366,18.516912972085386
+Cloud-based management software,Video creation and editing software,6,0.00681044267877412,43,40,3.0732558139534882,18.43953488372093
+Cloud-based management software,Web page creation and editing software,11,0.012485811577752554,43,136,1.6571477428180577,18.228625170998633
+Presentation software,Time accounting software,13,0.014755959137343927,629,13,1.4006359300476947,18.20826709062003
+Electronic mail software,Time accounting software,13,0.014755959137343927,638,13,1.3808777429467085,17.95141065830721
+Time accounting software,Web page creation and editing software,6,0.00681044267877412,13,136,2.9898190045248865,17.93891402714932
+Graphical user interface development software,Web page creation and editing software,6,0.00681044267877412,13,136,2.9898190045248865,17.93891402714932
+Customer relationship management CRM software,Internet directory services software,5,0.0056753688989784334,88,14,3.575487012987013,17.877435064935064
+Analytical or scientific software,Time accounting software,7,0.007945516458569807,186,13,2.5504549214226633,17.853184449958643
+Customer relationship management CRM software,Switch or router software,4,0.004540295119182747,88,9,4.44949494949495,17.7979797979798
+Configuration management software,Video creation and editing software,5,0.0056753688989784334,31,40,3.55241935483871,17.76209677419355
+Desktop publishing software,Program testing software,7,0.007945516458569807,88,28,2.502840909090909,17.519886363636363
+Internet browser software,Web page creation and editing software,9,0.01021566401816118,30,136,1.9433823529411762,17.490441176470586
+Data base management system software,Enterprise system management software,3,0.00340522133938706,91,5,5.8087912087912095,17.42637362637363
+Geographic information system,Internet directory services software,5,0.0056753688989784334,91,14,3.4576138147566717,17.288069073783358
+Geographic information system,Switch or router software,4,0.004540295119182747,91,9,4.302808302808303,17.21123321123321
+Accounting software,Internet browser software,7,0.007945516458569807,84,30,2.447222222222222,17.130555555555553
+Computer aided design CAD software,Video conferencing software,16,0.018161180476730987,192,69,1.0640096618357489,17.02415458937198
+Data mining software,Time accounting software,3,0.00340522133938706,36,13,5.647435897435898,16.942307692307693
+Desktop publishing software,Expert system software,7,0.007945516458569807,88,29,2.41653605015674,16.91575235109718
+Internet directory services software,Presentation software,13,0.014755959137343927,14,629,1.3005905064728593,16.907676584147172
+Internet browser software,Materials requirements planning logistics and supply chain software,2,0.0022701475595913734,30,7,8.39047619047619,16.78095238095238
+Process mapping and design software,Time accounting software,6,0.00681044267877412,146,13,2.7850368809272914,16.710221285563748
+Metadata management software,Project management software,5,0.0056753688989784334,6,221,3.3220211161387634,16.610105580693816
+Analytical or scientific software,Internet directory services software,7,0.007945516458569807,186,14,2.3682795698924735,16.577956989247316
+Computer aided design CAD software,Video creation and editing software,12,0.01362088535754824,192,40,1.3765625000000001,16.51875
+Cloud-based management software,Enterprise system management software,2,0.0022701475595913734,43,5,8.195348837209302,16.390697674418604
+Graphics or photo imaging software,Medical software,19,0.021566401816118047,172,113,0.8612368800164643,16.36350072031282
+Customer relationship management CRM software,Internet browser software,7,0.007945516458569807,88,30,2.3359848484848484,16.35189393939394
+Accounting software,Analytical or scientific software,17,0.019296254256526674,84,186,0.958589349718382,16.29601894521249
+Internet browser software,Process mapping and design software,9,0.01021566401816118,30,146,1.81027397260274,16.292465753424658
+Operating system software,Procedure management software,6,0.00681044267877412,326,6,2.702453987730061,16.214723926380366
+Metadata management software,Operating system software,6,0.00681044267877412,6,326,2.702453987730061,16.214723926380366
+Procedure management software,Process mapping and design software,4,0.004540295119182747,6,146,4.0228310502283104,16.091324200913242
+Configuration management software,Electronic mail software,19,0.021566401816118047,31,638,0.8463444230963698,16.080544038831025
+Electronic mail software,Program testing software,18,0.02043132803632236,638,28,0.8877071204657411,15.97872816838334
+Computer aided design CAD software,Data base reporting software,10,0.011350737797956867,192,29,1.582255747126437,15.82255747126437
+Accounting software,Computer aided design CAD software,17,0.019296254256526674,84,192,0.9286334325396826,15.786768353174603
+Graphical user interface development software,Video conferencing software,4,0.004540295119182747,13,69,3.928651059085842,15.714604236343368
+Accounting software,Medical software,13,0.014755959137343927,84,113,1.2065950273914876,15.685735356089339
+Content workflow software,Time accounting software,3,0.00340522133938706,39,13,5.21301775147929,15.63905325443787
+Computer aided design CAD software,Internet browser software,10,0.011350737797956867,192,30,1.5295138888888888,15.29513888888889
+Internet directory services software,Office suite software,14,0.015891032917139614,14,813,1.083640836408364,15.170971709717097
+Data base user interface and query software,Human resources software,7,0.007945516458569807,413,7,2.1331719128329296,14.932203389830507
+Computer aided design CAD software,Web page creation and editing software,21,0.02383654937570942,192,136,0.7085248161764706,14.879021139705882
+Time accounting software,Word processing software,13,0.014755959137343927,13,785,1.1222929936305732,14.589808917197452
+Document management software,Metadata management software,5,0.0056753688989784334,252,6,2.9133597883597884,14.566798941798941
+Internet directory services software,Spreadsheet software,14,0.015891032917139614,14,854,1.0316159250585482,14.442622950819674
+Data base reporting software,Web page creation and editing software,8,0.009080590238365494,29,136,1.7870182555780934,14.296146044624747
+Accounting software,Data mining software,7,0.007945516458569807,84,36,2.039351851851852,14.275462962962965
+Graphics or photo imaging software,Time accounting software,6,0.00681044267877412,172,13,2.3640429338103757,14.184257602862253
+Office suite software,Time accounting software,13,0.014755959137343927,813,13,1.083640836408364,14.087330873308733
+Geographic information system,Web page creation and editing software,14,0.015891032917139614,91,136,0.996606334841629,13.952488687782806
+Human resources software,Process mapping and design software,4,0.004540295119182747,7,146,3.448140900195695,13.79256360078278
+Electronic mail software,Expert system software,17,0.019296254256526674,638,29,0.8094800562101394,13.76116095557237
+Enterprise resource planning ERP software,Internet directory services software,8,0.009080590238365494,297,14,1.6950456950456951,13.560365560365561
+Business intelligence and data analysis software,Time accounting software,4,0.004540295119182747,80,13,3.3884615384615384,13.553846153846154
+Enterprise system management software,Operating system software,5,0.0056753688989784334,5,326,2.7024539877300615,13.512269938650308
+Spreadsheet software,Time accounting software,13,0.014755959137343927,854,13,1.031615925058548,13.411007025761123
+Operating system software,Time accounting software,8,0.009080590238365494,326,13,1.6630486078338838,13.30438886267107
+Internet browser software,Project management software,10,0.011350737797956867,30,221,1.3288084464555052,13.288084464555052
+Business intelligence and data analysis software,Internet browser software,6,0.00681044267877412,80,30,2.2025,13.215
+Accounting software,Content workflow software,7,0.007945516458569807,84,39,1.8824786324786327,13.17735042735043
+Graphics or photo imaging software,Internet directory services software,6,0.00681044267877412,172,14,2.1951827242524917,13.17109634551495
+Analytical or scientific software,Switch or router software,5,0.0056753688989784334,186,9,2.63142174432497,13.157108721624851
+Data mining software,Internet browser software,4,0.004540295119182747,36,30,3.262962962962963,13.051851851851852
+Data base user interface and query software,Procedure management software,6,0.00681044267877412,413,6,2.13317191283293,12.79903147699758
+Data base user interface and query software,Metadata management software,6,0.00681044267877412,413,6,2.13317191283293,12.79903147699758
+Network security and virtual private network VPN equipment software,Presentation software,10,0.011350737797956867,11,629,1.2733053909524497,12.733053909524497
+Computer based training software,Web platform development software,8,0.009080590238365494,31,144,1.578853046594982,12.630824372759855
+Presentation software,Switch or router software,9,0.01021566401816118,629,9,1.4006359300476947,12.605723370429253
+Enterprise resource planning ERP software,Video creation and editing software,13,0.014755959137343927,297,40,0.9640572390572391,12.532744107744108
+Document management software,Human resources software,5,0.0056753688989784334,252,7,2.4971655328798184,12.485827664399093
+Enterprise resource planning ERP software,Metadata management software,5,0.0056753688989784334,297,6,2.471941638608305,12.359708193041525
+Accounting software,Web platform development software,13,0.014755959137343927,84,144,0.9468419312169313,12.308945105820106
+Application server software,Human resources software,2,0.0022701475595913734,41,7,6.139372822299651,12.278745644599303
+Graphical user interface development software,Office suite software,12,0.01362088535754824,13,813,1.000283848992336,12.003406187908032
+Network security and virtual private network VPN equipment software,Office suite software,11,0.012485811577752554,11,813,1.083640836408364,11.920049200492004
+Geographic information system,Graphical user interface development software,4,0.004540295119182747,91,13,2.9788672865595944,11.915469146238378
+Enterprise resource planning ERP software,Switch or router software,6,0.00681044267877412,297,9,1.9775533108866443,11.865319865319865
+Medical software,Metadata management software,3,0.00340522133938706,113,6,3.898230088495575,11.694690265486726
+Medical software,Procedure management software,3,0.00340522133938706,113,6,3.898230088495575,11.694690265486726
+Computer based training software,Object or component oriented development software,9,0.01021566401816118,31,198,1.2917888563049853,11.626099706744867
+Graphical user interface development software,Spreadsheet software,12,0.01362088535754824,13,854,0.9522608539001982,11.427130246802378
+Network security and virtual private network VPN equipment software,Spreadsheet software,11,0.012485811577752554,11,854,1.031615925058548,11.347775175644028
+Medical software,Network security and virtual private network VPN equipment software,4,0.004540295119182747,113,11,2.835076427996782,11.340305711987128
+Enterprise application integration software,Time accounting software,4,0.004540295119182747,96,13,2.823717948717949,11.294871794871796
+Medical software,Web page creation and editing software,14,0.015891032917139614,113,136,0.8025767829255596,11.236074960957835
+Enterprise application integration software,Internet browser software,6,0.00681044267877412,96,30,1.8354166666666667,11.0125
+Accounting software,Enterprise application integration software,10,0.011350737797956867,84,96,1.0925099206349207,10.925099206349207
+Data mining software,Switch or router software,2,0.0022701475595913734,36,9,5.438271604938271,10.876543209876543
+Graphical user interface development software,Presentation software,10,0.011350737797956867,13,629,1.0774122538828421,10.774122538828422
+Analytical or scientific software,Network security and virtual private network VPN equipment software,5,0.0056753688989784334,186,11,2.152981427174976,10.764907135874878
+Desktop publishing software,Medical software,11,0.012485811577752554,88,113,0.9745575221238938,10.720132743362832
+Data base user interface and query software,Enterprise system management software,5,0.0056753688989784334,413,5,2.1331719128329296,10.665859564164649
+Internet browser software,Video conferencing software,5,0.0056753688989784334,30,69,2.1280193236714977,10.64009661835749
+Content workflow software,Web page creation and editing software,8,0.009080590238365494,39,136,1.3288084464555054,10.630467571644044
+Computer aided design CAD software,Sales and marketing software,9,0.01021566401816118,192,35,1.1799107142857144,10.61919642857143
+Cloud-based data access and sharing software,Computer aided design CAD software,8,0.009080590238365494,29,192,1.2658045977011494,10.126436781609195
+Application server software,Web page creation and editing software,8,0.009080590238365494,41,136,1.2639885222381635,10.111908177905308
+Development environment software,Internet browser software,7,0.007945516458569807,145,30,1.4177011494252874,9.923908045977011
+Object oriented data base management software,Web page creation and editing software,7,0.007945516458569807,32,136,1.4170496323529411,9.919347426470587
+Inventory management software,Presentation software,7,0.007945516458569807,7,629,1.4006359300476947,9.804451510333863
+Human resources software,Presentation software,7,0.007945516458569807,7,629,1.4006359300476947,9.804451510333863
+Switch or router software,Video creation and editing software,2,0.0022701475595913734,9,40,4.894444444444445,9.78888888888889
+Office suite software,Switch or router software,9,0.01021566401816118,813,9,1.083640836408364,9.752767527675276
+Enterprise resource planning ERP software,Network security and virtual private network VPN equipment software,6,0.00681044267877412,297,11,1.617998163452709,9.707988980716253
+Electronic mail software,Inventory management software,7,0.007945516458569807,638,7,1.3808777429467083,9.666144200626958
+Electronic mail software,Human resources software,7,0.007945516458569807,638,7,1.3808777429467083,9.666144200626958
+Medical software,Time accounting software,4,0.004540295119182747,113,13,2.3989108236895844,9.595643294758338
+Document management software,Procedure management software,4,0.004540295119182747,252,6,2.3306878306878307,9.322751322751323
+Spreadsheet software,Switch or router software,9,0.01021566401816118,854,9,1.031615925058548,9.284543325526931
+Computer based training software,Document management software,9,0.01021566401816118,31,252,1.0149769585253456,9.13479262672811
+Human resources software,Project management software,4,0.004540295119182747,7,221,2.277957336780866,9.111829347123464
+Graphics or photo imaging software,Switch or router software,4,0.004540295119182747,172,9,2.276485788113695,9.10594315245478
+Internet directory services software,Medical software,4,0.004540295119182747,14,113,2.2275600505689,8.9102402022756
+Time accounting software,Video conferencing software,3,0.00340522133938706,13,69,2.9464882943143813,8.839464882943144
+Computer aided design CAD software,Graphical user interface development software,5,0.0056753688989784334,192,13,1.764823717948718,8.824118589743591
+Configuration management software,Time accounting software,2,0.0022701475595913734,31,13,4.3722084367245655,8.744416873449131
+Geographic information system,Video creation and editing software,6,0.00681044267877412,91,40,1.4521978021978024,8.713186813186814
+Graphical user interface development software,Word processing software,10,0.011350737797956867,13,785,0.8633023027927487,8.633023027927486
+Object oriented data base management software,Time accounting software,2,0.0022701475595913734,32,13,4.235576923076923,8.471153846153847
+Presentation software,Procedure management software,6,0.00681044267877412,629,6,1.4006359300476947,8.403815580286167
+Metadata management software,Presentation software,6,0.00681044267877412,6,629,1.4006359300476947,8.403815580286167
+Electronic mail software,Metadata management software,6,0.00681044267877412,638,6,1.3808777429467083,8.28526645768025
+Internet browser software,Object oriented data base management software,3,0.00340522133938706,30,32,2.7531250000000003,8.259375
+Enterprise resource planning ERP software,Graphical user interface development software,6,0.00681044267877412,297,13,1.369075369075369,8.214452214452214
+Customer relationship management CRM software,Network security and virtual private network VPN equipment software,3,0.00340522133938706,88,11,2.730371900826446,8.191115702479339
+Computer based training software,Desktop publishing software,5,0.0056753688989784334,31,88,1.6147360703812317,8.073680351906159
+Data base management system software,Internet browser software,5,0.0056753688989784334,91,30,1.6135531135531134,8.067765567765568
+File versioning software,Web page creation and editing software,8,0.009080590238365494,52,136,0.9966063348416289,7.972850678733031
+Enterprise resource planning ERP software,Procedure management software,4,0.004540295119182747,297,6,1.977553310886644,7.910213243546576
+Inventory management software,Word processing software,7,0.007945516458569807,7,785,1.1222929936305732,7.8560509554140125
+Human resources software,Word processing software,7,0.007945516458569807,7,785,1.1222929936305732,7.8560509554140125
+Medical software,Switch or router software,3,0.00340522133938706,113,9,2.5988200589970503,7.79646017699115
+Sales and marketing software,Time accounting software,2,0.0022701475595913734,35,13,3.872527472527473,7.745054945054946
+Accounting software,Object or component oriented development software,12,0.01362088535754824,84,198,0.6356421356421357,7.6277056277056285
+Materials requirements planning logistics and supply chain software,Office suite software,7,0.007945516458569807,7,813,1.083640836408364,7.585485854858549
+Inventory management software,Office suite software,7,0.007945516458569807,7,813,1.083640836408364,7.585485854858549
+Human resources software,Office suite software,7,0.007945516458569807,7,813,1.083640836408364,7.585485854858549
+Configuration management software,Web page creation and editing software,6,0.00681044267877412,31,136,1.2537950664136623,7.522770398481974
+Development environment software,Time accounting software,4,0.004540295119182747,145,13,1.8694960212201592,7.477984084880637
+Graphics or photo imaging software,Network security and virtual private network VPN equipment software,4,0.004540295119182747,172,11,1.8625792811839323,7.450317124735729
+Internet browser software,Object or component oriented development software,7,0.007945516458569807,30,198,1.0382154882154881,7.267508417508417
+Materials requirements planning logistics and supply chain software,Spreadsheet software,7,0.007945516458569807,7,854,1.0316159250585482,7.221311475409837
+Inventory management software,Spreadsheet software,7,0.007945516458569807,7,854,1.0316159250585482,7.221311475409837
+Human resources software,Spreadsheet software,7,0.007945516458569807,7,854,1.0316159250585482,7.221311475409837
+Enterprise system management software,Project management software,3,0.00340522133938706,5,221,2.3918552036199094,7.175565610859728
+Electronic mail software,Materials requirements planning logistics and supply chain software,6,0.00681044267877412,638,7,1.1836094939543214,7.101656963725928
+Computer based training software,Development environment software,6,0.00681044267877412,31,145,1.1759733036707454,7.055839822024472
+Data mining software,Internet directory services software,2,0.0022701475595913734,36,14,3.496031746031746,6.992063492063492
+Desktop publishing software,Time accounting software,3,0.00340522133938706,88,13,2.3103146853146854,6.930944055944057
+Computer aided design CAD software,Procedure management software,3,0.00340522133938706,192,6,2.2942708333333335,6.8828125
+Content workflow software,Internet browser software,3,0.00340522133938706,39,30,2.258974358974359,6.776923076923077
+Metadata management software,Word processing software,6,0.00681044267877412,6,785,1.1222929936305732,6.733757961783439
+Computer aided design CAD software,Network security and virtual private network VPN equipment software,4,0.004540295119182747,192,11,1.6685606060606062,6.674242424242425
+Application server software,Time accounting software,2,0.0022701475595913734,41,13,3.3058161350844277,6.6116322701688555
+Accounting software,Video creation and editing software,5,0.0056753688989784334,84,40,1.3110119047619049,6.555059523809525
+Office suite software,Procedure management software,6,0.00681044267877412,813,6,1.083640836408364,6.501845018450185
+Metadata management software,Office suite software,6,0.00681044267877412,6,813,1.083640836408364,6.501845018450185
+Internet directory services software,Word processing software,9,0.01021566401816118,14,785,0.7214740673339399,6.493266606005459
+Desktop publishing software,Internet directory services software,3,0.00340522133938706,88,14,2.145292207792208,6.435876623376624
+Computer based training software,Video creation and editing software,3,0.00340522133938706,31,40,2.1314516129032257,6.394354838709678
+Electronic mail software,Internet directory services software,8,0.009080590238365494,638,14,0.7890729959695476,6.312583967756381
+Cloud-based management software,Time accounting software,2,0.0022701475595913734,43,13,3.1520572450805013,6.304114490161003
+Internet directory services software,Video creation and editing software,2,0.0022701475595913734,14,40,3.1464285714285714,6.292857142857143
+Procedure management software,Spreadsheet software,6,0.00681044267877412,6,854,1.031615925058548,6.189695550351288
+Metadata management software,Spreadsheet software,6,0.00681044267877412,6,854,1.031615925058548,6.189695550351288
+Cloud-based management software,Internet browser software,3,0.00340522133938706,43,30,2.0488372093023255,6.1465116279069765
+Analytical or scientific software,Human resources software,3,0.00340522133938706,186,7,2.0299539170506913,6.089861751152074
+Computer aided design CAD software,Materials requirements planning logistics and supply chain software,3,0.00340522133938706,192,7,1.9665178571428572,5.899553571428571
+Accounting software,Data base reporting software,4,0.004540295119182747,84,29,1.4466338259441707,5.786535303776683
+Materials requirements planning logistics and supply chain software,Word processing software,6,0.00681044267877412,7,785,0.9619654231119199,5.771792538671519
+Computer aided design CAD software,Time accounting software,4,0.004540295119182747,192,13,1.4118589743589745,5.647435897435898
+Expert system software,Web page creation and editing software,5,0.0056753688989784334,29,136,1.1168864097363083,5.584432048681541
+Computer aided design CAD software,Internet directory services software,4,0.004540295119182747,192,14,1.3110119047619049,5.2440476190476195
+Geographic information system,Internet browser software,4,0.004540295119182747,91,30,1.2908424908424907,5.163369963369963
+Internet browser software,Web platform development software,5,0.0056753688989784334,30,144,1.019675925925926,5.09837962962963
+Computer based training software,Data base management system software,4,0.004540295119182747,31,91,1.249202410492733,4.996809641970932
+Data base user interface and query software,Materials requirements planning logistics and supply chain software,4,0.004540295119182747,413,7,1.218955378761674,4.875821515046696
+Data base user interface and query software,Inventory management software,4,0.004540295119182747,413,7,1.218955378761674,4.875821515046696
+Computer aided design CAD software,Switch or router software,3,0.00340522133938706,192,9,1.5295138888888888,4.588541666666666
+Electronic mail software,Network security and virtual private network VPN equipment software,6,0.00681044267877412,638,11,0.7532060416072955,4.5192362496437735
+Document management software,Inventory management software,3,0.00340522133938706,252,7,1.498299319727891,4.494897959183673
+Computer based training software,Data base user interface and query software,8,0.009080590238365494,31,413,0.5504959775052722,4.403967820042178
+Metadata management software,Web page creation and editing software,2,0.0022701475595913734,6,136,2.159313725490196,4.318627450980392
+Time accounting software,Web platform development software,3,0.00340522133938706,13,144,1.4118589743589745,4.235576923076923
+Internet directory services software,Web page creation and editing software,3,0.00340522133938706,14,136,1.3881302521008403,4.164390756302521
+Internet browser software,Medical software,4,0.004540295119182747,30,113,1.03952802359882,4.15811209439528
+Computer aided design CAD software,Medical software,10,0.011350737797956867,192,113,0.40606563421828906,4.060656342182891
+Electronic mail software,Switch or router software,5,0.0056753688989784334,638,9,0.7671543016370602,3.835771508185301
+Electronic mail software,Graphical user interface development software,6,0.00681044267877412,638,13,0.637328189052327,3.823969134313962
+Configuration management software,Internet browser software,2,0.0022701475595913734,31,30,1.8946236559139784,3.789247311827957
+Computer based training software,Video conferencing software,3,0.00340522133938706,31,69,1.23562412342216,3.7068723702664803
+Human resources software,Web page creation and editing software,2,0.0022701475595913734,7,136,1.8508403361344539,3.7016806722689077
+Program testing software,Web page creation and editing software,4,0.004540295119182747,28,136,0.9254201680672269,3.7016806722689077
+Network security and virtual private network VPN equipment software,Word processing software,6,0.00681044267877412,11,785,0.6121598147075855,3.672958888245513
+Development environment software,Human resources software,2,0.0022701475595913734,145,7,1.735960591133005,3.47192118226601
+Enterprise system management software,Office suite software,4,0.004540295119182747,5,813,0.8669126691266912,3.4676506765067647
+Materials requirements planning logistics and supply chain software,Process mapping and design software,2,0.0022701475595913734,7,146,1.7240704500978474,3.448140900195695
+Inventory management software,Process mapping and design software,2,0.0022701475595913734,7,146,1.7240704500978474,3.448140900195695
+Graphics or photo imaging software,Metadata management software,2,0.0022701475595913734,172,6,1.7073643410852715,3.414728682170543
+Graphics or photo imaging software,Procedure management software,2,0.0022701475595913734,172,6,1.7073643410852715,3.414728682170543
+Internet browser software,Sales and marketing software,2,0.0022701475595913734,30,35,1.678095238095238,3.356190476190476
+Enterprise system management software,Spreadsheet software,4,0.004540295119182747,5,854,0.8252927400468384,3.3011709601873536
+Accounting software,Graphical user interface development software,2,0.0022701475595913734,84,13,1.6135531135531134,3.2271062271062267
+Computer based training software,Project management software,5,0.0056753688989784334,31,221,0.6429718289300832,3.214859144650416
+Materials requirements planning logistics and supply chain software,Presentation software,4,0.004540295119182747,7,629,0.8003633885986827,3.201453554394731
+Computer based training software,Operating system software,6,0.00681044267877412,31,326,0.523055610528399,3.138333663170394
+Switch or router software,Word processing software,5,0.0056753688989784334,9,785,0.6234961075725408,3.117480537862704
+Object or component oriented development software,Time accounting software,3,0.00340522133938706,198,13,1.026806526806527,3.080419580419581
+Computer aided design CAD software,Metadata management software,2,0.0022701475595913734,192,6,1.5295138888888888,3.0590277777777777
+Geographic information system,Time accounting software,2,0.0022701475595913734,91,13,1.4894336432797972,2.9788672865595944
+Graphics or photo imaging software,Human resources software,2,0.0022701475595913734,172,7,1.463455149501661,2.926910299003322
+Enterprise system management software,Presentation software,3,0.00340522133938706,5,629,0.8403815580286168,2.5211446740858503
+Graphical user interface development software,Medical software,2,0.0022701475595913734,13,113,1.1994554118447922,2.3989108236895844
+Accounting software,Application server software,3,0.00340522133938706,84,41,0.7674216027874564,2.302264808362369
+Materials requirements planning logistics and supply chain software,Project management software,2,0.0022701475595913734,7,221,1.138978668390433,2.277957336780866
+Inventory management software,Project management software,2,0.0022701475595913734,7,221,1.138978668390433,2.277957336780866
+Computer based training software,Medical software,3,0.00340522133938706,31,113,0.7544961461604339,2.2634884384813017
+Electronic mail software,Procedure management software,3,0.00340522133938706,638,6,0.6904388714733541,2.0713166144200623
+Medical software,Video creation and editing software,3,0.00340522133938706,113,40,0.5847345132743362,1.7542035398230087
+Procedure management software,Word processing software,3,0.00340522133938706,6,785,0.5611464968152866,1.6834394904458598
+Accounting software,Configuration management software,2,0.0022701475595913734,84,31,0.6766513056835638,1.3533026113671276
+Computer aided design CAD software,Computer based training software,3,0.00340522133938706,192,31,0.44405241935483875,1.3321572580645162
+Accounting software,Object oriented data base management software,2,0.0022701475595913734,84,32,0.6555059523809524,1.3110119047619049
+Computer based training software,Geographic information system,2,0.0022701475595913734,31,91,0.6246012052463665,1.249202410492733
+Accounting software,Geographic information system,3,0.00340522133938706,84,91,0.34576138147566715,1.0372841444270016
+Accounting software,Cloud-based management software,2,0.0022701475595913734,84,43,0.4878183831672204,0.9756367663344409
+Computer based training software,Web page creation and editing software,2,0.0022701475595913734,31,136,0.4179316888045541,0.8358633776091082
+Computer based training software,Process mapping and design software,2,0.0022701475595913734,31,146,0.38930623066725584,0.7786124613345117
+Computer based training software,Enterprise resource planning ERP software,2,0.0022701475595913734,31,297,0.1913761268599978,0.3827522537199956

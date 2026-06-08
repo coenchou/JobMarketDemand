@@ -1,0 +1,37 @@
+JORDAN MITCHELL
+jordan.mitchell@email.com | (415) 555-0134 | LinkedIn: linkedin.com/in/jordanmitchell | San Francisco, CA
+
+SUMMARY
+Data analyst with 3 years of experience transforming raw data into actionable business insights. Proficient in SQL and Python with a strong background in statistical analysis and data visualization. Looking to transition into a senior analyst or data science role.
+
+EXPERIENCE
+
+Data Analyst — TechRetail Inc., San Francisco, CA
+June 2021 – Present
+- Analyzed customer purchase behavior across 2M+ records using SQL and Python, identifying trends that informed a 12% increase in upsell revenue
+- Built automated reporting dashboards in Tableau connected to live PostgreSQL databases
+- Conducted A/B testing on marketing campaigns, applying statistical significance testing to evaluate results
+- Collaborated with product and marketing teams to define KPIs and track weekly performance metrics
+- Cleaned and processed messy datasets using pandas and NumPy, reducing data errors by 40%
+
+Junior Data Analyst — Bright Analytics, Oakland, CA
+August 2019 – May 2021
+- Wrote complex SQL queries to extract and aggregate sales data from multiple relational databases
+- Created Excel-based reports and pivot tables for weekly executive summaries
+- Assisted senior analysts in building regression models to forecast quarterly revenue
+- Maintained data pipelines and flagged data quality issues to the engineering team
+
+EDUCATION
+Bachelor of Science in Statistics
+University of California, Davis | Graduated May 2019
+GPA: 3.6
+
+SKILLS
+Programming: Python (pandas, NumPy, scikit-learn, matplotlib), SQL, R (basic)
+Visualization: Tableau, Power BI, Excel
+Databases: PostgreSQL, MySQL, Google BigQuery
+Other: A/B testing, statistical analysis, regression modeling, data cleaning, Excel, Git
+
+CERTIFICATIONS
+- Google Data Analytics Professional Certificate (2022)
+- Tableau Desktop Specialist (2021)

@@ -1,15 +1,13 @@
-# Ignore local dataset files (do not commit large data)
-datasets/
-
-# Jupyter checkpoints
-.ipynb_checkpoints/
-
-# Virtual environment
-venv/
-
-# Python cache
+data/
+*.xlsx
+*.csv
+*.zip
+*.gz
 __pycache__/
-.pytest_cache/
-
-# macOS metadata
+.env
+*.pyc
 .DS_Store
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/

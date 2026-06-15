@@ -17,7 +17,11 @@ from typing import Iterable
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT / "datasets" / "onet"
+# Prefer the new data layout under data/raw/onet, fall back to legacy datasets/onet
+if (ROOT / "data" / "raw" / "onet").exists():
+    DATA_DIR = ROOT / "data" / "raw" / "onet"
+else:
+    DATA_DIR = ROOT / "datasets" / "onet"
 RESUME_DIR = ROOT / "resumes"
 OUTPUT_DIR = ROOT / "outputs" / "resume_parser"
 OUTPUT_FILE = OUTPUT_DIR / "resume_skill_matches.csv"

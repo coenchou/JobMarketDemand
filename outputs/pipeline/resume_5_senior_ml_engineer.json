@@ -1,0 +1,315 @@
+{
+  "resume": "resume_5_senior_ml_engineer.txt",
+  "skills": [
+    "Languages: Python",
+    "Scala",
+    "SQL",
+    "bash",
+    "ML Frameworks: TensorFlow",
+    "PyTorch",
+    "scikit-learn",
+    "XGBoost",
+    "LightGBM",
+    "HuggingFace Transformers",
+    "MLOps: MLflow",
+    "Kubeflow",
+    "AWS SageMaker",
+    "Docker",
+    "Kubernetes",
+    "Airflow",
+    "Data Engineering: Apache Spark",
+    "Kafka",
+    "Apache Flink",
+    "dbt",
+    "Databases: PostgreSQL",
+    "Redshift",
+    "BigQuery",
+    "DynamoDB",
+    "Other: NLP",
+    "recommendation systems",
+    "A/B testing",
+    "feature engineering",
+    "system design",
+    "team leadership",
+    "technical mentoring",
+    "Scikit-learn",
+    "Apache Spark",
+    "PostgreSQL",
+    "TensorFlow",
+    "Monitoring",
+    "Science",
+    "Mlflow",
+    "GitHub",
+    "Design",
+    "Python",
+    "Bash"
+  ],
+  "mapped_skills": [
+    {
+      "original": "Languages: Python",
+      "mapped_element": null
+    },
+    {
+      "original": "Scala",
+      "mapped_element": null
+    },
+    {
+      "original": "SQL",
+      "mapped_element": null
+    },
+    {
+      "original": "bash",
+      "mapped_element": null
+    },
+    {
+      "original": "ML Frameworks: TensorFlow",
+      "mapped_element": null
+    },
+    {
+      "original": "PyTorch",
+      "mapped_element": null
+    },
+    {
+      "original": "scikit-learn",
+      "mapped_element": null
+    },
+    {
+      "original": "XGBoost",
+      "mapped_element": null
+    },
+    {
+      "original": "LightGBM",
+      "mapped_element": null
+    },
+    {
+      "original": "HuggingFace Transformers",
+      "mapped_element": null
+    },
+    {
+      "original": "MLOps: MLflow",
+      "mapped_element": null
+    },
+    {
+      "original": "Kubeflow",
+      "mapped_element": null
+    },
+    {
+      "original": "AWS SageMaker",
+      "mapped_element": null
+    },
+    {
+      "original": "Docker",
+      "mapped_element": null
+    },
+    {
+      "original": "Kubernetes",
+      "mapped_element": null
+    },
+    {
+      "original": "Airflow",
+      "mapped_element": null
+    },
+    {
+      "original": "Data Engineering: Apache Spark",
+      "mapped_element": null
+    },
+    {
+      "original": "Kafka",
+      "mapped_element": null
+    },
+    {
+      "original": "Apache Flink",
+      "mapped_element": null
+    },
+    {
+      "original": "dbt",
+      "mapped_element": null
+    },
+    {
+      "original": "Databases: PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "Redshift",
+      "mapped_element": null
+    },
+    {
+      "original": "BigQuery",
+      "mapped_element": null
+    },
+    {
+      "original": "DynamoDB",
+      "mapped_element": null
+    },
+    {
+      "original": "Other: NLP",
+      "mapped_element": null
+    },
+    {
+      "original": "recommendation systems",
+      "mapped_element": null
+    },
+    {
+      "original": "A/B testing",
+      "mapped_element": null
+    },
+    {
+      "original": "feature engineering",
+      "mapped_element": null
+    },
+    {
+      "original": "system design",
+      "mapped_element": null
+    },
+    {
+      "original": "team leadership",
+      "mapped_element": null
+    },
+    {
+      "original": "technical mentoring",
+      "mapped_element": null
+    },
+    {
+      "original": "Scikit-learn",
+      "mapped_element": null
+    },
+    {
+      "original": "Apache Spark",
+      "mapped_element": null
+    },
+    {
+      "original": "PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "TensorFlow",
+      "mapped_element": null
+    },
+    {
+      "original": "Monitoring",
+      "mapped_element": "Monitoring"
+    },
+    {
+      "original": "Science",
+      "mapped_element": "Science"
+    },
+    {
+      "original": "Mlflow",
+      "mapped_element": null
+    },
+    {
+      "original": "GitHub",
+      "mapped_element": null
+    },
+    {
+      "original": "Design",
+      "mapped_element": "Design"
+    },
+    {
+      "original": "Python",
+      "mapped_element": null
+    },
+    {
+      "original": "Bash",
+      "mapped_element": null
+    }
+  ],
+  "education": [
+    "Master of Science in Computer Science — Machine Learning Track",
+    "Carnegie Mellon University | Graduated May 2015",
+    "Bachelor of Science in Statistics and Computer Science",
+    "University of Michigan | Graduated May 2013"
+  ],
+  "experience_lines": [
+    "Senior Machine Learning Engineer — StreamVault (Streaming Platform), San Francisco, CA",
+    "April 2020 – Present",
+    "Architected and deployed a real-time recommendation system serving 8M daily active users, increasing average watch time by 22%",
+    "Led a team of 6 ML engineers and 2 data scientists, setting technical direction and conducting performance reviews",
+    "Built end-to-end MLOps infrastructure using MLflow, Kubeflow, and AWS SageMaker, reducing model deployment time from 3 weeks to 4 hours",
+    "Developed a two-tower neural network for content embedding using TensorFlow, replacing rule-based system that had been in place for 5 years",
+    "Implemented A/B testing framework for ML experiments with statistical guardrails to prevent false positives",
+    "Reduced model training costs by 40% by migrating batch jobs to spot instances and optimising data pipelines in Apache Spark",
+    "Machine Learning Engineer — AdTech Dynamics, New York, NY",
+    "July 2017 – March 2020",
+    "Built click-through rate prediction models using gradient boosted trees (XGBoost, LightGBM) for programmatic advertising",
+    "Developed NLP pipeline for ad copy classification using BERT fine-tuning, replacing manual tagging process",
+    "Created feature store used by 4 different ML teams, standardising feature engineering across the organisation",
+    "Collaborated with data engineers to build real-time feature pipelines using Kafka and Apache Flink",
+    "Data Scientist — InsightMetrics, Boston, MA",
+    "June 2015 – June 2017",
+    "Developed propensity models for customer lifetime value prediction using logistic regression and survival analysis",
+    "Conducted statistical analysis and hypothesis testing for product experiments",
+    "Presented findings to non-technical stakeholders including C-suite executives"
+  ],
+  "years_experience_est": 8,
+  "skill_match_ratio": 0.071,
+  "hirability_score": 2.1,
+  "top_candidate": {
+    "soc_code": "17-2199",
+    "title": "Engineers, All Other",
+    "score": 48.0,
+    "match_score": 0.021,
+    "median_wage": null,
+    "growth": null,
+    "education": NaN,
+    "experience": NaN,
+    "top_work_style": "17-2199.09"
+  },
+  "candidate_matches": [
+    {
+      "soc_code": "17-2199",
+      "title": "Engineers, All Other",
+      "score": 48.0,
+      "match_score": 0.021,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "17-2199.09"
+    },
+    {
+      "soc_code": "13-1041",
+      "title": "Compliance Officers",
+      "score": 42.0,
+      "match_score": 0.021,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "13-1041.06"
+    },
+    {
+      "soc_code": "11-3051",
+      "title": "Industrial Production Managers",
+      "score": 36.0,
+      "match_score": 0.021,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-3051.01"
+    },
+    {
+      "soc_code": "11-9199",
+      "title": "Managers, All Other",
+      "score": 36.0,
+      "match_score": 0.021,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-9199.08"
+    },
+    {
+      "soc_code": "15-1299",
+      "title": "Computer Occupations, All Other",
+      "score": 36.0,
+      "match_score": 0.021,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "15-1299.04"
+    }
+  ]
+}

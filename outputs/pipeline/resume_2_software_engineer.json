@@ -1,0 +1,276 @@
+{
+  "resume": "resume_2_software_engineer.txt",
+  "skills": [
+    "Languages: Python",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+    "HTML/CSS",
+    "Frameworks: FastAPI",
+    "Django",
+    "React",
+    "Node.js",
+    "Express",
+    "Cloud & DevOps: AWS (EC2",
+    "S3",
+    "Lambda)",
+    "Docker",
+    "Kubernetes",
+    "GitHub Actions",
+    "Databases: PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Other: REST APIs",
+    "microservices",
+    "agile/scrum",
+    "system design",
+    "Git",
+    "code review",
+    "mentoring",
+    "Microservices Architecture",
+    "RESTful API",
+    "Programming",
+    "PostgreSQL",
+    "Science",
+    "GitHub",
+    "Python",
+    "Design",
+    "Google"
+  ],
+  "mapped_skills": [
+    {
+      "original": "Languages: Python",
+      "mapped_element": null
+    },
+    {
+      "original": "JavaScript",
+      "mapped_element": null
+    },
+    {
+      "original": "TypeScript",
+      "mapped_element": null
+    },
+    {
+      "original": "SQL",
+      "mapped_element": null
+    },
+    {
+      "original": "HTML/CSS",
+      "mapped_element": null
+    },
+    {
+      "original": "Frameworks: FastAPI",
+      "mapped_element": null
+    },
+    {
+      "original": "Django",
+      "mapped_element": null
+    },
+    {
+      "original": "React",
+      "mapped_element": null
+    },
+    {
+      "original": "Node.js",
+      "mapped_element": null
+    },
+    {
+      "original": "Express",
+      "mapped_element": null
+    },
+    {
+      "original": "Cloud & DevOps: AWS (EC2",
+      "mapped_element": null
+    },
+    {
+      "original": "S3",
+      "mapped_element": null
+    },
+    {
+      "original": "Lambda)",
+      "mapped_element": null
+    },
+    {
+      "original": "Docker",
+      "mapped_element": null
+    },
+    {
+      "original": "Kubernetes",
+      "mapped_element": null
+    },
+    {
+      "original": "GitHub Actions",
+      "mapped_element": null
+    },
+    {
+      "original": "Databases: PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "MongoDB",
+      "mapped_element": null
+    },
+    {
+      "original": "Redis",
+      "mapped_element": null
+    },
+    {
+      "original": "Other: REST APIs",
+      "mapped_element": null
+    },
+    {
+      "original": "microservices",
+      "mapped_element": null
+    },
+    {
+      "original": "agile/scrum",
+      "mapped_element": null
+    },
+    {
+      "original": "system design",
+      "mapped_element": null
+    },
+    {
+      "original": "Git",
+      "mapped_element": null
+    },
+    {
+      "original": "code review",
+      "mapped_element": null
+    },
+    {
+      "original": "mentoring",
+      "mapped_element": null
+    },
+    {
+      "original": "Microservices Architecture",
+      "mapped_element": null
+    },
+    {
+      "original": "RESTful API",
+      "mapped_element": null
+    },
+    {
+      "original": "Programming",
+      "mapped_element": null
+    },
+    {
+      "original": "PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "Science",
+      "mapped_element": "Science"
+    },
+    {
+      "original": "GitHub",
+      "mapped_element": null
+    },
+    {
+      "original": "Python",
+      "mapped_element": null
+    },
+    {
+      "original": "Design",
+      "mapped_element": "Design"
+    },
+    {
+      "original": "Google",
+      "mapped_element": null
+    }
+  ],
+  "education": [
+    "Bachelor of Science in Computer Science",
+    "University of Illinois Urbana-Champaign | Graduated May 2019"
+  ],
+  "experience_lines": [
+    "Senior Software Engineer — FinTech Solutions LLC, Chicago, IL",
+    "March 2022 – Present",
+    "Designed and built a RESTful API serving 500K daily requests using Python and FastAPI, deployed on AWS",
+    "Led migration of monolithic application to microservices architecture, reducing deployment time by 60%",
+    "Implemented CI/CD pipelines using GitHub Actions and Docker, cutting release cycles from 2 weeks to 2 days",
+    "Mentored 3 junior engineers through code reviews, pair programming, and weekly 1-on-1s",
+    "Optimised database queries in PostgreSQL, reducing average query time by 35%",
+    "Software Engineer — Webcraft Agency, Chicago, IL",
+    "January 2020 – February 2022",
+    "Developed full-stack features for 8 client web applications using React, Node.js, and MongoDB",
+    "Built reusable React component library adopted across 5 internal projects",
+    "Integrated third-party APIs including Stripe payments, Twilio SMS, and Google Maps",
+    "Participated in agile sprint planning, daily standups, and retrospectives",
+    "Software Engineering Intern — DevBase Inc., Remote",
+    "June 2019 – December 2019",
+    "Contributed to backend services in Python and wrote unit tests using pytest",
+    "Fixed bugs and improved documentation across legacy codebase"
+  ],
+  "years_experience_est": 5,
+  "skill_match_ratio": 0.057,
+  "hirability_score": 1.4,
+  "top_candidate": {
+    "soc_code": "17-2199",
+    "title": "Engineers, All Other",
+    "score": 32.0,
+    "match_score": 0.014,
+    "median_wage": null,
+    "growth": null,
+    "education": NaN,
+    "experience": NaN,
+    "top_work_style": "17-2199.09"
+  },
+  "candidate_matches": [
+    {
+      "soc_code": "17-2199",
+      "title": "Engineers, All Other",
+      "score": 32.0,
+      "match_score": 0.014,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "17-2199.09"
+    },
+    {
+      "soc_code": "13-1041",
+      "title": "Compliance Officers",
+      "score": 28.0,
+      "match_score": 0.014,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "13-1041.06"
+    },
+    {
+      "soc_code": "11-3051",
+      "title": "Industrial Production Managers",
+      "score": 24.0,
+      "match_score": 0.014,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-3051.01"
+    },
+    {
+      "soc_code": "11-9199",
+      "title": "Managers, All Other",
+      "score": 24.0,
+      "match_score": 0.014,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-9199.08"
+    },
+    {
+      "soc_code": "15-1299",
+      "title": "Computer Occupations, All Other",
+      "score": 24.0,
+      "match_score": 0.014,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "15-1299.04"
+    }
+  ]
+}

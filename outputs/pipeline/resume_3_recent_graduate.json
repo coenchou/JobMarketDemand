@@ -1,0 +1,200 @@
+{
+  "resume": "resume_3_recent_graduate.txt",
+  "skills": [
+    "Software: Microsoft Excel (pivot tables",
+    "VLOOKUP",
+    "basic macros)",
+    "PowerPoint",
+    "Word",
+    "Google Sheets",
+    "Programming: Python (beginner — pandas",
+    "matplotlib)",
+    "SQL (basic SELECT queries)",
+    "Other: Data entry",
+    "report preparation",
+    "communication",
+    "attention to detail",
+    "teamwork",
+    "Systems Analysis",
+    "Microsoft Excel",
+    "Administrative",
+    "Programming",
+    "pandas",
+    "Python",
+    "Google"
+  ],
+  "mapped_skills": [
+    {
+      "original": "Software: Microsoft Excel (pivot tables",
+      "mapped_element": null
+    },
+    {
+      "original": "VLOOKUP",
+      "mapped_element": null
+    },
+    {
+      "original": "basic macros)",
+      "mapped_element": null
+    },
+    {
+      "original": "PowerPoint",
+      "mapped_element": null
+    },
+    {
+      "original": "Word",
+      "mapped_element": null
+    },
+    {
+      "original": "Google Sheets",
+      "mapped_element": null
+    },
+    {
+      "original": "Programming: Python (beginner — pandas",
+      "mapped_element": null
+    },
+    {
+      "original": "matplotlib)",
+      "mapped_element": null
+    },
+    {
+      "original": "SQL (basic SELECT queries)",
+      "mapped_element": null
+    },
+    {
+      "original": "Other: Data entry",
+      "mapped_element": null
+    },
+    {
+      "original": "report preparation",
+      "mapped_element": null
+    },
+    {
+      "original": "communication",
+      "mapped_element": null
+    },
+    {
+      "original": "attention to detail",
+      "mapped_element": null
+    },
+    {
+      "original": "teamwork",
+      "mapped_element": null
+    },
+    {
+      "original": "Systems Analysis",
+      "mapped_element": null
+    },
+    {
+      "original": "Microsoft Excel",
+      "mapped_element": null
+    },
+    {
+      "original": "Administrative",
+      "mapped_element": "Administrative"
+    },
+    {
+      "original": "Programming",
+      "mapped_element": null
+    },
+    {
+      "original": "pandas",
+      "mapped_element": null
+    },
+    {
+      "original": "Python",
+      "mapped_element": null
+    },
+    {
+      "original": "Google",
+      "mapped_element": null
+    }
+  ],
+  "education": [
+    "Bachelor of Business Administration — Information Systems",
+    "University of North Carolina Charlotte | Graduated December 2023"
+  ],
+  "experience_lines": [
+    "Operations Intern — Logistics Partners Inc., Charlotte, NC",
+    "May 2023 – August 2023",
+    "Tracked shipment data and updated records in the company's internal database system",
+    "Created weekly Excel reports summarising delivery performance for operations manager",
+    "Identified and corrected data entry errors, improving record accuracy by 15%",
+    "Assisted with scheduling and coordinating between warehouse and transport teams",
+    "Administrative Intern — Charlotte Community Credit Union",
+    "January 2023 – April 2023",
+    "Maintained spreadsheets tracking member account activity and flagged unusual transactions",
+    "Prepared PowerPoint presentations for monthly department meetings",
+    "Responded to member inquiries via phone and email, developing strong communication skills"
+  ],
+  "years_experience_est": null,
+  "skill_match_ratio": 0.048,
+  "hirability_score": 0.7,
+  "top_candidate": {
+    "soc_code": "17-2199",
+    "title": "Engineers, All Other",
+    "score": 16.0,
+    "match_score": 0.007,
+    "median_wage": null,
+    "growth": null,
+    "education": NaN,
+    "experience": NaN,
+    "top_work_style": "17-2199.09"
+  },
+  "candidate_matches": [
+    {
+      "soc_code": "17-2199",
+      "title": "Engineers, All Other",
+      "score": 16.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "17-2199.09"
+    },
+    {
+      "soc_code": "13-1041",
+      "title": "Compliance Officers",
+      "score": 14.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "13-1041.06"
+    },
+    {
+      "soc_code": "11-3051",
+      "title": "Industrial Production Managers",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-3051.01"
+    },
+    {
+      "soc_code": "11-9199",
+      "title": "Managers, All Other",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-9199.08"
+    },
+    {
+      "soc_code": "15-1299",
+      "title": "Computer Occupations, All Other",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "15-1299.04"
+    }
+  ]
+}

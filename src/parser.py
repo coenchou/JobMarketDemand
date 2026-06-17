@@ -2,16 +2,19 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from difflib import get_close_matches
 from pathlib import Path
 from typing import Dict, List
 
 import pandas as pd
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from scripts.resume_parser import extract_resume_sections
 
-
-ROOT = Path(__file__).resolve().parents[1]
 PROCESSED = ROOT / "data" / "processed"
 
 

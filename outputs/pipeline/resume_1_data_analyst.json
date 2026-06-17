@@ -1,0 +1,237 @@
+{
+  "resume": "resume_1_data_analyst.txt",
+  "skills": [
+    "Programming: Python (pandas",
+    "NumPy",
+    "scikit-learn",
+    "matplotlib)",
+    "SQL",
+    "R (basic)",
+    "Visualization: Tableau",
+    "Power BI",
+    "Excel",
+    "Databases: PostgreSQL",
+    "MySQL",
+    "Google BigQuery",
+    "Other: A/B testing",
+    "statistical analysis",
+    "regression modeling",
+    "data cleaning",
+    "Git",
+    "Visualization",
+    "Scikit-learn",
+    "Programming",
+    "PostgreSQL",
+    "LinkedIn",
+    "BigQuery",
+    "Science",
+    "Tableau",
+    "pandas",
+    "Python",
+    "Google"
+  ],
+  "mapped_skills": [
+    {
+      "original": "Programming: Python (pandas",
+      "mapped_element": null
+    },
+    {
+      "original": "NumPy",
+      "mapped_element": null
+    },
+    {
+      "original": "scikit-learn",
+      "mapped_element": null
+    },
+    {
+      "original": "matplotlib)",
+      "mapped_element": null
+    },
+    {
+      "original": "SQL",
+      "mapped_element": null
+    },
+    {
+      "original": "R (basic)",
+      "mapped_element": null
+    },
+    {
+      "original": "Visualization: Tableau",
+      "mapped_element": null
+    },
+    {
+      "original": "Power BI",
+      "mapped_element": null
+    },
+    {
+      "original": "Excel",
+      "mapped_element": null
+    },
+    {
+      "original": "Databases: PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "MySQL",
+      "mapped_element": null
+    },
+    {
+      "original": "Google BigQuery",
+      "mapped_element": null
+    },
+    {
+      "original": "Other: A/B testing",
+      "mapped_element": null
+    },
+    {
+      "original": "statistical analysis",
+      "mapped_element": null
+    },
+    {
+      "original": "regression modeling",
+      "mapped_element": null
+    },
+    {
+      "original": "data cleaning",
+      "mapped_element": null
+    },
+    {
+      "original": "Git",
+      "mapped_element": null
+    },
+    {
+      "original": "Visualization",
+      "mapped_element": null
+    },
+    {
+      "original": "Scikit-learn",
+      "mapped_element": null
+    },
+    {
+      "original": "Programming",
+      "mapped_element": null
+    },
+    {
+      "original": "PostgreSQL",
+      "mapped_element": null
+    },
+    {
+      "original": "LinkedIn",
+      "mapped_element": null
+    },
+    {
+      "original": "BigQuery",
+      "mapped_element": null
+    },
+    {
+      "original": "Science",
+      "mapped_element": "Science"
+    },
+    {
+      "original": "Tableau",
+      "mapped_element": null
+    },
+    {
+      "original": "pandas",
+      "mapped_element": null
+    },
+    {
+      "original": "Python",
+      "mapped_element": null
+    },
+    {
+      "original": "Google",
+      "mapped_element": null
+    }
+  ],
+  "education": [
+    "Bachelor of Science in Statistics",
+    "University of California, Davis | Graduated May 2019"
+  ],
+  "experience_lines": [
+    "Data Analyst — TechRetail Inc., San Francisco, CA",
+    "June 2021 – Present",
+    "Analyzed customer purchase behavior across 2M+ records using SQL and Python, identifying trends that informed a 12% increase in upsell revenue",
+    "Built automated reporting dashboards in Tableau connected to live PostgreSQL databases",
+    "Conducted A/B testing on marketing campaigns, applying statistical significance testing to evaluate results",
+    "Collaborated with product and marketing teams to define KPIs and track weekly performance metrics",
+    "Cleaned and processed messy datasets using pandas and NumPy, reducing data errors by 40%",
+    "Junior Data Analyst — Bright Analytics, Oakland, CA",
+    "August 2019 – May 2021",
+    "Wrote complex SQL queries to extract and aggregate sales data from multiple relational databases",
+    "Created Excel-based reports and pivot tables for weekly executive summaries",
+    "Assisted senior analysts in building regression models to forecast quarterly revenue",
+    "Maintained data pipelines and flagged data quality issues to the engineering team"
+  ],
+  "years_experience_est": 3,
+  "skill_match_ratio": 0.036,
+  "hirability_score": 0.7,
+  "top_candidate": {
+    "soc_code": "17-2199",
+    "title": "Engineers, All Other",
+    "score": 16.0,
+    "match_score": 0.007,
+    "median_wage": null,
+    "growth": null,
+    "education": NaN,
+    "experience": NaN,
+    "top_work_style": "17-2199.09"
+  },
+  "candidate_matches": [
+    {
+      "soc_code": "17-2199",
+      "title": "Engineers, All Other",
+      "score": 16.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "17-2199.09"
+    },
+    {
+      "soc_code": "13-1041",
+      "title": "Compliance Officers",
+      "score": 14.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "13-1041.06"
+    },
+    {
+      "soc_code": "11-3051",
+      "title": "Industrial Production Managers",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-3051.01"
+    },
+    {
+      "soc_code": "11-9199",
+      "title": "Managers, All Other",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "11-9199.08"
+    },
+    {
+      "soc_code": "15-1299",
+      "title": "Computer Occupations, All Other",
+      "score": 12.0,
+      "match_score": 0.007,
+      "median_wage": null,
+      "growth": null,
+      "education": NaN,
+      "experience": NaN,
+      "top_work_style": "15-1299.04"
+    }
+  ]
+}

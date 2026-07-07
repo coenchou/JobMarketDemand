@@ -1,276 +1,689 @@
 {
   "resume": "resume_2_software_engineer.txt",
-  "skills": [
-    "Languages: Python",
-    "JavaScript",
-    "TypeScript",
-    "SQL",
-    "HTML/CSS",
-    "Frameworks: FastAPI",
-    "Django",
-    "React",
-    "Node.js",
-    "Express",
-    "Cloud & DevOps: AWS (EC2",
-    "S3",
-    "Lambda)",
-    "Docker",
-    "Kubernetes",
-    "GitHub Actions",
-    "Databases: PostgreSQL",
-    "MongoDB",
-    "Redis",
-    "Other: REST APIs",
-    "microservices",
-    "agile/scrum",
-    "system design",
-    "Git",
-    "code review",
-    "mentoring",
-    "Microservices Architecture",
-    "RESTful API",
-    "Programming",
-    "PostgreSQL",
-    "Science",
-    "GitHub",
-    "Python",
-    "Design",
-    "Google"
-  ],
-  "mapped_skills": [
+  "summary": {
+    "hirability_score": 86.5,
+    "years_experience": 5,
+    "education_level": "Bachelor's",
+    "top_match_title": "Web Developers",
+    "top_match_soc": "15-1254",
+    "skills_extracted": 30,
+    "skills_from_section": 27,
+    "skills_from_experience": 3,
+    "skills_matched_to_onet": 27
+  },
+  "competitiveness": {
+    "score": 81.4,
+    "level": "Strong",
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+  },
+  "top_job_matches": [
     {
-      "original": "Languages: Python",
-      "mapped_element": null
+      "soc_code": "15-1254",
+      "title": "Web Developers",
+      "match_score": 7.1471,
+      "semantic_score": 0.3646,
+      "blended_score": 1.0,
+      "matched_skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "EC2",
+        "Git",
+        "GitHub",
+        "HTML/CSS",
+        "JavaScript",
+        "Kubernetes",
+        "MongoDB",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "RESTful API",
+        "React",
+        "Redis",
+        "S3",
+        "SQL",
+        "TypeScript",
+        "microservices"
+      ],
+      "description_snippet": "Develop and implement websites, web applications, application databases, and interactive web interfaces. Evaluate code to ensure that it is properly structured, meets industry standards, and is compatible with browsers and devices. Optimize website p..."
     },
     {
-      "original": "JavaScript",
-      "mapped_element": null
+      "soc_code": "15-1252",
+      "title": "Software Developers",
+      "match_score": 6.2434,
+      "semantic_score": 0.3564,
+      "blended_score": 0.6622,
+      "matched_skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "EC2",
+        "Git",
+        "GitHub",
+        "HTML/CSS",
+        "JavaScript",
+        "Kubernetes",
+        "MongoDB",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "RESTful API",
+        "React",
+        "Redis",
+        "S3",
+        "SQL",
+        "TypeScript",
+        "microservices",
+        "system design"
+      ],
+      "description_snippet": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update sof..."
     },
     {
-      "original": "TypeScript",
-      "mapped_element": null
+      "soc_code": "25-2023",
+      "title": "Career/Technical Education Teachers, Middle School",
+      "match_score": 6.9092,
+      "semantic_score": 0.2021,
+      "blended_score": 0.599,
+      "matched_skills": [
+        "AWS",
+        "Docker",
+        "EC2",
+        "Git",
+        "GitHub",
+        "HTML/CSS",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "React",
+        "S3",
+        "SQL"
+      ],
+      "description_snippet": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level...."
     },
     {
-      "original": "SQL",
-      "mapped_element": null
+      "soc_code": "15-1255",
+      "title": "Web and Digital Interface Designers",
+      "match_score": 6.2305,
+      "semantic_score": 0.2895,
+      "blended_score": 0.5273,
+      "matched_skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "EC2",
+        "Express",
+        "Git",
+        "GitHub",
+        "HTML/CSS",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "React",
+        "S3",
+        "SQL",
+        "TypeScript",
+        "system design"
+      ],
+      "description_snippet": "Design digital user interfaces or websites. Develop and test layouts, interfaces, functionality, and navigation menus to ensure compatibility and usability across browsers or devices. May use web framework applications as well as client-side code and..."
     },
     {
-      "original": "HTML/CSS",
-      "mapped_element": null
-    },
-    {
-      "original": "Frameworks: FastAPI",
-      "mapped_element": null
-    },
-    {
-      "original": "Django",
-      "mapped_element": null
-    },
-    {
-      "original": "React",
-      "mapped_element": null
-    },
-    {
-      "original": "Node.js",
-      "mapped_element": null
-    },
-    {
-      "original": "Express",
-      "mapped_element": null
-    },
-    {
-      "original": "Cloud & DevOps: AWS (EC2",
-      "mapped_element": null
-    },
-    {
-      "original": "S3",
-      "mapped_element": null
-    },
-    {
-      "original": "Lambda)",
-      "mapped_element": null
-    },
-    {
-      "original": "Docker",
-      "mapped_element": null
-    },
-    {
-      "original": "Kubernetes",
-      "mapped_element": null
-    },
-    {
-      "original": "GitHub Actions",
-      "mapped_element": null
-    },
-    {
-      "original": "Databases: PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "MongoDB",
-      "mapped_element": null
-    },
-    {
-      "original": "Redis",
-      "mapped_element": null
-    },
-    {
-      "original": "Other: REST APIs",
-      "mapped_element": null
-    },
-    {
-      "original": "microservices",
-      "mapped_element": null
-    },
-    {
-      "original": "agile/scrum",
-      "mapped_element": null
-    },
-    {
-      "original": "system design",
-      "mapped_element": null
-    },
-    {
-      "original": "Git",
-      "mapped_element": null
-    },
-    {
-      "original": "code review",
-      "mapped_element": null
-    },
-    {
-      "original": "mentoring",
-      "mapped_element": null
-    },
-    {
-      "original": "Microservices Architecture",
-      "mapped_element": null
-    },
-    {
-      "original": "RESTful API",
-      "mapped_element": null
-    },
-    {
-      "original": "Programming",
-      "mapped_element": null
-    },
-    {
-      "original": "PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "Science",
-      "mapped_element": "Science"
-    },
-    {
-      "original": "GitHub",
-      "mapped_element": null
-    },
-    {
-      "original": "Python",
-      "mapped_element": null
-    },
-    {
-      "original": "Design",
-      "mapped_element": "Design"
-    },
-    {
-      "original": "Google",
-      "mapped_element": null
+      "soc_code": "11-9041",
+      "title": "Architectural and Engineering Managers",
+      "match_score": 6.358,
+      "semantic_score": 0.238,
+      "blended_score": 0.4725,
+      "matched_skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "EC2",
+        "Git",
+        "GitHub",
+        "JavaScript",
+        "MongoDB",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "React",
+        "SQL",
+        "agile/scrum",
+        "system design"
+      ],
+      "description_snippet": "Plan, direct, or coordinate activities in such fields as architecture and engineering or research and development in these fields...."
     }
   ],
+  "skills": {
+    "extracted": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "HTML/CSS",
+      "FastAPI",
+      "Django",
+      "React",
+      "Node.js",
+      "Express",
+      "AWS",
+      "EC2",
+      "S3",
+      "Lambda",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "REST APIs",
+      "microservices",
+      "agile/scrum",
+      "system design",
+      "Git",
+      "code review",
+      "mentoring",
+      "GitHub",
+      "Google",
+      "RESTful API"
+    ],
+    "from_section": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "HTML/CSS",
+      "FastAPI",
+      "Django",
+      "React",
+      "Node.js",
+      "Express",
+      "AWS",
+      "EC2",
+      "S3",
+      "Lambda",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "REST APIs",
+      "microservices",
+      "agile/scrum",
+      "system design",
+      "Git",
+      "code review",
+      "mentoring"
+    ],
+    "from_experience": [
+      "GitHub",
+      "Google",
+      "RESTful API"
+    ],
+    "matched": [
+      {
+        "original": "Python",
+        "matched_tool": "Python",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "JavaScript",
+        "matched_tool": "JavaScript",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "TypeScript",
+        "matched_tool": "TypeScript",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "SQL",
+        "matched_tool": "Microsoft SQL Server",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "HTML/CSS",
+        "matched_tool": "Hypertext markup language HTML",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Django",
+        "matched_tool": "Django",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "React",
+        "matched_tool": "React",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Node.js",
+        "matched_tool": "Node.js",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Express",
+        "matched_tool": "PCI Express PCIe",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "AWS",
+        "matched_tool": "Amazon Web Services AWS CloudFormation",
+        "element_name": "Cloud-based management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "EC2",
+        "matched_tool": "Amazon Elastic Compute Cloud EC2",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "S3",
+        "matched_tool": "Adobe LifeCycle Production Print ES3",
+        "element_name": "Document management software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "Lambda",
+        "matched_tool": "Lambda Research OSLO",
+        "element_name": "Computer aided design CAD software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "Docker",
+        "matched_tool": "Docker",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Kubernetes",
+        "matched_tool": "Kubernetes",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "PostgreSQL",
+        "matched_tool": "PostgreSQL",
+        "element_name": "Object oriented data base management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "MongoDB",
+        "matched_tool": "MongoDB",
+        "element_name": "Data base management system software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Redis",
+        "matched_tool": "Redis",
+        "element_name": "Data base management system software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "REST APIs",
+        "matched_tool": "REST Assured",
+        "element_name": "Program testing software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "microservices",
+        "matched_tool": "Microservices Architecture",
+        "element_name": "Application server software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "agile/scrum",
+        "matched_tool": "Agile Product Lifecyle Management PLM",
+        "element_name": "Enterprise resource planning ERP software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "system design",
+        "matched_tool": "Mastercam computer-aided design and manufacturing software",
+        "element_name": "Computer aided manufacturing CAM software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Git",
+        "matched_tool": "Git",
+        "element_name": "File versioning software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "code review",
+        "matched_tool": "Bill review software",
+        "element_name": "Billing and invoicing software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "GitHub",
+        "matched_tool": "GitHub",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      },
+      {
+        "original": "Google",
+        "matched_tool": "Google",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      },
+      {
+        "original": "RESTful API",
+        "matched_tool": "RESTful API",
+        "element_name": "Web platform development software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      }
+    ],
+    "unmatched": [
+      "FastAPI",
+      "GitHub Actions",
+      "mentoring"
+    ]
+  },
   "education": [
     "Bachelor of Science in Computer Science",
     "University of Illinois Urbana-Champaign | Graduated May 2019"
   ],
-  "experience_lines": [
+  "experience": [
     "Senior Software Engineer — FinTech Solutions LLC, Chicago, IL",
     "March 2022 – Present",
-    "Designed and built a RESTful API serving 500K daily requests using Python and FastAPI, deployed on AWS",
-    "Led migration of monolithic application to microservices architecture, reducing deployment time by 60%",
-    "Implemented CI/CD pipelines using GitHub Actions and Docker, cutting release cycles from 2 weeks to 2 days",
-    "Mentored 3 junior engineers through code reviews, pair programming, and weekly 1-on-1s",
-    "Optimised database queries in PostgreSQL, reducing average query time by 35%",
+    "- Designed and built a RESTful API serving 500K daily requests using Python and FastAPI, deployed on AWS",
+    "- Led migration of monolithic application to microservices architecture, reducing deployment time by 60%",
+    "- Implemented CI/CD pipelines using GitHub Actions and Docker, cutting release cycles from 2 weeks to 2 days",
+    "- Mentored 3 junior engineers through code reviews, pair programming, and weekly 1-on-1s",
+    "- Optimised database queries in PostgreSQL, reducing average query time by 35%",
     "Software Engineer — Webcraft Agency, Chicago, IL",
     "January 2020 – February 2022",
-    "Developed full-stack features for 8 client web applications using React, Node.js, and MongoDB",
-    "Built reusable React component library adopted across 5 internal projects",
-    "Integrated third-party APIs including Stripe payments, Twilio SMS, and Google Maps",
-    "Participated in agile sprint planning, daily standups, and retrospectives",
+    "- Developed full-stack features for 8 client web applications using React, Node.js, and MongoDB",
+    "- Built reusable React component library adopted across 5 internal projects",
+    "- Integrated third-party APIs including Stripe payments, Twilio SMS, and Google Maps",
+    "- Participated in agile sprint planning, daily standups, and retrospectives",
     "Software Engineering Intern — DevBase Inc., Remote",
     "June 2019 – December 2019",
-    "Contributed to backend services in Python and wrote unit tests using pytest",
-    "Fixed bugs and improved documentation across legacy codebase"
+    "- Contributed to backend services in Python and wrote unit tests using pytest",
+    "- Fixed bugs and improved documentation across legacy codebase"
   ],
-  "years_experience_est": 5,
-  "skill_match_ratio": 0.057,
-  "hirability_score": 1.4,
-  "top_candidate": {
-    "soc_code": "17-2199",
-    "title": "Engineers, All Other",
-    "score": 32.0,
-    "match_score": 0.014,
-    "median_wage": null,
-    "growth": null,
-    "education": NaN,
-    "experience": NaN,
-    "top_work_style": "17-2199.09"
+  "skill_gaps": {
+    "coverage_of_top_match": 0.173,
+    "strengths": [
+      "Amazon Elastic Compute Cloud EC2",
+      "Amazon Web Services AWS CloudFormation",
+      "Amazon Web Services AWS software",
+      "Cascading style sheets CSS",
+      "Customer information control system CICS",
+      "Django",
+      "Docker",
+      "Geographic information system GIS software",
+      "Git",
+      "GitHub",
+      "Google Ads",
+      "Google Analytics",
+      "Google Android",
+      "Google Angular",
+      "Google Cloud software",
+      "Google Docs",
+      "Google Drive",
+      "Google Meet",
+      "Google Sites",
+      "Google Slides",
+      "Hypertext markup language HTML",
+      "JavaScript",
+      "JavaScript Object Notation JSON",
+      "JavaScript framework software",
+      "Kubernetes",
+      "Microservices Architecture",
+      "Microsoft SQL Server",
+      "Microsoft SQL Server Integration Services SSIS",
+      "Microsoft SQL Server Reporting Services SSRS",
+      "MongoDB",
+      "Node.js",
+      "Oracle PL/SQL",
+      "PostgreSQL",
+      "Python",
+      "RESTful API",
+      "React",
+      "React Redux",
+      "Redis",
+      "Relational database management system software",
+      "Structured query language SQL",
+      "Transact-SQL",
+      "TypeScript",
+      "Web content management system CMS software"
+    ],
+    "gaps": [
+      {
+        "skill": "Spring Boot",
+        "element_category": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Atlassian JIRA",
+        "element_category": "Content workflow software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "MySQL",
+        "element_category": "Data base management system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "GraphQL",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Apache Kafka",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Jenkins CI",
+        "element_category": "Enterprise application integration software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Oracle Java",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Linux",
+        "element_category": "Operating system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "WordPress",
+        "element_category": "Web page creation and editing software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "PHP",
+        "element_category": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      }
+    ],
+    "abstract_skills_required": [
+      {
+        "skill": "Critical Thinking",
+        "importance": 3.75
+      },
+      {
+        "skill": "Reading Comprehension",
+        "importance": 3.62
+      },
+      {
+        "skill": "Active Learning",
+        "importance": 3.5
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.5
+      },
+      {
+        "skill": "Speaking",
+        "importance": 3.25
+      },
+      {
+        "skill": "Writing",
+        "importance": 3.12
+      }
+    ]
   },
-  "candidate_matches": [
+  "recommendations": [
     {
-      "soc_code": "17-2199",
-      "title": "Engineers, All Other",
-      "score": 32.0,
-      "match_score": 0.014,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "17-2199.09"
+      "skill": "WordPress",
+      "element_category": "Web page creation and editing software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.981,
+      "complementarity": 0.486,
+      "effort_label": "days",
+      "difficulty_months": 0.3,
+      "priority_score": 2.943,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
     },
     {
-      "soc_code": "13-1041",
-      "title": "Compliance Officers",
-      "score": 28.0,
-      "match_score": 0.014,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "13-1041.06"
+      "skill": "Atlassian JIRA",
+      "element_category": "Content workflow software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.965,
+      "complementarity": 0.324,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.895,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days."
     },
     {
-      "soc_code": "11-3051",
-      "title": "Industrial Production Managers",
-      "score": 24.0,
-      "match_score": 0.014,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-3051.01"
+      "skill": "MySQL",
+      "element_category": "Data base management system software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.891,
+      "complementarity": 0.687,
+      "effort_label": "weeks",
+      "difficulty_months": 2.0,
+      "priority_score": 2.673,
+      "rationale": "Hot technology in the current market, closely related to your existing skills — you have a strong foundation to build on. Estimated learning time: weeks."
     },
     {
-      "soc_code": "11-9199",
-      "title": "Managers, All Other",
-      "score": 24.0,
-      "match_score": 0.014,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-9199.08"
+      "skill": "Linux",
+      "element_category": "Operating system software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.867,
+      "complementarity": 0.407,
+      "effort_label": "weeks",
+      "difficulty_months": 2.0,
+      "priority_score": 2.601,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: weeks."
     },
     {
-      "soc_code": "15-1299",
-      "title": "Computer Occupations, All Other",
-      "score": 24.0,
-      "match_score": 0.014,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "15-1299.04"
+      "skill": "GraphQL",
+      "element_category": "Data base user interface and query software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.806,
+      "complementarity": 0.448,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.418,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     }
-  ]
+  ],
+  "ai_displacement_exposure": {
+    "score": 0.497,
+    "level": "Medium",
+    "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+  }
 }

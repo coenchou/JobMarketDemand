@@ -1,200 +1,447 @@
 {
   "resume": "resume_3_recent_graduate.txt",
-  "skills": [
-    "Software: Microsoft Excel (pivot tables",
-    "VLOOKUP",
-    "basic macros)",
-    "PowerPoint",
-    "Word",
-    "Google Sheets",
-    "Programming: Python (beginner — pandas",
-    "matplotlib)",
-    "SQL (basic SELECT queries)",
-    "Other: Data entry",
-    "report preparation",
-    "communication",
-    "attention to detail",
-    "teamwork",
-    "Systems Analysis",
-    "Microsoft Excel",
-    "Administrative",
-    "Programming",
-    "pandas",
-    "Python",
-    "Google"
-  ],
-  "mapped_skills": [
+  "summary": {
+    "hirability_score": 71.5,
+    "years_experience": null,
+    "education_level": "Bachelor's",
+    "top_match_title": "Social Science Research Assistants",
+    "top_match_soc": "19-4061",
+    "skills_extracted": 17,
+    "skills_from_section": 17,
+    "skills_from_experience": 0,
+    "skills_matched_to_onet": 13
+  },
+  "competitiveness": {
+    "score": 61.3,
+    "level": "Competitive",
+    "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile."
+  },
+  "top_job_matches": [
     {
-      "original": "Software: Microsoft Excel (pivot tables",
-      "mapped_element": null
+      "soc_code": "19-4061",
+      "title": "Social Science Research Assistants",
+      "match_score": 3.503,
+      "semantic_score": 0.2689,
+      "blended_score": 0.9249,
+      "matched_skills": [
+        "Microsoft Excel",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description_snippet": "Assist social scientists in laboratory, survey, and other social science research. May help prepare findings for publication and assist in laboratory analysis, quality control, or data management...."
     },
     {
-      "original": "VLOOKUP",
-      "mapped_element": null
+      "soc_code": "53-6041",
+      "title": "Traffic Technicians",
+      "match_score": 3.312,
+      "semantic_score": 0.3062,
+      "blended_score": 0.6097,
+      "matched_skills": [
+        "Microsoft Excel",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description_snippet": "Conduct field studies to determine traffic volume, speed, effectiveness of signals, adequacy of lighting, and other factors influencing traffic conditions, under direction of traffic engineer...."
     },
     {
-      "original": "basic macros)",
-      "mapped_element": null
+      "soc_code": "17-3021",
+      "title": "Aerospace Engineering and Operations Technologists and Technicians",
+      "match_score": 3.3066,
+      "semantic_score": 0.2793,
+      "blended_score": 0.5445,
+      "matched_skills": [
+        "Microsoft Excel",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description_snippet": "Operate, install, adjust, and maintain integrated computer/communications systems, consoles, simulators, and other data acquisition, test, and measurement instruments and equipment, which are used to launch, track, position, and evaluate air and spac..."
     },
     {
-      "original": "PowerPoint",
-      "mapped_element": null
+      "soc_code": "13-2041",
+      "title": "Credit Analysts",
+      "match_score": 3.2822,
+      "semantic_score": 0.2882,
+      "blended_score": 0.5125,
+      "matched_skills": [
+        "Microsoft Excel",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description_snippet": "Analyze credit data and financial statements of individuals or firms to determine the degree of risk involved in extending credit or lending money. Prepare reports with credit information for use in decisionmaking...."
     },
     {
-      "original": "Word",
-      "mapped_element": null
-    },
-    {
-      "original": "Google Sheets",
-      "mapped_element": null
-    },
-    {
-      "original": "Programming: Python (beginner — pandas",
-      "mapped_element": null
-    },
-    {
-      "original": "matplotlib)",
-      "mapped_element": null
-    },
-    {
-      "original": "SQL (basic SELECT queries)",
-      "mapped_element": null
-    },
-    {
-      "original": "Other: Data entry",
-      "mapped_element": null
-    },
-    {
-      "original": "report preparation",
-      "mapped_element": null
-    },
-    {
-      "original": "communication",
-      "mapped_element": null
-    },
-    {
-      "original": "attention to detail",
-      "mapped_element": null
-    },
-    {
-      "original": "teamwork",
-      "mapped_element": null
-    },
-    {
-      "original": "Systems Analysis",
-      "mapped_element": null
-    },
-    {
-      "original": "Microsoft Excel",
-      "mapped_element": null
-    },
-    {
-      "original": "Administrative",
-      "mapped_element": "Administrative"
-    },
-    {
-      "original": "Programming",
-      "mapped_element": null
-    },
-    {
-      "original": "pandas",
-      "mapped_element": null
-    },
-    {
-      "original": "Python",
-      "mapped_element": null
-    },
-    {
-      "original": "Google",
-      "mapped_element": null
+      "soc_code": "15-2011",
+      "title": "Actuaries",
+      "match_score": 3.2586,
+      "semantic_score": 0.2972,
+      "blended_score": 0.4824,
+      "matched_skills": [
+        "Microsoft Excel",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description_snippet": "Analyze statistical data, such as mortality, accident, sickness, disability, and retirement rates and construct probability tables to forecast risk and liability for payment of future benefits. May ascertain insurance rates required and cash reserves..."
     }
   ],
+  "skills": {
+    "extracted": [
+      "Microsoft Excel",
+      "pivot tables",
+      "VLOOKUP",
+      "basic macros",
+      "PowerPoint",
+      "Word",
+      "Google Sheets",
+      "Python",
+      "beginner — pandas",
+      "matplotlib",
+      "SQL",
+      "basic SELECT queries",
+      "Data entry",
+      "report preparation",
+      "communication",
+      "attention to detail",
+      "teamwork"
+    ],
+    "from_section": [
+      "Microsoft Excel",
+      "pivot tables",
+      "VLOOKUP",
+      "basic macros",
+      "PowerPoint",
+      "Word",
+      "Google Sheets",
+      "Python",
+      "beginner — pandas",
+      "matplotlib",
+      "SQL",
+      "basic SELECT queries",
+      "Data entry",
+      "report preparation",
+      "communication",
+      "attention to detail",
+      "teamwork"
+    ],
+    "from_experience": [],
+    "matched": [
+      {
+        "original": "Microsoft Excel",
+        "matched_tool": "Microsoft Excel",
+        "element_name": "Spreadsheet software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "pivot tables",
+        "matched_tool": "North American Regional Climate Change Assessment Program NARCCAP data tables",
+        "element_name": "Information retrieval or search software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "PowerPoint",
+        "matched_tool": "Microsoft PowerPoint",
+        "element_name": "Presentation software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Word",
+        "matched_tool": "Microsoft Word",
+        "element_name": "Word processing software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Google Sheets",
+        "matched_tool": "Google Sheets",
+        "element_name": "Spreadsheet software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "Python",
+        "matched_tool": "Python",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "beginner — pandas",
+        "matched_tool": "Beginner's all-purpose symbolic instruction code BASIC",
+        "element_name": "Development environment software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "SQL",
+        "matched_tool": "Microsoft SQL Server",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Data entry",
+        "matched_tool": "Data entry software",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "report preparation",
+        "matched_tool": "Income tax return preparation software",
+        "element_name": "Tax preparation software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "communication",
+        "matched_tool": "CCC EZNet electronic communications network",
+        "element_name": "Access software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "attention to detail",
+        "matched_tool": "The Tova Company Test of Variables of Attention",
+        "element_name": "Medical software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "teamwork",
+        "matched_tool": "Digital Crew Teamwork Project Manager",
+        "element_name": "Project management software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      }
+    ],
+    "unmatched": [
+      "VLOOKUP",
+      "basic macros",
+      "matplotlib",
+      "basic SELECT queries"
+    ]
+  },
   "education": [
     "Bachelor of Business Administration — Information Systems",
     "University of North Carolina Charlotte | Graduated December 2023"
   ],
-  "experience_lines": [
+  "experience": [
     "Operations Intern — Logistics Partners Inc., Charlotte, NC",
     "May 2023 – August 2023",
-    "Tracked shipment data and updated records in the company's internal database system",
-    "Created weekly Excel reports summarising delivery performance for operations manager",
-    "Identified and corrected data entry errors, improving record accuracy by 15%",
-    "Assisted with scheduling and coordinating between warehouse and transport teams",
+    "- Tracked shipment data and updated records in the company's internal database system",
+    "- Created weekly Excel reports summarising delivery performance for operations manager",
+    "- Identified and corrected data entry errors, improving record accuracy by 15%",
+    "- Assisted with scheduling and coordinating between warehouse and transport teams",
     "Administrative Intern — Charlotte Community Credit Union",
     "January 2023 – April 2023",
-    "Maintained spreadsheets tracking member account activity and flagged unusual transactions",
-    "Prepared PowerPoint presentations for monthly department meetings",
-    "Responded to member inquiries via phone and email, developing strong communication skills"
+    "- Maintained spreadsheets tracking member account activity and flagged unusual transactions",
+    "- Prepared PowerPoint presentations for monthly department meetings",
+    "- Responded to member inquiries via phone and email, developing strong communication skills"
   ],
-  "years_experience_est": null,
-  "skill_match_ratio": 0.048,
-  "hirability_score": 0.7,
-  "top_candidate": {
-    "soc_code": "17-2199",
-    "title": "Engineers, All Other",
-    "score": 16.0,
-    "match_score": 0.007,
-    "median_wage": null,
-    "growth": null,
-    "education": NaN,
-    "experience": NaN,
-    "top_work_style": "17-2199.09"
+  "skill_gaps": {
+    "coverage_of_top_match": 0.333,
+    "strengths": [
+      "Microsoft Access",
+      "Microsoft Excel",
+      "Microsoft Office software",
+      "Microsoft Outlook",
+      "Microsoft PowerPoint",
+      "Microsoft SQL Server",
+      "Microsoft Visual Basic",
+      "Microsoft Word",
+      "Python",
+      "REDCap Research Electronic Data Capture",
+      "Structured query language SQL"
+    ],
+    "gaps": [
+      {
+        "skill": "R",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "IBM SPSS Statistics",
+        "element_category": "Analytical or scientific software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Tableau",
+        "element_category": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Adobe InDesign",
+        "element_category": "Desktop publishing software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Extensible markup language XML",
+        "element_category": "Enterprise application integration software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "ESRI ArcGIS software",
+        "element_category": "Geographic information system",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Adobe Illustrator",
+        "element_category": "Graphics or photo imaging software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "JavaScript",
+        "element_category": "Web platform development software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Appletree",
+        "element_category": "Computer based training software",
+        "is_hot": false,
+        "in_demand": false,
+        "demand_score": 0.0
+      },
+      {
+        "skill": "Database software",
+        "element_category": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": false,
+        "demand_score": 0.0
+      }
+    ],
+    "abstract_skills_required": [
+      {
+        "skill": "Reading Comprehension",
+        "importance": 4.0
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.75
+      },
+      {
+        "skill": "Critical Thinking",
+        "importance": 3.75
+      },
+      {
+        "skill": "Writing",
+        "importance": 3.75
+      },
+      {
+        "skill": "Speaking",
+        "importance": 3.38
+      },
+      {
+        "skill": "Science",
+        "importance": 3.25
+      }
+    ]
   },
-  "candidate_matches": [
+  "recommendations": [
     {
-      "soc_code": "17-2199",
-      "title": "Engineers, All Other",
-      "score": 16.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "17-2199.09"
+      "skill": "R",
+      "element_category": "Object or component oriented development software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.793,
+      "complementarity": 0.345,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.379,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "13-1041",
-      "title": "Compliance Officers",
-      "score": 14.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "13-1041.06"
+      "skill": "Tableau",
+      "element_category": "Business intelligence and data analysis software",
+      "is_hot": true,
+      "in_demand": false,
+      "feasibility": 0.9,
+      "complementarity": 0.399,
+      "effort_label": "weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 1.8,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: weeks."
     },
     {
-      "soc_code": "11-3051",
-      "title": "Industrial Production Managers",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-3051.01"
+      "skill": "Adobe Illustrator",
+      "element_category": "Graphics or photo imaging software",
+      "is_hot": true,
+      "in_demand": false,
+      "feasibility": 0.808,
+      "complementarity": 0.465,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 1.616,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "11-9199",
-      "title": "Managers, All Other",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-9199.08"
+      "skill": "ESRI ArcGIS software",
+      "element_category": "Geographic information system",
+      "is_hot": true,
+      "in_demand": false,
+      "feasibility": 0.798,
+      "complementarity": 0.383,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 1.596,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "15-1299",
-      "title": "Computer Occupations, All Other",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "15-1299.04"
+      "skill": "Extensible markup language XML",
+      "element_category": "Enterprise application integration software",
+      "is_hot": true,
+      "in_demand": false,
+      "feasibility": 0.772,
+      "complementarity": 0.178,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 1.544,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
     }
-  ]
+  ],
+  "ai_displacement_exposure": {
+    "score": 0.0,
+    "level": "Low",
+    "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
+  }
 }

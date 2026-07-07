@@ -1,0 +1,98 @@
+════════════════════════════════════════════════════════════
+                  CAREER INTELLIGENCE REPORT                
+                       karan_resume.pdf                     
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+  SCORES
+────────────────────────────────────────────────────────────
+  Hirability                86.5 / 100  █████████████████░░░
+  Competitiveness           85.8 / 100  █████████████████░░░  Strong
+  AI Displacement Risk     🟡  Medium
+
+  Your skill set aligns well with market demand and includes high-value technologies.
+
+────────────────────────────────────────────────────────────
+  YOUR PROFILE
+────────────────────────────────────────────────────────────
+  Education    Bachelor's
+  Experience   4 years
+  Skills       31 total  (28 from resume, 3 found in experience text)
+
+────────────────────────────────────────────────────────────
+  TOP JOB MATCH: WEB DEVELOPERS
+────────────────────────────────────────────────────────────
+  Develop and implement websites, web applications,
+  application databases, and interactive web interfaces.
+  Evaluate code to ensure that it is properly structured,
+
+  Other strong fits:
+    · Software Developers                 match: 0.67
+    · Career/Technical Education Teachers, Middle School match: 0.51
+    · Computer and Information Research Scientists match: 0.51
+    · Web and Digital Interface Designers match: 0.49
+
+────────────────────────────────────────────────────────────
+  STRENGTHS
+────────────────────────────────────────────────────────────
+  Skills you have that align with your top match:
+  Adobe Creative Cloud software  ·  Amazon DynamoDB  ·  Amazon Elastic Compute Cloud EC2  ·  Amazon Kinesis  ·  Amazon Redshift  ·  Amazon Simple Storage Service S3  ·  Amazon Web Services AWS CloudFormation  ·  Amazon Web Services AWS software  ·  Django  ·  Docker  ·  Git  ·  GitHub
+
+  Skills not yet in the dataset (still valuable):
+  Golang  ·  FastAPI  ·  Pulumi  ·  CI/CD
+
+────────────────────────────────────────────────────────────
+  SKILL GAPS  (vs. Web Developers)
+────────────────────────────────────────────────────────────
+  Prioritised skills to consider adding:
+
+  1. ★ WordPress                      days
+     Hot technology in the current market, complements your current skill set. Estimated learning time: days.
+  2. ★ Atlassian JIRA                 days
+     Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days.
+  3. ★ Structured query language SQL  2–4 weeks
+     Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks.
+  4. ★ Cascading style sheets CSS     2–4 weeks
+     Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 2–4 weeks.
+  5. ★ Linux                          4–6 weeks
+     Hot technology in the current market, complements your current skill set. Estimated learning time: 4–6 weeks.
+
+────────────────────────────────────────────────────────────
+  EMERGING AI / ML SKILLS
+────────────────────────────────────────────────────────────
+  High-demand skills for tech roles not yet in ONET:
+
+  1. ★ OpenAI API                     2–4 weeks
+     Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks.
+  2. ★ Anthropic Claude API           2–4 weeks
+     Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks.
+  3. ★ Pinecone                       2–4 weeks
+     Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks.
+
+────────────────────────────────────────────────────────────
+  AI ADVISOR SUGGESTIONS  (beyond standard datasets)
+────────────────────────────────────────────────────────────
+  Skills gaining rapid adoption — sourced from Groq / Llama 3.3:
+
+  1. ★ Qwik                           1-3 months
+     Rapidly gaining adoption for its speed and performance in building web applications
+  2. ★ Bun.js                         1-2 weeks
+     Fast and modern JavaScript runtime for building high-performance web applications
+  3. ★ Nuxt 3                         2-6 weeks
+     Latest version of the popular Nuxt framework for building server-rendered and statically generated web applications
+  4. ★ Turbo                          3-6 months
+     New framework from the creator of React, for building high-performance and scalable web applications
+
+────────────────────────────────────────────────────────────
+  AI DISPLACEMENT EXPOSURE
+────────────────────────────────────────────────────────────
+  Risk Level   🟡  MEDIUM  (score: 0.50)
+
+  This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work.
+
+  Human skills that protect this role:
+  Critical Thinking  ·  Reading Comprehension  ·  Active Learning  ·  Active Listening  ·  Speaking
+
+════════════════════════════════════════════════════════════
+                        parser: regex                       
+════════════════════════════════════════════════════════════

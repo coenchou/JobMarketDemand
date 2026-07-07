@@ -1,237 +1,513 @@
 {
   "resume": "resume_1_data_analyst.txt",
-  "skills": [
-    "Programming: Python (pandas",
-    "NumPy",
-    "scikit-learn",
-    "matplotlib)",
-    "SQL",
-    "R (basic)",
-    "Visualization: Tableau",
-    "Power BI",
-    "Excel",
-    "Databases: PostgreSQL",
-    "MySQL",
-    "Google BigQuery",
-    "Other: A/B testing",
-    "statistical analysis",
-    "regression modeling",
-    "data cleaning",
-    "Git",
-    "Visualization",
-    "Scikit-learn",
-    "Programming",
-    "PostgreSQL",
-    "LinkedIn",
-    "BigQuery",
-    "Science",
-    "Tableau",
-    "pandas",
-    "Python",
-    "Google"
-  ],
-  "mapped_skills": [
+  "summary": {
+    "hirability_score": 80.5,
+    "years_experience": 3,
+    "education_level": "Bachelor's",
+    "top_match_title": "Data Scientists",
+    "top_match_soc": "15-2051",
+    "skills_extracted": 17,
+    "skills_from_section": 17,
+    "skills_from_experience": 0,
+    "skills_matched_to_onet": 15
+  },
+  "competitiveness": {
+    "score": 72.5,
+    "level": "Strong",
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+  },
+  "top_job_matches": [
     {
-      "original": "Programming: Python (pandas",
-      "mapped_element": null
+      "soc_code": "15-2051",
+      "title": "Data Scientists",
+      "match_score": 4.0179,
+      "semantic_score": 0.515,
+      "blended_score": 0.8451,
+      "matched_skills": [
+        "Excel",
+        "Git",
+        "Google BigQuery",
+        "MySQL",
+        "NumPy",
+        "PostgreSQL",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau",
+        "pandas",
+        "scikit-learn"
+      ],
+      "description_snippet": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing,..."
     },
     {
-      "original": "NumPy",
-      "mapped_element": null
+      "soc_code": "15-1221",
+      "title": "Computer and Information Research Scientists",
+      "match_score": 4.3309,
+      "semantic_score": 0.2811,
+      "blended_score": 0.7459,
+      "matched_skills": [
+        "A/B testing",
+        "Excel",
+        "Git",
+        "MySQL",
+        "PostgreSQL",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau",
+        "pandas",
+        "scikit-learn"
+      ],
+      "description_snippet": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software...."
     },
     {
-      "original": "scikit-learn",
-      "mapped_element": null
+      "soc_code": "19-3011",
+      "title": "Economists",
+      "match_score": 3.8255,
+      "semantic_score": 0.2831,
+      "blended_score": 0.498,
+      "matched_skills": [
+        "Excel",
+        "MySQL",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau",
+        "regression modeling"
+      ],
+      "description_snippet": "Conduct research, prepare reports, or formulate plans to address economic problems related to the production and distribution of goods and services or monetary and fiscal policy. May collect and process economic and statistical data using sampling te..."
     },
     {
-      "original": "matplotlib)",
-      "mapped_element": null
+      "soc_code": "15-2011",
+      "title": "Actuaries",
+      "match_score": 3.5844,
+      "semantic_score": 0.3078,
+      "blended_score": 0.4055,
+      "matched_skills": [
+        "A/B testing",
+        "Excel",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau"
+      ],
+      "description_snippet": "Analyze statistical data, such as mortality, accident, sickness, disability, and retirement rates and construct probability tables to forecast risk and liability for payment of future benefits. May ascertain insurance rates required and cash reserves..."
     },
     {
-      "original": "SQL",
-      "mapped_element": null
-    },
-    {
-      "original": "R (basic)",
-      "mapped_element": null
-    },
-    {
-      "original": "Visualization: Tableau",
-      "mapped_element": null
-    },
-    {
-      "original": "Power BI",
-      "mapped_element": null
-    },
-    {
-      "original": "Excel",
-      "mapped_element": null
-    },
-    {
-      "original": "Databases: PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "MySQL",
-      "mapped_element": null
-    },
-    {
-      "original": "Google BigQuery",
-      "mapped_element": null
-    },
-    {
-      "original": "Other: A/B testing",
-      "mapped_element": null
-    },
-    {
-      "original": "statistical analysis",
-      "mapped_element": null
-    },
-    {
-      "original": "regression modeling",
-      "mapped_element": null
-    },
-    {
-      "original": "data cleaning",
-      "mapped_element": null
-    },
-    {
-      "original": "Git",
-      "mapped_element": null
-    },
-    {
-      "original": "Visualization",
-      "mapped_element": null
-    },
-    {
-      "original": "Scikit-learn",
-      "mapped_element": null
-    },
-    {
-      "original": "Programming",
-      "mapped_element": null
-    },
-    {
-      "original": "PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "LinkedIn",
-      "mapped_element": null
-    },
-    {
-      "original": "BigQuery",
-      "mapped_element": null
-    },
-    {
-      "original": "Science",
-      "mapped_element": "Science"
-    },
-    {
-      "original": "Tableau",
-      "mapped_element": null
-    },
-    {
-      "original": "pandas",
-      "mapped_element": null
-    },
-    {
-      "original": "Python",
-      "mapped_element": null
-    },
-    {
-      "original": "Google",
-      "mapped_element": null
+      "soc_code": "13-1111",
+      "title": "Management Analysts",
+      "match_score": 3.1899,
+      "semantic_score": 0.4,
+      "blended_score": 0.3105,
+      "matched_skills": [
+        "Excel",
+        "Git",
+        "MySQL",
+        "PostgreSQL",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau"
+      ],
+      "description_snippet": "Conduct organizational studies and evaluations, design systems and procedures, conduct work simplification and measurement studies, and prepare operations and procedures manuals to assist management in operating more efficiently and effectively. Incl..."
     }
   ],
+  "skills": {
+    "extracted": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "matplotlib",
+      "SQL",
+      "Tableau",
+      "Power BI",
+      "Excel",
+      "PostgreSQL",
+      "MySQL",
+      "Google BigQuery",
+      "A/B testing",
+      "statistical analysis",
+      "regression modeling",
+      "data cleaning",
+      "Git"
+    ],
+    "from_section": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "matplotlib",
+      "SQL",
+      "Tableau",
+      "Power BI",
+      "Excel",
+      "PostgreSQL",
+      "MySQL",
+      "Google BigQuery",
+      "A/B testing",
+      "statistical analysis",
+      "regression modeling",
+      "data cleaning",
+      "Git"
+    ],
+    "from_experience": [],
+    "matched": [
+      {
+        "original": "Python",
+        "matched_tool": "Python",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "pandas",
+        "matched_tool": "pandas",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "NumPy",
+        "matched_tool": "NumPy",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "scikit-learn",
+        "matched_tool": "Scikit-learn",
+        "element_name": "Development environment software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "SQL",
+        "matched_tool": "Microsoft SQL Server",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Tableau",
+        "matched_tool": "Tableau",
+        "element_name": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Power BI",
+        "matched_tool": "Microsoft Power BI",
+        "element_name": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Excel",
+        "matched_tool": "Microsoft Excel",
+        "element_name": "Spreadsheet software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "PostgreSQL",
+        "matched_tool": "PostgreSQL",
+        "element_name": "Object oriented data base management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "MySQL",
+        "matched_tool": "MySQL",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Google BigQuery",
+        "matched_tool": "BigQuery",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "A/B testing",
+        "matched_tool": "Accelerated life testing software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "statistical analysis",
+        "matched_tool": "Statistical analysis software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "regression modeling",
+        "matched_tool": "Estima Regression Analysis of Time Series RATS",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "Git",
+        "matched_tool": "Git",
+        "element_name": "File versioning software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      }
+    ],
+    "unmatched": [
+      "matplotlib",
+      "data cleaning"
+    ]
+  },
   "education": [
     "Bachelor of Science in Statistics",
     "University of California, Davis | Graduated May 2019"
   ],
-  "experience_lines": [
+  "experience": [
     "Data Analyst — TechRetail Inc., San Francisco, CA",
     "June 2021 – Present",
-    "Analyzed customer purchase behavior across 2M+ records using SQL and Python, identifying trends that informed a 12% increase in upsell revenue",
-    "Built automated reporting dashboards in Tableau connected to live PostgreSQL databases",
-    "Conducted A/B testing on marketing campaigns, applying statistical significance testing to evaluate results",
-    "Collaborated with product and marketing teams to define KPIs and track weekly performance metrics",
-    "Cleaned and processed messy datasets using pandas and NumPy, reducing data errors by 40%",
+    "- Analyzed customer purchase behavior across 2M+ records using SQL and Python, identifying trends that informed a 12% increase in upsell revenue",
+    "- Built automated reporting dashboards in Tableau connected to live PostgreSQL databases",
+    "- Conducted A/B testing on marketing campaigns, applying statistical significance testing to evaluate results",
+    "- Collaborated with product and marketing teams to define KPIs and track weekly performance metrics",
+    "- Cleaned and processed messy datasets using pandas and NumPy, reducing data errors by 40%",
     "Junior Data Analyst — Bright Analytics, Oakland, CA",
     "August 2019 – May 2021",
-    "Wrote complex SQL queries to extract and aggregate sales data from multiple relational databases",
-    "Created Excel-based reports and pivot tables for weekly executive summaries",
-    "Assisted senior analysts in building regression models to forecast quarterly revenue",
-    "Maintained data pipelines and flagged data quality issues to the engineering team"
+    "- Wrote complex SQL queries to extract and aggregate sales data from multiple relational databases",
+    "- Created Excel-based reports and pivot tables for weekly executive summaries",
+    "- Assisted senior analysts in building regression models to forecast quarterly revenue",
+    "- Maintained data pipelines and flagged data quality issues to the engineering team"
   ],
-  "years_experience_est": 3,
-  "skill_match_ratio": 0.036,
-  "hirability_score": 0.7,
-  "top_candidate": {
-    "soc_code": "17-2199",
-    "title": "Engineers, All Other",
-    "score": 16.0,
-    "match_score": 0.007,
-    "median_wage": null,
-    "growth": null,
-    "education": NaN,
-    "experience": NaN,
-    "top_work_style": "17-2199.09"
+  "skill_gaps": {
+    "coverage_of_top_match": 0.158,
+    "strengths": [
+      "BigQuery",
+      "Business Objects Data Integrator",
+      "Data modeling software",
+      "Data warehouse software",
+      "Electronic data capture EDC software",
+      "Git",
+      "Google Ads",
+      "Google Analytics",
+      "Google Cloud software",
+      "Google Docs",
+      "Google Looker Analytics",
+      "Google Sites",
+      "Google Slides",
+      "IBM Power Systems software",
+      "Informatica Data Explorer",
+      "Invivo Data EPX ePRO Management System",
+      "MapReduce big data software",
+      "Medidata Rave Data Management",
+      "Microsoft Excel",
+      "Microsoft Power Automate",
+      "Microsoft Power BI",
+      "Microsoft Power Platform software",
+      "Microsoft SQL Server",
+      "Microsoft SQL Server Integration Services SSIS",
+      "Microsoft SQL Server Reporting Services SSRS",
+      "MySQL",
+      "NumPy",
+      "Oracle PL/SQL",
+      "Oracle Remote Data Capture",
+      "Oracle SQL Developer",
+      "Oracle SQL Loader",
+      "PostgreSQL",
+      "Python",
+      "Quest Erwin Data Modeler",
+      "SAP BusinessObjects Data Integrator",
+      "Scikit-learn",
+      "Statistical software",
+      "Structured query language SQL",
+      "Tableau",
+      "Transact-SQL",
+      "Unified modeling language UML",
+      "pandas"
+    ],
+    "gaps": [
+      {
+        "skill": "SAS",
+        "element_category": "Analytical or scientific software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Apache Spark",
+        "element_category": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Salesforce software",
+        "element_category": "Customer relationship management CRM software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Apache Hadoop",
+        "element_category": "Data base management system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Amazon Web Services AWS software",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Snowflake",
+        "element_category": "Data mining software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft Azure software",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "SAP software",
+        "element_category": "Enterprise resource planning ERP software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "R",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft PowerPoint",
+        "element_category": "Presentation software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      }
+    ],
+    "abstract_skills_required": [
+      {
+        "skill": "Critical Thinking",
+        "importance": 3.94
+      },
+      {
+        "skill": "Reading Comprehension",
+        "importance": 3.94
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.88
+      },
+      {
+        "skill": "Speaking",
+        "importance": 3.88
+      },
+      {
+        "skill": "Active Learning",
+        "importance": 3.75
+      },
+      {
+        "skill": "Writing",
+        "importance": 3.75
+      }
+    ]
   },
-  "candidate_matches": [
+  "recommendations": [
     {
-      "soc_code": "17-2199",
-      "title": "Engineers, All Other",
-      "score": 16.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "17-2199.09"
+      "skill": "Microsoft PowerPoint",
+      "element_category": "Presentation software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.967,
+      "complementarity": 0.401,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.901,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
     },
     {
-      "soc_code": "13-1041",
-      "title": "Compliance Officers",
-      "score": 14.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "13-1041.06"
+      "skill": "Salesforce software",
+      "element_category": "Customer relationship management CRM software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.809,
+      "complementarity": 0.469,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.427,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "11-3051",
-      "title": "Industrial Production Managers",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-3051.01"
+      "skill": "SAP software",
+      "element_category": "Enterprise resource planning ERP software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.795,
+      "complementarity": 0.358,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.385,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "11-9199",
-      "title": "Managers, All Other",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-9199.08"
+      "skill": "Microsoft Azure software",
+      "element_category": "Development environment software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.789,
+      "complementarity": 0.308,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.367,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
     },
     {
-      "soc_code": "15-1299",
-      "title": "Computer Occupations, All Other",
-      "score": 12.0,
-      "match_score": 0.007,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "15-1299.04"
+      "skill": "R",
+      "element_category": "Object or component oriented development software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.787,
+      "complementarity": 0.298,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.361,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
     }
-  ]
+  ],
+  "ai_displacement_exposure": {
+    "score": 0.6,
+    "level": "High",
+    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+  }
 }

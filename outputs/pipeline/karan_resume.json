@@ -1,0 +1,773 @@
+{
+  "resume": "karan_resume.pdf",
+  "summary": {
+    "hirability_score": 86.5,
+    "years_experience": 4,
+    "education_level": "Bachelor's",
+    "top_match_title": "Web Developers",
+    "top_match_soc": "15-1254",
+    "skills_extracted": 30,
+    "skills_from_section": 27,
+    "skills_from_experience": 3,
+    "skills_matched_to_onet": 27
+  },
+  "competitiveness": {
+    "score": 85.8,
+    "level": "Strong",
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+  },
+  "top_job_matches": [
+    {
+      "soc_code": "15-1254",
+      "title": "Web Developers",
+      "match_score": 7.9094,
+      "semantic_score": 0.3172,
+      "blended_score": 1.0,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Django",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "GraphQL",
+        "Java",
+        "JavaScript",
+        "Jenkins",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "RESTful API",
+        "React",
+        "React.js",
+        "Redis",
+        "Spring Boot",
+        "TypeScript"
+      ],
+      "description_snippet": "Develop and implement websites, web applications, application databases, and interactive web interfaces. Evaluate code to ensure that it is properly structured, meets industry standards, and is compatible with browsers and devices. Optimize website p..."
+    },
+    {
+      "soc_code": "15-1252",
+      "title": "Software Developers",
+      "match_score": 7.2164,
+      "semantic_score": 0.2015,
+      "blended_score": 0.642,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Django",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "GraphQL",
+        "Java",
+        "JavaScript",
+        "Jenkins",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "RESTful API",
+        "React",
+        "React Native",
+        "React.js",
+        "Redis",
+        "Spring Boot",
+        "Terraform",
+        "TypeScript"
+      ],
+      "description_snippet": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update sof..."
+    },
+    {
+      "soc_code": "25-2023",
+      "title": "Career/Technical Education Teachers, Middle School",
+      "match_score": 7.6768,
+      "semantic_score": 0.0734,
+      "blended_score": 0.5436,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "Java",
+        "JavaScript",
+        "Jenkins",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "React",
+        "React.js",
+        "Spring Boot"
+      ],
+      "description_snippet": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level...."
+    },
+    {
+      "soc_code": "15-1221",
+      "title": "Computer and Information Research Scientists",
+      "match_score": 6.9294,
+      "semantic_score": 0.1635,
+      "blended_score": 0.5101,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Django",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "Java",
+        "JavaScript",
+        "Jenkins",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "Redis",
+        "Terraform"
+      ],
+      "description_snippet": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software...."
+    },
+    {
+      "soc_code": "15-1255",
+      "title": "Web and Digital Interface Designers",
+      "match_score": 6.0417,
+      "semantic_score": 0.2836,
+      "blended_score": 0.4917,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Django",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "Java",
+        "JavaScript",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "React",
+        "React.js",
+        "Spring Boot",
+        "TypeScript"
+      ],
+      "description_snippet": "Design digital user interfaces or websites. Develop and test layouts, interfaces, functionality, and navigation menus to ensure compatibility and usability across browsers or devices. May use web framework applications as well as client-side code and..."
+    }
+  ],
+  "skills": {
+    "extracted": [
+      "Golang",
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "Java",
+      "PostgreSQL",
+      "Redis",
+      "GraphQL",
+      "Express.js",
+      "Django",
+      "Flask",
+      "FastAPI",
+      "Spring Boot",
+      "React.js",
+      "Next.js",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Pulumi",
+      "Jenkins",
+      "Amazon Web Services (AWS)",
+      "Google Cloud Platform (GCP)",
+      "Node.js",
+      "React Native",
+      "Google Cloud CDN",
+      "Git",
+      "GitHub",
+      "React",
+      "Google",
+      "RESTful API"
+    ],
+    "from_section": [
+      "Golang",
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "Java",
+      "PostgreSQL",
+      "Redis",
+      "GraphQL",
+      "Express.js",
+      "Django",
+      "Flask",
+      "FastAPI",
+      "Spring Boot",
+      "React.js",
+      "Next.js",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Pulumi",
+      "Jenkins",
+      "Amazon Web Services (AWS)",
+      "Google Cloud Platform (GCP)",
+      "Node.js",
+      "React Native",
+      "Google Cloud CDN",
+      "Git",
+      "GitHub"
+    ],
+    "from_experience": [
+      "React",
+      "Google",
+      "RESTful API"
+    ],
+    "matched": [
+      {
+        "original": "Python",
+        "matched_tool": "Python",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "TypeScript",
+        "matched_tool": "TypeScript",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "JavaScript",
+        "matched_tool": "JavaScript",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Java",
+        "matched_tool": "JavaScript",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "PostgreSQL",
+        "matched_tool": "PostgreSQL",
+        "element_name": "Object oriented data base management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Redis",
+        "matched_tool": "Redis",
+        "element_name": "Data base management system software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "GraphQL",
+        "matched_tool": "GraphQL",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Express.js",
+        "matched_tool": "PCI Express PCIe",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Django",
+        "matched_tool": "Django",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "Flask",
+        "matched_tool": "Flask",
+        "element_name": "Development environment software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "Spring Boot",
+        "matched_tool": "Spring Boot",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "React.js",
+        "matched_tool": "React",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Next.js",
+        "matched_tool": "Check Point Next Generation Secure Web Gateway",
+        "element_name": "Transaction security and virus protection software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "Docker",
+        "matched_tool": "Docker",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Kubernetes",
+        "matched_tool": "Kubernetes",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Terraform",
+        "matched_tool": "IBM Terraform",
+        "element_name": "Configuration management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Jenkins",
+        "matched_tool": "Jenkins CI",
+        "element_name": "Enterprise application integration software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Amazon Web Services (AWS)",
+        "matched_tool": "Amazon Web Services AWS CloudFormation",
+        "element_name": "Cloud-based management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Google Cloud Platform (GCP)",
+        "matched_tool": "Google Analytics",
+        "element_name": "Data mining software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Node.js",
+        "matched_tool": "Node.js",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "React Native",
+        "matched_tool": "React Native",
+        "element_name": "Web platform development software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "Google Cloud CDN",
+        "matched_tool": "Google Analytics",
+        "element_name": "Data mining software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "Git",
+        "matched_tool": "Git",
+        "element_name": "File versioning software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "GitHub",
+        "matched_tool": "GitHub",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "React",
+        "matched_tool": "React",
+        "element_name": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      },
+      {
+        "original": "Google",
+        "matched_tool": "Google",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      },
+      {
+        "original": "RESTful API",
+        "matched_tool": "RESTful API",
+        "element_name": "Web platform development software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "experience_ner",
+        "source": "experience"
+      }
+    ],
+    "unmatched": [
+      "Golang",
+      "FastAPI",
+      "Pulumi"
+    ]
+  },
+  "education": [
+    "Bachelors of Technology, Computer Science and Engineering 2017 - 2021",
+    "SRM Institute of Science and Technology Delhi NCR, India"
+  ],
+  "experience": [
+    "Software Engineer 02/05/2024 - Present",
+    "Apple Inc. Cupertino, CA",
+    "Senior Software Engineer 05/03/2023 - 01/26/2024",
+    "The Guardian Life Insurance Company of America Holmdel, NJ",
+    "•Developed features for Guardian Anytime web app leveraging React.js and Node.js serving over 4M users .",
+    "•Migrated legacy Java SOAP APIs to RESTful APIs using Spring Boot ensuring robust code quality.",
+    "•Improved reliability and maintainability of React.js application by increasing test coverage by 12% .",
+    "Senior Engineer 12/07/2020 - 05/13/2023",
+    "Curebase San Francisco, CA",
+    "•Designed scalable REST and GraphQL APIs using TypeScript, Node.js, Redis, and PostgreSQL .",
+    "•Led initiative for codebase migration to TypeScript, reducing cost and API latency by 50% .",
+    "•Built fault-tolerant, horizontally scalable multi-tenancy for core SaaS product leveraging AWS (ALB, ECS, S3, RDS, SQS, DynamoDB) with a focus on security, GDPR, and HIPAA compliance .",
+    "•Utilized Golang, Python, and Terraform to develop business-critical internal tools and simplify SDLC.",
+    "Software Developer 05/26/2020 - 01/31/2021",
+    "Quotient Inc. Maryland, USA (Remote)",
+    "•Created a digital asset management platform using React, TypeScript, Node.js, and GraphQL .",
+    "•Implemented terabyte-scale data ingestion and streaming with Node.js for over 150 million artifacts .",
+    "•Designed end-to-end GraphQL data layer and client-side enterprise search solution with React.",
+    "•Optimized production CI/CD pipeline using Docker multi-stage builds, reducing container size by 80% .",
+    "Software Developer 08/17/2019 - 06/07/2020",
+    "Stewards London, UK (Remote)",
+    "•Implemented event-driven food delivery mobile application with React Native.",
+    "•Consolidated internal sales and custom B2B integrations with React and Node.js.",
+    "•Edge-optimized GraphQL API utilizing Google Cloud CDN, increasing customer retention by 60% ."
+  ],
+  "skill_gaps": {
+    "coverage_of_top_match": 0.181,
+    "strengths": [
+      "Adobe Creative Cloud software",
+      "Amazon DynamoDB",
+      "Amazon Elastic Compute Cloud EC2",
+      "Amazon Kinesis",
+      "Amazon Redshift",
+      "Amazon Simple Storage Service S3",
+      "Amazon Web Services AWS CloudFormation",
+      "Amazon Web Services AWS software",
+      "Django",
+      "Docker",
+      "Git",
+      "GitHub",
+      "Google Ads",
+      "Google Analytics",
+      "Google Android",
+      "Google Angular",
+      "Google Cloud software",
+      "Google Docs",
+      "Google Drive",
+      "Google Meet",
+      "Google Sites",
+      "Google Slides",
+      "GraphQL",
+      "JavaScript",
+      "JavaScript Object Notation JSON",
+      "JavaScript framework software",
+      "Jenkins CI",
+      "Kubernetes",
+      "Microsoft Internet Information Services (IIS)",
+      "Microsoft SQL Server Integration Services SSIS",
+      "Microsoft SQL Server Reporting Services SSRS",
+      "Node.js",
+      "Oracle Java",
+      "Oracle Java 2 Platform Enterprise Edition J2EE",
+      "PostgreSQL",
+      "Python",
+      "RESTful API",
+      "React",
+      "React Redux",
+      "Redis",
+      "Spring Boot",
+      "Spring Framework",
+      "TypeScript",
+      "Web application software",
+      "Web content management system CMS software"
+    ],
+    "gaps": [
+      {
+        "skill": "Atlassian JIRA",
+        "element_category": "Content workflow software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "MongoDB",
+        "element_category": "Data base management system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Structured query language SQL",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Apache Kafka",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "jQuery",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Linux",
+        "element_category": "Operating system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "WordPress",
+        "element_category": "Web page creation and editing software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Cascading style sheets CSS",
+        "element_category": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "IBM SPSS Statistics",
+        "element_category": "Analytical or scientific software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      },
+      {
+        "skill": "Atlassian Bitbucket",
+        "element_category": "Application server software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0
+      }
+    ],
+    "abstract_skills_required": [
+      {
+        "skill": "Critical Thinking",
+        "importance": 3.75
+      },
+      {
+        "skill": "Reading Comprehension",
+        "importance": 3.62
+      },
+      {
+        "skill": "Active Learning",
+        "importance": 3.5
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.5
+      },
+      {
+        "skill": "Speaking",
+        "importance": 3.25
+      },
+      {
+        "skill": "Writing",
+        "importance": 3.12
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "skill": "WordPress",
+      "element_category": "Web page creation and editing software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.981,
+      "complementarity": 0.461,
+      "effort_label": "days",
+      "difficulty_months": 0.3,
+      "priority_score": 2.943,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
+    },
+    {
+      "skill": "Atlassian JIRA",
+      "element_category": "Content workflow software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.965,
+      "complementarity": 0.324,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.895,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days."
+    },
+    {
+      "skill": "Structured query language SQL",
+      "element_category": "Data base user interface and query software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.904,
+      "complementarity": 0.466,
+      "effort_label": "2–4 weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 2.712,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
+    },
+    {
+      "skill": "Cascading style sheets CSS",
+      "element_category": "Web platform development software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.886,
+      "complementarity": 0.18,
+      "effort_label": "2–4 weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 2.658,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 2–4 weeks."
+    },
+    {
+      "skill": "Linux",
+      "element_category": "Operating system software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.868,
+      "complementarity": 0.421,
+      "effort_label": "4–6 weeks",
+      "difficulty_months": 2.0,
+      "priority_score": 2.604,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 4–6 weeks."
+    }
+  ],
+  "emerging_ai_recommendations": [
+    {
+      "skill": "OpenAI API",
+      "category": "Emerging AI/ML",
+      "tags": [
+        "LLM",
+        "AI"
+      ],
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.903,
+      "complementarity": 0.452,
+      "effort_label": "2–4 weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 1.3112,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
+    },
+    {
+      "skill": "Anthropic Claude API",
+      "category": "Emerging AI/ML",
+      "tags": [
+        "LLM",
+        "AI"
+      ],
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.902,
+      "complementarity": 0.434,
+      "effort_label": "2–4 weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 1.2935,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
+    },
+    {
+      "skill": "Pinecone",
+      "category": "Emerging AI/ML",
+      "tags": [
+        "vector-db",
+        "AI"
+      ],
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.902,
+      "complementarity": 0.426,
+      "effort_label": "2–4 weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 1.2863,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
+    }
+  ],
+  "llm_skill_suggestions": [
+    {
+      "skill": "Qwik",
+      "reason": "Rapidly gaining adoption for building high-performance web applications",
+      "time_to_learn": "1-2 months"
+    },
+    {
+      "skill": "Bun.js",
+      "reason": "Fast and modern JavaScript runtime for building server-side applications",
+      "time_to_learn": "1-3 weeks"
+    },
+    {
+      "skill": "Nuxt 3",
+      "reason": "Latest version of the popular Vue.js framework for building server-rendered and static web applications",
+      "time_to_learn": "2-3 months"
+    },
+    {
+      "skill": "Deno",
+      "reason": "Secure and modern JavaScript runtime for building server-side applications, gaining traction as an alternative to Node.js",
+      "time_to_learn": "1-2 months"
+    }
+  ],
+  "ai_displacement_exposure": {
+    "score": 0.497,
+    "level": "Medium",
+    "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+  }
+}

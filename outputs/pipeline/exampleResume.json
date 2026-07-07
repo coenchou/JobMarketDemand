@@ -1,0 +1,116 @@
+{
+  "resume": "exampleResume.txt",
+  "summary": {
+    "hirability_score": 36.5,
+    "years_experience": 5,
+    "education_level": "Bachelor's",
+    "top_match_title": null,
+    "top_match_soc": null,
+    "skills_extracted": 7,
+    "skills_from_section": 7,
+    "skills_from_experience": 0,
+    "skills_matched_to_onet": 4
+  },
+  "competitiveness": {
+    "score": 30.0,
+    "level": "Developing",
+    "explanation": "Core skills are present; targeted gap-filling will be essential to compete."
+  },
+  "top_job_matches": [],
+  "skills": {
+    "extracted": [
+      "English",
+      "B2B Sales",
+      "Microsoft Powerpoint",
+      "Customer Service",
+      "Spanish",
+      "Negotiation",
+      "Communication Skills"
+    ],
+    "from_section": [
+      "English",
+      "B2B Sales",
+      "Microsoft Powerpoint",
+      "Customer Service",
+      "Spanish",
+      "Negotiation",
+      "Communication Skills"
+    ],
+    "from_experience": [],
+    "matched": [
+      {
+        "original": "B2B Sales",
+        "matched_tool": "Acarda Sales Technologies Acarda Outbound",
+        "element_name": "Helpdesk or call center software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "Microsoft Powerpoint",
+        "matched_tool": "Microsoft PowerPoint",
+        "element_name": "Presentation software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Customer Service",
+        "matched_tool": "Customer service and support software",
+        "element_name": "Customer relationship management CRM software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "Communication Skills",
+        "matched_tool": "Cisco Systems Cisco Web Cache Communication Protocol WCCP",
+        "element_name": "Switch or router software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      }
+    ],
+    "unmatched": [
+      "English",
+      "Spanish",
+      "Negotiation"
+    ]
+  },
+  "education": [
+    "Bachelor's Degree in Business",
+    "Dalton University • Las Vegas, Nevada"
+  ],
+  "experience": [
+    "Sales Representative",
+    "Spike’s Textiles Inc • Las Vegas, Nevada",
+    "March 2019 - Present",
+    "Increased sales by an average of 27% per year through referrals and the introduction of new customers",
+    "Increased customer retention by 20% through customer testimonials, social media sharing and word of mouth",
+    "Increased direct sales volume by 10% per year through mobile marketing and sales support",
+    "Decreased sales cycle times by up to 50% through pre-sales, prospecting and client onboarding",
+    "Assistant Manager",
+    "Harland International • Las Vegas, Nevada",
+    "January 2018",
+    "Managed a team of 20 retail associates, providing high-touch service to customers and maximizing sales through upsells",
+    "Increased sales by $100k through direct referrals",
+    "Increased average daily sales by $15k, while simultaneously decreasing the number of employees by 5%",
+    "Developed a staff development plan, rewarding top performers with additional responsibilities, and empowered associates to make decisions",
+    "Directed the training of 3 new associates, who each exceeded expectations",
+    "Account Executive",
+    "Decatur Construction • Las Vegas, Nevada",
+    "November 2016",
+    "Implemented a new strategy to increase sales by $1M+ per year through product, service and salesperson training",
+    "Conducted research on the industry, competitors and clients, identifying opportunities for growth versus our current position and competitor activity",
+    "Identified and partnered with potential new investors, resulting in $1.5M in new capital being raised at a $10M valuation",
+    "Created a strategic marketing plan, creating a company wide website, email campaigns, social media campaigns and an email newsletter"
+  ],
+  "skill_gaps": {
+    "coverage_of_top_match": 0.0,
+    "strengths": [],
+    "gaps": [],
+    "abstract_skills_required": []
+  },
+  "recommendations": [],
+  "ai_displacement_exposure": null
+}

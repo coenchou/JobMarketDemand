@@ -8,13 +8,21 @@ openpyxl>=3.1.0
 scikit-learn>=1.2.0
 statsmodels>=0.13.5
 
-# NLP (lightweight only)
+# NLP
 nltk>=3.8.1
+sentence-transformers>=2.7.0
+
+# LLM parsing
+groq>=1.0.0
+python-dotenv>=1.0.0
 
 # Visualisation
 matplotlib>=3.6.0
 seaborn>=0.12.0
 plotly>=5.12.0
 
-# App
-streamlit>=
+# Frontend
+fastapi>=0.100.0
+uvicorn>=0.24.0
+PyPDF2>=3.0.0
+python-multipart>=0.0.6

@@ -1,315 +1,695 @@
 {
   "resume": "resume_5_senior_ml_engineer.txt",
-  "skills": [
-    "Languages: Python",
-    "Scala",
-    "SQL",
-    "bash",
-    "ML Frameworks: TensorFlow",
-    "PyTorch",
-    "scikit-learn",
-    "XGBoost",
-    "LightGBM",
-    "HuggingFace Transformers",
-    "MLOps: MLflow",
-    "Kubeflow",
-    "AWS SageMaker",
-    "Docker",
-    "Kubernetes",
-    "Airflow",
-    "Data Engineering: Apache Spark",
-    "Kafka",
-    "Apache Flink",
-    "dbt",
-    "Databases: PostgreSQL",
-    "Redshift",
-    "BigQuery",
-    "DynamoDB",
-    "Other: NLP",
-    "recommendation systems",
-    "A/B testing",
-    "feature engineering",
-    "system design",
-    "team leadership",
-    "technical mentoring",
-    "Scikit-learn",
-    "Apache Spark",
-    "PostgreSQL",
-    "TensorFlow",
-    "Monitoring",
-    "Science",
-    "Mlflow",
-    "GitHub",
-    "Design",
-    "Python",
-    "Bash"
-  ],
-  "mapped_skills": [
+  "summary": {
+    "hirability_score": 95.0,
+    "years_experience": 8,
+    "education_level": "Master's",
+    "top_match_title": "Data Scientists",
+    "top_match_soc": "15-2051",
+    "skills_extracted": 31,
+    "skills_from_section": 31,
+    "skills_from_experience": 0,
+    "skills_matched_to_onet": 27
+  },
+  "competitiveness": {
+    "score": 83.7,
+    "level": "Strong",
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+  },
+  "top_job_matches": [
     {
-      "original": "Languages: Python",
-      "mapped_element": null
+      "soc_code": "15-2051",
+      "title": "Data Scientists",
+      "match_score": 6.8211,
+      "semantic_score": 0.343,
+      "blended_score": 0.827,
+      "matched_skills": [
+        "AWS SageMaker",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "BigQuery",
+        "Docker",
+        "DynamoDB",
+        "Kafka",
+        "Kubeflow",
+        "Kubernetes",
+        "MLflow",
+        "PostgreSQL",
+        "PyTorch",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "TensorFlow",
+        "XGBoost",
+        "bash",
+        "scikit-learn"
+      ],
+      "description_snippet": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing,..."
     },
     {
-      "original": "Scala",
-      "mapped_element": null
+      "soc_code": "15-1221",
+      "title": "Computer and Information Research Scientists",
+      "match_score": 7.7956,
+      "semantic_score": 0.241,
+      "blended_score": 0.7993,
+      "matched_skills": [
+        "A/B testing",
+        "AWS SageMaker",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "Docker",
+        "DynamoDB",
+        "HuggingFace Transformers",
+        "Kafka",
+        "Kubernetes",
+        "PostgreSQL",
+        "PyTorch",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "TensorFlow",
+        "bash",
+        "scikit-learn",
+        "system design"
+      ],
+      "description_snippet": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software...."
     },
     {
-      "original": "SQL",
-      "mapped_element": null
+      "soc_code": "15-1252",
+      "title": "Software Developers",
+      "match_score": 5.1893,
+      "semantic_score": 0.3015,
+      "blended_score": 0.4557,
+      "matched_skills": [
+        "A/B testing",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "Docker",
+        "DynamoDB",
+        "Kafka",
+        "Kubernetes",
+        "PostgreSQL",
+        "PyTorch",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "TensorFlow",
+        "bash",
+        "system design"
+      ],
+      "description_snippet": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update sof..."
     },
     {
-      "original": "bash",
-      "mapped_element": null
+      "soc_code": "15-1242",
+      "title": "Database Administrators",
+      "match_score": 5.1208,
+      "semantic_score": 0.2497,
+      "blended_score": 0.3416,
+      "matched_skills": [
+        "A/B testing",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "Docker",
+        "DynamoDB",
+        "Kafka",
+        "Kubernetes",
+        "PostgreSQL",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "bash",
+        "system design"
+      ],
+      "description_snippet": "Administer, test, and implement computer databases, applying knowledge of database management systems. Coordinate changes to computer databases. Identify, investigate, and resolve database performance issues, database capacity, and database scalabili..."
     },
     {
-      "original": "ML Frameworks: TensorFlow",
-      "mapped_element": null
-    },
-    {
-      "original": "PyTorch",
-      "mapped_element": null
-    },
-    {
-      "original": "scikit-learn",
-      "mapped_element": null
-    },
-    {
-      "original": "XGBoost",
-      "mapped_element": null
-    },
-    {
-      "original": "LightGBM",
-      "mapped_element": null
-    },
-    {
-      "original": "HuggingFace Transformers",
-      "mapped_element": null
-    },
-    {
-      "original": "MLOps: MLflow",
-      "mapped_element": null
-    },
-    {
-      "original": "Kubeflow",
-      "mapped_element": null
-    },
-    {
-      "original": "AWS SageMaker",
-      "mapped_element": null
-    },
-    {
-      "original": "Docker",
-      "mapped_element": null
-    },
-    {
-      "original": "Kubernetes",
-      "mapped_element": null
-    },
-    {
-      "original": "Airflow",
-      "mapped_element": null
-    },
-    {
-      "original": "Data Engineering: Apache Spark",
-      "mapped_element": null
-    },
-    {
-      "original": "Kafka",
-      "mapped_element": null
-    },
-    {
-      "original": "Apache Flink",
-      "mapped_element": null
-    },
-    {
-      "original": "dbt",
-      "mapped_element": null
-    },
-    {
-      "original": "Databases: PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "Redshift",
-      "mapped_element": null
-    },
-    {
-      "original": "BigQuery",
-      "mapped_element": null
-    },
-    {
-      "original": "DynamoDB",
-      "mapped_element": null
-    },
-    {
-      "original": "Other: NLP",
-      "mapped_element": null
-    },
-    {
-      "original": "recommendation systems",
-      "mapped_element": null
-    },
-    {
-      "original": "A/B testing",
-      "mapped_element": null
-    },
-    {
-      "original": "feature engineering",
-      "mapped_element": null
-    },
-    {
-      "original": "system design",
-      "mapped_element": null
-    },
-    {
-      "original": "team leadership",
-      "mapped_element": null
-    },
-    {
-      "original": "technical mentoring",
-      "mapped_element": null
-    },
-    {
-      "original": "Scikit-learn",
-      "mapped_element": null
-    },
-    {
-      "original": "Apache Spark",
-      "mapped_element": null
-    },
-    {
-      "original": "PostgreSQL",
-      "mapped_element": null
-    },
-    {
-      "original": "TensorFlow",
-      "mapped_element": null
-    },
-    {
-      "original": "Monitoring",
-      "mapped_element": "Monitoring"
-    },
-    {
-      "original": "Science",
-      "mapped_element": "Science"
-    },
-    {
-      "original": "Mlflow",
-      "mapped_element": null
-    },
-    {
-      "original": "GitHub",
-      "mapped_element": null
-    },
-    {
-      "original": "Design",
-      "mapped_element": "Design"
-    },
-    {
-      "original": "Python",
-      "mapped_element": null
-    },
-    {
-      "original": "Bash",
-      "mapped_element": null
+      "soc_code": "15-1243",
+      "title": "Database Architects",
+      "match_score": 4.4926,
+      "semantic_score": 0.301,
+      "blended_score": 0.331,
+      "matched_skills": [
+        "A/B testing",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "Docker",
+        "DynamoDB",
+        "Kafka",
+        "PostgreSQL",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "bash",
+        "system design"
+      ],
+      "description_snippet": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data ware..."
     }
   ],
+  "skills": {
+    "extracted": [
+      "Python",
+      "Scala",
+      "SQL",
+      "bash",
+      "TensorFlow",
+      "PyTorch",
+      "scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "HuggingFace Transformers",
+      "MLflow",
+      "Kubeflow",
+      "AWS SageMaker",
+      "Docker",
+      "Kubernetes",
+      "Airflow",
+      "Apache Spark",
+      "Kafka",
+      "Apache Flink",
+      "dbt",
+      "PostgreSQL",
+      "Redshift",
+      "BigQuery",
+      "DynamoDB",
+      "NLP",
+      "recommendation systems",
+      "A/B testing",
+      "feature engineering",
+      "system design",
+      "team leadership",
+      "technical mentoring"
+    ],
+    "from_section": [
+      "Python",
+      "Scala",
+      "SQL",
+      "bash",
+      "TensorFlow",
+      "PyTorch",
+      "scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "HuggingFace Transformers",
+      "MLflow",
+      "Kubeflow",
+      "AWS SageMaker",
+      "Docker",
+      "Kubernetes",
+      "Airflow",
+      "Apache Spark",
+      "Kafka",
+      "Apache Flink",
+      "dbt",
+      "PostgreSQL",
+      "Redshift",
+      "BigQuery",
+      "DynamoDB",
+      "NLP",
+      "recommendation systems",
+      "A/B testing",
+      "feature engineering",
+      "system design",
+      "team leadership",
+      "technical mentoring"
+    ],
+    "from_experience": [],
+    "matched": [
+      {
+        "original": "Python",
+        "matched_tool": "Python",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Scala",
+        "matched_tool": "Scala",
+        "element_name": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "SQL",
+        "matched_tool": "Microsoft SQL Server",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "bash",
+        "matched_tool": "Bash",
+        "element_name": "Operating system software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "TensorFlow",
+        "matched_tool": "TensorFlow",
+        "element_name": "Analytical or scientific software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "PyTorch",
+        "matched_tool": "PyTorch",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "scikit-learn",
+        "matched_tool": "Scikit-learn",
+        "element_name": "Development environment software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "XGBoost",
+        "matched_tool": "XGBoost",
+        "element_name": "Development environment software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "HuggingFace Transformers",
+        "matched_tool": "Bidirectional encoder representations from transformers (BERT)",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "MLflow",
+        "matched_tool": "Mlflow",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "Kubeflow",
+        "matched_tool": "Kubeflow",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "AWS SageMaker",
+        "matched_tool": "Amazon Web Services AWS SageMaker",
+        "element_name": "Cloud-based management software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Docker",
+        "matched_tool": "Docker",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Kubernetes",
+        "matched_tool": "Kubernetes",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Airflow",
+        "matched_tool": "Apache Airflow",
+        "element_name": "Procedure management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Apache Spark",
+        "matched_tool": "Apache Spark",
+        "element_name": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Kafka",
+        "matched_tool": "Apache Kafka",
+        "element_name": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Apache Flink",
+        "matched_tool": "Apache Airflow",
+        "element_name": "Procedure management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "dbt",
+        "matched_tool": "DBTools Software DBManager Professional",
+        "element_name": "Data base management system software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "PostgreSQL",
+        "matched_tool": "PostgreSQL",
+        "element_name": "Object oriented data base management software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "Redshift",
+        "matched_tool": "Amazon Redshift",
+        "element_name": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "BigQuery",
+        "matched_tool": "BigQuery",
+        "element_name": "Data base user interface and query software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "exact"
+      },
+      {
+        "original": "DynamoDB",
+        "matched_tool": "Amazon DynamoDB",
+        "element_name": "Data base management system software",
+        "is_hot": true,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "A/B testing",
+        "matched_tool": "Accelerated life testing software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "feature engineering",
+        "matched_tool": "Altair Engineering MotionSolve",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      },
+      {
+        "original": "system design",
+        "matched_tool": "Mastercam computer-aided design and manufacturing software",
+        "element_name": "Computer aided manufacturing CAM software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "technical mentoring",
+        "matched_tool": "Aspen Graphics Technical Analysis Software",
+        "element_name": "Financial analysis software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "word"
+      }
+    ],
+    "unmatched": [
+      "LightGBM",
+      "NLP",
+      "recommendation systems",
+      "team leadership"
+    ]
+  },
   "education": [
     "Master of Science in Computer Science — Machine Learning Track",
     "Carnegie Mellon University | Graduated May 2015",
     "Bachelor of Science in Statistics and Computer Science",
     "University of Michigan | Graduated May 2013"
   ],
-  "experience_lines": [
+  "experience": [
     "Senior Machine Learning Engineer — StreamVault (Streaming Platform), San Francisco, CA",
     "April 2020 – Present",
-    "Architected and deployed a real-time recommendation system serving 8M daily active users, increasing average watch time by 22%",
-    "Led a team of 6 ML engineers and 2 data scientists, setting technical direction and conducting performance reviews",
-    "Built end-to-end MLOps infrastructure using MLflow, Kubeflow, and AWS SageMaker, reducing model deployment time from 3 weeks to 4 hours",
-    "Developed a two-tower neural network for content embedding using TensorFlow, replacing rule-based system that had been in place for 5 years",
-    "Implemented A/B testing framework for ML experiments with statistical guardrails to prevent false positives",
-    "Reduced model training costs by 40% by migrating batch jobs to spot instances and optimising data pipelines in Apache Spark",
+    "- Architected and deployed a real-time recommendation system serving 8M daily active users, increasing average watch time by 22%",
+    "- Led a team of 6 ML engineers and 2 data scientists, setting technical direction and conducting performance reviews",
+    "- Built end-to-end MLOps infrastructure using MLflow, Kubeflow, and AWS SageMaker, reducing model deployment time from 3 weeks to 4 hours",
+    "- Developed a two-tower neural network for content embedding using TensorFlow, replacing rule-based system that had been in place for 5 years",
+    "- Implemented A/B testing framework for ML experiments with statistical guardrails to prevent false positives",
+    "- Reduced model training costs by 40% by migrating batch jobs to spot instances and optimising data pipelines in Apache Spark",
     "Machine Learning Engineer — AdTech Dynamics, New York, NY",
     "July 2017 – March 2020",
-    "Built click-through rate prediction models using gradient boosted trees (XGBoost, LightGBM) for programmatic advertising",
-    "Developed NLP pipeline for ad copy classification using BERT fine-tuning, replacing manual tagging process",
-    "Created feature store used by 4 different ML teams, standardising feature engineering across the organisation",
-    "Collaborated with data engineers to build real-time feature pipelines using Kafka and Apache Flink",
+    "- Built click-through rate prediction models using gradient boosted trees (XGBoost, LightGBM) for programmatic advertising",
+    "- Developed NLP pipeline for ad copy classification using BERT fine-tuning, replacing manual tagging process",
+    "- Created feature store used by 4 different ML teams, standardising feature engineering across the organisation",
+    "- Collaborated with data engineers to build real-time feature pipelines using Kafka and Apache Flink",
     "Data Scientist — InsightMetrics, Boston, MA",
     "June 2015 – June 2017",
-    "Developed propensity models for customer lifetime value prediction using logistic regression and survival analysis",
-    "Conducted statistical analysis and hypothesis testing for product experiments",
-    "Presented findings to non-technical stakeholders including C-suite executives"
+    "- Developed propensity models for customer lifetime value prediction using logistic regression and survival analysis",
+    "- Conducted statistical analysis and hypothesis testing for product experiments",
+    "- Presented findings to non-technical stakeholders including C-suite executives"
   ],
-  "years_experience_est": 8,
-  "skill_match_ratio": 0.071,
-  "hirability_score": 2.1,
-  "top_candidate": {
-    "soc_code": "17-2199",
-    "title": "Engineers, All Other",
-    "score": 48.0,
-    "match_score": 0.021,
-    "median_wage": null,
-    "growth": null,
-    "education": NaN,
-    "experience": NaN,
-    "top_work_style": "17-2199.09"
+  "skill_gaps": {
+    "coverage_of_top_match": 0.177,
+    "strengths": [
+      "Amazon DynamoDB",
+      "Amazon Redshift",
+      "Amazon Web Services AWS SageMaker",
+      "Amazon Web Services AWS software",
+      "Apache Airflow",
+      "Apache Ant",
+      "Apache Cassandra",
+      "Apache Groovy",
+      "Apache HTTP Server",
+      "Apache Hadoop",
+      "Apache Hive",
+      "Apache Kafka",
+      "Apache MXNet",
+      "Apache Pig",
+      "Apache Solr",
+      "Apache Spark",
+      "Apache Struts",
+      "Apache Tomcat",
+      "Bash",
+      "BigQuery",
+      "Customer information control system CICS",
+      "Docker",
+      "Epic Systems",
+      "Geographic information system GIS software",
+      "Geographic information system GIS systems",
+      "Healthcare common procedure coding system HCPCS",
+      "IBM Power Systems software",
+      "Invivo Data EPX ePRO Management System",
+      "Kubeflow",
+      "Kubernetes",
+      "Management information systems MIS",
+      "Microsoft SQL Server",
+      "Microsoft SQL Server Integration Services SSIS",
+      "Microsoft SQL Server Reporting Services SSRS",
+      "Mlflow",
+      "Oracle PL/SQL",
+      "Oracle SQL Developer",
+      "Oracle SQL Loader",
+      "PostgreSQL",
+      "PyTorch",
+      "Python",
+      "Scala",
+      "Scikit-learn",
+      "Structured query language SQL",
+      "TensorFlow",
+      "Transact-SQL",
+      "XGBoost"
+    ],
+    "gaps": [
+      {
+        "skill": "SAS",
+        "element_category": "Analytical or scientific software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft Power BI",
+        "element_category": "Business intelligence and data analysis software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Salesforce software",
+        "element_category": "Customer relationship management CRM software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Snowflake",
+        "element_category": "Data mining software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft Azure software",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "SAP software",
+        "element_category": "Enterprise resource planning ERP software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Git",
+        "element_category": "File versioning software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "R",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft PowerPoint",
+        "element_category": "Presentation software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      },
+      {
+        "skill": "Microsoft Excel",
+        "element_category": "Spreadsheet software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0
+      }
+    ],
+    "abstract_skills_required": [
+      {
+        "skill": "Critical Thinking",
+        "importance": 3.94
+      },
+      {
+        "skill": "Reading Comprehension",
+        "importance": 3.94
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.88
+      },
+      {
+        "skill": "Speaking",
+        "importance": 3.88
+      },
+      {
+        "skill": "Active Learning",
+        "importance": 3.75
+      },
+      {
+        "skill": "Writing",
+        "importance": 3.75
+      }
+    ]
   },
-  "candidate_matches": [
+  "recommendations": [
     {
-      "soc_code": "17-2199",
-      "title": "Engineers, All Other",
-      "score": 48.0,
-      "match_score": 0.021,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "17-2199.09"
+      "skill": "Git",
+      "element_category": "File versioning software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.967,
+      "complementarity": 0.407,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.901,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
     },
     {
-      "soc_code": "13-1041",
-      "title": "Compliance Officers",
-      "score": 42.0,
-      "match_score": 0.021,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "13-1041.06"
+      "skill": "Microsoft Excel",
+      "element_category": "Spreadsheet software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.967,
+      "complementarity": 0.398,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.901,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
     },
     {
-      "soc_code": "11-3051",
-      "title": "Industrial Production Managers",
-      "score": 36.0,
-      "match_score": 0.021,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-3051.01"
+      "skill": "Microsoft PowerPoint",
+      "element_category": "Presentation software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.964,
+      "complementarity": 0.27,
+      "effort_label": "days",
+      "difficulty_months": 0.5,
+      "priority_score": 2.892,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days."
     },
     {
-      "soc_code": "11-9199",
-      "title": "Managers, All Other",
-      "score": 36.0,
-      "match_score": 0.021,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "11-9199.08"
+      "skill": "Microsoft Power BI",
+      "element_category": "Business intelligence and data analysis software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.89,
+      "complementarity": 0.245,
+      "effort_label": "weeks",
+      "difficulty_months": 1.5,
+      "priority_score": 2.67,
+      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: weeks."
     },
     {
-      "soc_code": "15-1299",
-      "title": "Computer Occupations, All Other",
-      "score": 36.0,
-      "match_score": 0.021,
-      "median_wage": null,
-      "growth": null,
-      "education": NaN,
-      "experience": NaN,
-      "top_work_style": "15-1299.04"
+      "skill": "Salesforce software",
+      "element_category": "Customer relationship management CRM software",
+      "is_hot": true,
+      "in_demand": true,
+      "feasibility": 0.809,
+      "complementarity": 0.469,
+      "effort_label": "1–6 months",
+      "difficulty_months": 3.0,
+      "priority_score": 2.427,
+      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
     }
-  ]
+  ],
+  "ai_displacement_exposure": {
+    "score": 0.6,
+    "level": "High",
+    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+  }
 }

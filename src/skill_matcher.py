@@ -217,3 +217,20 @@ def get_occ_tools(soc_code: str) -> pd.DataFrame:
     """Return all Software Skills rows for a given SOC code."""
     sw = _load_sw()
     return sw[sw["soc_code"] == soc_code].copy()
+
+
+@lru_cache(maxsize=1)
+def _tool_occ_counts() -> Dict[str, int]:
+    """tool_norm → number of distinct occupations that list it."""
+    sw = _load_sw()
+    return sw.groupby("tool_norm")["soc_code"].nunique().to_dict()
+
+
+def count_occupations_for_tool(tool_name: str) -> int:
+    """How many O*NET occupations list this tool in their requirements."""
+    counts = _tool_occ_counts()
+    tn = _norm(tool_name)
+    if tn in counts:
+        return int(counts[tn])
+    hits = [v for k, v in counts.items() if tn in k]
+    return int(max(hits)) if hits else 0

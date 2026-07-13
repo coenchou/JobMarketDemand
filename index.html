@@ -1,364 +1,902 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Intelligence</title>
-  <style>
-    :root {
-      --primary: #667eea;
-      --primary-dark: #764ba2;
-      --bg: #f1f5f9;
-      --card: #ffffff;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hirely — Resume Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════
+   Design tokens
+   ════════════════════════════════════════════════════════ */
+:root {
+  --bg:      #fcfcfa;
+  --panel:   #ffffff;
+  --line:    #e7e3ee;
+  --line-2:  #efecf4;
+  --ink:     #221a33;
+  --muted:   #6f6a7e;
+  --faint:   #a09aae;
+  --primary: #46308c;          /* deep purple — interface & interaction */
+  --primary-strong: #372470;
+  --accent:  #9a7b1e;          /* gold, dark enough for text on white */
+  --gold:    #d4a017;          /* gold for fills, arcs, bars */
+  --accent-dim: rgba(212, 160, 23, 0.10);
+  --ok:      #2e7d5b;
+  --warn:    #9a7b1e;
+  --bad:     #b8433a;
+  --soft:    #f1eef7;          /* lavender tint for chips & soft fills */
+  --soft-2:  #e6e1f2;
+  --r-lg: 20px;
+  --r-md: 14px;
+  --shadow-sm: 0 1px 2px rgba(34, 26, 51, 0.05), 0 3px 10px rgba(34, 26, 51, 0.05);
+  --shadow-md: 0 2px 4px rgba(34, 26, 51, 0.05), 0 10px 28px rgba(34, 26, 51, 0.09);
+  --sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  /* faint plotting-paper dot grid */
+  background-image: radial-gradient(rgba(70, 48, 140, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+::selection { background: var(--primary); color: #fff; }
 
-    /* ─── Upload ──────────────────────────────────────── */
-    #uploadView {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex; align-items: center; justify-content: center; padding: 24px;
-    }
-    .upload-card {
-      background: white; border-radius: 20px; padding: 52px 44px;
-      max-width: 500px; width: 100%;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.25); text-align: center;
-    }
-    .upload-card h1 { font-size: 30px; font-weight: 800; margin-bottom: 8px; }
-    .upload-card > p { color: var(--muted); margin-bottom: 36px; font-size: 15px; }
-    .drop-zone {
-      border: 2px dashed var(--primary); border-radius: 14px;
-      padding: 48px 20px; cursor: pointer; transition: all 0.2s; background: #f8f9ff;
-    }
-    .drop-zone:hover, .drop-zone.over { border-color: var(--primary-dark); background: #eef0ff; }
-    .drop-zone .dz-icon { font-size: 44px; margin-bottom: 12px; }
-    .drop-zone .dz-label { font-size: 15px; color: var(--muted); margin-bottom: 4px; }
-    .drop-zone .dz-sub   { font-size: 13px; color: #aaa; }
-    #fileInput { display: none; }
-    .file-chip { display: none; align-items: center; gap: 10px; background: #f0f3ff; border-radius: 10px; padding: 12px 16px; margin-top: 16px; text-align: left; }
-    .file-chip.show { display: flex; }
-    .file-chip .fc-name { font-weight: 600; font-size: 14px; }
-    .file-chip .fc-sub  { font-size: 12px; color: #aaa; }
-    .analyze-btn { width: 100%; margin-top: 18px; padding: 15px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; display: none; }
-    .analyze-btn.show { display: block; }
-    .analyze-btn:hover { opacity: 0.88; }
-    .loader { display: none; flex-direction: column; align-items: center; gap: 14px; margin-top: 24px; }
-    .loader.show { display: flex; }
-    .spinner { width: 38px; height: 38px; border: 4px solid #dde; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.75s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .loader p { font-size: 14px; color: var(--muted); }
-    .err-box { display: none; background: #fff5f5; border: 1px solid #fecaca; color: #b91c1c; border-radius: 10px; padding: 12px 16px; margin-top: 16px; font-size: 14px; text-align: left; }
-    .err-box.show { display: block; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-    /* ─── Report View ─────────────────────────────────── */
-    #reportView { display: none; max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
-    #reportView.show { display: block; }
+@keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+@keyframes pulse { 50% { opacity: 0.35; } }
+@keyframes tickerScroll { to { transform: translateY(-50%); } }
+@keyframes slideSweep {
+  0%   { transform: translateX(-110%); }
+  100% { transform: translateX(480%); }
+}
 
-    .rpt-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-    .rpt-header h1 { font-size: 22px; font-weight: 800; }
-    .rpt-header p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
-    .new-btn { padding: 10px 22px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+button { font-family: var(--sans); cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(70, 48, 140, 0.25);
+  transition: background 0.18s, transform 0.12s ease, box-shadow 0.18s;
+}
+.btn-primary .arr { transition: transform 0.18s ease; font-weight: 400; }
+.btn-primary:hover {
+  background: var(--primary-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(70, 48, 140, 0.32);
+}
+.btn-primary:hover .arr { transform: translateX(4px); }
+.btn-primary:active { transform: scale(0.97); box-shadow: 0 1px 3px rgba(70, 48, 140, 0.3); }
+.btn-ghost {
+  background: var(--soft);
+  color: var(--primary);
+  border: none;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.18s, transform 0.12s ease;
+}
+.btn-ghost:hover { background: var(--soft-2); }
+.btn-ghost:active { transform: scale(0.96); }
+.btn-text {
+  background: none; border: none; color: var(--primary);
+  padding: 0; font-size: 13px; font-weight: 600;
+}
+.btn-text:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    /* Score cards */
-    .scores-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px; }
-    .score-card  { background: white; border-radius: 14px; padding: 22px 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); text-align: center; }
-    .sc-label    { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
-    .sc-num      { font-size: 42px; font-weight: 900; line-height: 1; margin-bottom: 2px; }
-    .sc-denom    { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
-    .sc-track    { background: #f0f0f0; border-radius: 99px; height: 7px; overflow: hidden; margin-bottom: 10px; }
-    .sc-fill     { height: 100%; border-radius: 99px; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
-    .sc-level    { font-size: 13px; font-weight: 700; }
-    .risk-icon   { font-size: 44px; margin-bottom: 6px; }
-    .risk-lvl    { font-size: 20px; font-weight: 800; }
-    .risk-sub    { font-size: 12px; color: var(--muted); margin-top: 4px; }
+/* ════════════════════════════════════════════════════════
+   Upload view — panel + occupation ticker
+   ════════════════════════════════════════════════════════ */
+#uploadView {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.upload-panel { width: 100%; max-width: 480px; position: relative; z-index: 2; }
+.wordmark {
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+.upload-panel h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.upload-panel h1::after {
+  content: "▍";
+  color: var(--primary);
+  animation: blink 1.15s steps(1) infinite;
+  margin-left: 4px;
+  font-weight: 400;
+}
+.upload-panel .intro {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 36px;
+  max-width: 44ch;
+}
 
-    /* Collapsible cards */
-    .card { background: white; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 14px; overflow: hidden; }
-    .card-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 22px; cursor: pointer; user-select: none;
-      transition: background 0.15s;
-    }
-    .card-header:hover { background: #fafbff; }
-    .card-header-left { display: flex; align-items: center; gap: 10px; }
-    .card-icon  { font-size: 18px; }
-    .card-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-    .card-count { font-size: 12px; font-weight: 600; color: var(--primary); background: #eef0ff; padding: 2px 8px; border-radius: 99px; }
-    .chevron    { font-size: 12px; color: var(--muted); transition: transform 0.25s; display: inline-block; }
-    .chevron.open { transform: rotate(180deg); }
-    .card-body  { padding: 0 22px 22px; }
-    .card-body.collapsed { display: none; }
+/* drop zone — floating surface with marching-dash border on hover */
+.drop-zone {
+  position: relative;
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  padding: 52px 24px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.drop-zone:hover, .drop-zone.over {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.dz-border { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.dz-border rect {
+  x: 1.5px; y: 1.5px;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  rx: 19px;
+  fill: none;
+  stroke: #d8d1e6;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 9;
+  transition: stroke 0.2s;
+}
+@keyframes march { to { stroke-dashoffset: -30; } }
+.drop-zone:hover .dz-border rect, .drop-zone.over .dz-border rect {
+  stroke: var(--primary);
+  animation: march 0.9s linear infinite;
+}
+.drop-zone .dz-main { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+.drop-zone .dz-sub  { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+#fileInput { display: none; }
 
-    /* Profile grid */
-    .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .profile-item label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: block; margin-bottom: 5px; }
-    .profile-item .pval { font-size: 15px; font-weight: 700; line-height: 1.4; word-break: break-word; }
+.file-row {
+  display: none;
+  justify-content: space-between;
+  align-items: baseline;
+  background: var(--soft);
+  border-radius: var(--r-md);
+  margin-top: 14px;
+  padding: 13px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.file-row.show { display: flex; }
+.file-row .fname { color: var(--ink); overflow-wrap: anywhere; }
+.file-row .fname::before { content: "▪ "; color: var(--accent); }
+.file-row .fsize { color: var(--faint); font-size: 12px; flex-shrink: 0; margin-left: 16px; }
 
-    /* Job match */
-    .match-top   { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-    .match-name  { font-size: 22px; font-weight: 800; color: var(--primary); }
-    .match-desc  { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
-    .alt-match   { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8faff; border-radius: 9px; margin-bottom: 8px; font-size: 14px; }
-    .alt-match:last-child { margin-bottom: 0; }
-    .alt-title   { font-weight: 600; }
-    .score-pill  { background: #ede9fe; color: #6d28d9; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; flex-shrink: 0; }
+.upload-actions { margin-top: 20px; display: none; }
+.upload-actions.show { display: block; }
 
-    /* Chips */
-    .chip-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
-    .chip      { padding: 5px 13px; border-radius: 99px; font-size: 12px; font-weight: 600; }
-    .chip-green  { background: #dcfce7; color: #166534; }
-    .chip-gray   { background: #f1f5f9; color: #475569; }
-    .chip-purple { background: #ede9fe; color: #5b21b6; }
-    .chip-more   { background: #e0e7ff; color: #3730a3; cursor: pointer; border: none; font-family: inherit; font-size: 12px; font-weight: 600; }
-    .chip-more:hover { background: #c7d2fe; }
+/* analysis log — dark terminal card set into the light page */
+.log {
+  display: none;
+  margin-top: 26px;
+  background: #221a33;
+  border-radius: var(--r-lg);
+  padding: 22px 22px 18px;
+  min-height: 140px;
+  box-shadow: var(--shadow-md);
+}
+.log.show { display: block; }
+.log-line {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #b7aecb;
+  line-height: 2.1;
+  display: flex;
+  gap: 12px;
+}
+.log-line .t { color: #6f6590; flex-shrink: 0; }
+.log-line .st { margin-left: auto; color: #6f6590; flex-shrink: 0; }
+.log-line.done .st { color: var(--gold); }
+.log-line.fail .st { color: #e08b83; }
+.log-line.active .st::after {
+  content: "▍";
+  color: #b9a7ff;
+  animation: blink 0.9s steps(1) infinite;
+}
+.log-bar { height: 3px; background: rgba(255, 255, 255, 0.08); border-radius: 99px; margin-top: 16px; overflow: hidden; }
+.log-bar i {
+  display: block; height: 100%; width: 26%;
+  border-radius: 99px;
+  background: var(--gold);
+  animation: slideSweep 1.6s ease-in-out infinite;
+}
 
-    /* Sub-section label */
-    .sub-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; margin-top: 18px; }
-    .sub-label:first-child { margin-top: 0; }
+.err {
+  display: none;
+  margin-top: 20px;
+  background: #fdf0ee;
+  border-radius: var(--r-md);
+  padding: 13px 18px;
+  font-size: 13.5px;
+  color: #a43c33;
+}
+.err.show { display: block; }
 
-    /* Rec rows */
-    .rec-row  { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .rec-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .rec-num  { font-size: 22px; font-weight: 900; color: var(--primary); min-width: 28px; flex-shrink: 0; padding-top: 1px; }
-    .rec-body { flex: 1; min-width: 0; }
-    .rec-name { font-size: 15px; font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 6px; }
-    .rec-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .badge         { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
-    .badge-hot     { background: #fef3c7; color: #92400e; }
-    .badge-effort  { background: #e0e7ff; color: #3730a3; }
+/* occupation ticker — the market drifting past */
+.ticker {
+  position: absolute;
+  right: 5vw;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+.ticker-track { animation: tickerScroll 52s linear infinite; }
+.ticker-row {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 2.6;
+  color: var(--faint);
+  white-space: nowrap;
+  opacity: 0.75;
+}
+.ticker-row b { color: rgba(154, 123, 30, 0.65); font-weight: 400; margin-right: 14px; }
+@media (max-width: 1080px) { .ticker { display: none; } }
 
-    /* LLM rows */
-    .llm-row  { padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .llm-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .llm-name { font-size: 15px; font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 6px; }
-    .llm-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+/* ════════════════════════════════════════════════════════
+   Report view
+   ════════════════════════════════════════════════════════ */
+#reportView { display: none; max-width: 860px; margin: 0 auto; padding: 48px 24px 64px; }
+#reportView.show { display: block; }
 
-    /* Displacement */
-    .disp-grid { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
-    .disp-icon { font-size: 52px; }
-    .disp-right h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-    .disp-right p  { font-size: 14px; color: var(--muted); line-height: 1.7; }
+/* scrollspy rail */
+.rail {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 5;
+}
+@media (min-width: 1150px) { #reportView.show ~ .rail, .rail.show { display: flex; } }
+.rail a {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s;
+}
+.rail a::before {
+  content: "";
+  width: 14px; height: 1px;
+  background: var(--faint);
+  transition: width 0.25s ease, background 0.25s;
+}
+.rail a.active { color: var(--primary); }
+.rail a.active::before { width: 26px; background: var(--primary); }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .scores-grid { grid-template-columns: 1fr 1fr; }
-      .profile-grid { grid-template-columns: 1fr 1fr; }
-      .disp-grid    { grid-template-columns: 1fr; }
-      .upload-card  { padding: 36px 24px; }
-    }
-    @media (max-width: 400px) {
-      .scores-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+/* header */
+.rpt-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+.rpt-top h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin-top: 8px; overflow-wrap: anywhere; }
+.rpt-meta { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 6px; }
+
+/* reveal-on-scroll primitives */
+.rv {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.rv.in { opacity: 1; transform: none; }
+.stag {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition-delay: var(--d, 0s);
+}
+.in .stag { opacity: 1; transform: none; }
+
+/* metrics: arc gauges on floating cards */
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 56px;
+}
+.metric {
+  padding: 26px 24px 22px;
+  text-align: center;
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.metric:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.gauge-wrap { position: relative; width: 150px; margin: 18px auto 4px; }
+.gauge { display: block; width: 100%; }
+.gauge .g-track { fill: none; stroke: var(--soft); stroke-width: 4.5; stroke-linecap: round; }
+.gauge .g-fill {
+  fill: none; stroke: var(--gold); stroke-width: 4.5; stroke-linecap: round;
+  stroke-dasharray: 157.1;
+  stroke-dashoffset: 157.1;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.3, 0, 0.2, 1) 0.2s;
+}
+.gauge .g-tick { stroke: var(--faint); stroke-width: 1; }
+.g-value {
+  position: absolute;
+  left: 50%; bottom: -2px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 27px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.g-scale {
+  display: flex; justify-content: space-between;
+  width: 150px; margin: 0 auto;
+  font-family: var(--mono); font-size: 10px; color: var(--faint);
+}
+.m-note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 12px; }
+
+/* exposure metric */
+.exp-value {
+  font-family: var(--mono);
+  font-size: 27px;
+  font-weight: 500;
+  margin: 34px 0 12px;
+}
+.segments { display: flex; gap: 5px; width: 150px; margin: 0 auto; }
+.segments i { flex: 1; height: 5px; border-radius: 99px; background: var(--soft); }
+.segments i.on-Low    { background: var(--ok);   animation: pulse 2.6s ease-in-out infinite; }
+.segments i.on-Medium { background: var(--warn); animation: pulse 2.6s ease-in-out infinite; }
+.segments i.on-High   { background: var(--bad);  animation: pulse 2.6s ease-in-out infinite; }
+.seg-scale {
+  display: flex; justify-content: space-between;
+  width: 150px; margin: 6px auto 0;
+  font-family: var(--mono); font-size: 10px; color: var(--faint);
+}
+.exposure-Low    { color: var(--ok); }
+.exposure-Medium { color: var(--warn); }
+.exposure-High   { color: var(--bad); }
+
+/* sections */
+.sec { margin-bottom: 52px; }
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.sec-head::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 1px; width: 100%;
+  background: var(--line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.3, 0, 0.2, 1) 0.15s;
+}
+.sec.in .sec-head::after { transform: scaleX(1); }
+.sec-num { font-family: var(--mono); font-size: 12px; color: var(--primary); }
+.sec-note { margin-left: auto; font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
+
+/* profile */
+.profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.profile-grid .p-value { font-family: var(--mono); font-size: 15px; margin-top: 6px; }
+.profile-grid .p-sub   { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin-top: 3px; }
+
+/* occupation match */
+.match-title-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.match-title-row h2 { font-size: 21px; font-weight: 600; min-height: 1.4em; }
+.soc-code { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+.match-index { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.match-desc { color: var(--muted); max-width: 68ch; margin-top: 12px; }
+
+table.alts { width: 100%; border-collapse: collapse; margin-top: 26px; }
+table.alts th {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint);
+  text-align: left; padding: 0 0 8px;
+}
+table.alts th:last-child, table.alts td:last-child { text-align: right; }
+table.alts td { padding: 10px 0; border-top: 1px solid var(--line-2); font-size: 14px; }
+table.alts td.rank { font-family: var(--mono); font-size: 12px; color: var(--faint); width: 36px; }
+table.alts td.alt-title { position: relative; }
+table.alts td.alt-title span { position: relative; z-index: 1; }
+.alt-bar {
+  position: absolute;
+  left: -8px; top: 18%; bottom: 18%;
+  width: 0;
+  background: var(--accent-dim);
+  border-right: 1px solid rgba(212, 160, 23, 0.5);
+  transition: width 0.9s cubic-bezier(0.3, 0, 0.2, 1) 0.3s;
+}
+.sec.in .alt-bar { width: var(--w); }
+table.alts td.score { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+table.alts tr:hover td.alt-title span { color: var(--primary); transition: color 0.15s; }
+
+/* tags */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #4a4260;
+  background: var(--soft);
+  border-radius: 999px;
+  padding: 6px 14px;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.12s ease;
+}
+.tag:hover { background: var(--soft-2); transform: translateY(-1px); }
+.tag .val { color: var(--faint); margin-left: 8px; }
+.coverage-line { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+
+/* gap rows */
+.gap-row {
+  display: flex; gap: 18px;
+  padding: 18px 14px;
+  margin: 0 -14px;
+  border-top: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  transition: background 0.2s;
+}
+.gap-row:hover { background: #f7f5fb; border-top-color: transparent; }
+.gap-row:hover + .gap-row { border-top-color: transparent; }
+#gapRows .gap-row:first-of-type, #aiRows .gap-row:first-of-type { border-top: none; }
+.gap-idx { font-family: var(--mono); font-size: 12px; color: var(--faint); min-width: 22px; padding-top: 3px; }
+.gap-row:hover .gap-idx { color: var(--primary); }
+.gap-body { flex: 1; min-width: 0; }
+.gap-name-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.gap-name { font-size: 15px; font-weight: 600; }
+.gap-meta {
+  font-family: var(--mono); font-size: 11.5px; color: var(--muted);
+  background: var(--soft); border-radius: 999px; padding: 3px 11px; white-space: nowrap;
+}
+.gap-meta.trend-growing   { color: #82650f; background: rgba(212, 160, 23, 0.16); }
+.gap-meta.trend-declining { color: #a43c33; background: #fdf0ee; }
+.gap-desc { color: var(--muted); font-size: 14px; max-width: 72ch; }
+
+.subsec { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); }
+.subsec-note { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin: 4px 0 16px; }
+
+/* exposure section */
+.exposure-grid { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: start; }
+.exposure-level { font-family: var(--mono); font-size: 25px; font-weight: 500; }
+.exposure-idx { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 4px; }
+.exposure-text { color: var(--muted); max-width: 64ch; }
+
+/* matching jobs */
+.jobs-intro { color: var(--muted); font-size: 14px; margin-bottom: 20px; max-width: 64ch; }
+.job-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
+.segmented {
+  display: inline-flex;
+  background: var(--soft);
+  border-radius: 999px;
+  padding: 4px;
+}
+.seg-btn {
+  border: none; background: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 13.5px; font-weight: 600;
+  color: var(--muted);
+  transition: color 0.15s, background 0.15s;
+}
+.seg-btn.active { background: var(--panel); color: var(--primary); box-shadow: var(--shadow-sm); }
+.job-loc {
+  flex: 1; min-width: 200px;
+  background: var(--soft);
+  border: none; border-radius: 999px;
+  padding: 11px 18px;
+  font-family: var(--sans); font-size: 14px; color: var(--ink);
+}
+.job-loc::placeholder { color: var(--faint); }
+.job-loc:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+.btn-sm { padding: 11px 22px; font-size: 14px; }
+
+.job-status { font-family: var(--mono); font-size: 12.5px; color: var(--muted); min-height: 20px; margin: 18px 0; }
+.job-status .dots::after { content: ""; animation: dots 1.4s steps(4, end) infinite; }
+@keyframes dots { 0% { content: ""; } 25% { content: "·"; } 50% { content: "··"; } 75% { content: "···"; } }
+
+.job-card {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 22px 24px;
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease;
+}
+.job-card.in { opacity: 1; transform: none; }
+.job-card.in:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.job-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.job-card h3 { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.job-card h3 a { color: var(--ink); text-decoration: none; }
+.job-card h3 a:hover { color: var(--primary); }
+.job-org { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 5px; }
+.job-org b { color: var(--ink); font-weight: 500; }
+.fit-badge {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 58px;
+}
+.fit-badge .fit-num {
+  font-family: var(--mono); font-size: 26px; font-weight: 500;
+  line-height: 1; color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.fit-badge .fit-lbl { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-top: 4px; }
+.fit-badge.fit-strong .fit-num { color: var(--ok); }
+.fit-badge.fit-weak .fit-num { color: var(--faint); }
+.job-summary { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 14px 0 16px; max-width: 72ch; }
+.job-skills { display: flex; flex-wrap: wrap; gap: 16px; }
+.job-skill-group { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.job-skill-group .sg-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-right: 2px; }
+.chip-match { font-family: var(--mono); font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(46, 125, 91, 0.13); color: #2e7d5b; white-space: nowrap; }
+.chip-miss  { font-family: var(--mono); font-size: 12px; padding: 5px 12px; border-radius: 999px; background: var(--soft); color: var(--muted); white-space: nowrap; }
+.jobs-empty { color: var(--muted); font-size: 14px; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--faint);
+}
+
+@media (max-width: 640px) {
+  .metrics { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: 1fr; gap: 16px; }
+  .exposure-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .rv, .stag { opacity: 1; transform: none; }
+  .sec-head::after { transform: scaleX(1); }
+  .sec .alt-bar { width: var(--w); }
+}
+</style>
 </head>
 <body>
 
-<!-- ═══ UPLOAD ══════════════════════════════════════════ -->
+<!-- ── Upload ──────────────────────────────────────────── -->
 <div id="uploadView">
-  <div class="upload-card">
-    <h1>🎯 Career Intelligence</h1>
-    <p>Upload your resume and get a personalised career breakdown in seconds</p>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+  <div class="upload-panel">
+    <div class="wordmark">Hirely</div>
+    <h1>Resume Analysis</h1>
+    <p class="intro">Compares a resume against O*NET occupational data: matched occupations, skill coverage, gaps, and automation exposure.</p>
+
     <div class="drop-zone" id="dropZone">
-      <div class="dz-icon">📄</div>
-      <div class="dz-label">Drop your resume here</div>
-      <div class="dz-sub">or click to browse &nbsp;·&nbsp; PDF &amp; TXT supported</div>
+      <svg class="dz-border" preserveAspectRatio="none"><rect></rect></svg>
+      <div class="dz-main">Drop a resume file, or click to browse</div>
+      <div class="dz-sub">PDF · TXT</div>
       <input type="file" id="fileInput" accept=".pdf,.txt">
     </div>
-    <div class="file-chip" id="fileChip">
-      <span style="font-size:26px">📎</span>
-      <div><div class="fc-name" id="chipName"></div><div class="fc-sub">Ready to analyze</div></div>
+    <div class="file-row" id="fileRow">
+      <span class="fname" id="fileName"></span>
+      <span class="fsize" id="fileSize"></span>
     </div>
-    <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">Analyze Resume →</button>
-    <div class="loader" id="loader">
-      <div class="spinner"></div>
-      <p>Analyzing your resume — usually 15–30 seconds…</p>
+
+    <div class="upload-actions" id="uploadActions">
+      <button class="btn-primary" onclick="analyze()">Run analysis <span class="arr">→</span></button>
     </div>
-    <div class="err-box" id="errBox"></div>
+
+    <div class="log" id="log"></div>
+    <div class="err" id="errBox"></div>
   </div>
 </div>
 
-<!-- ═══ REPORT ══════════════════════════════════════════ -->
+<!-- ── Report ──────────────────────────────────────────── -->
 <div id="reportView">
 
-  <div class="rpt-header">
+  <div class="rpt-top rv">
     <div>
-      <h1 id="rptTitle">Career Intelligence Report</h1>
-      <p id="rptSub"></p>
+      <span class="label">Resume analysis</span>
+      <h1 id="rptFile"></h1>
+      <div class="rpt-meta" id="rptMeta"></div>
     </div>
-    <button class="new-btn" onclick="resetView()">↺ Analyze Another</button>
+    <button class="btn-ghost" onclick="resetView()">New analysis</button>
   </div>
 
-  <!-- Score cards -->
-  <div class="scores-grid">
-    <div class="score-card">
-      <div class="sc-label">Hirability</div>
-      <div class="sc-num" id="hNum">—</div>
-      <div class="sc-denom">/ 100</div>
-      <div class="sc-track"><div class="sc-fill" id="hBar" style="width:0"></div></div>
-      <div class="sc-level" id="hLevel"></div>
-    </div>
-    <div class="score-card">
-      <div class="sc-label">Competitiveness</div>
-      <div class="sc-num" id="cNum">—</div>
-      <div class="sc-denom">/ 100</div>
-      <div class="sc-track"><div class="sc-fill" id="cBar" style="width:0"></div></div>
-      <div class="sc-level" id="cLevel"></div>
-    </div>
-    <div class="score-card">
-      <div class="sc-label">AI Displacement Risk</div>
-      <div class="risk-icon" id="rIcon">—</div>
-      <div class="risk-lvl" id="rLevel">—</div>
-      <div class="risk-sub" id="rSub"></div>
-    </div>
-  </div>
-
-  <!-- Profile -->
-  <div class="card">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">👤</span>
-        <span class="card-title">Your Profile</span>
+  <!-- Metrics -->
+  <div class="metrics rv" id="secMetrics">
+    <div class="metric">
+      <span class="label">Hirability</span>
+      <div class="gauge-wrap">
+        <svg class="gauge" viewBox="0 0 120 64">
+          <line class="g-tick" x1="18" y1="60" x2="13" y2="60"/>
+          <line class="g-tick" x1="30.3" y1="30.3" x2="26.8" y2="26.8"/>
+          <line class="g-tick" x1="60" y1="18" x2="60" y2="13"/>
+          <line class="g-tick" x1="89.7" y1="30.3" x2="93.2" y2="26.8"/>
+          <line class="g-tick" x1="102" y1="60" x2="107" y2="60"/>
+          <path class="g-track" d="M 10 60 A 50 50 0 0 1 110 60"/>
+          <path class="g-fill" id="hArc" d="M 10 60 A 50 50 0 0 1 110 60"/>
+        </svg>
+        <div class="g-value" id="hVal">0.0</div>
       </div>
-      <span class="chevron open">▼</span>
+      <div class="g-scale"><span>0</span><span>100</span></div>
+      <div class="m-note" id="hNote"></div>
     </div>
-    <div class="card-body">
-      <div class="profile-grid">
-        <div class="profile-item"><label>Education</label><div class="pval" id="pEdu">—</div></div>
-        <div class="profile-item"><label>Experience</label><div class="pval" id="pExp">—</div></div>
-        <div class="profile-item"><label>Skills Found</label><div class="pval" id="pSkills">—</div></div>
+    <div class="metric">
+      <span class="label">Competitiveness</span>
+      <div class="gauge-wrap">
+        <svg class="gauge" viewBox="0 0 120 64">
+          <line class="g-tick" x1="18" y1="60" x2="13" y2="60"/>
+          <line class="g-tick" x1="30.3" y1="30.3" x2="26.8" y2="26.8"/>
+          <line class="g-tick" x1="60" y1="18" x2="60" y2="13"/>
+          <line class="g-tick" x1="89.7" y1="30.3" x2="93.2" y2="26.8"/>
+          <line class="g-tick" x1="102" y1="60" x2="107" y2="60"/>
+          <path class="g-track" d="M 10 60 A 50 50 0 0 1 110 60"/>
+          <path class="g-fill" id="cArc" d="M 10 60 A 50 50 0 0 1 110 60"/>
+        </svg>
+        <div class="g-value" id="cVal">0.0</div>
       </div>
+      <div class="g-scale"><span>0</span><span>100</span></div>
+      <div class="m-note" id="cNote"></div>
     </div>
-  </div>
-
-  <!-- Top match -->
-  <div class="card" id="matchCard">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">🎯</span>
-        <span class="card-title">Top Job Match</span>
-        <span class="card-count" id="matchCount"></span>
-      </div>
-      <span class="chevron open">▼</span>
-    </div>
-    <div class="card-body">
-      <div class="match-top">
-        <div class="match-name" id="matchTitle">—</div>
-        <span class="score-pill" id="matchScore"></span>
-      </div>
-      <div class="match-desc" id="matchDesc"></div>
-      <div class="sub-label">Other strong fits</div>
-      <div id="altMatches"></div>
+    <div class="metric">
+      <span class="label">Automation exposure</span>
+      <div class="exp-value" id="eVal">—</div>
+      <div class="segments" id="eSegs"><i></i><i></i><i></i></div>
+      <div class="seg-scale"><span>low</span><span>med</span><span>high</span></div>
+      <div class="m-note" id="eNote"></div>
     </div>
   </div>
 
-  <!-- Strengths -->
-  <div class="card">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">✅</span>
-        <span class="card-title">Strengths</span>
-        <span class="card-count" id="strengthCount"></span>
-      </div>
-      <span class="chevron open">▼</span>
+  <!-- 01 Profile -->
+  <div class="sec rv" id="secProfile">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <span class="label">Profile</span>
     </div>
-    <div class="card-body">
-      <div class="sub-label">Skills matching your top role</div>
-      <div class="chip-wrap" id="strengthChips"></div>
-      <div id="unmatchedSec" style="display:none">
-        <div class="sub-label">Also on your resume (not in dataset)</div>
-        <div class="chip-wrap" id="unmatchedChips"></div>
+    <div class="profile-grid">
+      <div class="stag" style="--d:.05s">
+        <span class="label">Education</span>
+        <div class="p-value" id="pEdu">—</div>
+      </div>
+      <div class="stag" style="--d:.15s">
+        <span class="label">Experience</span>
+        <div class="p-value" id="pExp">—</div>
+      </div>
+      <div class="stag" style="--d:.25s">
+        <span class="label">Skills identified</span>
+        <div class="p-value" id="pSkills">—</div>
+        <div class="p-sub" id="pSkillsSub"></div>
       </div>
     </div>
   </div>
 
-  <!-- Skill gaps -->
-  <div class="card">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">⚠️</span>
-        <span class="card-title">Skill Gaps to Address</span>
-        <span class="card-count" id="gapCount"></span>
-      </div>
-      <span class="chevron open">▼</span>
+  <!-- 02 Occupation match -->
+  <div class="sec rv" id="secMatch">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <span class="label">Occupation match</span>
     </div>
-    <div class="card-body">
-      <div id="recRows"><p style="color:var(--muted);font-size:14px">Great coverage — no critical gaps detected.</p></div>
+    <div class="match-title-row">
+      <h2 id="matchTitle"></h2>
+      <span class="soc-code" id="matchSoc"></span>
+      <span class="match-index" id="matchIndex"></span>
+    </div>
+    <p class="match-desc stag" style="--d:.2s" id="matchDesc"></p>
+    <table class="alts" id="altsTable">
+      <thead><tr><th>#</th><th>Alternative matches</th><th>Match index</th></tr></thead>
+      <tbody id="altsBody"></tbody>
+    </table>
+  </div>
+
+  <!-- 03 Strengths -->
+  <div class="sec rv" id="secStrengths">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <span class="label">Strengths</span>
+      <span class="sec-note" id="strengthNote"></span>
+    </div>
+    <div class="coverage-line" id="coverageLine"></div>
+    <div class="tags" id="strengthTags"></div>
+  </div>
+
+  <!-- 04 Skill gaps -->
+  <div class="sec rv" id="secGaps">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <span class="label">Skill gaps</span>
+      <span class="sec-note" id="gapNote"></span>
+    </div>
+    <div id="gapRows"></div>
+
+    <div class="subsec" id="aiSubsec" style="display:none">
+      <span class="label">Relevant AI/ML skills to consider</span>
+      <p class="subsec-note">Included because the matched occupation is a technical field. Not yet tracked in O*NET technology data.</p>
+      <div id="aiRows"></div>
     </div>
   </div>
 
-  <!-- Emerging AI -->
-  <div class="card" id="emergingCard">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">🤖</span>
-        <span class="card-title">Emerging AI / ML Skills</span>
-        <span class="card-count" id="emergingCount"></span>
+  <!-- 05 Automation exposure -->
+  <div class="sec rv" id="secExposure">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <span class="label">Automation exposure</span>
+    </div>
+    <div class="exposure-grid">
+      <div class="stag" style="--d:.05s">
+        <div class="exposure-level" id="expLevel"></div>
+        <div class="exposure-idx" id="expIdx"></div>
       </div>
-      <span class="chevron open">▼</span>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:18px">High-demand skills for tech roles not yet in standard job databases</p>
-      <div id="emergingRows"></div>
-    </div>
-  </div>
-
-  <!-- LLM suggestions -->
-  <div class="card" id="llmCard">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">💡</span>
-        <span class="card-title">AI Advisor Suggestions</span>
-        <span class="card-count" id="llmCount"></span>
-      </div>
-      <span class="chevron open">▼</span>
-    </div>
-    <div class="card-body">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Skills gaining rapid adoption — powered by Llama 3.3</p>
-      <div id="llmRows"></div>
-    </div>
-  </div>
-
-  <!-- AI Displacement -->
-  <div class="card">
-    <div class="card-header" onclick="toggle(this)">
-      <div class="card-header-left">
-        <span class="card-icon">⚡</span>
-        <span class="card-title">AI Displacement Exposure</span>
-      </div>
-      <span class="chevron open">▼</span>
-    </div>
-    <div class="card-body">
-      <div class="disp-grid">
-        <div class="disp-icon" id="dIcon">—</div>
-        <div class="disp-right">
-          <h2 id="dLevel">—</h2>
-          <p id="dExplanation"></p>
-          <div id="humanSkillsSec" style="display:none; margin-top:16px">
-            <div class="sub-label">Skills that protect this role</div>
-            <div class="chip-wrap" id="humanChips"></div>
-          </div>
+      <div class="stag" style="--d:.15s">
+        <p class="exposure-text" id="expText"></p>
+        <div id="protectiveWrap" style="display:none; margin-top:20px">
+          <span class="label">Task characteristics that lower exposure</span>
+          <div class="tags" id="protectiveTags" style="margin-top:12px"></div>
         </div>
       </div>
     </div>
   </div>
 
-</div><!-- end reportView -->
+  <!-- 06 Matching jobs -->
+  <div class="sec rv" id="secJobs">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <span class="label">Matching jobs</span>
+      <span class="sec-note" id="jobsNote"></span>
+    </div>
+
+    <p class="jobs-intro" id="jobsIntro">Live openings ranked against your resume, with a per-role fit read.</p>
+
+    <div class="job-controls">
+      <div class="segmented" id="workMode">
+        <button type="button" class="seg-btn active" data-mode="remote" onclick="setWorkMode('remote')">Remote</button>
+        <button type="button" class="seg-btn" data-mode="onsite" onclick="setWorkMode('onsite')">On-site</button>
+      </div>
+      <input type="text" id="jobLocation" class="job-loc" placeholder="City, state — e.g. Austin, TX" style="display:none">
+      <button class="btn-primary btn-sm" id="jobSearchBtn" onclick="searchJobs()">Find jobs <span class="arr">→</span></button>
+    </div>
+
+    <div class="job-status" id="jobStatus"></div>
+    <div id="jobResults"></div>
+  </div>
+
+  <footer class="rv">
+    Sources: O*NET occupational database — occupation data, technology skills, essential skills. Live openings via The Muse.
+  </footer>
+
+</div>
+
+<!-- scrollspy rail -->
+<nav class="rail" id="rail" aria-hidden="true">
+  <a href="#secProfile"   data-sec="secProfile">01</a>
+  <a href="#secMatch"     data-sec="secMatch">02</a>
+  <a href="#secStrengths" data-sec="secStrengths">03</a>
+  <a href="#secGaps"      data-sec="secGaps">04</a>
+  <a href="#secExposure"  data-sec="secExposure">05</a>
+  <a href="#secJobs"      data-sec="secJobs">06</a>
+</nav>
 
 <script>
+'use strict';
 const API = 'http://localhost:8000/analyze';
+const JOBS_API = 'http://localhost:8000/jobs';
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ARC_LEN = 157.1;
 let currentFile = null;
+let jobQuery = { title: '', skills: [] };   // captured from the last analysis
+let workMode = 'remote';
 
-// ── Upload ────────────────────────────────────────────
-const dropZone  = document.getElementById('dropZone');
-const fileInput = document.getElementById('fileInput');
+/* ── utils ─────────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const skillName = v => (v && typeof v === 'object') ? (v.skill || '') : String(v || '');
 
-dropZone.addEventListener('click',    () => fileInput.click());
+function countUp(el, target, decimals = 1, dur = 1100) {
+  if (REDUCED) { el.textContent = target.toFixed(decimals); return; }
+  const t0 = performance.now();
+  (function frame(t) {
+    const p = Math.min(1, (t - t0) / dur);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = (target * eased).toFixed(decimals);
+    if (p < 1) requestAnimationFrame(frame);
+  })(t0);
+}
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ▪·—/\\|';
+function scramble(el, text, speed = 26) {
+  clearInterval(el._scr);
+  if (REDUCED || !text) { el.textContent = text; return; }
+  let i = 0;
+  el._scr = setInterval(() => {
+    el.textContent = text.slice(0, i) + [...text.slice(i)].map(c =>
+      c === ' ' ? ' ' : SCRAMBLE_CHARS[Math.random() * SCRAMBLE_CHARS.length | 0]).join('');
+    if (i++ >= text.length) { clearInterval(el._scr); el.textContent = text; }
+  }, speed);
+}
+
+/* ── occupation ticker (upload view ambience) ──────────── */
+const TICKER_ROWS = [
+  ['15-1252', 'Software Developers'],        ['29-1141', 'Registered Nurses'],
+  ['15-2051', 'Data Scientists'],            ['13-2011', 'Accountants & Auditors'],
+  ['15-1254', 'Web Developers'],             ['17-2051', 'Civil Engineers'],
+  ['15-1212', 'Information Security Analysts'], ['11-2021', 'Marketing Managers'],
+  ['25-2021', 'Elementary School Teachers'], ['23-1011', 'Lawyers'],
+  ['47-2111', 'Electricians'],               ['15-1211', 'Computer Systems Analysts'],
+  ['29-1171', 'Nurse Practitioners'],        ['13-1071', 'Human Resources Specialists'],
+  ['15-1232', 'Computer User Support Specialists'], ['27-1024', 'Graphic Designers'],
+  ['11-3021', 'Computer & IS Managers'],     ['13-2051', 'Financial Analysts'],
+  ['15-1244', 'Network & Systems Administrators'], ['41-3091', 'Sales Representatives'],
+  ['15-1241', 'Computer Network Architects'], ['19-3033', 'Clinical Psychologists'],
+  ['15-1251', 'Computer Programmers'],       ['27-3042', 'Technical Writers'],
+  ['15-1253', 'Software QA Analysts & Testers'], ['13-1111', 'Management Analysts'],
+];
+(function buildTicker() {
+  const rows = [...TICKER_ROWS, ...TICKER_ROWS].map(([code, title]) =>
+    `<div class="ticker-row"><b>${code}</b>${esc(title)}</div>`).join('');
+  $('tickerTrack').innerHTML = rows;
+})();
+
+/* ── upload handling ───────────────────────────────────── */
+const dropZone = $('dropZone');
+const fileInput = $('fileInput');
+
+dropZone.addEventListener('click', () => fileInput.click());
 dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('over'); });
-dropZone.addEventListener('dragleave',  () => dropZone.classList.remove('over'));
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
 dropZone.addEventListener('drop', e => {
   e.preventDefault(); dropZone.classList.remove('over');
   if (e.dataTransfer.files[0]) pickFile(e.dataTransfer.files[0]);
@@ -367,223 +905,422 @@ fileInput.addEventListener('change', e => { if (e.target.files[0]) pickFile(e.ta
 
 function pickFile(file) {
   const ext = file.name.split('.').pop().toLowerCase();
-  if (!['pdf','txt'].includes(ext)) { showErr('Only .pdf and .txt files are supported.'); return; }
+  if (!['pdf', 'txt'].includes(ext)) { showErr('Unsupported format — use PDF or TXT.'); return; }
   currentFile = file;
-  document.getElementById('chipName').textContent = file.name;
-  document.getElementById('fileChip').classList.add('show');
-  document.getElementById('analyzeBtn').classList.add('show');
-  document.getElementById('errBox').classList.remove('show');
+  $('fileName').textContent = file.name;
+  $('fileSize').textContent = (file.size / 1024).toFixed(0) + ' KB';
+  $('fileRow').classList.add('show');
+  $('uploadActions').classList.add('show');
+  $('errBox').classList.remove('show');
 }
 
+function showErr(msg) {
+  const el = $('errBox');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+
+/* ── analysis log — pipeline stages as terminal output ── */
+const STAGES = [
+  'reading document',
+  'extracting skill entities',
+  'matching against O*NET occupations',
+  'embedding experience text',
+  'blending tool + semantic scores',
+  'ranking skill gaps',
+  'estimating automation exposure',
+];
+let logTimers = [];
+let logBarMO = null;
+
+function clearLog() {
+  logTimers.forEach(clearTimeout);
+  logTimers = [];
+  if (logBarMO) { logBarMO.disconnect(); logBarMO = null; }
+  $('log').innerHTML = '';
+  $('log').classList.remove('show');
+}
+
+function typeLine(lineEl, textEl, text, cps = 14) {
+  if (REDUCED) { textEl.textContent = text; return; }
+  let i = 0;
+  const t = setInterval(() => {
+    textEl.textContent = text.slice(0, ++i);
+    if (i >= text.length) clearInterval(t);
+  }, cps);
+  logTimers.push(t);
+}
+
+function startLog(t0) {
+  const log = $('log');
+  log.innerHTML = '';
+  log.classList.add('show');
+
+  const addLine = (text) => {
+    // mark previous line done
+    const prev = log.querySelector('.log-line.active');
+    if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.st').textContent = 'ok'; }
+    const el = document.createElement('div');
+    el.className = 'log-line active';
+    const secs = ((performance.now() - t0) / 1000).toFixed(1).padStart(5, '0');
+    el.innerHTML = `<span class="t">${secs}s</span><span class="txt"></span><span class="st"></span>`;
+    log.appendChild(el);
+    typeLine(el, el.querySelector('.txt'), text);
+    return el;
+  };
+
+  addLine('POST /analyze');
+  // pace the pipeline stages across the expected wait; hold on the last one
+  STAGES.forEach((stage, i) => {
+    logTimers.push(setTimeout(() => addLine(stage), 900 + i * 3200));
+  });
+
+  const bar = document.createElement('div');
+  bar.className = 'log-bar';
+  bar.innerHTML = '<i></i>';
+  log.appendChild(bar);
+  // keep the bar last as lines are appended
+  logBarMO = new MutationObserver(() => {
+    if (bar.parentNode === log && log.lastElementChild !== bar) log.appendChild(bar);
+  });
+  logBarMO.observe(log, { childList: true });
+}
+
+function finishLog(ok) {
+  logTimers.forEach(clearTimeout);
+  logTimers = [];
+  if (logBarMO) { logBarMO.disconnect(); logBarMO = null; }
+  const log = $('log');
+  const active = log.querySelector('.log-line.active');
+  if (active) {
+    active.classList.remove('active');
+    active.classList.add(ok ? 'done' : 'fail');
+    active.querySelector('.st').textContent = ok ? 'ok' : 'error';
+  }
+  const bar = log.querySelector('.log-bar');
+  if (bar) bar.remove();
+}
+
+/* ── analyze ───────────────────────────────────────────── */
 async function analyze() {
   if (!currentFile) return;
-  document.getElementById('analyzeBtn').classList.remove('show');
-  document.getElementById('loader').classList.add('show');
-  document.getElementById('errBox').classList.remove('show');
+  $('uploadActions').classList.remove('show');
+  $('errBox').classList.remove('show');
+  const t0 = performance.now();
+  startLog(t0);
+
   const form = new FormData();
   form.append('file', currentFile);
   try {
     const res = await fetch(API, { method: 'POST', body: form });
-    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Analysis failed'); }
-    renderReport(await res.json());
-  } catch(e) {
-    document.getElementById('loader').classList.remove('show');
-    document.getElementById('analyzeBtn').classList.add('show');
-    showErr(e.message || 'Could not reach the server. Make sure it is running on http://localhost:8000');
+    if (!res.ok) {
+      const e = await res.json().catch(() => ({}));
+      throw new Error(e.detail || 'Analysis failed.');
+    }
+    const data = await res.json();
+    finishLog(true);
+    setTimeout(() => { clearLog(); renderReport(data, (performance.now() - t0) / 1000); }, 450);
+  } catch (e) {
+    finishLog(false);
+    $('uploadActions').classList.add('show');
+    showErr(e.message || 'Could not reach the server at localhost:8000.');
   }
-}
-
-function showErr(msg) {
-  const el = document.getElementById('errBox');
-  el.textContent = '❌ ' + msg;
-  el.classList.add('show');
 }
 
 function resetView() {
-  document.getElementById('reportView').classList.remove('show');
-  document.getElementById('uploadView').style.display = 'flex';
-  document.getElementById('fileChip').classList.remove('show');
-  document.getElementById('analyzeBtn').classList.remove('show');
-  document.getElementById('loader').classList.remove('show');
+  $('reportView').classList.remove('show');
+  $('rail').classList.remove('show');
+  $('uploadView').style.display = 'flex';
+  $('fileRow').classList.remove('show');
+  $('uploadActions').classList.remove('show');
+  clearLog();
   fileInput.value = '';
   currentFile = null;
+  window.scrollTo(0, 0);
 }
 
-// ── Collapsible cards ─────────────────────────────────
-function toggle(header) {
-  const body    = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  const open    = !body.classList.contains('collapsed');
-  body.classList.toggle('collapsed', open);
-  chevron.classList.toggle('open', !open);
+/* ── reveal-on-scroll + scrollspy ──────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); } });
+}, { threshold: 0.12 });
+
+const spyObs = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      document.querySelectorAll('.rail a').forEach(a =>
+        a.classList.toggle('active', a.dataset.sec === en.target.id));
+    }
+  });
+}, { rootMargin: '-35% 0px -55% 0px' });
+
+/* ── tag lists with show-all toggle ────────────────────── */
+function renderTags(el, items, limit) {
+  const draw = (list, showToggle) => {
+    el.innerHTML = list.map((t, i) => {
+      const d = Math.min(i * 0.03, 0.6);
+      return typeof t === 'object' && t.val !== undefined
+        ? `<span class="tag stag" style="--d:${d}s">${esc(t.name)}<span class="val">${esc(t.val)}</span></span>`
+        : `<span class="tag stag" style="--d:${d}s">${esc(t)}</span>`;
+    }).join('');
+    if (showToggle) {
+      const btn = document.createElement('button');
+      btn.className = 'btn-text';
+      btn.textContent = `show all ${items.length}`;
+      btn.onclick = () => draw(items, false);
+      el.appendChild(btn);
+    }
+  };
+  draw(items.slice(0, limit), items.length > limit);
 }
 
-// ── Chip list with show-more ──────────────────────────
-function renderChips(containerId, items, cls, limit = 10) {
-  const el = document.getElementById(containerId);
-  if (!items.length) { el.innerHTML = '<span style="color:var(--muted);font-size:13px">None detected</span>'; return; }
-  const visible  = items.slice(0, limit);
-  const overflow = items.slice(limit);
-  let html = visible.map(t => `<span class="chip ${cls}">${t}</span>`).join('');
-  if (overflow.length) {
-    const id = containerId + '_more';
-    html += `<button class="chip chip-more" id="${id}" onclick="showAllChips('${containerId}','${cls}',${JSON.stringify(items).replace(/'/g,"\\'")})"
-      >+${overflow.length} more</button>`;
-  }
-  el.innerHTML = html;
-}
-
-function showAllChips(containerId, cls, items) {
-  document.getElementById(containerId).innerHTML =
-    items.map(t => `<span class="chip ${cls}">${t}</span>`).join('');
-}
-
-// ── Helpers ───────────────────────────────────────────
-function scoreColor(s) {
-  if (s >= 70) return '#22c55e';
-  if (s >= 45) return '#3b82f6';
-  if (s >= 25) return '#f59e0b';
-  return '#ef4444';
-}
-const RISK_ICON  = { Low:'🟢', Medium:'🟡', High:'🔴' };
-const RISK_COLOR = { Low:'#166534', Medium:'#92400e', High:'#991b1b' };
-function str(v) { return (v && typeof v === 'object') ? (v.skill || '') : String(v || ''); }
-
-function recRow(i, r) {
-  const hot    = r.is_hot    ? `<span class="badge badge-hot">★ Hot</span>` : '';
-  const effort = r.effort_label ? `<span class="badge badge-effort">${r.effort_label}</span>` : '';
-  return `<div class="rec-row">
-    <div class="rec-num">${i}</div>
-    <div class="rec-body">
-      <div class="rec-name">${r.skill}${hot}${effort}</div>
-      <div class="rec-text">${r.rationale || ''}</div>
+function gapRow(idx, r, delay) {
+  const trendTag = r.demand_trend
+    ? `<span class="gap-meta trend-${esc(r.demand_trend)}">${esc(r.demand_trend)}</span>` : '';
+  const effortTag = r.effort_label
+    ? `<span class="gap-meta">${esc(r.effort_label)}</span>` : '';
+  return `<div class="gap-row stag" style="--d:${delay}s">
+    <div class="gap-idx">${idx}</div>
+    <div class="gap-body">
+      <div class="gap-name-row">
+        <span class="gap-name">${esc(r.skill)}</span>${effortTag}${trendTag}
+      </div>
+      <p class="gap-desc">${esc(r.rationale)}</p>
     </div>
   </div>`;
 }
 
-function llmRow(item) {
-  const t = item.time_to_learn ? `<span class="badge badge-effort">${item.time_to_learn}</span>` : '';
-  return `<div class="llm-row">
-    <div class="llm-name">★ ${item.skill}${t}</div>
-    <div class="llm-text">${item.reason || ''}</div>
-  </div>`;
-}
-
-// ── Render report ─────────────────────────────────────
-function renderReport(d) {
+/* ── report rendering ──────────────────────────────────── */
+function renderReport(d, elapsed) {
   const s    = d.summary || {};
   const comp = d.competitiveness || {};
-  const ai   = d.ai_displacement_exposure || {};
+  const exp  = d.ai_displacement_exposure || {};
   const tops = d.top_job_matches || [];
   const gaps = d.skill_gaps || {};
   const recs = d.recommendations || [];
-  const emg  = d.emerging_ai_recommendations || [];
-  const llm  = d.llm_skill_suggestions || [];
-  const sk   = d.skills || {};
+  const ai   = gaps.relevant_ai_skills || [];
 
-  // Header
-  document.getElementById('rptTitle').textContent = d.resume || 'Resume Report';
-  document.getElementById('rptSub').textContent =
-    `Parsed by ${d.parser || 'regex'} · ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}`;
+  // reset reveal state for repeat runs
+  document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
 
-  // Scores — animate bars after a short delay
+  // header
+  $('rptFile').textContent = d.resume || 'Report';
+  $('rptMeta').textContent =
+    `${new Date().toISOString().slice(0, 10)} · analyzed in ${elapsed ? elapsed.toFixed(1) : '—'}s`;
+
+  // metrics
   const h = s.hirability_score || 0;
-  document.getElementById('hNum').textContent   = h.toFixed(1);
-  document.getElementById('hNum').style.color   = scoreColor(h);
-  document.getElementById('hLevel').textContent = comp.level || '';
-  document.getElementById('hLevel').style.color = scoreColor(h);
-
   const c = comp.score || 0;
-  document.getElementById('cNum').textContent   = c.toFixed(1);
-  document.getElementById('cNum').style.color   = scoreColor(c);
-  document.getElementById('cLevel').textContent = comp.level || '';
-  document.getElementById('cLevel').style.color = scoreColor(c);
+  $('hNote').textContent = `${s.skills_extracted || 0} skills · ${s.years_experience || 0} yrs experience`;
+  $('cNote').textContent = comp.level || '';
+  $('hArc').style.strokeDashoffset = ARC_LEN;
+  $('cArc').style.strokeDashoffset = ARC_LEN;
 
-  setTimeout(() => {
-    document.getElementById('hBar').style.cssText = `width:${h}%;background:${scoreColor(h)}`;
-    document.getElementById('cBar').style.cssText = `width:${c}%;background:${scoreColor(c)}`;
-  }, 100);
+  const lvl = exp.level || '—';
+  const eVal = $('eVal');
+  eVal.textContent = lvl;
+  eVal.className = 'exp-value exposure-' + lvl;
+  $('eNote').textContent = exp.score != null ? `index ${exp.score.toFixed(2)} / 1.00` : '';
+  const segs = $('eSegs').children;
+  const segIdx = { Low: 0, Medium: 1, High: 2 }[lvl];
+  for (let i = 0; i < 3; i++) segs[i].className = (i === segIdx) ? 'on-' + lvl : '';
 
-  const rLvl = ai.level || '—';
-  document.getElementById('rIcon').textContent  = RISK_ICON[rLvl]  || '⚪';
-  document.getElementById('rLevel').textContent = rLvl;
-  document.getElementById('rLevel').style.color = RISK_COLOR[rLvl] || 'inherit';
-  document.getElementById('rSub').textContent   = ai.score != null ? `score: ${ai.score.toFixed(2)}` : '';
+  // 01 profile
+  $('pEdu').textContent = s.education_level || 'Not detected';
+  $('pExp').textContent = s.years_experience ? s.years_experience + ' years' : 'Not detected';
+  $('pSkills').textContent = s.skills_extracted || 0;
+  $('pSkillsSub').textContent =
+    `${s.skills_from_section || 0} listed · ${s.skills_from_experience || 0} from experience text`;
 
-  // Profile
-  document.getElementById('pEdu').textContent    = s.education_level || 'Not detected';
-  document.getElementById('pExp').textContent    = s.years_experience ? `${s.years_experience} yrs` : 'Not detected';
-  document.getElementById('pSkills').textContent =
-    `${s.skills_extracted || 0} total\n${s.skills_from_section||0} from resume · ${s.skills_from_experience||0} from experience`;
-
-  // Job match
+  // 02 occupation match
+  let topTitle = '';
   if (tops.length) {
     const top = tops[0];
-    document.getElementById('matchTitle').textContent = top.title;
-    document.getElementById('matchScore').textContent =
-      `${(top.blended_score || top.match_score || 0).toFixed(2)} match`;
-    document.getElementById('matchDesc').textContent =
-      top.description || top.description_snippet || '';
-    document.getElementById('matchCount').textContent = `${tops.length} matches`;
-    document.getElementById('altMatches').innerHTML   = tops.slice(1).map(m =>
-      `<div class="alt-match">
-        <span class="alt-title">${m.title}</span>
-        <span class="score-pill">${(m.blended_score||0).toFixed(2)} match</span>
-       </div>`
+    topTitle = top.title;
+    $('secMatch').style.display = '';
+    $('matchSoc').textContent = 'SOC ' + top.soc_code;
+    $('matchIndex').textContent = (top.blended_score || top.match_score || 0).toFixed(2);
+    $('matchDesc').textContent = top.description || '';
+    const alts = tops.slice(1, 5);
+    $('altsTable').style.display = alts.length ? '' : 'none';
+    $('altsBody').innerHTML = alts.map((m, i) =>
+      `<tr><td class="rank">${i + 2}</td>
+       <td class="alt-title"><div class="alt-bar" style="--w:${((m.blended_score || 0) * 100).toFixed(0)}%"></div><span>${esc(m.title)}</span></td>
+       <td class="score">${(m.blended_score || 0).toFixed(2)}</td></tr>`
     ).join('');
   } else {
-    document.getElementById('matchCard').style.display = 'none';
+    $('secMatch').style.display = 'none';
   }
 
-  // Strengths
-  const strengths = (gaps.strengths || []).map(str);
-  renderChips('strengthChips', strengths, 'chip-green', 12);
-  document.getElementById('strengthCount').textContent = strengths.length + ' skills';
-
-  const unmatched = sk.unmatched || [];
-  if (unmatched.length) {
-    document.getElementById('unmatchedSec').style.display = 'block';
-    renderChips('unmatchedChips', unmatched, 'chip-gray', 8);
+  // 03 strengths
+  const strengths = (gaps.strengths || []).map(skillName);
+  $('secStrengths').style.display = strengths.length ? '' : 'none';
+  if (strengths.length) {
+    $('strengthNote').textContent = strengths.length + ' skills';
+    const cov = gaps.coverage_of_top_match || 0;
+    $('coverageLine').textContent =
+      `Covers ${strengths.length} of the matched occupation's listed tools (${(cov * 100).toFixed(0)}%)`;
+    renderTags($('strengthTags'), strengths, 14);
   }
 
-  // Gaps / recs
-  document.getElementById('gapCount').textContent = recs.length ? `${recs.length} gaps` : '';
-  document.getElementById('recRows').innerHTML = recs.length
-    ? recs.map((r,i) => recRow(i+1, r)).join('')
-    : '<p style="color:var(--muted);font-size:14px">Great coverage — no critical gaps detected.</p>';
-
-  // Emerging
-  if (emg.length) {
-    document.getElementById('emergingCount').textContent = `${emg.length} skills`;
-    document.getElementById('emergingRows').innerHTML = emg.map((r,i) => recRow(i+1,r)).join('');
+  // 04 skill gaps
+  if (recs.length || ai.length) {
+    $('secGaps').style.display = '';
+    $('gapNote').textContent = topTitle ? 'vs. ' + topTitle : '';
+    $('gapRows').innerHTML = recs.length
+      ? recs.map((r, i) => gapRow(String(i + 1).padStart(2, '0'), r, i * 0.08)).join('')
+      : '<p class="gap-desc">No missing tools identified for the matched occupation.</p>';
+    $('aiSubsec').style.display = ai.length ? '' : 'none';
+    $('aiRows').innerHTML = ai.map((r, i) => gapRow('—', r, i * 0.08)).join('');
   } else {
-    document.getElementById('emergingCard').style.display = 'none';
+    $('secGaps').style.display = 'none';
   }
 
-  // LLM
-  if (llm.length) {
-    document.getElementById('llmCount').textContent = `${llm.length} suggestions`;
-    document.getElementById('llmRows').innerHTML = llm.map(llmRow).join('');
-  } else {
-    document.getElementById('llmCard').style.display = 'none';
+  // 05 automation exposure
+  $('secExposure').style.display = exp.level ? '' : 'none';
+  if (exp.level) {
+    const el = $('expLevel');
+    el.textContent = lvl;
+    el.className = 'exposure-level exposure-' + lvl;
+    $('expIdx').textContent = `index ${(exp.score || 0).toFixed(2)} / 1.00`;
+    $('expText').textContent = exp.explanation || '';
+    const protective = (gaps.abstract_skills_required || []).map(a =>
+      (a && typeof a === 'object')
+        ? { name: a.skill, val: a.importance != null ? a.importance.toFixed(1) : undefined }
+        : String(a));
+    $('protectiveWrap').style.display = protective.length ? '' : 'none';
+    renderTags($('protectiveTags'), protective, 8);
   }
 
-  // Displacement detail
-  document.getElementById('dIcon').textContent        = RISK_ICON[rLvl] || '⚪';
-  document.getElementById('dLevel').textContent       = rLvl + ' Risk';
-  document.getElementById('dLevel').style.color       = RISK_COLOR[rLvl] || 'inherit';
-  document.getElementById('dExplanation').textContent = ai.explanation || '';
+  // 06 matching jobs — capture query inputs, reset any prior results
+  jobQuery = {
+    title: topTitle || (s.top_match_title || ''),
+    skills: (d.skills && d.skills.extracted) ? d.skills.extracted : strengths,
+  };
+  $('jobResults').innerHTML = '';
+  $('jobStatus').textContent = '';
+  $('jobsNote').textContent = '';
+  setWorkMode('remote');
 
-  const abstract = gaps.abstract_skills_required || [];
-  if (abstract.length) {
-    document.getElementById('humanSkillsSec').style.display = 'block';
-    renderChips('humanChips', abstract.map(str), 'chip-purple', 8);
-  }
-
-  // Switch views
-  document.getElementById('uploadView').style.display = 'none';
-  document.getElementById('reportView').classList.add('show');
+  // switch views, then choreograph the entrance
+  $('uploadView').style.display = 'none';
+  $('reportView').classList.add('show');
+  $('rail').classList.add('show');
   window.scrollTo(0, 0);
+
+  document.querySelectorAll('#reportView .rv').forEach(el => revealObs.observe(el));
+  ['secProfile', 'secMatch', 'secStrengths', 'secGaps', 'secExposure', 'secJobs'].forEach(id => {
+    const el = $(id);
+    if (el && el.style.display !== 'none') spyObs.observe(el);
+  });
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    countUp($('hVal'), h);
+    countUp($('cVal'), c);
+    $('hArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(h, 100) / 100);
+    $('cArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(c, 100) / 100);
+    scramble($('matchTitle'), topTitle);
+  }));
+}
+
+/* ── matching jobs ─────────────────────────────────────── */
+function setWorkMode(mode) {
+  workMode = mode;
+  document.querySelectorAll('#workMode .seg-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.mode === mode));
+  $('jobLocation').style.display = (mode === 'onsite') ? '' : 'none';
+}
+
+function fitClass(fit) {
+  if (fit >= 70) return 'fit-strong';
+  if (fit < 40) return 'fit-weak';
+  return '';
+}
+
+function jobCard(j) {
+  const matching = (j.matching_skills || [])
+    .map(s => `<span class="chip-match">${esc(s)}</span>`).join('');
+  const missing = (j.missing_skills || [])
+    .map(s => `<span class="chip-miss">${esc(s)}</span>`).join('');
+  const org = [j.company, j.location, j.level].filter(Boolean).map(esc);
+  const orgLine = org.length
+    ? `<div class="job-org"><b>${org[0]}</b>${org.slice(1).map(x => ' · ' + x).join('')}</div>` : '';
+  const title = j.url
+    ? `<a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>`
+    : esc(j.title);
+  const skillsBlock = (matching || missing) ? `<div class="job-skills">
+      ${matching ? `<div class="job-skill-group"><span class="sg-label">Have</span>${matching}</div>` : ''}
+      ${missing ? `<div class="job-skill-group"><span class="sg-label">Gap</span>${missing}</div>` : ''}
+    </div>` : '';
+  return `<div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <h3>${title}</h3>
+        ${orgLine}
+      </div>
+      <div class="fit-badge ${fitClass(j.fit)}">
+        <div class="fit-num">${j.fit}</div>
+        <div class="fit-lbl">fit</div>
+      </div>
+    </div>
+    ${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ''}
+    ${skillsBlock}
+  </div>`;
+}
+
+async function searchJobs() {
+  if (!jobQuery.title && !(jobQuery.skills || []).length) {
+    $('jobStatus').textContent = 'Run an analysis first.';
+    return;
+  }
+  const location = (workMode === 'onsite') ? $('jobLocation').value.trim() : '';
+  if (workMode === 'onsite' && !location) {
+    $('jobStatus').textContent = 'Enter a city for on-site search.';
+    $('jobLocation').focus();
+    return;
+  }
+
+  const btn = $('jobSearchBtn');
+  btn.disabled = true;
+  $('jobResults').innerHTML = '';
+  $('jobsNote').textContent = '';
+  $('jobStatus').innerHTML = 'Searching openings and scoring fit<span class="dots"></span>';
+
+  try {
+    const res = await fetch(JOBS_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: jobQuery.title,
+        skills: jobQuery.skills,
+        remote: workMode === 'remote',
+        location,
+        top_n: 5,
+      }),
+    });
+    if (!res.ok) {
+      const e = await res.json().catch(() => ({}));
+      throw new Error(e.detail || 'Job search failed.');
+    }
+    const data = await res.json();
+    const jobs = data.jobs || [];
+    if (!jobs.length) {
+      $('jobStatus').textContent = '';
+      $('jobResults').innerHTML = `<p class="jobs-empty">No ${workMode === 'remote' ? 'remote ' : ''}openings found for “${esc(jobQuery.title)}”${location ? ' near ' + esc(location) : ''} right now. Try the other work mode or a nearby city.</p>`;
+      return;
+    }
+    $('jobStatus').textContent = '';
+    $('jobsNote').textContent = `${jobs.length} of ${data.fetched} scanned`;
+    $('jobResults').innerHTML = jobs.map(jobCard).join('');
+    const cards = document.querySelectorAll('#jobResults .job-card');
+    cards.forEach((c, i) => {
+      if (REDUCED) { c.classList.add('in'); return; }
+      setTimeout(() => c.classList.add('in'), 60 + i * 90);
+    });
+  } catch (e) {
+    $('jobStatus').textContent = e.message || 'Could not reach the job service.';
+  } finally {
+    btn.disabled = false;
+  }
 }
 </script>
 </body>

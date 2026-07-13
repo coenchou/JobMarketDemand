@@ -5,7 +5,7 @@ Converts the build_report() dict into a clean, structured text report.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 
 _WIDTH = 60
@@ -24,10 +24,29 @@ def _score_line(label: str, score: float, suffix: str = "") -> str:
     return f"  {label:<24} {score:>5.1f} / 100  {_bar(score)}{suffix}"
 
 
-def _level_badge(level: str) -> str:
-    return {"Strong": "●●●●●", "Competitive": "●●●●○",
-            "Developing": "●●●○○", "Entry-level": "●●○○○",
-            "Low": "🟢", "Medium": "🟡", "High": "🔴"}.get(level, level)
+def _wrap(text: str, indent: str = "  ", width: int = _WIDTH - 4) -> List[str]:
+    """Word-wrap a paragraph to the report width."""
+    words = text.split()
+    out, buf = [], []
+    for w in words:
+        if buf and len(" ".join(buf + [w])) > width:
+            out.append(indent + " ".join(buf))
+            buf = [w]
+        else:
+            buf.append(w)
+    if buf:
+        out.append(indent + " ".join(buf))
+    return out
+
+
+def _rec_block(i: int, rec: Dict, index_width: int = 2) -> List[str]:
+    trend = rec.get("demand_trend", "")
+    meta = "  ·  ".join(
+        p for p in [rec.get("effort_label", ""), f"demand {trend}" if trend else ""] if p
+    )
+    lines = [f"\n  {i}. {rec['skill']}    [{meta}]"]
+    lines += _wrap(rec.get("rationale", ""), indent="     ")
+    return lines
 
 
 def format_report(r: Dict[str, Any]) -> str:
@@ -38,14 +57,12 @@ def format_report(r: Dict[str, Any]) -> str:
     top_matches = r.get("top_job_matches", [])
     gaps = r.get("skill_gaps", {})
     recs = r.get("recommendations", [])
-    emerging = r.get("emerging_ai_recommendations", [])
-    llm_sugg = r.get("llm_skill_suggestions", [])
-    skills_block = r.get("skills", {})
+    ai_skills = gaps.get("relevant_ai_skills", [])
 
     # ── Header ────────────────────────────────────────────────
     lines += [
         "═" * _WIDTH,
-        "  CAREER INTELLIGENCE REPORT".center(_WIDTH),
+        "  RESUME ANALYSIS".center(_WIDTH),
         f"  {r.get('resume', '')}".center(_WIDTH),
         "═" * _WIDTH,
     ]
@@ -57,11 +74,11 @@ def format_report(r: Dict[str, Any]) -> str:
                              f"  {comp.get('level', '')}"))
     if ai_disp:
         lvl = ai_disp.get("level", "")
-        lines.append(f"  {'AI Displacement Risk':<24} {_level_badge(lvl)}  {lvl}")
+        lines.append(f"  {'Automation exposure':<24} {lvl}  (index {ai_disp.get('score', 0):.2f})")
     lines.append(f"\n  {comp.get('explanation', '')}")
 
     # ── Profile ───────────────────────────────────────────────
-    lines.append(_section("YOUR PROFILE"))
+    lines.append(_section("PROFILE"))
     edu = s.get("education_level") or "Not detected"
     exp = s.get("years_experience")
     exp_str = f"{exp} years" if exp else "Not detected"
@@ -70,94 +87,62 @@ def format_report(r: Dict[str, Any]) -> str:
     lines += [
         f"  Education    {edu}",
         f"  Experience   {exp_str}",
-        f"  Skills       {s.get('skills_extracted', 0)} total  "
-        f"({n_section} from resume, {n_exp} found in experience text)",
+        f"  Skills       {s.get('skills_extracted', 0)} identified  "
+        f"({n_section} listed, {n_exp} from experience text)",
     ]
 
-    # ── Top job match ─────────────────────────────────────────
+    # ── Occupation match ──────────────────────────────────────
     if top_matches:
         top = top_matches[0]
-        lines.append(_section(f"TOP JOB MATCH: {top['title'].upper()}"))
-        snippet = top.get("description", "")
-        if snippet:
-            # Word-wrap to width
-            words = snippet.replace("...", "").split()
-            row, buf = [], []
-            for w in words:
-                buf.append(w)
-                if len(" ".join(buf)) > _WIDTH - 4:
-                    row.append("  " + " ".join(buf[:-1]))
-                    buf = [w]
-            if buf:
-                row.append("  " + " ".join(buf))
-            lines += row[:3]   # max 3 lines of description
+        lines.append(_section(f"OCCUPATION MATCH: {top['title'].upper()}"))
+        lines.append(f"  SOC {top['soc_code']}  ·  match index {top.get('blended_score', 0):.2f}\n")
+        lines += _wrap(top.get("description", ""))
 
         if len(top_matches) > 1:
-            lines.append("\n  Other strong fits:")
+            lines.append("\n  Alternative matches:")
             for m in top_matches[1:5]:
                 score = m.get("blended_score", 0)
-                lines.append(f"    · {m['title']:<35} match: {score:.2f}")
+                lines.append(f"    {m['title']:<38} {score:.2f}")
 
     # ── Strengths ─────────────────────────────────────────────
     strengths = gaps.get("strengths", [])
     if strengths:
         lines.append(_section("STRENGTHS"))
-        lines.append("  Skills you have that align with your top match:")
-        names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths[:12]]
-        lines.append("  " + "  ·  ".join(names))
-
-    unmatched = skills_block.get("unmatched", [])
-    if unmatched:
-        lines.append(f"\n  Skills not yet in the dataset (still valuable):")
-        lines.append("  " + "  ·  ".join(unmatched[:8]))
+        lines.append("  Skills on this resume that the matched occupation lists:")
+        names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths]
+        lines += _wrap("  ·  ".join(names))
 
     # ── Skill gaps ────────────────────────────────────────────
-    top_title = top_matches[0]["title"] if top_matches else "your target role"
-    gap_list = gaps.get("gaps", [])
-    if gap_list or recs:
-        lines.append(_section(f"SKILL GAPS  (vs. {top_title})"))
-        lines.append("  Prioritised skills to consider adding:\n")
+    top_title = top_matches[0]["title"] if top_matches else "the matched occupation"
+    if recs:
+        lines.append(_section("SKILL GAPS"))
+        lines.append(f"  Missing tools for {top_title}, ranked by demand and feasibility:")
         for i, rec in enumerate(recs, 1):
-            hot = "★ " if rec.get("is_hot") else "  "
-            lines.append(f"  {i}. {hot}{rec['skill']:<30} {rec['effort_label']}")
-            lines.append(f"     {rec['rationale']}")
+            lines += _rec_block(i, rec)
 
-    # ── Emerging AI ───────────────────────────────────────────
-    if emerging:
-        lines.append(_section("EMERGING AI / ML SKILLS"))
-        lines.append("  High-demand skills for tech roles not yet in ONET:\n")
-        for i, rec in enumerate(emerging, 1):
-            lines.append(f"  {i}. ★ {rec['skill']:<30} {rec['effort_label']}")
-            lines.append(f"     {rec['rationale']}")
+        if ai_skills:
+            lines.append(f"\n  Relevant AI/ML skills to consider")
+            lines.append(f"  (shown because the matched occupation is a technical field):")
+            for i, rec in enumerate(ai_skills, 1):
+                lines += _rec_block(i, rec)
 
-    # ── LLM suggestions ───────────────────────────────────────
-    if llm_sugg:
-        lines.append(_section("AI ADVISOR SUGGESTIONS  (beyond standard datasets)"))
-        lines.append("  Skills gaining rapid adoption — sourced from Groq / Llama 3.3:\n")
-        for i, s_item in enumerate(llm_sugg, 1):
-            lines.append(f"  {i}. ★ {s_item['skill']:<30} {s_item['time_to_learn']}")
-            lines.append(f"     {s_item['reason']}")
-
-    # ── AI displacement ───────────────────────────────────────
+    # ── Automation exposure ───────────────────────────────────
     if ai_disp:
-        lines.append(_section("AI DISPLACEMENT EXPOSURE"))
+        lines.append(_section("AUTOMATION EXPOSURE"))
         lvl = ai_disp.get("level", "")
         score = ai_disp.get("score", 0)
-        lines += [
-            f"  Risk Level   {_level_badge(lvl)}  {lvl.upper()}  (score: {score:.2f})",
-            f"\n  {ai_disp.get('explanation', '')}",
-        ]
+        lines.append(f"  Level   {lvl.upper()}  (index {score:.2f})\n")
+        lines += _wrap(ai_disp.get("explanation", ""))
         abstract = gaps.get("abstract_skills_required", [])
         if abstract:
-            lines.append("\n  Human skills that protect this role:")
+            lines.append("\n  Task characteristics that lower exposure for this role:")
             names = [a["skill"] if isinstance(a, dict) else str(a) for a in abstract[:5]]
-            lines.append("  " + "  ·  ".join(names))
+            lines += _wrap("  ·  ".join(names))
 
     # ── Footer ────────────────────────────────────────────────
-    parser_used = r.get("parser", "regex")
     lines += [
         f"\n{'═' * _WIDTH}",
-        f"  parser: {parser_used}".center(_WIDTH),
+        "  Sources: O*NET occupational database".center(_WIDTH),
         "═" * _WIDTH,
     ]
 

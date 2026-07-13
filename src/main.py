@@ -11,12 +11,14 @@ from typing import Any, Dict
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from pydantic import BaseModel
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.pipeline import build_report
+from src.job_search import find_jobs
 
 app = FastAPI(title="Career Intelligence API")
 
@@ -35,6 +37,28 @@ def serve_frontend():
     if FRONTEND.exists():
         return FileResponse(FRONTEND)
     return {"message": "Career Intelligence API — POST a resume to /analyze"}
+
+
+class JobQuery(BaseModel):
+    title: str
+    skills: list[str] = []
+    remote: bool = True
+    location: str = ""
+    top_n: int = 5
+
+
+@app.post("/jobs")
+def job_search(q: JobQuery) -> Dict[str, Any]:
+    try:
+        return find_jobs(
+            q.title,
+            q.skills,
+            remote=q.remote,
+            location=q.location,
+            top_n=max(1, min(q.top_n, 8)),
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Job search failed: {e}")
 
 
 @app.post("/analyze")

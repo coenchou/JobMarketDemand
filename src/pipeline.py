@@ -18,7 +18,12 @@ if str(ROOT) not in sys.path:
 from src.parser import parse_resume
 from src.skill_matcher import score_soc_candidates
 from src.gap_engine import compute_skill_gaps
-from src.nlp_skills import generate_recommendations, score_ai_displacement, get_emerging_recommendations, get_llm_skill_suggestions
+from src.nlp_skills import (
+    generate_recommendations,
+    score_ai_displacement,
+    get_emerging_recommendations,
+    is_technical_occupation,
+)
 from src.semantic_matcher import semantic_score_candidates, blend_scores
 
 DATA_DIR = ROOT / "data" / "raw" / "onet"
@@ -147,10 +152,7 @@ def build_report(resume_path: str) -> Dict[str, Any]:
     skill_gaps: Dict = {}
     recommendations: List[Dict] = []
     ai_displacement: Optional[Dict] = None
-
-    emerging_recommendations: List[Dict] = get_emerging_recommendations(skills, top_n=3)
-    top_role = top["title"] if top else ""
-    llm_suggestions: List[Dict] = get_llm_skill_suggestions(skills, top_role)
+    relevant_ai_skills: List[Dict] = []
 
     if top:
         skill_gaps = compute_skill_gaps(skills, top["soc_code"])
@@ -163,6 +165,9 @@ def build_report(resume_path: str) -> Dict[str, Any]:
             top.get("description", ""),
             top.get("title", ""),
         )
+        # AI/ML additions to the gap list — only for technical occupations
+        if is_technical_occupation(top["soc_code"]):
+            relevant_ai_skills = get_emerging_recommendations(skills, top_n=3)
 
     skills_from_exp: List[str] = parsed.get("skills_from_experience", [])
 
@@ -207,10 +212,9 @@ def build_report(resume_path: str) -> Dict[str, Any]:
             "strengths": skill_gaps.get("strengths", []),
             "gaps": skill_gaps.get("gaps", [])[:10],
             "abstract_skills_required": skill_gaps.get("abstract_skills_required", [])[:6],
+            "relevant_ai_skills": relevant_ai_skills,
         },
         "recommendations": recommendations,
-        "emerging_ai_recommendations": emerging_recommendations,
-        "llm_skill_suggestions": llm_suggestions,
         "ai_displacement_exposure": ai_displacement,
     }
 

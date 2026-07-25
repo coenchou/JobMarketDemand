@@ -113,6 +113,18 @@ def _hirability(
     return round((0.45 * skill + 0.30 * exp_fit + 0.25 * edu_fit) * 100, 1)
 
 
+def _hirability_level(score: float) -> str:
+    if score >= 80:
+        return "Very likely hirable"
+    if score >= 60:
+        return "Likely hirable"
+    if score >= 40:
+        return "Moderately hirable"
+    if score >= 20:
+        return "Developing"
+    return "Early-stage"
+
+
 def _competitiveness(
     skill: float,
     years: Optional[int],
@@ -263,6 +275,7 @@ def build_report(resume_path: str) -> Dict[str, Any]:
         "summary_text": summary_text,
         "summary": {
             "hirability_score": hirability,
+            "hirability_level": _hirability_level(hirability),
             "years_experience": years,
             "education_level": edu,
             "top_match_title": top["title"] if top else None,

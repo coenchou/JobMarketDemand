@@ -75,7 +75,8 @@ def format_report(r: Dict[str, Any]) -> str:
 
     # ── Scores ────────────────────────────────────────────────
     lines.append(_section("SCORES"))
-    lines.append(_score_line("Hirability", s.get("hirability_score", 0)))
+    lines.append(_score_line("Hirability", s.get("hirability_score", 0),
+                             f"  {s.get('hirability_level', '')}"))
     lines.append(_score_line("Competitiveness", comp.get("score", 0),
                              f"  {comp.get('level', '')}"))
     if ai_disp:

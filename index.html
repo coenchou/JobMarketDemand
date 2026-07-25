@@ -1143,7 +1143,7 @@ function renderReport(d, elapsed) {
   // metrics
   const h = s.hirability_score || 0;
   const c = comp.score || 0;
-  $('hNote').textContent = `${s.skills_extracted || 0} skills · ${s.years_experience || 0} yrs experience`;
+  $('hNote').textContent = s.hirability_level || '';
   $('cNote').textContent = comp.level || '';
   $('hArc').style.strokeDashoffset = ARC_LEN;
   $('cArc').style.strokeDashoffset = ARC_LEN;

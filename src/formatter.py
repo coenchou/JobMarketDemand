@@ -40,10 +40,11 @@ def _wrap(text: str, indent: str = "  ", width: int = _WIDTH - 4) -> List[str]:
 
 
 def _rec_block(i: int, rec: Dict, index_width: int = 2) -> List[str]:
-    trend = rec.get("demand_trend", "")
-    meta = "  ·  ".join(
-        p for p in [rec.get("effort_label", ""), f"demand {trend}" if trend else ""] if p
-    )
+    # Only note demand when it's a caution ("declining"); "growing" on every row is noise.
+    parts = [rec.get("effort_label", "")]
+    if rec.get("demand_trend") == "declining":
+        parts.append("declining demand")
+    meta = "  ·  ".join(p for p in parts if p)
     lines = [f"\n  {i}. {rec['skill']}    [{meta}]"]
     lines += _wrap(rec.get("rationale", ""), indent="     ")
     return lines
@@ -57,7 +58,6 @@ def format_report(r: Dict[str, Any]) -> str:
     top_matches = r.get("top_job_matches", [])
     gaps = r.get("skill_gaps", {})
     recs = r.get("recommendations", [])
-    ai_skills = gaps.get("relevant_ai_skills", [])
 
     # ── Header ────────────────────────────────────────────────
     lines += [
@@ -66,6 +66,12 @@ def format_report(r: Dict[str, Any]) -> str:
         f"  {r.get('resume', '')}".center(_WIDTH),
         "═" * _WIDTH,
     ]
+
+    # ── Next steps (LLM guidance) ─────────────────────────────
+    summary_text = r.get("summary_text", "")
+    if summary_text:
+        lines.append(_section("NEXT STEPS"))
+        lines += _wrap(summary_text)
 
     # ── Scores ────────────────────────────────────────────────
     lines.append(_section("SCORES"))
@@ -76,20 +82,6 @@ def format_report(r: Dict[str, Any]) -> str:
         lvl = ai_disp.get("level", "")
         lines.append(f"  {'Automation exposure':<24} {lvl}  (index {ai_disp.get('score', 0):.2f})")
     lines.append(f"\n  {comp.get('explanation', '')}")
-
-    # ── Profile ───────────────────────────────────────────────
-    lines.append(_section("PROFILE"))
-    edu = s.get("education_level") or "Not detected"
-    exp = s.get("years_experience")
-    exp_str = f"{exp} years" if exp else "Not detected"
-    n_section = s.get("skills_from_section", 0)
-    n_exp = s.get("skills_from_experience", 0)
-    lines += [
-        f"  Education    {edu}",
-        f"  Experience   {exp_str}",
-        f"  Skills       {s.get('skills_extracted', 0)} identified  "
-        f"({n_section} listed, {n_exp} from experience text)",
-    ]
 
     # ── Occupation match ──────────────────────────────────────
     if top_matches:
@@ -105,26 +97,26 @@ def format_report(r: Dict[str, Any]) -> str:
                 lines.append(f"    {m['title']:<38} {score:.2f}")
 
     # ── Strengths ─────────────────────────────────────────────
+    highlights = gaps.get("highlights", [])
     strengths = gaps.get("strengths", [])
-    if strengths:
+    if highlights or strengths:
         lines.append(_section("STRENGTHS"))
-        lines.append("  Skills on this resume that the matched occupation lists:")
-        names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths]
-        lines += _wrap("  ·  ".join(names))
+        for h in highlights:
+            lines.append(f"  • {h}")
+        if strengths:
+            if highlights:
+                lines.append("")
+            lines.append("  Skills the matched occupation lists:")
+            names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths]
+            lines += _wrap("  ·  ".join(names))
 
     # ── Skill gaps ────────────────────────────────────────────
     top_title = top_matches[0]["title"] if top_matches else "the matched occupation"
     if recs:
         lines.append(_section("SKILL GAPS"))
-        lines.append(f"  Missing tools for {top_title}, ranked by demand and feasibility:")
+        lines.append(f"  Prioritized skills to add for {top_title}:")
         for i, rec in enumerate(recs, 1):
             lines += _rec_block(i, rec)
-
-        if ai_skills:
-            lines.append(f"\n  Relevant AI/ML skills to consider")
-            lines.append(f"  (shown because the matched occupation is a technical field):")
-            for i, rec in enumerate(ai_skills, 1):
-                lines += _rec_block(i, rec)
 
     # ── Automation exposure ───────────────────────────────────
     if ai_disp:

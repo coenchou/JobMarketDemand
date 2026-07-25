@@ -267,7 +267,9 @@ _GROQ_PROMPT = """You are a resume parser. Extract structured information from t
 Return ONLY a valid JSON object — no explanation, no markdown fences.
 
 Required fields:
-- "skills": array of all skills, tools, and technologies mentioned anywhere in the resume
+- "skills": array of all skills, tools, and technologies EXPLICITLY mentioned anywhere in the resume
+- "implied_skills": array of skills the candidate almost certainly has based on their roles, seniority, and projects, even if never written out. Be conservative and specific: a software engineer who shipped production code implies "Git" and "GitHub"; a data analyst who built dashboards implies "data visualization"; a backend engineer implies "REST APIs". Only high-confidence implications a hiring manager would take for granted. Do NOT repeat items already in "skills".
+- "highlights": array of 2 to 5 short strings naming the candidate's most impressive, resume-defining credentials — notable employers, selective schools, scale of impact, leadership, or standout achievements. Examples: "Software Engineer at Google (3 yrs)", "B.S. Computer Science, MIT", "Led a team of 8 engineers", "Scaled platform to 2M users". Empty array if nothing genuinely stands out. Do not invent.
 - "years_experience": total years of professional experience as an integer, or null
 - "education_level": highest degree, must be exactly one of: "Doctorate", "Master's", "Bachelor's", "Associate's", or null
 - "education_lines": array of lines from the education section
@@ -293,6 +295,8 @@ def _parse_with_groq(text: str) -> Optional[Dict]:
         )
         data = json.loads(response.choices[0].message.content)
         data.setdefault("skills", [])
+        data.setdefault("implied_skills", [])
+        data.setdefault("highlights", [])
         data.setdefault("years_experience", None)
         data.setdefault("education_level", None)
         data.setdefault("education_lines", [])
@@ -346,13 +350,17 @@ def parse_resume(path: str) -> Dict:
     # --- Try Groq LLM parser first ---
     llm = _parse_with_groq(text)
 
+    implied_skills: List[str] = []
+    highlights: List[str] = []
     if llm:
-        skills: List[str] = llm["skills"]
+        skills: List[str] = list(llm["skills"])
+        implied_skills = [str(s) for s in llm.get("implied_skills", []) if s]
+        highlights = [str(h) for h in llm.get("highlights", []) if h]
         years: Optional[int] = llm["years_experience"]
         edu_level: Optional[str] = llm["education_level"]
         edu_lines: List[str] = llm["education_lines"]
         exp_lines: List[str] = llm["experience_lines"]
-        skills_from_section = skills  # LLM extracts from whole resume
+        skills_from_section = list(skills)  # LLM extracts from whole resume
     else:
         # --- Regex fallback ---
         skills_section = _find_section(text, *_SECTION_HEADINGS)
@@ -385,9 +393,11 @@ def parse_resume(path: str) -> Dict:
         edu_lines = [ln.strip() for ln in edu_section.splitlines() if ln.strip()]
         skills_from_section = skills
 
-    # --- Merge implicit skills (dedup against already-known skills) ---
+    # --- Merge implicit (URL) + implied (LLM-inferred) skills ---
+    # These suppress false gaps: a senior engineer who didn't list "Git" still
+    # shouldn't be told to learn it. Deduped against already-known skills.
     known_lower = {s.lower() for s in skills}
-    for imp in implicit_skills:
+    for imp in implicit_skills + implied_skills:
         if imp.lower() not in known_lower:
             skills.append(imp)
             known_lower.add(imp.lower())
@@ -407,6 +417,8 @@ def parse_resume(path: str) -> Dict:
         "skills": all_skills,
         "skills_from_section": skills_from_section,
         "skills_from_experience": [n["original"] for n in ner_skills],
+        "implied_skills": implied_skills,
+        "highlights": highlights,
         "matched_skills": all_matched,
         "years_experience": years,
         "education_level": edu_level,

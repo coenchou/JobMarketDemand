@@ -8,7 +8,10 @@ Falls back to keyword-based heuristics if the model is unavailable.
 
 from __future__ import annotations
 
+import json
+import os
 import re
+import sys
 import zlib
 from functools import lru_cache
 from typing import Any, Dict, List, Optional, Tuple
@@ -981,3 +984,174 @@ def score_ai_displacement(description: str, title: str) -> Dict:
         )
 
     return {"score": combined, "level": level, "explanation": explanation}
+
+
+# ---------------------------------------------------------------------------
+# LLM refinement of recommendations
+#
+# The dataset-driven gap list is a blunt instrument: it will happily tell a
+# senior engineer to "learn Git" just because they didn't spell it out. This
+# layer hands the candidate's real context to the LLM to (a) drop gaps they
+# obviously already have, (b) keep the genuinely useful ones, (c) add current,
+# high-value skills the standard datasets don't track, and (d) write a concrete
+# next-steps summary. Falls back to the dataset list if the LLM is unavailable.
+# ---------------------------------------------------------------------------
+
+# Near-duplicate skill families — collapsed so we never recommend two members
+# of the same family (e.g. both "Git" and "GitHub").
+_SKILL_FAMILIES: List[set] = [
+    {"git", "github", "gitlab", "version control", "bitbucket"},
+    {"amazon web services", "aws"},
+    {"microsoft azure", "azure"},
+    {"google cloud", "gcp", "google cloud platform"},
+    {"postgresql", "postgres"},
+    {"javascript", "js"},
+]
+
+
+def _family_key(skill: str) -> str:
+    n = _norm(skill)
+    for fam in _SKILL_FAMILIES:
+        if n in fam or any(m in n for m in fam):
+            return sorted(fam)[0]
+    return n
+
+
+def _dedupe_by_family(recs: List[Dict]) -> List[Dict]:
+    seen: set = set()
+    out: List[Dict] = []
+    for r in recs:
+        k = _family_key(r.get("skill", ""))
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(r)
+    return out
+
+
+def _fallback_summary(role: str, recs: List[Dict], years: Optional[int]) -> str:
+    role = role or "your target roles"
+    if not recs:
+        return (
+            f"Your profile already covers the core tools for {role}. Focus on "
+            "deepening what you have and building portfolio evidence rather than "
+            "adding new tools."
+        )
+    top = [r["skill"] for r in recs[:3]]
+    lead = top[0]
+    rest = ", ".join(top[1:]) if len(top) > 1 else ""
+    exp_note = ""
+    if years is not None:
+        exp_note = f" With {years} year{'s' if years != 1 else ''} of experience, you can "
+        exp_note += "target senior postings once these land." if years >= 5 else "close these gaps and move up quickly."
+    return (
+        f"For {role}, the highest-leverage next step is {lead}"
+        + (f", followed by {rest}" if rest else "")
+        + f".{exp_note}"
+    ).strip()
+
+
+_REFINE_PROMPT = """You are a career advisor. Refine a skill-gap list for one candidate.
+
+CANDIDATE
+Target role: {role}
+Years of experience: {years}
+Skills they already have (explicit + safely implied): {skills}
+Recent experience:
+{experience}
+
+DRAFT GAP LIST (from an occupational database; may be blunt or wrong):
+{gaps}
+
+Return ONLY JSON:
+{{
+  "summary": "2-3 sentences of concrete next-steps guidance. Answer: what direction fits them, what to learn next, and how quickly they can improve. Reference their actual background. No fluff, no 'leverage'/'unlock'.",
+  "automation_note": "1-2 plain sentences on how AI and automation are actually being used in the {role} field today (concrete examples of tools or tasks), and what that means for someone working in it. Factual and specific, not alarmist.",
+  "recommendations": [
+    {{"skill": "...", "rationale": "one specific sentence tying this skill to THIS candidate's background and target role", "effort": "e.g. 2-4 weeks", "source": "dataset" or "new"}}
+  ]
+}}
+
+Rules:
+- DROP any gap the candidate almost certainly already has given their seniority and experience (e.g. never tell an experienced software engineer to learn Git or version control).
+- KEEP the most valuable remaining gaps from the draft list.
+- You MAY ADD up to 2 current, high-value skills this specific person needs that the database does not track (these can be modern frameworks, AI/ML tools, cloud/platform skills — whatever actually fits THIS resume and role; do not force AI skills onto a non-technical candidate). Mark added ones "source": "new".
+- Return at most 5 recommendations, ordered by priority.
+- Every rationale must be specific to this candidate, not generic."""
+
+
+def llm_refine_recommendations(
+    role: str,
+    skills: List[str],
+    years: Optional[int],
+    experience_lines: List[str],
+    dataset_recs: List[Dict],
+) -> Dict[str, Any]:
+    """
+    Refine the dataset gap list with the candidate's real context.
+    Returns {"summary": str, "recommendations": [...]}.
+    Falls back to the dataset list (deduped) plus a templated summary.
+    """
+    deduped = _dedupe_by_family(dataset_recs)
+    api_key = os.getenv("GROQ_API_KEY")
+
+    if not api_key:
+        return {"summary": _fallback_summary(role, deduped, years), "automation_note": "", "recommendations": deduped[:5]}
+
+    try:
+        from groq import Groq  # type: ignore
+        client = Groq(api_key=api_key)
+        gap_lines = "\n".join(
+            f"- {r['skill']}: {r.get('rationale', '')}" for r in deduped[:8]
+        ) or "- (none found)"
+        exp = "\n".join(f"- {ln}" for ln in experience_lines[:6]) or "- (not provided)"
+        prompt = _REFINE_PROMPT.format(
+            role=role or "unspecified",
+            years="unknown" if years is None else years,
+            skills=", ".join(skills[:40]) or "none listed",
+            experience=exp,
+            gaps=gap_lines,
+        )
+        resp = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            response_format={"type": "json_object"},
+            temperature=0.3,
+        )
+        data = json.loads(resp.choices[0].message.content)
+        summary = str(data.get("summary", "")).strip() or _fallback_summary(role, deduped, years)
+        automation_note = str(data.get("automation_note", "")).strip()
+
+        # Re-attach dataset metadata (effort_label, demand_trend) by skill-name
+        # match; compute fresh values for LLM-added skills.
+        by_name = {_norm(r["skill"]): r for r in dataset_recs}
+        out: List[Dict] = []
+        for item in data.get("recommendations", [])[:5]:
+            name = str(item.get("skill", "")).strip()
+            if not name:
+                continue
+            base = by_name.get(_norm(name))
+            source = item.get("source", "dataset" if base else "new")
+            if base:
+                effort_label = base.get("effort_label", "")
+                demand_trend = base.get("demand_trend", "")
+            else:
+                fs = score_feasibility(name, skills)
+                effort_label = fs["effort_label"]
+                demand_trend = "growing"  # LLM only adds current, high-value skills
+            out.append({
+                "skill": name,
+                "rationale": str(item.get("rationale", "")).strip(),
+                "effort_label": item.get("effort") or effort_label,
+                "demand_trend": demand_trend,
+                "source": source,
+                "is_hot": bool(base.get("is_hot")) if base else True,
+            })
+
+        out = _dedupe_by_family(out)
+        if not out:
+            out = deduped[:5]
+        return {"summary": summary, "automation_note": automation_note, "recommendations": out}
+    except Exception as e:
+        print(f"[nlp_skills] recommendation refinement failed: {e}", file=sys.stderr)
+        return {"summary": _fallback_summary(role, deduped, years), "automation_note": "", "recommendations": deduped[:5]}

@@ -21,8 +21,7 @@ from src.gap_engine import compute_skill_gaps
 from src.nlp_skills import (
     generate_recommendations,
     score_ai_displacement,
-    get_emerging_recommendations,
-    is_technical_occupation,
+    llm_refine_recommendations,
 )
 from src.semantic_matcher import semantic_score_candidates, blend_scores
 
@@ -152,28 +151,56 @@ def build_report(resume_path: str) -> Dict[str, Any]:
     skill_gaps: Dict = {}
     recommendations: List[Dict] = []
     ai_displacement: Optional[Dict] = None
-    relevant_ai_skills: List[Dict] = []
+    summary_text: str = ""
 
     if top:
         skill_gaps = compute_skill_gaps(skills, top["soc_code"])
-        recommendations = generate_recommendations(
+        dataset_recs = generate_recommendations(
             skill_gaps.get("gaps", []),
             skills,
-            top_n=5,
+            top_n=8,
         )
         ai_displacement = score_ai_displacement(
             top.get("description", ""),
             top.get("title", ""),
         )
-        # AI/ML additions to the gap list — only for technical occupations
-        if is_technical_occupation(top["soc_code"]):
-            relevant_ai_skills = get_emerging_recommendations(skills, top_n=3)
+        # Hand the blunt dataset gap list to the LLM: prune what the candidate
+        # obviously already has, add current skills the dataset misses, and
+        # produce a concrete next-steps summary.
+        refined = llm_refine_recommendations(
+            top["title"], skills, years, exp_lines, dataset_recs,
+        )
+        summary_text = refined["summary"]
+        recommendations = refined["recommendations"]
+
+        # Enrich the automation-exposure blurb with a concrete note on how AI is
+        # actually used in this field (from the same LLM call — no extra request).
+        note = refined.get("automation_note", "")
+        if note and ai_displacement:
+            ai_displacement["explanation"] = (
+                ai_displacement.get("explanation", "").rstrip() + " " + note
+            ).strip()
 
     skills_from_exp: List[str] = parsed.get("skills_from_experience", [])
+
+    # Notable non-skill strengths: LLM highlights + synthesized experience/education
+    highlights: List[str] = list(parsed.get("highlights", []))
+    synth: List[str] = []
+    if years:
+        synth.append(f"{years} year{'s' if years != 1 else ''} of professional experience")
+    if edu:
+        synth.append(f"{edu} degree")
+    # Keep synthesized items only if not already implied by an LLM highlight
+    hl_blob = " ".join(highlights).lower()
+    for s in synth:
+        key = s.split()[0].lower()
+        if key not in hl_blob:
+            highlights.append(s)
 
     return {
         "resume": resume_path.name,
         "parser": parsed.get("parser", "regex"),
+        "summary_text": summary_text,
         "summary": {
             "hirability_score": hirability,
             "years_experience": years,
@@ -210,9 +237,9 @@ def build_report(resume_path: str) -> Dict[str, Any]:
         "skill_gaps": {
             "coverage_of_top_match": skill_gaps.get("coverage", 0.0),
             "strengths": skill_gaps.get("strengths", []),
+            "highlights": highlights,
             "gaps": skill_gaps.get("gaps", [])[:10],
             "abstract_skills_required": skill_gaps.get("abstract_skills_required", [])[:6],
-            "relevant_ai_skills": relevant_ai_skills,
         },
         "recommendations": recommendations,
         "ai_displacement_exposure": ai_displacement,

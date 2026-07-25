@@ -22,7 +22,7 @@ import sys
 from html import unescape
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from urllib.parse import urlencode
+from urllib.parse import quote_plus, urlencode
 from urllib.request import Request, urlopen
 from urllib.error import URLError
 
@@ -245,6 +245,42 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
 
 
 # ---------------------------------------------------------------------------
+# External job-board deep links
+#
+# The Muse has a thin, mostly-remote catalog, so it is unreliable for on-site
+# search. Rather than scrape LinkedIn/Indeed (against ToS, fragile), we build
+# pre-filled search URLs that drop the user straight into those sites with the
+# right role + location applied.
+# ---------------------------------------------------------------------------
+
+def build_search_links(title: str, remote: bool, location: str) -> List[Dict[str, str]]:
+    q = title or "jobs"
+    loc = "Remote" if remote else (location or "")
+    linkedin = f"https://www.linkedin.com/jobs/search/?keywords={quote_plus(q)}"
+    if remote:
+        linkedin += "&f_WT=2"          # LinkedIn remote work-type filter
+    elif loc:
+        linkedin += f"&location={quote_plus(loc)}"
+    indeed = f"https://www.indeed.com/jobs?q={quote_plus(q)}"
+    if loc:
+        indeed += f"&l={quote_plus(loc)}"
+    google = f"https://www.google.com/search?q={quote_plus(q + ' jobs ' + loc)}&ibp=htl;jobs"
+    return [
+        {"site": "LinkedIn", "url": linkedin},
+        {"site": "Indeed", "url": indeed},
+        {"site": "Google Jobs", "url": google},
+    ]
+
+
+def _filter_by_location(jobs: List[Dict[str, Any]], location: str) -> List[Dict[str, Any]]:
+    """Keep only jobs whose location text contains the queried city."""
+    city = location.split(",")[0].strip().lower()
+    if not city:
+        return jobs
+    return [j for j in jobs if city in j.get("location", "").lower()]
+
+
+# ---------------------------------------------------------------------------
 # Orchestrator
 # ---------------------------------------------------------------------------
 
@@ -257,12 +293,17 @@ def find_jobs(
     top_n: int = 5,
 ) -> Dict[str, Any]:
     raw = fetch_jobs(title, remote=remote, location=location)
+    # On-site: The Muse leaks remote/multi-city results, so keep only true local
+    # matches; the deep links cover everything the thin catalog misses.
+    if not remote and location:
+        raw = _filter_by_location(raw, location)
     ranked = rank_jobs(title, skills, raw, top_n=top_n)
     analyzed = analyze_fit(title, skills, ranked)
     analyzed.sort(key=lambda x: x.get("fit", 0), reverse=True)
     return {
         "query": {"title": title, "remote": remote, "location": location},
         "fetched": len(raw),
+        "search_links": build_search_links(title, remote, location),
         "jobs": [
             {
                 "title": j["title"],

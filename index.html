@@ -516,6 +516,43 @@ table.alts tr:hover td.alt-title span { color: var(--primary); transition: color
 .exposure-idx { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 4px; }
 .exposure-text { color: var(--muted); max-width: 64ch; }
 
+/* summary / next-steps card */
+.summary-card {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 26px;
+  margin-bottom: 52px;
+  border-left: 3px solid var(--gold);
+}
+.summary-card .label { color: var(--accent); }
+.summary-card p { font-size: 16px; line-height: 1.65; color: var(--ink); margin-top: 10px; max-width: 70ch; }
+
+/* strengths highlights */
+.highlights { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.highlights li {
+  position: relative; padding-left: 20px;
+  font-size: 14.5px; color: var(--ink); line-height: 1.5;
+}
+.highlights li::before {
+  content: "▪"; position: absolute; left: 2px; top: 0;
+  color: var(--gold); font-size: 12px;
+}
+
+/* external job-board links */
+.job-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 22px; }
+.job-links:empty { margin: 0; }
+.job-links-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-right: 2px; }
+.job-links a {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--soft); color: var(--primary);
+  border-radius: 999px; padding: 9px 18px;
+  font-size: 13.5px; font-weight: 600; text-decoration: none;
+  transition: background 0.15s, transform 0.12s ease;
+}
+.job-links a:hover { background: var(--soft-2); transform: translateY(-1px); }
+.job-links a::after { content: "↗"; font-weight: 400; color: var(--faint); }
+
 /* matching jobs */
 .jobs-intro { color: var(--muted); font-size: 14px; margin-bottom: 20px; max-width: 64ch; }
 .job-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
@@ -701,33 +738,16 @@ footer {
     </div>
   </div>
 
-  <!-- 01 Profile -->
-  <div class="sec rv" id="secProfile">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <span class="label">Profile</span>
-    </div>
-    <div class="profile-grid">
-      <div class="stag" style="--d:.05s">
-        <span class="label">Education</span>
-        <div class="p-value" id="pEdu">—</div>
-      </div>
-      <div class="stag" style="--d:.15s">
-        <span class="label">Experience</span>
-        <div class="p-value" id="pExp">—</div>
-      </div>
-      <div class="stag" style="--d:.25s">
-        <span class="label">Skills identified</span>
-        <div class="p-value" id="pSkills">—</div>
-        <div class="p-sub" id="pSkillsSub"></div>
-      </div>
-    </div>
+  <!-- Next steps (LLM guidance) -->
+  <div class="summary-card rv" id="summaryCard" style="display:none">
+    <span class="label">What to do next</span>
+    <p id="summaryText"></p>
   </div>
 
-  <!-- 02 Occupation match -->
+  <!-- 01 Occupation match -->
   <div class="sec rv" id="secMatch">
     <div class="sec-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">01</span>
       <span class="label">Occupation match</span>
     </div>
     <div class="match-title-row">
@@ -745,34 +765,29 @@ footer {
   <!-- 03 Strengths -->
   <div class="sec rv" id="secStrengths">
     <div class="sec-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">02</span>
       <span class="label">Strengths</span>
       <span class="sec-note" id="strengthNote"></span>
     </div>
+    <ul class="highlights" id="strengthHighlights"></ul>
     <div class="coverage-line" id="coverageLine"></div>
     <div class="tags" id="strengthTags"></div>
   </div>
 
-  <!-- 04 Skill gaps -->
+  <!-- 03 Skill gaps -->
   <div class="sec rv" id="secGaps">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">03</span>
       <span class="label">Skill gaps</span>
       <span class="sec-note" id="gapNote"></span>
     </div>
     <div id="gapRows"></div>
-
-    <div class="subsec" id="aiSubsec" style="display:none">
-      <span class="label">Relevant AI/ML skills to consider</span>
-      <p class="subsec-note">Included because the matched occupation is a technical field. Not yet tracked in O*NET technology data.</p>
-      <div id="aiRows"></div>
-    </div>
   </div>
 
-  <!-- 05 Automation exposure -->
+  <!-- 04 Automation exposure -->
   <div class="sec rv" id="secExposure">
     <div class="sec-head">
-      <span class="sec-num">05</span>
+      <span class="sec-num">04</span>
       <span class="label">Automation exposure</span>
     </div>
     <div class="exposure-grid">
@@ -790,15 +805,15 @@ footer {
     </div>
   </div>
 
-  <!-- 06 Matching jobs -->
+  <!-- 05 Matching jobs -->
   <div class="sec rv" id="secJobs">
     <div class="sec-head">
-      <span class="sec-num">06</span>
+      <span class="sec-num">05</span>
       <span class="label">Matching jobs</span>
       <span class="sec-note" id="jobsNote"></span>
     </div>
 
-    <p class="jobs-intro" id="jobsIntro">Live openings ranked against your resume, with a per-role fit read.</p>
+    <p class="jobs-intro" id="jobsIntro">Live remote openings ranked against your resume, with a per-role fit read. For on-site roles, jump to the major boards with your search pre-filled.</p>
 
     <div class="job-controls">
       <div class="segmented" id="workMode">
@@ -810,23 +825,23 @@ footer {
     </div>
 
     <div class="job-status" id="jobStatus"></div>
+    <div class="job-links" id="jobLinks"></div>
     <div id="jobResults"></div>
   </div>
 
   <footer class="rv">
-    Sources: O*NET occupational database — occupation data, technology skills, essential skills. Live openings via The Muse.
+    Sources: O*NET occupational database — occupation data, technology skills, essential skills. Live openings via The Muse; search links to LinkedIn, Indeed, and Google Jobs.
   </footer>
 
 </div>
 
 <!-- scrollspy rail -->
 <nav class="rail" id="rail" aria-hidden="true">
-  <a href="#secProfile"   data-sec="secProfile">01</a>
-  <a href="#secMatch"     data-sec="secMatch">02</a>
-  <a href="#secStrengths" data-sec="secStrengths">03</a>
-  <a href="#secGaps"      data-sec="secGaps">04</a>
-  <a href="#secExposure"  data-sec="secExposure">05</a>
-  <a href="#secJobs"      data-sec="secJobs">06</a>
+  <a href="#secMatch"     data-sec="secMatch">01</a>
+  <a href="#secStrengths" data-sec="secStrengths">02</a>
+  <a href="#secGaps"      data-sec="secGaps">03</a>
+  <a href="#secExposure"  data-sec="secExposure">04</a>
+  <a href="#secJobs"      data-sec="secJobs">05</a>
 </nav>
 
 <script>
@@ -1074,8 +1089,10 @@ function renderTags(el, items, limit) {
 }
 
 function gapRow(idx, r, delay) {
-  const trendTag = r.demand_trend
-    ? `<span class="gap-meta trend-${esc(r.demand_trend)}">${esc(r.demand_trend)}</span>` : '';
+  // Only surface a demand badge when it's a real caution — "growing" on every
+  // row is noise. A declining skill is the exception worth flagging.
+  const trendTag = r.demand_trend === 'declining'
+    ? `<span class="gap-meta trend-declining">declining demand</span>` : '';
   const effortTag = r.effort_label
     ? `<span class="gap-meta">${esc(r.effort_label)}</span>` : '';
   return `<div class="gap-row stag" style="--d:${delay}s">
@@ -1097,7 +1114,7 @@ function renderReport(d, elapsed) {
   const tops = d.top_job_matches || [];
   const gaps = d.skill_gaps || {};
   const recs = d.recommendations || [];
-  const ai   = gaps.relevant_ai_skills || [];
+  const highlights = gaps.highlights || [];
 
   // reset reveal state for repeat runs
   document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
@@ -1106,6 +1123,11 @@ function renderReport(d, elapsed) {
   $('rptFile').textContent = d.resume || 'Report';
   $('rptMeta').textContent =
     `${new Date().toISOString().slice(0, 10)} · analyzed in ${elapsed ? elapsed.toFixed(1) : '—'}s`;
+
+  // next-steps summary
+  const summaryText = d.summary_text || '';
+  $('summaryCard').style.display = summaryText ? '' : 'none';
+  $('summaryText').textContent = summaryText;
 
   // metrics
   const h = s.hirability_score || 0;
@@ -1124,14 +1146,7 @@ function renderReport(d, elapsed) {
   const segIdx = { Low: 0, Medium: 1, High: 2 }[lvl];
   for (let i = 0; i < 3; i++) segs[i].className = (i === segIdx) ? 'on-' + lvl : '';
 
-  // 01 profile
-  $('pEdu').textContent = s.education_level || 'Not detected';
-  $('pExp').textContent = s.years_experience ? s.years_experience + ' years' : 'Not detected';
-  $('pSkills').textContent = s.skills_extracted || 0;
-  $('pSkillsSub').textContent =
-    `${s.skills_from_section || 0} listed · ${s.skills_from_experience || 0} from experience text`;
-
-  // 02 occupation match
+  // 01 occupation match
   let topTitle = '';
   if (tops.length) {
     const top = tops[0];
@@ -1151,31 +1166,34 @@ function renderReport(d, elapsed) {
     $('secMatch').style.display = 'none';
   }
 
-  // 03 strengths
+  // 02 strengths — highlights (companies/education/achievements) + matched skills
   const strengths = (gaps.strengths || []).map(skillName);
-  $('secStrengths').style.display = strengths.length ? '' : 'none';
+  $('secStrengths').style.display = (strengths.length || highlights.length) ? '' : 'none';
+  $('strengthHighlights').innerHTML = highlights.map(h => `<li>${esc(h)}</li>`).join('');
   if (strengths.length) {
     $('strengthNote').textContent = strengths.length + ' skills';
     const cov = gaps.coverage_of_top_match || 0;
+    $('coverageLine').style.display = '';
     $('coverageLine').textContent =
       `Covers ${strengths.length} of the matched occupation's listed tools (${(cov * 100).toFixed(0)}%)`;
     renderTags($('strengthTags'), strengths, 14);
+  } else {
+    $('strengthNote').textContent = '';
+    $('coverageLine').style.display = 'none';
+    $('strengthTags').innerHTML = '';
   }
 
-  // 04 skill gaps
-  if (recs.length || ai.length) {
+  // 03 skill gaps
+  if (recs.length) {
     $('secGaps').style.display = '';
     $('gapNote').textContent = topTitle ? 'vs. ' + topTitle : '';
-    $('gapRows').innerHTML = recs.length
-      ? recs.map((r, i) => gapRow(String(i + 1).padStart(2, '0'), r, i * 0.08)).join('')
-      : '<p class="gap-desc">No missing tools identified for the matched occupation.</p>';
-    $('aiSubsec').style.display = ai.length ? '' : 'none';
-    $('aiRows').innerHTML = ai.map((r, i) => gapRow('—', r, i * 0.08)).join('');
+    $('gapRows').innerHTML =
+      recs.map((r, i) => gapRow(String(i + 1).padStart(2, '0'), r, i * 0.08)).join('');
   } else {
     $('secGaps').style.display = 'none';
   }
 
-  // 05 automation exposure
+  // 04 automation exposure
   $('secExposure').style.display = exp.level ? '' : 'none';
   if (exp.level) {
     const el = $('expLevel');
@@ -1183,20 +1201,19 @@ function renderReport(d, elapsed) {
     el.className = 'exposure-level exposure-' + lvl;
     $('expIdx').textContent = `index ${(exp.score || 0).toFixed(2)} / 1.00`;
     $('expText').textContent = exp.explanation || '';
-    const protective = (gaps.abstract_skills_required || []).map(a =>
-      (a && typeof a === 'object')
-        ? { name: a.skill, val: a.importance != null ? a.importance.toFixed(1) : undefined }
-        : String(a));
+    // names only — the raw O*NET importance numbers mean nothing to a user
+    const protective = (gaps.abstract_skills_required || []).map(skillName);
     $('protectiveWrap').style.display = protective.length ? '' : 'none';
     renderTags($('protectiveTags'), protective, 8);
   }
 
-  // 06 matching jobs — capture query inputs, reset any prior results
+  // 05 matching jobs — capture query inputs, reset any prior results
   jobQuery = {
     title: topTitle || (s.top_match_title || ''),
     skills: (d.skills && d.skills.extracted) ? d.skills.extracted : strengths,
   };
   $('jobResults').innerHTML = '';
+  $('jobLinks').innerHTML = '';
   $('jobStatus').textContent = '';
   $('jobsNote').textContent = '';
   setWorkMode('remote');
@@ -1208,7 +1225,7 @@ function renderReport(d, elapsed) {
   window.scrollTo(0, 0);
 
   document.querySelectorAll('#reportView .rv').forEach(el => revealObs.observe(el));
-  ['secProfile', 'secMatch', 'secStrengths', 'secGaps', 'secExposure', 'secJobs'].forEach(id => {
+  ['secMatch', 'secStrengths', 'secGaps', 'secExposure', 'secJobs'].forEach(id => {
     const el = $(id);
     if (el && el.style.display !== 'none') spyObs.observe(el);
   });
@@ -1282,6 +1299,7 @@ async function searchJobs() {
   const btn = $('jobSearchBtn');
   btn.disabled = true;
   $('jobResults').innerHTML = '';
+  $('jobLinks').innerHTML = '';
   $('jobsNote').textContent = '';
   $('jobStatus').innerHTML = 'Searching openings and scoring fit<span class="dots"></span>';
 
@@ -1302,10 +1320,18 @@ async function searchJobs() {
       throw new Error(e.detail || 'Job search failed.');
     }
     const data = await res.json();
+
+    // Deep links to the major boards, pre-filled — always shown
+    const links = data.search_links || [];
+    $('jobLinks').innerHTML = links.length
+      ? `<span class="job-links-label">Open on:</span>` +
+        links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.site)}</a>`).join('')
+      : '';
+
     const jobs = data.jobs || [];
     if (!jobs.length) {
       $('jobStatus').textContent = '';
-      $('jobResults').innerHTML = `<p class="jobs-empty">No ${workMode === 'remote' ? 'remote ' : ''}openings found for “${esc(jobQuery.title)}”${location ? ' near ' + esc(location) : ''} right now. Try the other work mode or a nearby city.</p>`;
+      $('jobResults').innerHTML = `<p class="jobs-empty">No ${workMode === 'remote' ? 'remote ' : 'local '}listings in our live feed for “${esc(jobQuery.title)}”${location ? ' in ' + esc(location) : ''} right now — use the board links above for the full set.</p>`;
       return;
     }
     $('jobStatus').textContent = '';

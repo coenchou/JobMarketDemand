@@ -442,6 +442,16 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .soc-code { font-family: var(--mono); font-size: 12px; color: var(--faint); }
 .match-index { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--accent); }
 .match-desc { color: var(--muted); max-width: 68ch; margin-top: 12px; }
+.market-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+.mstat {
+  flex: 1; min-width: 120px;
+  background: var(--soft); border-radius: var(--r-md);
+  padding: 14px 16px;
+}
+.mstat .mstat-val { font-family: var(--mono); font-size: 21px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.mstat .mstat-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-top: 5px; }
+.market-req { flex-basis: 100%; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 2px; }
+.market-req .src { color: var(--faint); }
 
 table.alts { width: 100%; border-collapse: collapse; margin-top: 26px; }
 table.alts th {
@@ -756,6 +766,7 @@ footer {
       <span class="match-index" id="matchIndex"></span>
     </div>
     <p class="match-desc stag" style="--d:.2s" id="matchDesc"></p>
+    <div class="market-stats" id="marketStats"></div>
     <table class="alts" id="altsTable">
       <thead><tr><th>#</th><th>Alternative matches</th><th>Match index</th></tr></thead>
       <tbody id="altsBody"></tbody>
@@ -1155,6 +1166,25 @@ function renderReport(d, elapsed) {
     $('matchSoc').textContent = 'SOC ' + top.soc_code;
     $('matchIndex').textContent = (top.blended_score || top.match_score || 0).toFixed(2);
     $('matchDesc').textContent = top.description || '';
+
+    // BLS market snapshot
+    const lm = d.labor_market;
+    if (lm) {
+      const tiles = [];
+      if (lm.median_wage) tiles.push([`$${lm.median_wage.toLocaleString()}`, 'median wage']);
+      if (lm.growth_pct != null) tiles.push([`${lm.growth_pct >= 0 ? '+' : ''}${lm.growth_pct}%`, '10-yr outlook']);
+      if (lm.openings_k != null) tiles.push([Math.round(lm.openings_k * 1000).toLocaleString(), 'openings / yr']);
+      let html = tiles.map(([v, l]) =>
+        `<div class="mstat"><div class="mstat-val">${esc(v)}</div><div class="mstat-lbl">${esc(l)}</div></div>`).join('');
+      if (lm.typical_education) {
+        const exp = (lm.typical_experience || 'no experience').toLowerCase();
+        html += `<div class="market-req">Typically requires ${esc(lm.typical_education.toLowerCase())} · ${esc(exp)} <span class="src">— U.S. Bureau of Labor Statistics</span></div>`;
+      }
+      $('marketStats').innerHTML = html;
+    } else {
+      $('marketStats').innerHTML = '';
+    }
+
     const alts = tops.slice(1, 5);
     $('altsTable').style.display = alts.length ? '' : 'none';
     $('altsBody').innerHTML = alts.map((m, i) =>

@@ -54,11 +54,14 @@ _QUALIFIER_WORDS = {
     "beginner", "familiar", "working knowledge", "exposure",
 }
 
+# Boundaries use (?<![A-Za-z]) / (?![A-Za-z]) so "B.S." (trailing period, then
+# space) still matches and abbreviations don't fire inside words. Bare two-letter
+# forms (BS, MA, MS) are omitted — they collide with "MS Office", state codes, etc.
 _EDU_PATTERNS: List[tuple] = [
-    (r"\b(PhD|Doctorate|Doctor of)\b", "Doctorate"),
-    (r"\b(Master['']?s?|MBA|MS|MA|M\.S\.|M\.A\.)\b", "Master's"),
-    (r"\b(Bachelor['']?s?|BS|BA|B\.S\.|B\.A\.)\b", "Bachelor's"),
-    (r"\b(Associate['']?s?|AA|AS)\b", "Associate's"),
+    (r"(?<![A-Za-z])(Ph\.?\s?D\.?|Doctorate|Doctoral|Doctor of)(?![A-Za-z])", "Doctorate"),
+    (r"(?<![A-Za-z])(Master['']?s|MBA|M\.B\.A\.?|M\.S\.|M\.A\.|M\.?Sc\.?|M\.Eng\.?)(?![A-Za-z])", "Master's"),
+    (r"(?<![A-Za-z])(Bachelor['']?s|B\.S\.|B\.A\.|B\.?Sc\.?|B\.Eng\.?)(?![A-Za-z])", "Bachelor's"),
+    (r"(?<![A-Za-z])(Associate['']?s|A\.A\.|A\.S\.)(?![A-Za-z])", "Associate's"),
 ]
 
 
@@ -66,14 +69,21 @@ def _find_section(text: str, *headings: str) -> str:
     targets = {h.upper() for h in headings}
     lines = text.splitlines()
     start = None
+    inline = ""
     for i, line in enumerate(lines):
-        label = line.strip().upper()
-        if label in targets or any(label.startswith(t) for t in targets):
+        stripped = line.strip()
+        label = stripped.upper()
+        matched = next((t for t in targets if label == t or label.startswith(t)), None)
+        if matched:
             start = i + 1
+            # capture content on the heading line itself ("SKILLS | SQL | Python")
+            rest = stripped[len(matched):].lstrip(" :|-–—\t")
+            if rest:
+                inline = rest
             break
     if start is None:
         return ""
-    section_lines: List[str] = []
+    section_lines: List[str] = [inline] if inline else []
     for line in lines[start:]:
         stripped = line.strip()
         upper = stripped.upper()
@@ -108,7 +118,7 @@ def _split_top_level(line: str) -> List[str]:
         elif ch == ")":
             depth = max(0, depth - 1)
             current.append(ch)
-        elif ch in (",", ";") and depth == 0:
+        elif ch in (",", ";", "|") and depth == 0:
             token = "".join(current).strip()
             if token:
                 items.append(token)
@@ -279,35 +289,180 @@ Resume:
 {text}"""
 
 
+def _strip_fences(s: str) -> str:
+    """Remove ```json ... ``` fences a model may wrap around JSON."""
+    s = s.strip()
+    if s.startswith("```"):
+        s = re.sub(r"^```[a-zA-Z]*\s*", "", s)
+        s = re.sub(r"\s*```$", "", s)
+    return s.strip()
+
+
+def _coerce_years(val) -> Optional[int]:
+    """Coerce a years value to a sane int in [0, 60], else None."""
+    if isinstance(val, (int, float)):
+        y = int(val)
+    elif isinstance(val, str):
+        m = re.search(r"\d+", val)
+        y = int(m.group()) if m else None
+    else:
+        y = None
+    if y is None or not (0 <= y <= 60):
+        return None
+    return y
+
+
 def _parse_with_groq(text: str) -> Optional[Dict]:
-    """Call Groq (Llama 3.3 70B) to extract structured resume data. Returns None if unavailable."""
+    """
+    Call Groq (Llama 3.3 70B) for structured resume data. Retries once on a
+    transient failure, tolerates fenced JSON, and validates every field.
+    Returns None if the key is missing or both attempts fail.
+    """
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         return None
+    # Cap payload — very long resumes waste tokens and risk truncation.
+    prompt = _GROQ_PROMPT.format(text=text[:14000])
+
+    last_err = None
+    for attempt in range(2):
+        try:
+            from groq import Groq  # type: ignore
+            client = Groq(api_key=api_key)
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                temperature=0,
+            )
+            data = json.loads(_strip_fences(response.choices[0].message.content))
+            if not isinstance(data, dict):
+                raise ValueError("model did not return a JSON object")
+
+            data.setdefault("skills", [])
+            data.setdefault("implied_skills", [])
+            data.setdefault("highlights", [])
+            data.setdefault("education_level", None)
+            data.setdefault("education_lines", [])
+            data.setdefault("experience_lines", [])
+            # Coerce list-ish fields defensively (model may return a string)
+            for k in ("skills", "implied_skills", "highlights", "education_lines", "experience_lines"):
+                if not isinstance(data[k], list):
+                    data[k] = [data[k]] if data[k] else []
+            data["years_experience"] = _coerce_years(data.get("years_experience"))
+            if data["education_level"] not in {"Doctorate", "Master's", "Bachelor's", "Associate's", None}:
+                data["education_level"] = None
+            return data
+        except Exception as e:
+            last_err = e
+            continue
+
+    print(f"[parser] Groq extraction failed ({type(last_err).__name__}: {last_err}), "
+          "falling back to regex parser.", file=sys.stderr)
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Robust text extraction, skill cleaning, and date-range experience inference
+# ---------------------------------------------------------------------------
+
+def _extract_pdf(path: Path) -> str:
+    """Extract PDF text with pdfplumber (better layout), falling back to PyPDF2."""
     try:
-        from groq import Groq  # type: ignore
-        client = Groq(api_key=api_key)
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": _GROQ_PROMPT.format(text=text)}],
-            response_format={"type": "json_object"},
-            temperature=0,
-        )
-        data = json.loads(response.choices[0].message.content)
-        data.setdefault("skills", [])
-        data.setdefault("implied_skills", [])
-        data.setdefault("highlights", [])
-        data.setdefault("years_experience", None)
-        data.setdefault("education_level", None)
-        data.setdefault("education_lines", [])
-        data.setdefault("experience_lines", [])
-        if isinstance(data["years_experience"], str):
-            m = re.search(r"\d+", data["years_experience"])
-            data["years_experience"] = int(m.group()) if m else None
-        return data
+        import pdfplumber  # type: ignore
+        with pdfplumber.open(str(path)) as pdf:
+            text = "\n".join(pg.extract_text() or "" for pg in pdf.pages)
+        if text.strip():
+            return text
+    except Exception:
+        pass
+    try:
+        import PyPDF2  # type: ignore
+        with open(path, "rb") as f:
+            reader = PyPDF2.PdfReader(f)
+            return "\n".join(pg.extract_text() or "" for pg in reader.pages)
     except Exception as e:
-        print(f"[parser] Groq extraction failed ({type(e).__name__}: {e}), falling back to regex parser.", file=sys.stderr)
+        raise ValueError(f"Could not read PDF: {e}") from e
+
+
+def _extract_text(path: Path) -> str:
+    """Read a resume file to text, robust to format and encoding."""
+    if path.suffix.lower() == ".pdf":
+        return _extract_pdf(path)
+    for enc in ("utf-8", "utf-8-sig", "latin-1"):
+        try:
+            return path.read_text(encoding=enc)
+        except (UnicodeDecodeError, ValueError):
+            continue
+    return path.read_bytes().decode("utf-8", errors="ignore")
+
+
+# URLs, emails, and long digit runs are never skills
+_SKILL_JUNK_RE = re.compile(r"https?://|www\.|@|\d{4,}")
+
+
+def _clean_skills(raw: List[str]) -> List[str]:
+    """
+    Normalize and filter a raw skill list: strip bullets/whitespace, drop
+    junk (URLs, emails, sentence fragments, number noise), dedup case-insensitively.
+    """
+    seen: set = set()
+    out: List[str] = []
+    for item in raw:
+        s = re.sub(r"\s+", " ", str(item)).strip().strip("•-*·,;:|")
+        if not s:
+            continue
+        low = s.lower()
+        if low in seen:
+            continue
+        if not (2 <= len(s) <= 50):
+            continue
+        if len(s.split()) > 6:               # a phrase/sentence, not a skill
+            continue
+        if _SKILL_JUNK_RE.search(low):
+            continue
+        if not re.search(r"[a-zA-Z]", s):    # must contain a letter
+            continue
+        seen.add(low)
+        out.append(s)
+    return out
+
+
+_MONTHS = r"jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec"
+_DATE_RANGE_RE = re.compile(
+    r"(?:(?:" + _MONTHS + r")\w*\.?\s+)?((?:19|20)\d{2})\s*(?:-|–|—|to|until)\s*"
+    r"(?:(?:" + _MONTHS + r")\w*\.?\s+)?((?:19|20)\d{2}|present|current|now|ongoing)",
+    re.I,
+)
+
+
+def _infer_years_from_dates(text: str) -> Optional[int]:
+    """
+    Estimate total professional experience by unioning employment date ranges
+    (e.g. "2019 – 2023", "Jan 2020 - Present"). Overlapping spans are merged so
+    concurrent roles are not double-counted. Used only when years isn't stated.
+    """
+    import datetime
+    this_year = datetime.date.today().year
+    spans: List[tuple] = []
+    for m in _DATE_RANGE_RE.finditer(text):
+        start = int(m.group(1))
+        end_raw = m.group(2).lower()
+        end = this_year if end_raw in ("present", "current", "now", "ongoing") else int(end_raw)
+        if 1950 <= start <= this_year and start <= end <= this_year + 1:
+            spans.append((start, min(end, this_year)))
+    if not spans:
         return None
+    spans.sort()
+    total, cur_s, cur_e = 0, spans[0][0], spans[0][1]
+    for s, e in spans[1:]:
+        if s <= cur_e:
+            cur_e = max(cur_e, e)
+        else:
+            total += cur_e - cur_s
+            cur_s, cur_e = s, e
+    total += cur_e - cur_s
+    return total if total > 0 else None
 
 
 # ---------------------------------------------------------------------------
@@ -327,18 +482,7 @@ def parse_resume(path: str) -> Dict:
         experience_lines    — raw experience section lines
     """
     p = Path(path)
-    if p.suffix.lower() == ".pdf":
-        try:
-            import PyPDF2  # type: ignore
-            with open(p, "rb") as f:
-                reader = PyPDF2.PdfReader(f)
-                text = "\n".join(
-                    page.extract_text() or "" for page in reader.pages
-                )
-        except Exception as e:
-            raise ValueError(f"Could not read PDF: {e}") from e
-    else:
-        text = p.read_text(encoding="utf-8")
+    text = _extract_text(p)
 
     # --- Implicit skills from profile URLs ---
     implicit_skills: List[str] = []
@@ -392,6 +536,15 @@ def parse_resume(path: str) -> Dict:
         edu_section = _find_section(text, "EDUCATION", "EDUCATION & TRAINING")
         edu_lines = [ln.strip() for ln in edu_section.splitlines() if ln.strip()]
         skills_from_section = skills
+
+    # --- Normalize skills from either path: drop junk, dedup case-insensitively ---
+    skills = _clean_skills(skills)
+    implied_skills = _clean_skills(implied_skills)
+    skills_from_section = _clean_skills(skills_from_section)
+
+    # --- Infer experience from employment date ranges if not explicitly stated ---
+    if not years:
+        years = _infer_years_from_dates("\n".join(exp_lines)) or _infer_years_from_dates(text)
 
     # --- Merge implicit (URL) + implied (LLM-inferred) skills ---
     # These suppress false gaps: a senior engineer who didn't list "Git" still

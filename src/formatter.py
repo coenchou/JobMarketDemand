@@ -90,6 +90,22 @@ def format_report(r: Dict[str, Any]) -> str:
         lines.append(f"  SOC {top['soc_code']}  ·  match index {top.get('blended_score', 0):.2f}\n")
         lines += _wrap(top.get("description", ""))
 
+        lm = r.get("labor_market")
+        if lm:
+            stats = []
+            if lm.get("median_wage"):
+                stats.append(f"median ${lm['median_wage']:,}")
+            if lm.get("growth_pct") is not None:
+                stats.append(f"{lm['growth_pct']:+.1f}% outlook ({lm['outlook']})")
+            if lm.get("openings_k") is not None:
+                stats.append(f"~{lm['openings_k'] * 1000:,.0f} openings/yr")
+            if stats:
+                lines.append("\n  " + "   ".join(stats))
+            if lm.get("typical_education"):
+                lines.append(f"  Typically requires {lm['typical_education'].lower()}"
+                             f" · {(lm.get('typical_experience') or 'no experience').lower()}"
+                             "   (BLS)")
+
         if len(top_matches) > 1:
             lines.append("\n  Alternative matches:")
             for m in top_matches[1:5]:

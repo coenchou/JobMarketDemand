@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
 from src.parser import parse_resume
 from src.skill_matcher import score_soc_candidates
 from src.gap_engine import compute_skill_gaps
+from src.skill_score import compute_skill_capital
 from src.nlp_skills import (
     generate_recommendations,
     score_ai_displacement,
@@ -94,18 +95,21 @@ def _exp_score(years: Optional[int]) -> float:
     return 1.0
 
 
-def _component(label: str, value: float, weight: float) -> Dict:
-    return {
+def _component(label: str, value: float, weight: float, detail: Optional[Dict] = None) -> Dict:
+    c = {
         "label": label,
         "value": round(value, 3),
         "weight": weight,
         "points": round(weight * value * 100, 1),
     }
+    if detail:
+        c["detail"] = detail
+    return c
 
 
 def _hirability(
     skill: float, years: Optional[int], edu: Optional[str],
-    market: Optional[Dict],
+    market: Optional[Dict], skill_detail: Optional[Dict] = None,
 ) -> Dict:
     """
     Weighted blend of skill coverage, experience fit, and education fit.
@@ -122,7 +126,7 @@ def _hirability(
         exp_fit = _exp_score(years)
 
     components = [
-        _component("Skill coverage", skill, 0.45),
+        _component("Skill strength", skill, 0.45, skill_detail),
         _component("Experience fit", exp_fit, 0.30),
         _component("Education fit", edu_fit, 0.25),
     ]
@@ -165,6 +169,7 @@ def _competitiveness(
     hot_skill_count: int,
     total_matched: int,
     market: Optional[Dict],
+    skill_detail: Optional[Dict] = None,
 ) -> Dict:
     """
     How well-positioned the candidate is: skill coverage + share of hot-tech
@@ -180,7 +185,7 @@ def _competitiveness(
 
     if outlook is not None:
         components = [
-            _component("Skill coverage", skill, 0.35),
+            _component("Skill strength", skill, 0.35, skill_detail),
             _component("In-demand skills", hot_ratio, 0.25),
             _component("Market outlook", outlook, 0.25),
             _component("Experience fit", exp_fit, 0.15),
@@ -188,7 +193,7 @@ def _competitiveness(
     else:
         # no BLS outlook — reweight onto the other three
         components = [
-            _component("Skill coverage", skill, 0.45),
+            _component("Skill strength", skill, 0.45, skill_detail),
             _component("In-demand skills", hot_ratio, 0.30),
             _component("Experience fit", exp_fit, 0.25),
         ]
@@ -238,16 +243,24 @@ def build_report(resume_path: str) -> Dict[str, Any]:
     # tools) is a real 0-1 measure, far more discriminating for scoring than the
     # raw match_score, which saturates for any decent match.
     skill_gaps: Dict = compute_skill_gaps(skills, top["soc_code"]) if top else {}
-    coverage_frac = skill_gaps.get("coverage", 0.0)
-    # Knee at ~33% coverage = full marks; covering a third of an occupation's
-    # entire tool list is exceptional, so only then does the skill term saturate.
-    skill_component = min(1.0, coverage_frac * 3.0)
+
+    # Skill strength — value-weighted coverage + specialization + complementarity
+    # (see skill_score.py), not naive fraction-of-toolset. A focused specialist's
+    # deep, mutually-reinforcing skills score high even at low raw coverage.
+    skill_cap: Dict = compute_skill_capital(skills, top["soc_code"]) if top else {}
+    skill_component = skill_cap.get("score", 0.0)
+    skill_detail = {
+        "breadth": skill_cap.get("breadth"),
+        "specialization": skill_cap.get("specialization"),
+        "complementarity": skill_cap.get("complementarity"),
+    } if skill_cap else None
 
     # BLS labor-market data for the top-matched occupation grounds the scores
     market = get_market(top["soc_code"]) if top else None
 
-    hire = _hirability(skill_component, years, edu, market)
-    competitiveness = _competitiveness(skill_component, years, hot_count, len(matched_tools), market)
+    hire = _hirability(skill_component, years, edu, market, skill_detail)
+    competitiveness = _competitiveness(
+        skill_component, years, hot_count, len(matched_tools), market, skill_detail)
 
     # NLP recommendations for top candidate
     recommendations: List[Dict] = []
@@ -371,6 +384,14 @@ def build_report(resume_path: str) -> Dict[str, Any]:
             "gaps": skill_gaps.get("gaps", [])[:10],
             "abstract_skills_required": skill_gaps.get("abstract_skills_required", [])[:6],
         },
+        "skill_strength": {
+            "score": round(skill_component * 100),
+            "matched": skill_cap.get("matched_count", len(skill_gaps.get("strengths", []))),
+            "high_demand_gaps": skill_cap.get("high_demand_gaps", 0),
+            "breadth": skill_cap.get("breadth"),
+            "specialization": skill_cap.get("specialization"),
+            "complementarity": skill_cap.get("complementarity"),
+        } if skill_cap else None,
         "recommendations": recommendations,
         "ai_displacement_exposure": ai_displacement,
     }

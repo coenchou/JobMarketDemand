@@ -659,10 +659,13 @@ footer {
 /* ── score breakdown ("why?") ─────────────────────────── */
 .why-btn {
   background: none; border: none;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
-  color: var(--primary); cursor: pointer; margin-top: 10px; padding: 2px 0;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+  color: var(--primary); cursor: pointer; margin-top: 12px; padding: 2px 0;
+  display: inline-flex; align-items: center; gap: 6px;
 }
-.why-btn:hover { text-decoration: underline; text-underline-offset: 2px; }
+.why-btn:hover { color: var(--primary-strong); }
+.why-btn .chev { display: inline-block; transition: transform 0.2s ease; font-size: 9px; }
+.why-btn.open .chev { transform: rotate(90deg); }
 .breakdown {
   display: none;
   margin-top: 12px; padding-top: 12px;
@@ -678,6 +681,7 @@ footer {
 .bd-track { height: 4px; background: var(--soft); border-radius: 99px; overflow: hidden; }
 .bd-bar { height: 100%; background: var(--primary); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(0.3,0,0.2,1); }
 .bd-bar.cap { background: var(--faint); opacity: 0.35; }
+.bd-detail { font-family: var(--mono); font-size: 9.5px; color: var(--faint); margin-top: 5px; line-height: 1.5; }
 
 /* ── market benchmark ─────────────────────────────────── */
 .wage-benchmark { flex-basis: 100%; margin-top: 4px; }
@@ -835,7 +839,7 @@ footer {
       </div>
       <div class="g-scale"><span>0</span><span>100</span></div>
       <div class="m-note" id="hNote"></div>
-      <button class="why-btn" onclick="toggleBreakdown('hBreak', this)">why?</button>
+      <button class="why-btn" onclick="toggleBreakdown('hBreak', this)"><span class="chev">▸</span> Score breakdown</button>
       <div class="breakdown" id="hBreak"></div>
     </div>
     <div class="metric">
@@ -854,7 +858,7 @@ footer {
       </div>
       <div class="g-scale"><span>0</span><span>100</span></div>
       <div class="m-note" id="cNote"></div>
-      <button class="why-btn" onclick="toggleBreakdown('cBreak', this)">why?</button>
+      <button class="why-btn" onclick="toggleBreakdown('cBreak', this)"><span class="chev">▸</span> Score breakdown</button>
       <div class="breakdown" id="cBreak"></div>
     </div>
     <div class="metric">
@@ -902,7 +906,7 @@ footer {
     <div class="coverage-ledger" id="coverageLedger">
       <div class="cl-side">
         <div class="cl-num" id="clHave">—</div>
-        <div class="cl-lbl">skills you have</div>
+        <div class="cl-lbl">skills the role values</div>
       </div>
       <div class="cl-ring">
         <svg viewBox="0 0 80 80">
@@ -910,12 +914,12 @@ footer {
           <circle class="clr-fill" id="clRing" cx="40" cy="40" r="34"
                   transform="rotate(-90 40 40)"/>
         </svg>
-        <div class="cl-pct" id="clPct">0%</div>
-        <div class="cl-caption">of role's toolset</div>
+        <div class="cl-pct" id="clPct">—</div>
+        <div class="cl-caption">skill strength</div>
       </div>
       <div class="cl-side">
         <div class="cl-num" id="clGaps">—</div>
-        <div class="cl-lbl">gaps to close</div>
+        <div class="cl-lbl">in-demand skills missing</div>
       </div>
     </div>
     <div class="tags" id="strengthTags"></div>
@@ -1259,14 +1263,14 @@ function gapRow(idx, r, delay) {
 function toggleBreakdown(id, btn) {
   const el = $(id);
   const open = el.classList.toggle('open');
-  btn.textContent = open ? 'hide' : 'why?';
+  btn.classList.toggle('open', open);
   if (open) el.querySelectorAll('.bd-bar').forEach(b => { b.style.width = b.dataset.w; });
 }
 function resetBreakdown(id) {
   const el = $(id);
   el.classList.remove('open');
   const btn = el.previousElementSibling;
-  if (btn && btn.classList.contains('why-btn')) btn.textContent = 'why?';
+  if (btn && btn.classList.contains('why-btn')) btn.classList.remove('open');
 }
 function renderBreakdown(id, comps) {
   // Each component's max possible contribution is its weight×100; the filled
@@ -1274,10 +1278,16 @@ function renderBreakdown(id, comps) {
   $(id).innerHTML = comps.map(c => {
     const cap = Math.round(c.weight * 100);
     const pct = cap ? Math.round(c.points / cap * 100) : 0;
+    let sub = '';
+    if (c.detail) {
+      const d = c.detail, r = x => Math.round((x || 0) * 100);
+      sub = `<div class="bd-detail">weighted coverage ${r(d.breadth)} · specialization ${r(d.specialization)} · complementarity ${r(d.complementarity)}</div>`;
+    }
     return `<div class="bd-row">
       <div class="bd-top"><span class="bd-label">${esc(c.label)}</span>
         <span class="bd-pts">${c.points} / ${cap} pts</span></div>
       <div class="bd-track"><div class="bd-bar" data-w="${pct}%"></div></div>
+      ${sub}
     </div>`;
   }).join('');
 }
@@ -1391,13 +1401,14 @@ function renderReport(d, elapsed) {
   const strengths = (gaps.strengths || []).map(skillName);
   $('secStrengths').style.display = (strengths.length || highlights.length) ? '' : 'none';
   $('strengthHighlights').innerHTML = highlights.map(h => `<li>${esc(h)}</li>`).join('');
-  const coverageFrac = gaps.coverage_of_top_match || 0;
+  const ss = d.skill_strength;
+  const ringFrac = ss ? Math.min(1, ss.score / 100) : (gaps.coverage_of_top_match || 0);
   if (strengths.length) {
     $('strengthNote').textContent = strengths.length + ' skills';
     $('coverageLedger').style.display = '';
-    $('clHave').textContent = strengths.length;
-    $('clGaps').textContent = recs.length;
-    $('clPct').textContent = Math.round(coverageFrac * 100) + '%';
+    $('clHave').textContent = ss ? ss.matched : strengths.length;
+    $('clGaps').textContent = ss ? ss.high_demand_gaps : recs.length;
+    $('clPct').textContent = ss ? ss.score : Math.round(ringFrac * 100);
     $('clRing').style.strokeDashoffset = 213.6;  // reset; animated on reveal
     renderTags($('strengthTags'), strengths, 14);
   } else {
@@ -1460,7 +1471,7 @@ function renderReport(d, elapsed) {
     $('hArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(h, 100) / 100);
     $('cArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(c, 100) / 100);
     if (strengths.length) {
-      $('clRing').style.strokeDashoffset = 213.6 * (1 - Math.min(1, coverageFrac));
+      $('clRing').style.strokeDashoffset = 213.6 * (1 - Math.min(1, ringFrac));
     }
     scramble($('matchTitle'), topTitle);
   }));

@@ -29,6 +29,7 @@ from src.labor_market import (
     experience_fit,
     outlook_score,
     outlook_label,
+    wage_percentile,
 )
 from src.semantic_matcher import semantic_score_candidates, blend_scores
 
@@ -93,15 +94,25 @@ def _exp_score(years: Optional[int]) -> float:
     return 1.0
 
 
+def _component(label: str, value: float, weight: float) -> Dict:
+    return {
+        "label": label,
+        "value": round(value, 3),
+        "weight": weight,
+        "points": round(weight * value * 100, 1),
+    }
+
+
 def _hirability(
     skill: float, years: Optional[int], edu: Optional[str],
     market: Optional[Dict],
-) -> float:
+) -> Dict:
     """
     Weighted blend of skill coverage, experience fit, and education fit.
     `skill` is a 0-1 coverage component computed by the caller. Experience and
     education are measured against what the occupation actually requires (BLS
     Employment Projections) when available, else fall back to the old curves.
+    Returns {score, level, components}.
     """
     edu_fit = education_fit(edu, market.get("typical_education")) if market else None
     if edu_fit is None:
@@ -110,7 +121,13 @@ def _hirability(
     if exp_fit is None:
         exp_fit = _exp_score(years)
 
-    return round((0.45 * skill + 0.30 * exp_fit + 0.25 * edu_fit) * 100, 1)
+    components = [
+        _component("Skill coverage", skill, 0.45),
+        _component("Experience fit", exp_fit, 0.30),
+        _component("Education fit", edu_fit, 0.25),
+    ]
+    score = round(sum(c["points"] for c in components), 1)
+    return {"score": score, "level": _hirability_level(score), "components": components}
 
 
 def _hirability_level(score: float) -> str:
@@ -123,6 +140,23 @@ def _hirability_level(score: float) -> str:
     if score >= 20:
         return "Developing"
     return "Early-stage"
+
+
+def _verdict(hire_level: str, title: Optional[str], growth_pct: Optional[float]) -> str:
+    """One-line plain-language headline of the result."""
+    if not title:
+        return hire_level
+    s = f"{hire_level} for {title}"
+    if growth_pct is not None:
+        if growth_pct >= 4:
+            s += " — a field growing faster than average"
+        elif growth_pct >= 1:
+            s += " — a field growing about as fast as average"
+        elif growth_pct > -1:
+            s += " — a field holding roughly steady"
+        else:
+            s += " — though the field is contracting"
+    return s + "."
 
 
 def _competitiveness(
@@ -145,10 +179,20 @@ def _competitiveness(
         exp_fit = _exp_score(years)
 
     if outlook is not None:
-        score = round((0.35 * skill + 0.25 * hot_ratio + 0.25 * outlook + 0.15 * exp_fit) * 100, 1)
+        components = [
+            _component("Skill coverage", skill, 0.35),
+            _component("In-demand skills", hot_ratio, 0.25),
+            _component("Market outlook", outlook, 0.25),
+            _component("Experience fit", exp_fit, 0.15),
+        ]
     else:
         # no BLS outlook — reweight onto the other three
-        score = round((0.45 * skill + 0.30 * hot_ratio + 0.25 * exp_fit) * 100, 1)
+        components = [
+            _component("Skill coverage", skill, 0.45),
+            _component("In-demand skills", hot_ratio, 0.30),
+            _component("Experience fit", exp_fit, 0.25),
+        ]
+    score = round(sum(c["points"] for c in components), 1)
 
     if score >= 70:
         level, blurb = "Strong", "Your skill set aligns well with market demand and includes high-value technologies."
@@ -158,7 +202,7 @@ def _competitiveness(
         level, blurb = "Developing", "Core skills are present; targeted gap-filling will be essential to compete."
     else:
         level, blurb = "Entry-level", "Focus on foundational skills; build a portfolio to compensate for limited experience."
-    return {"score": score, "level": level, "explanation": blurb}
+    return {"score": score, "level": level, "explanation": blurb, "components": components}
 
 
 # ---------------------------------------------------------------------------
@@ -202,7 +246,7 @@ def build_report(resume_path: str) -> Dict[str, Any]:
     # BLS labor-market data for the top-matched occupation grounds the scores
     market = get_market(top["soc_code"]) if top else None
 
-    hirability = _hirability(skill_component, years, edu, market)
+    hire = _hirability(skill_component, years, edu, market)
     competitiveness = _competitiveness(skill_component, years, hot_count, len(matched_tools), market)
 
     # NLP recommendations for top candidate
@@ -260,6 +304,7 @@ def build_report(resume_path: str) -> Dict[str, Any]:
             "soc_code": top["soc_code"],
             "title": top["title"],
             "median_wage": market.get("median_wage"),
+            "wage_percentile": wage_percentile(market.get("median_wage")),
             "growth_pct": market.get("growth_pct"),
             "openings_k": market.get("openings_k"),
             "outlook": outlook_label(market.get("growth_pct")),
@@ -269,13 +314,24 @@ def build_report(resume_path: str) -> Dict[str, Any]:
             "experience_fit": experience_fit(years, market.get("typical_experience")),
         }
 
+    verdict = _verdict(
+        hire["level"],
+        top["title"] if top else None,
+        market.get("growth_pct") if market else None,
+    )
+
     return {
         "resume": resume_path.name,
         "parser": parsed.get("parser", "regex"),
         "summary_text": summary_text,
+        "verdict": verdict,
+        "score_breakdown": {
+            "hirability": hire["components"],
+            "competitiveness": competitiveness.get("components", []),
+        },
         "summary": {
-            "hirability_score": hirability,
-            "hirability_level": _hirability_level(hirability),
+            "hirability_score": hire["score"],
+            "hirability_level": hire["level"],
             "years_experience": years,
             "education_level": edu,
             "top_match_title": top["title"] if top else None,

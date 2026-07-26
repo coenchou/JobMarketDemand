@@ -67,6 +67,12 @@ def format_report(r: Dict[str, Any]) -> str:
         "═" * _WIDTH,
     ]
 
+    # ── Verdict headline ──────────────────────────────────────
+    verdict = r.get("verdict", "")
+    if verdict:
+        lines.append("")
+        lines += _wrap(verdict)
+
     # ── Next steps (LLM guidance) ─────────────────────────────
     summary_text = r.get("summary_text", "")
     if summary_text:
@@ -74,11 +80,18 @@ def format_report(r: Dict[str, Any]) -> str:
         lines += _wrap(summary_text)
 
     # ── Scores ────────────────────────────────────────────────
+    breakdown = r.get("score_breakdown", {})
     lines.append(_section("SCORES"))
     lines.append(_score_line("Hirability", s.get("hirability_score", 0),
                              f"  {s.get('hirability_level', '')}"))
+    for c in breakdown.get("hirability", []):
+        lines.append(f"        {c['label']:<18} {c['points']:>5} pts   "
+                     f"({int(c['weight'] * 100)}% weight)")
     lines.append(_score_line("Competitiveness", comp.get("score", 0),
                              f"  {comp.get('level', '')}"))
+    for c in breakdown.get("competitiveness", []):
+        lines.append(f"        {c['label']:<18} {c['points']:>5} pts   "
+                     f"({int(c['weight'] * 100)}% weight)")
     if ai_disp:
         lvl = ai_disp.get("level", "")
         lines.append(f"  {'Automation exposure':<24} {lvl}  (index {ai_disp.get('score', 0):.2f})")

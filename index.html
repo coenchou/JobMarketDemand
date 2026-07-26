@@ -643,10 +643,107 @@ footer {
   color: var(--faint);
 }
 
+/* ── verdict headline ─────────────────────────────────── */
+.verdict {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 40ch;
+  margin: 20px 0 32px;
+}
+.verdict b { color: var(--primary); font-weight: 600; }
+
+.rpt-actions { display: flex; gap: 10px; }
+
+/* ── score breakdown ("why?") ─────────────────────────── */
+.why-btn {
+  background: none; border: none;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--primary); cursor: pointer; margin-top: 10px; padding: 2px 0;
+}
+.why-btn:hover { text-decoration: underline; text-underline-offset: 2px; }
+.breakdown {
+  display: none;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+.breakdown.open { display: block; }
+.bd-row { margin-bottom: 10px; }
+.bd-row:last-child { margin-bottom: 0; }
+.bd-top { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; margin-bottom: 4px; }
+.bd-label { color: var(--muted); }
+.bd-pts { color: var(--ink); }
+.bd-track { height: 4px; background: var(--soft); border-radius: 99px; overflow: hidden; }
+.bd-bar { height: 100%; background: var(--primary); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(0.3,0,0.2,1); }
+.bd-bar.cap { background: var(--faint); opacity: 0.35; }
+
+/* ── market benchmark ─────────────────────────────────── */
+.wage-benchmark { flex-basis: 100%; margin-top: 4px; }
+.wb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.wb-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.wb-pct { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.wb-track { position: relative; height: 6px; background: linear-gradient(90deg, var(--soft), var(--soft-2)); border-radius: 99px; }
+.wb-marker { position: absolute; top: -3px; width: 3px; height: 12px; border-radius: 2px; background: var(--gold); transition: left 0.8s cubic-bezier(0.3,0,0.2,1); }
+.wb-scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--faint); margin-top: 5px; }
+.growth-arrow { font-weight: 600; }
+.growth-up { color: var(--ok); }
+.growth-flat { color: var(--muted); }
+.growth-down { color: var(--bad); }
+
+/* ── coverage ledger + ring ───────────────────────────── */
+.coverage-ledger {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; margin: 8px 0 22px;
+}
+.cl-side { text-align: center; flex: 0 0 auto; min-width: 90px; }
+.cl-num { font-family: var(--mono); font-size: 26px; font-weight: 500; color: var(--ink); }
+.cl-lbl { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); margin-top: 3px; }
+.cl-ring { position: relative; width: 92px; height: 92px; flex: 0 0 auto; }
+.cl-ring svg { width: 100%; height: 100%; }
+.clr-track { fill: none; stroke: var(--soft); stroke-width: 7; }
+.clr-fill { fill: none; stroke: var(--gold); stroke-width: 7; stroke-linecap: round;
+  stroke-dasharray: 213.6; stroke-dashoffset: 213.6;
+  transition: stroke-dashoffset 1s cubic-bezier(0.3,0,0.2,1) 0.2s; }
+.cl-pct { position: absolute; top: 44%; left: 0; right: 0; transform: translateY(-50%); text-align: center; font-family: var(--mono); font-size: 19px; font-weight: 500; }
+.cl-caption { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; font-family: var(--mono); font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--faint); }
+
+/* ── sticky mini-header ───────────────────────────────── */
+.mini-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  background: rgba(252, 252, 250, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  transform: translateY(-100%);
+  transition: transform 0.3s cubic-bezier(0.3,0,0.2,1);
+}
+.mini-header.show { transform: translateY(0); }
+.mini-inner { max-width: 860px; margin: 0 auto; padding: 11px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mini-name { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-scores { display: flex; gap: 18px; flex-shrink: 0; }
+.mini-stat { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.mini-stat b { font-size: 15px; font-weight: 500; color: var(--primary); font-variant-numeric: tabular-nums; }
+
 @media (max-width: 640px) {
   .metrics { grid-template-columns: 1fr; }
   .profile-grid { grid-template-columns: 1fr; gap: 16px; }
   .exposure-grid { grid-template-columns: 1fr; gap: 20px; }
+  .coverage-ledger { gap: 14px; }
+  .cl-side { min-width: 0; }
+}
+
+/* ── print / PDF ──────────────────────────────────────── */
+@media print {
+  body { background: #fff; }
+  #uploadView, .rail, .mini-header, .rpt-actions, .why-btn,
+  .job-controls, #jobStatus, .btn-text { display: none !important; }
+  #reportView { display: block !important; max-width: 100%; padding: 0; }
+  .rv, .stag, .sec, .job-card { opacity: 1 !important; transform: none !important; }
+  .breakdown { display: block !important; }
+  .metric, .job-card, .summary-card, .drop-zone { box-shadow: none !important; border: 1px solid var(--line); }
+  .sec { break-inside: avoid; page-break-inside: avoid; }
+  .metrics { break-inside: avoid; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -691,6 +788,17 @@ footer {
   </div>
 </div>
 
+<!-- sticky mini-header (appears on scroll) -->
+<div class="mini-header" id="miniHeader" aria-hidden="true">
+  <div class="mini-inner">
+    <span class="mini-name" id="miniName"></span>
+    <div class="mini-scores">
+      <span class="mini-stat"><b id="miniHire">—</b> hire</span>
+      <span class="mini-stat"><b id="miniComp">—</b> compete</span>
+    </div>
+  </div>
+</div>
+
 <!-- ── Report ──────────────────────────────────────────── -->
 <div id="reportView">
 
@@ -700,8 +808,14 @@ footer {
       <h1 id="rptFile"></h1>
       <div class="rpt-meta" id="rptMeta"></div>
     </div>
-    <button class="btn-ghost" onclick="resetView()">New analysis</button>
+    <div class="rpt-actions">
+      <button class="btn-ghost" onclick="window.print()" title="Save as PDF">↓ Save PDF</button>
+      <button class="btn-ghost" onclick="resetView()">New analysis</button>
+    </div>
   </div>
+
+  <!-- Verdict headline -->
+  <p class="verdict rv" id="verdict"></p>
 
   <!-- Metrics -->
   <div class="metrics rv" id="secMetrics">
@@ -721,6 +835,8 @@ footer {
       </div>
       <div class="g-scale"><span>0</span><span>100</span></div>
       <div class="m-note" id="hNote"></div>
+      <button class="why-btn" onclick="toggleBreakdown('hBreak', this)">why?</button>
+      <div class="breakdown" id="hBreak"></div>
     </div>
     <div class="metric">
       <span class="label">Competitiveness</span>
@@ -738,6 +854,8 @@ footer {
       </div>
       <div class="g-scale"><span>0</span><span>100</span></div>
       <div class="m-note" id="cNote"></div>
+      <button class="why-btn" onclick="toggleBreakdown('cBreak', this)">why?</button>
+      <div class="breakdown" id="cBreak"></div>
     </div>
     <div class="metric">
       <span class="label">Automation exposure</span>
@@ -781,7 +899,25 @@ footer {
       <span class="sec-note" id="strengthNote"></span>
     </div>
     <ul class="highlights" id="strengthHighlights"></ul>
-    <div class="coverage-line" id="coverageLine"></div>
+    <div class="coverage-ledger" id="coverageLedger">
+      <div class="cl-side">
+        <div class="cl-num" id="clHave">—</div>
+        <div class="cl-lbl">skills you have</div>
+      </div>
+      <div class="cl-ring">
+        <svg viewBox="0 0 80 80">
+          <circle class="clr-track" cx="40" cy="40" r="34"/>
+          <circle class="clr-fill" id="clRing" cx="40" cy="40" r="34"
+                  transform="rotate(-90 40 40)"/>
+        </svg>
+        <div class="cl-pct" id="clPct">0%</div>
+        <div class="cl-caption">of role's toolset</div>
+      </div>
+      <div class="cl-side">
+        <div class="cl-num" id="clGaps">—</div>
+        <div class="cl-lbl">gaps to close</div>
+      </div>
+    </div>
     <div class="tags" id="strengthTags"></div>
   </div>
 
@@ -1056,6 +1192,8 @@ async function analyze() {
 function resetView() {
   $('reportView').classList.remove('show');
   $('rail').classList.remove('show');
+  $('miniHeader').classList.remove('show');
+  miniObs.disconnect();
   $('uploadView').style.display = 'flex';
   $('fileRow').classList.remove('show');
   $('uploadActions').classList.remove('show');
@@ -1117,6 +1255,65 @@ function gapRow(idx, r, delay) {
   </div>`;
 }
 
+/* ── score breakdown ───────────────────────────────────── */
+function toggleBreakdown(id, btn) {
+  const el = $(id);
+  const open = el.classList.toggle('open');
+  btn.textContent = open ? 'hide' : 'why?';
+  if (open) el.querySelectorAll('.bd-bar').forEach(b => { b.style.width = b.dataset.w; });
+}
+function resetBreakdown(id) {
+  const el = $(id);
+  el.classList.remove('open');
+  const btn = el.previousElementSibling;
+  if (btn && btn.classList.contains('why-btn')) btn.textContent = 'why?';
+}
+function renderBreakdown(id, comps) {
+  // Each component's max possible contribution is its weight×100; the filled
+  // bar shows earned points against that cap.
+  $(id).innerHTML = comps.map(c => {
+    const cap = Math.round(c.weight * 100);
+    const pct = cap ? Math.round(c.points / cap * 100) : 0;
+    return `<div class="bd-row">
+      <div class="bd-top"><span class="bd-label">${esc(c.label)}</span>
+        <span class="bd-pts">${c.points} / ${cap} pts</span></div>
+      <div class="bd-track"><div class="bd-bar" data-w="${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+/* ── market benchmark ──────────────────────────────────── */
+function renderMarket(lm) {
+  if (!lm) return '';
+  const tiles = [];
+  if (lm.median_wage) tiles.push([`$${lm.median_wage.toLocaleString()}`, 'median wage']);
+  if (lm.openings_k != null) tiles.push([Math.round(lm.openings_k * 1000).toLocaleString(), 'openings / yr']);
+  if (lm.growth_pct != null) {
+    const g = lm.growth_pct;
+    const cls = g >= 4 ? 'growth-up' : (g > -1 ? 'growth-flat' : 'growth-down');
+    const arr = g >= 4 ? '▲' : (g > -1 ? '▶' : '▼');
+    tiles.push([`<span class="growth-arrow ${cls}">${arr} ${g >= 0 ? '+' : ''}${g}%</span>`, '10-yr growth']);
+  }
+  let html = tiles.map(([v, l]) =>
+    `<div class="mstat"><div class="mstat-val">${v}</div><div class="mstat-lbl">${esc(l)}</div></div>`).join('');
+
+  if (lm.wage_percentile != null) {
+    html += `<div class="wage-benchmark">
+      <div class="wb-head">
+        <span class="wb-label">Pay vs. all occupations</span>
+        <span class="wb-pct">${lm.wage_percentile}th percentile</span>
+      </div>
+      <div class="wb-track"><div class="wb-marker" style="left:${Math.min(99, lm.wage_percentile)}%"></div></div>
+      <div class="wb-scale"><span>lowest-paid</span><span>highest-paid</span></div>
+    </div>`;
+  }
+  if (lm.typical_education) {
+    const exp = (lm.typical_experience || 'no experience').toLowerCase();
+    html += `<div class="market-req">Typically requires ${esc(lm.typical_education.toLowerCase())} · ${esc(exp)} <span class="src">— U.S. Bureau of Labor Statistics</span></div>`;
+  }
+  return html;
+}
+
 /* ── report rendering ──────────────────────────────────── */
 function renderReport(d, elapsed) {
   const s    = d.summary || {};
@@ -1130,10 +1327,13 @@ function renderReport(d, elapsed) {
   // reset reveal state for repeat runs
   document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
 
-  // header
+  // header + verdict + sticky mini-header
   $('rptFile').textContent = d.resume || 'Report';
+  $('miniName').textContent = d.resume || '';
   $('rptMeta').textContent =
     `${new Date().toISOString().slice(0, 10)} · analyzed in ${elapsed ? elapsed.toFixed(1) : '—'}s`;
+  $('verdict').innerHTML = d.verdict
+    ? esc(d.verdict).replace(/^(.*?)(\sfor\s)/, '<b>$1</b>$2') : '';
 
   // next-steps summary
   const summaryText = d.summary_text || '';
@@ -1145,8 +1345,14 @@ function renderReport(d, elapsed) {
   const c = comp.score || 0;
   $('hNote').textContent = s.hirability_level || '';
   $('cNote').textContent = comp.level || '';
+  $('miniHire').textContent = h.toFixed(0);
+  $('miniComp').textContent = c.toFixed(0);
   $('hArc').style.strokeDashoffset = ARC_LEN;
   $('cArc').style.strokeDashoffset = ARC_LEN;
+  const bd = d.score_breakdown || {};
+  renderBreakdown('hBreak', bd.hirability || []);
+  renderBreakdown('cBreak', bd.competitiveness || []);
+  resetBreakdown('hBreak'); resetBreakdown('cBreak');
 
   const lvl = exp.level || '—';
   const eVal = $('eVal');
@@ -1167,23 +1373,8 @@ function renderReport(d, elapsed) {
     $('matchIndex').textContent = (top.blended_score || top.match_score || 0).toFixed(2);
     $('matchDesc').textContent = top.description || '';
 
-    // BLS market snapshot
-    const lm = d.labor_market;
-    if (lm) {
-      const tiles = [];
-      if (lm.median_wage) tiles.push([`$${lm.median_wage.toLocaleString()}`, 'median wage']);
-      if (lm.growth_pct != null) tiles.push([`${lm.growth_pct >= 0 ? '+' : ''}${lm.growth_pct}%`, '10-yr outlook']);
-      if (lm.openings_k != null) tiles.push([Math.round(lm.openings_k * 1000).toLocaleString(), 'openings / yr']);
-      let html = tiles.map(([v, l]) =>
-        `<div class="mstat"><div class="mstat-val">${esc(v)}</div><div class="mstat-lbl">${esc(l)}</div></div>`).join('');
-      if (lm.typical_education) {
-        const exp = (lm.typical_experience || 'no experience').toLowerCase();
-        html += `<div class="market-req">Typically requires ${esc(lm.typical_education.toLowerCase())} · ${esc(exp)} <span class="src">— U.S. Bureau of Labor Statistics</span></div>`;
-      }
-      $('marketStats').innerHTML = html;
-    } else {
-      $('marketStats').innerHTML = '';
-    }
+    // BLS market snapshot + benchmark
+    $('marketStats').innerHTML = renderMarket(d.labor_market);
 
     const alts = tops.slice(1, 5);
     $('altsTable').style.display = alts.length ? '' : 'none';
@@ -1196,20 +1387,22 @@ function renderReport(d, elapsed) {
     $('secMatch').style.display = 'none';
   }
 
-  // 02 strengths — highlights (companies/education/achievements) + matched skills
+  // 02 strengths — highlights + coverage ring ledger + matched skills
   const strengths = (gaps.strengths || []).map(skillName);
   $('secStrengths').style.display = (strengths.length || highlights.length) ? '' : 'none';
   $('strengthHighlights').innerHTML = highlights.map(h => `<li>${esc(h)}</li>`).join('');
+  const coverageFrac = gaps.coverage_of_top_match || 0;
   if (strengths.length) {
     $('strengthNote').textContent = strengths.length + ' skills';
-    const cov = gaps.coverage_of_top_match || 0;
-    $('coverageLine').style.display = '';
-    $('coverageLine').textContent =
-      `Covers ${strengths.length} of the matched occupation's listed tools (${(cov * 100).toFixed(0)}%)`;
+    $('coverageLedger').style.display = '';
+    $('clHave').textContent = strengths.length;
+    $('clGaps').textContent = recs.length;
+    $('clPct').textContent = Math.round(coverageFrac * 100) + '%';
+    $('clRing').style.strokeDashoffset = 213.6;  // reset; animated on reveal
     renderTags($('strengthTags'), strengths, 14);
   } else {
     $('strengthNote').textContent = '';
-    $('coverageLine').style.display = 'none';
+    $('coverageLedger').style.display = 'none';
     $('strengthTags').innerHTML = '';
   }
 
@@ -1259,15 +1452,27 @@ function renderReport(d, elapsed) {
     const el = $(id);
     if (el && el.style.display !== 'none') spyObs.observe(el);
   });
+  miniObs.observe($('secMetrics'));
 
   requestAnimationFrame(() => requestAnimationFrame(() => {
     countUp($('hVal'), h);
     countUp($('cVal'), c);
     $('hArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(h, 100) / 100);
     $('cArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(c, 100) / 100);
+    if (strengths.length) {
+      $('clRing').style.strokeDashoffset = 213.6 * (1 - Math.min(1, coverageFrac));
+    }
     scramble($('matchTitle'), topTitle);
   }));
 }
+
+/* ── sticky mini-header: show once the metrics scroll out of view ── */
+const miniObs = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    const show = !en.isIntersecting && en.boundingClientRect.top < 0;
+    $('miniHeader').classList.toggle('show', show);
+  });
+}, { threshold: 0 });
 
 /* ── matching jobs ─────────────────────────────────────── */
 function setWorkMode(mode) {

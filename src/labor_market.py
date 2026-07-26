@@ -62,6 +62,20 @@ def get_market(soc_code: str) -> Optional[Dict[str, Any]]:
     return _load_market().get(soc_code)
 
 
+@lru_cache(maxsize=1)
+def _sorted_wages() -> list:
+    return sorted(m["median_wage"] for m in _load_market().values() if m.get("median_wage"))
+
+
+def wage_percentile(wage: Optional[int]) -> Optional[int]:
+    """Where this occupation's median wage sits among all occupations (0-100)."""
+    wages = _sorted_wages()
+    if not wages or wage is None:
+        return None
+    import bisect
+    return round(100 * bisect.bisect_right(wages, wage) / len(wages))
+
+
 # ---------------------------------------------------------------------------
 # Fit measures (0-1), grounded in what the occupation actually requires
 # ---------------------------------------------------------------------------

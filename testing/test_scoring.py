@@ -383,7 +383,6 @@ class StudentDetectionTests(unittest.TestCase):
                 self.assertEqual(bool(got), expected_student)
 
     def test_ordinary_words_do_not_trigger_detection(self):
-        # "act" and "present" appear in every resume; they prove nothing.
         text = ("Directed a play and act as the primary contact. 2019 - Present. "
                 "Managed university vendor relationships.")
         self.assertIsNone(detect_student(text, education_level="Master's"))
@@ -422,8 +421,6 @@ class FieldDirectionTests(unittest.TestCase):
         self.assertGreater(f["share"], 0.25)
 
     def test_field_beats_single_occupation_noise(self):
-        # Occupation ranking put a technical-education role first for exactly
-        # these skills; the family signal must not.
         f = infer_field(["Python", "Java", "React", "SQL", "Git", "pandas"])
         self.assertNotEqual(f["name"], "Education")
 

@@ -1,0 +1,290 @@
+category,skill,postings,total,share
+Accounting and Finance,Excel,59,240,0.2458
+Accounting and Finance,SQL,25,240,0.1042
+Accounting and Finance,Powerpoint,22,240,0.0917
+Accounting and Finance,Power BI,22,240,0.0917
+Accounting and Finance,Microsoft Power Automate,15,240,0.0625
+Accounting and Finance,Microsoft Excel,15,240,0.0625
+Accounting and Finance,Tableau,14,240,0.0583
+Accounting and Finance,Machine Learning,11,240,0.0458
+Accounting and Finance,Python,8,240,0.0333
+Accounting and Finance,TikTok,7,240,0.0292
+Accounting and Finance,Oracle Database,6,240,0.025
+Accounting and Finance,LinkedIn,6,240,0.025
+Accounting and Finance,Tax software,6,240,0.025
+Accounting and Finance,Oracle NetSuite,5,240,0.0208
+Accounting and Finance,Microsoft SharePoint,5,240,0.0208
+Accounting and Finance,Oracle Essbase,5,240,0.0208
+Accounting and Finance,Instagram,4,240,0.0167
+Accounting and Finance,YouTube,4,240,0.0167
+Accounting and Finance,Looker,3,240,0.0125
+Accounting and Finance,Google,3,240,0.0125
+Accounting and Finance,HTML,3,240,0.0125
+Advertising and Marketing,Excel,24,240,0.1
+Advertising and Marketing,Powerpoint,14,240,0.0583
+Advertising and Marketing,Apache HTTP Server,10,240,0.0417
+Advertising and Marketing,TikTok,9,240,0.0375
+Advertising and Marketing,Spark,7,240,0.0292
+Advertising and Marketing,Microsoft Excel,5,240,0.0208
+Advertising and Marketing,Instagram,5,240,0.0208
+Advertising and Marketing,Airtable,4,240,0.0167
+Advertising and Marketing,Oracle Database,4,240,0.0167
+Advertising and Marketing,YouTube,4,240,0.0167
+Advertising and Marketing,LinkedIn,4,240,0.0167
+Advertising and Marketing,Tableau,3,240,0.0125
+Advertising and Marketing,E-Verify,3,240,0.0125
+Advertising and Marketing,Google,3,240,0.0125
+Business Operations,Excel,31,240,0.1292
+Business Operations,Powerpoint,12,240,0.05
+Business Operations,Apache HTTP Server,7,240,0.0292
+Business Operations,Instagram,5,240,0.0208
+Business Operations,E-Verify,5,240,0.0208
+Business Operations,Google,5,240,0.0208
+Business Operations,Tableau,5,240,0.0208
+Business Operations,Facebook,4,240,0.0167
+Business Operations,Oracle Database,4,240,0.0167
+Business Operations,LinkedIn,4,240,0.0167
+Business Operations,SQL,4,240,0.0167
+Business Operations,WhatsApp,3,240,0.0125
+Business Operations,Python,3,240,0.0125
+Business Operations,ServiceNow,3,240,0.0125
+Data and Analytics,Python,75,240,0.3125
+Data and Analytics,SQL,75,240,0.3125
+Data and Analytics,Machine Learning,55,240,0.2292
+Data and Analytics,Spark,35,240,0.1458
+Data and Analytics,Excel,32,240,0.1333
+Data and Analytics,Tableau,24,240,0.1
+Data and Analytics,GCP,23,240,0.0958
+Data and Analytics,Data Engineering,23,240,0.0958
+Data and Analytics,Scala,21,240,0.0875
+Data and Analytics,TikTok,20,240,0.0833
+Data and Analytics,Oracle Database,20,240,0.0833
+Data and Analytics,Power BI,19,240,0.0792
+Data and Analytics,PyTorch,18,240,0.075
+Data and Analytics,Statistical Analysis,17,240,0.0708
+Data and Analytics,Java,17,240,0.0708
+Data and Analytics,Programming languages,17,240,0.0708
+Data and Analytics,LinkedIn,17,240,0.0708
+Data and Analytics,Deep Learning,16,240,0.0667
+Data and Analytics,TensorFlow,15,240,0.0625
+Data and Analytics,Microsoft Power Automate,15,240,0.0625
+Data and Analytics,Google Cloud,14,240,0.0583
+Data and Analytics,Scikit-Learn,13,240,0.0542
+Data and Analytics,Snowflake,13,240,0.0542
+Data and Analytics,Microsoft Excel,12,240,0.05
+Data and Analytics,Apache Hive,12,240,0.05
+Data and Analytics,NoSQL,11,240,0.0458
+Data and Analytics,Powerpoint,11,240,0.0458
+Data and Analytics,Apache Hadoop,10,240,0.0417
+Data and Analytics,Jira,10,240,0.0417
+Data and Analytics,MLOps,10,240,0.0417
+Data and Analytics,Natural Language Processing,9,240,0.0375
+Data and Analytics,CI/CD,9,240,0.0375
+Data and Analytics,Kafka,9,240,0.0375
+Data and Analytics,Microsoft SharePoint,8,240,0.0333
+Data and Analytics,Devops,8,240,0.0333
+Data and Analytics,Apache HTTP Server,8,240,0.0333
+Data and Analytics,Distributed Systems,8,240,0.0333
+Data and Analytics,System Design,8,240,0.0333
+Data and Analytics,Looker,8,240,0.0333
+Data and Analytics,Databricks,7,240,0.0292
+Data and Analytics,Instagram,7,240,0.0292
+Data and Analytics,Docker,7,240,0.0292
+Data and Analytics,Kubernetes,7,240,0.0292
+Data and Analytics,Reinforcement Learning,6,240,0.025
+Data and Analytics,E-Verify,6,240,0.025
+Data and Analytics,BigQuery,6,240,0.025
+Data and Analytics,Neural Networks,5,240,0.0208
+Data and Analytics,AWS Elastic MapReduce (EMR),5,240,0.0208
+Data and Analytics,Computer Vision,5,240,0.0208
+Data and Analytics,React,5,240,0.0208
+Data and Analytics,MySQL,5,240,0.0208
+Data and Analytics,Numpy,5,240,0.0208
+Data and Analytics,Google,5,240,0.0208
+Data and Analytics,YouTube,5,240,0.0208
+Data and Analytics,Airflow,5,240,0.0208
+Data and Analytics,Matplotlib,4,240,0.0167
+Data and Analytics,Apache Spark,4,240,0.0167
+Data and Analytics,PySpark,4,240,0.0167
+Data and Analytics,Amazon Web Services AWS SageMaker,4,240,0.0167
+Data and Analytics,Keras,3,240,0.0125
+Data and Analytics,GitHub,3,240,0.0125
+Data and Analytics,StataCorp Stata,3,240,0.0125
+Data and Analytics,ServiceNow,3,240,0.0125
+Data and Analytics,Terraform,3,240,0.0125
+Data and Analytics,LangChain,3,240,0.0125
+Data and Analytics,Redshift,3,240,0.0125
+Data and Analytics,Linux,3,240,0.0125
+Data and Analytics,UNIX,3,240,0.0125
+Data and Analytics,Facebook,3,240,0.0125
+Data and Analytics,WhatsApp,3,240,0.0125
+Data and Analytics,Atlassian JIRA,3,240,0.0125
+Data and Analytics,dbt,3,240,0.0125
+Design and UX,Figma,50,240,0.2083
+Design and UX,Excel,15,240,0.0625
+Design and UX,System Design,14,240,0.0583
+Design and UX,CSS,11,240,0.0458
+Design and UX,Instagram,11,240,0.0458
+Design and UX,E-Verify,11,240,0.0458
+Design and UX,Machine Learning,10,240,0.0417
+Design and UX,HTML,10,240,0.0417
+Design and UX,WhatsApp,10,240,0.0417
+Design and UX,TikTok,9,240,0.0375
+Design and UX,LinkedIn,8,240,0.0333
+Design and UX,Jira,8,240,0.0333
+Design and UX,Adobe Photoshop,8,240,0.0333
+Design and UX,Facebook,8,240,0.0333
+Design and UX,Google Slides,7,240,0.0292
+Design and UX,Google Gmail,6,240,0.025
+Design and UX,Google,6,240,0.025
+Design and UX,Python,6,240,0.025
+Design and UX,Powerpoint,5,240,0.0208
+Design and UX,Adobe InDesign,5,240,0.0208
+Design and UX,Apache HTTP Server,5,240,0.0208
+Design and UX,JavaScript,5,240,0.0208
+Design and UX,Adobe XD,5,240,0.0208
+Design and UX,Microsoft Power Automate,4,240,0.0167
+Design and UX,Slack,4,240,0.0167
+Design and UX,Devops,3,240,0.0125
+Design and UX,PHP,3,240,0.0125
+Design and UX,Ruby,3,240,0.0125
+Design and UX,jQuery,3,240,0.0125
+Design and UX,YouTube,3,240,0.0125
+Design and UX,Apache Maven,3,240,0.0125
+Design and UX,Component libraries,3,240,0.0125
+Design and UX,PyTorch,3,240,0.0125
+Design and UX,CI/CD,3,240,0.0125
+Education,Excel,17,240,0.0708
+Education,Powerpoint,12,240,0.05
+Education,Apache HTTP Server,4,240,0.0167
+Education,Oracle Database,3,240,0.0125
+Healthcare,Excel,27,240,0.1125
+Healthcare,Powerpoint,23,240,0.0958
+Human Resources and Recruitment,Excel,26,240,0.1083
+Human Resources and Recruitment,Powerpoint,14,240,0.0583
+Human Resources and Recruitment,Apache HTTP Server,12,240,0.05
+Human Resources and Recruitment,Spark,11,240,0.0458
+Human Resources and Recruitment,E-Verify,8,240,0.0333
+Human Resources and Recruitment,Oracle Database,6,240,0.025
+Human Resources and Recruitment,TikTok,4,240,0.0167
+Human Resources and Recruitment,Tableau,4,240,0.0167
+Human Resources and Recruitment,Microsoft Word,3,240,0.0125
+Project Management,Excel,43,240,0.1792
+Project Management,SQL,24,240,0.1
+Project Management,Tableau,24,240,0.1
+Project Management,Python,18,240,0.075
+Project Management,Powerpoint,17,240,0.0708
+Project Management,Jira,9,240,0.0375
+Project Management,Power BI,6,240,0.025
+Project Management,LinkedIn,5,240,0.0208
+Project Management,Apache HTTP Server,5,240,0.0208
+Project Management,Smartsheet,4,240,0.0167
+Project Management,Microsoft SharePoint,3,240,0.0125
+Project Management,Google Gmail,3,240,0.0125
+Project Management,WhatsApp,3,240,0.0125
+Project Management,Microsoft Power Automate,3,240,0.0125
+Project Management,TikTok,3,240,0.0125
+Project Management,Microsoft Word,3,240,0.0125
+Project Management,YouTube,3,240,0.0125
+Project Management,Google,3,240,0.0125
+Sales,Excel,37,240,0.1542
+Sales,Computer operating systems,13,240,0.0542
+Sales,Powerpoint,13,240,0.0542
+Sales,LinkedIn,11,240,0.0458
+Sales,Tableau,7,240,0.0292
+Sales,people@work,6,240,0.025
+Sales,TikTok,6,240,0.025
+Sales,Machine Learning,3,240,0.0125
+Sales,Instagram,3,240,0.0125
+Sales,YouTube,3,240,0.0125
+Sales,Google,3,240,0.0125
+Sales,Facebook,3,240,0.0125
+Sales,Distributed Systems,3,240,0.0125
+Science and Engineering,Python,23,240,0.0958
+Science and Engineering,Autodesk AutoCAD,22,240,0.0917
+Science and Engineering,Google Gmail,21,240,0.0875
+Science and Engineering,WhatsApp,21,240,0.0875
+Science and Engineering,System Design,15,240,0.0625
+Science and Engineering,Machine Learning,15,240,0.0625
+Science and Engineering,Excel,12,240,0.05
+Science and Engineering,Perl,9,240,0.0375
+Science and Engineering,CI/CD,9,240,0.0375
+Science and Engineering,Microsoft Power Automate,9,240,0.0375
+Science and Engineering,SQL,8,240,0.0333
+Science and Engineering,GCP,8,240,0.0333
+Science and Engineering,Oracle Database,8,240,0.0333
+Science and Engineering,Statistical Analysis,7,240,0.0292
+Science and Engineering,Apache HTTP Server,7,240,0.0292
+Science and Engineering,Distributed Systems,7,240,0.0292
+Science and Engineering,The MathWorks MATLAB,7,240,0.0292
+Science and Engineering,Verilog,7,240,0.0292
+Science and Engineering,Kubernetes,6,240,0.025
+Science and Engineering,LinkedIn,5,240,0.0208
+Science and Engineering,Linux,5,240,0.0208
+Science and Engineering,IBM Cloud,5,240,0.0208
+Science and Engineering,PTC Mathcad,5,240,0.0208
+Science and Engineering,Powerpoint,5,240,0.0208
+Science and Engineering,Devops,5,240,0.0208
+Science and Engineering,Jira,4,240,0.0167
+Science and Engineering,Terraform,4,240,0.0167
+Science and Engineering,E-Verify,4,240,0.0167
+Science and Engineering,JavaScript,3,240,0.0125
+Science and Engineering,Programming languages,3,240,0.0125
+Science and Engineering,Ansible,3,240,0.0125
+Science and Engineering,Grafana,3,240,0.0125
+Science and Engineering,Prometheus,3,240,0.0125
+Science and Engineering,SystemVerilog,3,240,0.0125
+Science and Engineering,Microsoft PowerShell,3,240,0.0125
+Science and Engineering,Estimating software,3,240,0.0125
+Science and Engineering,IBM Middleware,3,240,0.0125
+Science and Engineering,YouTube,3,240,0.0125
+Science and Engineering,Docker,3,240,0.0125
+Software Engineering,Python,28,240,0.1167
+Software Engineering,CI/CD,20,240,0.0833
+Software Engineering,Java,20,240,0.0833
+Software Engineering,SQL,16,240,0.0667
+Software Engineering,Devops,14,240,0.0583
+Software Engineering,JavaScript,13,240,0.0542
+Software Engineering,Distributed Systems,13,240,0.0542
+Software Engineering,NoSQL,12,240,0.05
+Software Engineering,GCP,11,240,0.0458
+Software Engineering,Kubernetes,11,240,0.0458
+Software Engineering,Git,10,240,0.0417
+Software Engineering,Spring Boot,9,240,0.0375
+Software Engineering,Kafka,9,240,0.0375
+Software Engineering,Programming languages,8,240,0.0333
+Software Engineering,Machine Learning,7,240,0.0292
+Software Engineering,Jira,7,240,0.0292
+Software Engineering,Docker,6,240,0.025
+Software Engineering,React,6,240,0.025
+Software Engineering,TypeScript,6,240,0.025
+Software Engineering,Excel,6,240,0.025
+Software Engineering,Spark,6,240,0.025
+Software Engineering,Oracle Database,6,240,0.025
+Software Engineering,MongoDB,5,240,0.0208
+Software Engineering,MySQL,5,240,0.0208
+Software Engineering,PostgreSQL,5,240,0.0208
+Software Engineering,LinkedIn,5,240,0.0208
+Software Engineering,CSS,5,240,0.0208
+Software Engineering,HTML,5,240,0.0208
+Software Engineering,GraphQL,5,240,0.0208
+Software Engineering,TikTok,5,240,0.0208
+Software Engineering,Apache Maven,4,240,0.0167
+Software Engineering,Node.js,4,240,0.0167
+Software Engineering,System Design,4,240,0.0167
+Software Engineering,Instagram,4,240,0.0167
+Software Engineering,Apache HTTP Server,4,240,0.0167
+Software Engineering,Grafana,4,240,0.0167
+Software Engineering,JUnit,4,240,0.0167
+Software Engineering,Prometheus,4,240,0.0167
+Software Engineering,Linux,4,240,0.0167
+Software Engineering,Google,3,240,0.0125
+Software Engineering,Amazon DynamoDB,3,240,0.0125
+Software Engineering,Google Angular,3,240,0.0125
+Software Engineering,PyTorch,3,240,0.0125
+Software Engineering,WhatsApp,3,240,0.0125
+Software Engineering,Google Cloud,3,240,0.0125
+Software Engineering,Airflow,3,240,0.0125
+Software Engineering,Microservices Architecture,3,240,0.0125
+Software Engineering,Microsoft Power Automate,3,240,0.0125
+Software Engineering,Github Actions,3,240,0.0125

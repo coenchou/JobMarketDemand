@@ -8,8 +8,11 @@ skill mentions harvested from live job postings.
 ## Running it
 
 ```bash
-pip install -r requirements.txt
-cp .env.example .env          # optional: add a GROQ_API_KEY for LLM parsing
+pip install -r requirements.txt        # runtime; add -dev for scripts/notebooks
+cp .env.example .env                   # optional: add a GROQ_API_KEY
+
+# the Streamlit app
+streamlit run streamlit_app.py
 
 # report in the terminal
 python -m src.pipeline resumes/resume_1_data_analyst.txt
@@ -102,6 +105,35 @@ when that file is absent.
 
 ## Deploying
 
+### Streamlit Community Cloud
+
+Point it at **`streamlit_app.py`** — that is the entry point. Repo
+`coenchou/JobMarketDemand`, branch `main`, main file path `streamlit_app.py`.
+
+Add the API key under *Advanced settings → Secrets*:
+
+```toml
+GROQ_API_KEY = "your-key"
+LLM_MODEL = "openai/gpt-oss-120b"
+```
+
+The key is optional; without it the app falls back to the regex parser and
+dataset-derived recommendations.
+
+Streamlit runs the pipeline directly and hands the report to the same UI the
+FastAPI build serves, so the report looks identical and switching between roles
+still works. The two controls that need an HTTP endpoint — pasting a posting
+from inside the report, and live job search — are hidden there; paste a posting
+using the box on the upload screen instead.
+
+Two things to know about the free tier. It allocates about 1 GB of memory, and
+`sentence-transformers` pulls in torch, which is most of that; if the app is
+killed on load, drop that dependency and the code falls back to keyword
+matching everywhere it would have used embeddings. And the filesystem is
+ephemeral, so the analysis counter resets whenever the app redeploys or sleeps.
+
+### As a FastAPI service
+
 The API serves the frontend, so a single process is the whole app:
 
 ```bash
@@ -118,8 +150,9 @@ at startup, and the LLM response cache is disabled server-side because cached
 responses contain extracted resume content. The only state that persists is a
 count of analyses run, served at `/stats`.
 
-The O*NET and BLS datasets are not in the repository — they are large, licensed
-and regenerable. Fetch them before first run:
+The seven files the app reads at runtime (3.3 MB) are committed so a fresh
+deploy starts without setup. The rest of the datasets are large, licensed and
+regenerable, and stay out of git. To rebuild them from source:
 
 ```bash
 python scripts/download_onet.py            # O*NET workbooks

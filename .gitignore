@@ -1,19 +1,34 @@
-data/
-*.xlsx
-*.csv
-*.zip
-*.gz
 __pycache__/
-.env
 *.pyc
-.DS_Store
-.ipynb_checkpoints/
 *.egg-info/
 dist/
 build/
+.DS_Store
+.ipynb_checkpoints/
 .vscode/
 .venv/
-*.ipynb_checkpoints
-outputs/**/*.txt
+venv/
+
+.env
 .env.*
 !.env.example
+
+*.zip
+*.gz
+outputs/**/*.txt
+
+# Datasets are large, licensed and regenerable, so the bulk stays out of git.
+# The handful the deployed app reads at runtime (3.3 MB) is committed so a
+# fresh deploy — Streamlit Cloud especially — can actually start.
+data/**
+!data/raw/
+!data/raw/onet/
+!data/raw/onet/Software Skills.xlsx
+!data/raw/onet/Occupation Data.xlsx
+!data/raw/onet/Essential Skills.xlsx
+!data/raw/bls/
+!data/raw/bls/occupation_market.csv
+!data/processed/
+!data/processed/posting_skills.csv
+!data/processed/occ_embeddings.npz
+!data/processed/occ_embeddings_meta.json

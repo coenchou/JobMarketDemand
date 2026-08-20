@@ -1,0 +1,15 @@
+# Everything in the runtime set, plus the offline analysis and dataset scripts.
+-r requirements.txt
+
+# scripts/download_onet*.py
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# notebooks and exploratory analysis
+scikit-learn>=1.2.0
+statsmodels>=0.13.5
+nltk>=3.8.1
+matplotlib>=3.6.0
+seaborn>=0.12.0
+plotly>=5.12.0
+pyarrow>=12.0.0

@@ -38,8 +38,6 @@ from src.nlp_skills import _embed, _norm
 
 MUSE_API = "https://www.themuse.com/api/public/jobs"
 
-# Matched-occupation title  →  a high-confidence The Muse category.
-# Omitted when nothing matches (we then fetch broadly and let ranking sort it out).
 _CATEGORY_KEYWORDS: List[tuple] = [
     ("Software Engineering", ("software", "developer", "programmer", "web develop", "devops", "engineer, computer")),
     ("Data Science",         ("data scien", "data analyst", "machine learning", "statistician", "data engineer")),
@@ -70,10 +68,6 @@ def _strip_html(html: str) -> str:
     text = unescape(text)
     return re.sub(r"\s+", " ", text).strip()
 
-
-# ---------------------------------------------------------------------------
-# 1. Fetch
-# ---------------------------------------------------------------------------
 
 def fetch_jobs(
     title: str,
@@ -128,10 +122,6 @@ def fetch_jobs(
     return jobs
 
 
-# ---------------------------------------------------------------------------
-# 2. Embedding pre-rank
-# ---------------------------------------------------------------------------
-
 def _profile_text(title: str, skills: List[str]) -> str:
     return f"{title}. Skills: {', '.join(skills[:40])}"
 
@@ -157,7 +147,6 @@ def rank_jobs(
         for j, s in zip(jobs, sims):
             j["similarity"] = round(float(np.clip(s, 0.0, 1.0)), 4)
     else:
-        # keyword fallback: token overlap with skills
         skill_words = {w for s in skills for w in _norm(s).split() if len(w) >= 3}
         for j in jobs:
             jw = set(_norm(j["description"]).split())
@@ -167,10 +156,6 @@ def rank_jobs(
     jobs.sort(key=lambda x: x["similarity"], reverse=True)
     return jobs[:top_n]
 
-
-# ---------------------------------------------------------------------------
-# 3. Groq per-job fit analysis (single batched call)
-# ---------------------------------------------------------------------------
 
 _FIT_PROMPT = """You are a technical recruiter. A candidate is looking for work.
 
@@ -202,7 +187,7 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
     api_key = os.getenv("GROQ_API_KEY")
     if api_key:
         try:
-            from groq import Groq  # type: ignore
+            from groq import Groq
             client = Groq(api_key=api_key)
             job_lines = "\n".join(
                 f"[{i}] {j['title']} at {j['company'] or 'n/a'} — {j['description'][:500]}"
@@ -213,9 +198,9 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
                 skills=", ".join(skills[:40]) or "none listed",
                 jobs=job_lines,
             )
-            from src.llm_cache import complete
+            from src.llm_cache import MODEL, complete
             parsed = json.loads(
-                complete(client, "llama-3.3-70b-versatile", prompt, temperature=0.2))
+                complete(client, MODEL, prompt, temperature=0.2))
             analyses = parsed.get("analyses", parsed if isinstance(parsed, list) else [])
             by_index = {a.get("index", n): a for n, a in enumerate(analyses)}
             for i, j in enumerate(jobs):
@@ -228,7 +213,6 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
         except Exception as e:
             print(f"[job_search] Groq fit analysis failed: {e}", file=sys.stderr)
 
-    # Heuristic fallback (no key or call failed)
     skill_set = {_norm(s) for s in skills}
     for j in jobs:
         jd = _norm(j["description"])
@@ -240,21 +224,12 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
     return jobs
 
 
-# ---------------------------------------------------------------------------
-# External job-board deep links
-#
-# The Muse has a thin, mostly-remote catalog, so it is unreliable for on-site
-# search. Rather than scrape LinkedIn/Indeed (against ToS, fragile), we build
-# pre-filled search URLs that drop the user straight into those sites with the
-# right role + location applied.
-# ---------------------------------------------------------------------------
-
 def build_search_links(title: str, remote: bool, location: str) -> List[Dict[str, str]]:
     q = title or "jobs"
     loc = "Remote" if remote else (location or "")
     linkedin = f"https://www.linkedin.com/jobs/search/?keywords={quote_plus(q)}"
     if remote:
-        linkedin += "&f_WT=2"          # LinkedIn remote work-type filter
+        linkedin += "&f_WT=2"
     elif loc:
         linkedin += f"&location={quote_plus(loc)}"
     indeed = f"https://www.indeed.com/jobs?q={quote_plus(q)}"
@@ -276,10 +251,6 @@ def _filter_by_location(jobs: List[Dict[str, Any]], location: str) -> List[Dict[
     return [j for j in jobs if city in j.get("location", "").lower()]
 
 
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
-
 def find_jobs(
     title: str,
     skills: List[str],
@@ -289,8 +260,6 @@ def find_jobs(
     top_n: int = 5,
 ) -> Dict[str, Any]:
     raw = fetch_jobs(title, remote=remote, location=location)
-    # On-site: The Muse leaks remote/multi-city results, so keep only true local
-    # matches; the deep links cover everything the thin catalog misses.
     if not remote and location:
         raw = _filter_by_location(raw, location)
     ranked = rank_jobs(title, skills, raw, top_n=top_n)

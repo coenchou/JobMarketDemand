@@ -31,41 +31,28 @@ from src.skill_difficulty import (
 )
 from src.skill_notes import _closest_user_skill, build_skill_description
 
-# ---------------------------------------------------------------------------
-# Emerging AI/ML skills not yet in ONET (curated, high-demand in tech roles)
-# ---------------------------------------------------------------------------
 
 EMERGING_AI_SKILLS: List[Dict] = [
-    # Prompt & API layer — very quick to learn
     {"skill": "Prompt Engineering",          "difficulty_months": 1.0,  "tags": ["LLM", "AI"]},
     {"skill": "OpenAI API",                  "difficulty_months": 1.5,  "tags": ["LLM", "AI"]},
     {"skill": "Anthropic Claude API",        "difficulty_months": 1.5,  "tags": ["LLM", "AI"]},
-    # Orchestration frameworks
     {"skill": "LangChain",                   "difficulty_months": 2.0,  "tags": ["LLM", "AI"]},
     {"skill": "LlamaIndex",                  "difficulty_months": 2.0,  "tags": ["LLM", "AI"]},
-    # Vector databases
     {"skill": "Pinecone",                    "difficulty_months": 1.5,  "tags": ["vector-db", "AI"]},
     {"skill": "Chroma",                      "difficulty_months": 1.5,  "tags": ["vector-db", "AI"]},
     {"skill": "Weaviate",                    "difficulty_months": 2.0,  "tags": ["vector-db", "AI"]},
-    # RAG & retrieval
     {"skill": "Retrieval-Augmented Generation (RAG)", "difficulty_months": 3.0, "tags": ["LLM", "AI"]},
-    # Hugging Face ecosystem
     {"skill": "Hugging Face Transformers",   "difficulty_months": 3.0,  "tags": ["LLM", "AI", "ML"]},
     {"skill": "Hugging Face Hub",            "difficulty_months": 1.5,  "tags": ["LLM", "AI", "ML"]},
-    # Fine-tuning & training
     {"skill": "LLM Fine-tuning",             "difficulty_months": 6.0,  "tags": ["LLM", "AI", "ML"]},
     {"skill": "LoRA / QLoRA",               "difficulty_months": 5.0,  "tags": ["LLM", "AI", "ML"]},
-    # AI infra
     {"skill": "AI Agent Development",        "difficulty_months": 4.0,  "tags": ["LLM", "AI"]},
     {"skill": "MLflow",                      "difficulty_months": 3.0,  "tags": ["MLOps", "AI"]},
     {"skill": "Weights & Biases",            "difficulty_months": 2.0,  "tags": ["MLOps", "AI"]},
 ]
 
-# SOC major groups considered technical fields (computer/mathematical,
-# architecture/engineering) — used to decide whether AI/ML skill suggestions
-# are relevant to the user's top matched occupation.
 _TECHNICAL_SOC_PREFIXES = ("15-", "17-")
-_TECHNICAL_SOC_EXTRAS = {"11-3021"}  # Computer and Information Systems Managers
+_TECHNICAL_SOC_EXTRAS = {"11-3021"}
 
 
 def is_technical_occupation(soc_code: str) -> bool:
@@ -86,7 +73,6 @@ def get_emerging_recommendations(
     """
     skill_norms = {re.sub(r"\W+", " ", s).lower().strip() for s in user_skills}
 
-    # Add emerging skill difficulties to the main lookup so feasibility works
     for entry in EMERGING_AI_SKILLS:
         SKILL_DIFFICULTY[entry["skill"].lower()] = entry["difficulty_months"]
 
@@ -95,7 +81,6 @@ def get_emerging_recommendations(
         skill_name = entry["skill"]
         if skill_name.lower() in skill_norms:
             continue
-        # Also skip if any close variant already known
         norm = re.sub(r"\W+", " ", skill_name).lower().strip()
         if any(norm in s or s in norm for s in skill_norms):
             continue
@@ -133,10 +118,6 @@ def get_emerging_recommendations(
     return results[:top_n]
 
 
-# ---------------------------------------------------------------------------
-# Complementarity and feasibility
-# ---------------------------------------------------------------------------
-
 def compute_complementarity(gap_skill: str, user_skills: List[str]) -> float:
     """
     Score how complementary a gap skill is to the user's existing skill set.
@@ -146,7 +127,6 @@ def compute_complementarity(gap_skill: str, user_skills: List[str]) -> float:
     if not user_skills:
         return 0.0
 
-    # Try NLP embeddings first
     all_texts = [gap_skill] + user_skills
     embs = _embed(all_texts)
     if embs is not None:
@@ -156,7 +136,6 @@ def compute_complementarity(gap_skill: str, user_skills: List[str]) -> float:
             sims = np.nan_to_num(user_embs @ gap_emb, nan=0.0, posinf=0.0, neginf=0.0)
         return float(np.clip(np.max(sims), 0.0, 1.0))
 
-    # Keyword fallback: Jaccard similarity on word tokens
     gap_words = set(_norm(gap_skill).split())
     best = 0.0
     for s in user_skills:
@@ -166,10 +145,6 @@ def compute_complementarity(gap_skill: str, user_skills: List[str]) -> float:
             best = max(best, len(gap_words & s_words) / len(union))
     return best
 
-
-# ---------------------------------------------------------------------------
-# Full feasibility scoring for a gap skill
-# ---------------------------------------------------------------------------
 
 def score_feasibility(
     gap_skill: str,
@@ -192,7 +167,6 @@ def score_feasibility(
     difficulty = get_difficulty_months(gap_skill)
     complementarity = compute_complementarity(gap_skill, user_skills)
 
-    # Complementarity reduces effective difficulty by up to 50%
     effective = difficulty * (1.0 - 0.5 * complementarity)
     feasibility = float(np.clip(1.0 - effective / max_months, 0.0, 1.0))
 
@@ -205,10 +179,6 @@ def score_feasibility(
     }
 
 
-# ---------------------------------------------------------------------------
-# Skill recommendations
-# ---------------------------------------------------------------------------
-
 def generate_recommendations(
     gaps: List[Dict],
     user_skills: List[str],
@@ -220,7 +190,7 @@ def generate_recommendations(
     Filters out skills that take longer than max_feasibility_months * 1.5 to learn.
     Prioritises: market demand × feasibility.
     """
-    from src.skill_matcher import count_occupations_for_tool  # avoid circular import
+    from src.skill_matcher import count_occupations_for_tool
 
     scored: List[Dict] = []
 
@@ -228,7 +198,6 @@ def generate_recommendations(
         skill_name = gap["skill"]
         fs = score_feasibility(skill_name, user_skills, max_months=max_feasibility_months)
 
-        # Skip skills far beyond the feasibility window (> 1.5× threshold)
         if fs["difficulty_months"] > max_feasibility_months * 1.5:
             continue
 
@@ -265,19 +234,6 @@ def generate_recommendations(
     return scored[:top_n]
 
 
-# ---------------------------------------------------------------------------
-# LLM refinement of recommendations
-#
-# The dataset-driven gap list is a blunt instrument: it will happily tell a
-# senior engineer to "learn Git" just because they didn't spell it out. This
-# layer hands the candidate's real context to the LLM to (a) drop gaps they
-# obviously already have, (b) keep the genuinely useful ones, (c) add current,
-# high-value skills the standard datasets don't track, and (d) write a concrete
-# next-steps summary. Falls back to the dataset list if the LLM is unavailable.
-# ---------------------------------------------------------------------------
-
-# Near-duplicate skill families — collapsed so we never recommend two members
-# of the same family (e.g. both "Git" and "GitHub").
 _SKILL_FAMILIES: List[set] = [
     {"git", "github", "gitlab", "version control", "bitbucket"},
     {"amazon web services", "aws"},
@@ -378,7 +334,7 @@ def llm_refine_recommendations(
         return {"summary": _fallback_summary(role, deduped, years), "automation_note": "", "recommendations": deduped[:5]}
 
     try:
-        from groq import Groq  # type: ignore
+        from groq import Groq
         client = Groq(api_key=api_key)
         gap_lines = "\n".join(
             f"- {r['skill']}: {r.get('rationale', '')}" for r in deduped[:8]
@@ -391,14 +347,12 @@ def llm_refine_recommendations(
             experience=exp,
             gaps=gap_lines,
         )
-        from src.llm_cache import complete
+        from src.llm_cache import MODEL, complete
         data = json.loads(
-            complete(client, "llama-3.3-70b-versatile", prompt, temperature=0.3))
+            complete(client, MODEL, prompt, temperature=0.3))
         summary = str(data.get("summary", "")).strip() or _fallback_summary(role, deduped, years)
         automation_note = str(data.get("automation_note", "")).strip()
 
-        # Re-attach dataset metadata (effort_label, demand_trend) by skill-name
-        # match; compute fresh values for LLM-added skills.
         by_name = {_norm(r["skill"]): r for r in dataset_recs}
         out: List[Dict] = []
         for item in data.get("recommendations", [])[:5]:
@@ -413,7 +367,7 @@ def llm_refine_recommendations(
             else:
                 fs = score_feasibility(name, skills)
                 effort_label = fs["effort_label"]
-                demand_trend = "growing"  # LLM only adds current, high-value skills
+                demand_trend = "growing"
             out.append({
                 "skill": name,
                 "rationale": str(item.get("rationale", "")).strip(),

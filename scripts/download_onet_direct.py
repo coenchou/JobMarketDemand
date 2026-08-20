@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Download selected O*NET Excel files directly from db_30_3_excel folder.
 """
 import os

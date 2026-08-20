@@ -34,7 +34,6 @@ BLS_DIR = ROOT / "data" / "raw" / "bls"
 BASE_URL = "https://download.bls.gov/pub/time.series/ep/"
 UA = os.getenv("RESEARCH_UA", "Hirely-research/1.0")
 
-# Files needed from the EP flat-file DB
 FILES = ["ep.series", "ep.aspect", "ep.eductrn", "ep.wkex", "ep.otjt", "ep.occupation"]
 
 EDU_CODE = {
@@ -44,8 +43,6 @@ EDU_CODE = {
     "7": "High school diploma or equivalent", "8": "No formal educational credential",
     "9": None,
 }
-# Note: avoid the bare label "None" — pandas.read_csv coerces it to NaN,
-# which would erase the meaningful "no experience required" category.
 WKEX_CODE = {"1": "5 years or more", "2": "Less than 5 years",
              "4": "No experience required", "5": None}
 OTJT_CODE = {
@@ -80,10 +77,8 @@ def build() -> pd.DataFrame:
     ser = _read("ep.series")
     asp = _read("ep.aspect")
 
-    # occupation totals across all industries carry the education/experience codes
     tot = ser[ser["ind_code"] == "TE1000"].copy()
 
-    # pivot the value aspects we care about
     want = {"A1": "emp_change_k", "A2": "growth_pct", "A4": "openings_k",
             "A5": "median_wage", "PR": "proj_emp_k"}
     sub = asp[asp["aspect_type"].isin(want)].copy()
@@ -102,7 +97,6 @@ def build() -> pd.DataFrame:
         "occ_code", "typical_education", "typical_experience", "typical_training",
         "growth_pct", "openings_k", "median_wage", "current_emp_k", "proj_emp_k",
     ]].rename(columns={"occ_code": "soc_code"})
-    # keep detailed occupations only (drop summary aggregates like 15-0000)
     out = out[~out["soc_code"].str.endswith("-0000")].reset_index(drop=True)
     return out
 
@@ -113,7 +107,6 @@ def main() -> None:
     dest = BLS_DIR / "occupation_market.csv"
     table.to_csv(dest, index=False)
     print(f"wrote {dest}  ({len(table)} occupations)", file=sys.stderr)
-    # sanity check
     sd = table[table["soc_code"] == "15-1252"]
     if not sd.empty:
         r = sd.iloc[0]

@@ -1,7 +1,7 @@
 {
   "resume": "resume_1_data_analyst.txt",
-  "parser": "groq/llama-3.3-70b",
-  "summary_text": "Given the candidate's strong background in Python, data analysis, and visualization, the next steps should focus on expanding their skill set in machine learning and data engineering. They can improve quickly by learning PyTorch and Apache Spark, which will enhance their capabilities in deep learning and large-scale data processing. With their existing experience in data pipelines and data quality, they can rapidly adapt to these new technologies.",
+  "parser": "groq/openai/gpt-oss-120b",
+  "summary_text": "Focus first on scaling your data pipelines with Apache Spark to handle larger datasets, then add deep‑learning capability via PyTorch. Complement these with a cloud credential (Microsoft Azure) to broaden enterprise deployment options, and pick up Docker/Kubernetes for container‑based model serving. You can achieve solid proficiency in each within 2‑4 weeks, positioning you for senior Data Scientist roles that require production‑grade ML.",
   "verdict": "Likely hirable for Data Scientists — a field growing faster than average.",
   "target": {
     "source": "auto",
@@ -11,96 +11,96 @@
     "posting_skills": [],
     "role_options": [
       {
-        "soc_code": "15-1221",
-        "title": "Computer and Information Research Scientists",
-        "hirability": 72.1,
+        "soc_code": "15-2051",
+        "title": "Data Scientists",
+        "hirability": 72.6,
         "level": "Likely hirable",
-        "skill_strength": 56,
-        "match_score": 5.197,
-        "blended_score": 0.7523,
-        "fit": 0.752,
+        "skill_strength": 51,
+        "match_score": 4.392,
+        "blended_score": 0.7673,
+        "fit": 0.767,
         "eligible": true
       },
       {
-        "soc_code": "15-2051",
-        "title": "Data Scientists",
-        "hirability": 74.1,
+        "soc_code": "15-1221",
+        "title": "Computer and Information Research Scientists",
+        "hirability": 71.9,
         "level": "Likely hirable",
-        "skill_strength": 52,
-        "match_score": 4.392,
-        "blended_score": 0.7194,
-        "fit": 0.719,
+        "skill_strength": 55,
+        "match_score": 4.981,
+        "blended_score": 0.7397,
+        "fit": 0.74,
         "eligible": true
       },
       {
         "soc_code": "25-2023",
         "title": "Career/Technical Education Teachers, Middle School",
-        "hirability": 72.0,
+        "hirability": 70.4,
         "level": "Likely hirable",
-        "skill_strength": 48,
-        "match_score": 4.35,
-        "blended_score": 0.3694,
-        "fit": 0.369,
+        "skill_strength": 46,
+        "match_score": 4.094,
+        "blended_score": 0.295,
+        "fit": 0.295,
+        "eligible": false
+      },
+      {
+        "soc_code": "13-1111",
+        "title": "Management Analysts",
+        "hirability": 70.3,
+        "level": "Likely hirable",
+        "skill_strength": 46,
+        "match_score": 3.589,
+        "blended_score": 0.2832,
+        "fit": 0.283,
         "eligible": false
       },
       {
         "soc_code": "19-2099",
         "title": "Physical Scientists, All Other",
-        "hirability": 72.1,
+        "hirability": 71.3,
         "level": "Likely hirable",
         "skill_strength": 48,
         "match_score": 4.162,
-        "blended_score": 0.2807,
-        "fit": 0.281,
-        "eligible": false
-      },
-      {
-        "soc_code": "19-3011",
-        "title": "Economists",
-        "hirability": 73.0,
-        "level": "Likely hirable",
-        "skill_strength": 58,
-        "match_score": 3.825,
-        "blended_score": 0.2595,
-        "fit": 0.26,
+        "blended_score": 0.2766,
+        "fit": 0.277,
         "eligible": false
       }
     ],
     "role_views": {
       "15-1221": {
         "verdict": "Likely hirable for Computer and Information Research Scientists — a field growing faster than average.",
-        "summary_text": "For Computer and Information Research Scientists, the highest-leverage next step is Linux, followed by Grafana Cloud, Ansible. With 3 years of experience, you can close these gaps and move up quickly.",
+        "summary_text": "For Computer and Information Research Scientists, the highest-leverage next step is Linux, followed by Grafana Cloud, Ansible. With 6 years of experience, you can target senior postings once these land.",
         "score_breakdown": {
           "hirability": [
             {
               "label": "Skill strength",
-              "value": 0.562,
-              "weight": 0.45,
-              "points": 25.3,
+              "value": 0.546,
+              "weight": 0.42,
+              "points": 22.9,
               "detail": {
-                "breadth": 0.152,
-                "specialization": 0.579,
-                "complementarity": 0.542,
-                "evidence": 0.667
+                "breadth": 0.147,
+                "specialization": 0.578,
+                "complementarity": 0.493,
+                "evidence": 0.657
               }
             },
             {
               "label": "Experience fit",
               "value": 1.0,
-              "weight": 0.28,
-              "points": 28.0
+              "weight": 0.33,
+              "points": 33.0
             },
             {
               "label": "Education fit",
               "value": 0.78,
-              "weight": 0.17,
-              "points": 13.3
+              "weight": 0.1,
+              "points": 7.8
             },
             {
               "label": "Track record",
               "value": 0.55,
-              "weight": 0.1,
-              "points": 5.5,
+              "weight": 0.15,
+              "points": 8.2,
               "detail": {
                 "signals": [
                   "quantified results",
@@ -113,21 +113,21 @@
           "competitiveness": [
             {
               "label": "Skill strength",
-              "value": 0.562,
+              "value": 0.546,
               "weight": 0.35,
-              "points": 19.7,
+              "points": 19.1,
               "detail": {
-                "breadth": 0.152,
-                "specialization": 0.579,
-                "complementarity": 0.542,
-                "evidence": 0.667
+                "breadth": 0.147,
+                "specialization": 0.578,
+                "complementarity": 0.493,
+                "evidence": 0.657
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -144,37 +144,37 @@
           ]
         },
         "summary": {
-          "hirability_score": 72.1,
+          "hirability_score": 71.9,
           "hirability_range": [
             65,
-            80
+            79
           ],
           "hirability_level": "Likely hirable",
           "top_match_title": "Computer and Information Research Scientists",
           "top_match_soc": "15-1221"
         },
         "competitiveness": {
-          "score": 68.8,
-          "level": "Competitive",
-          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "score": 70.2,
+          "level": "Strong",
+          "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
           "components": [
             {
               "label": "Skill strength",
-              "value": 0.562,
+              "value": 0.546,
               "weight": 0.35,
-              "points": 19.7,
+              "points": 19.1,
               "detail": {
-                "breadth": 0.152,
-                "specialization": 0.579,
-                "complementarity": 0.542,
-                "evidence": 0.667
+                "breadth": 0.147,
+                "specialization": 0.578,
+                "complementarity": 0.493,
+                "evidence": 0.657
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -208,8 +208,8 @@
             "soc_code": "15-1221",
             "title": "Computer and Information Research Scientists",
             "description": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software.",
-            "match_score": 5.1971,
-            "blended_score": 0.7523,
+            "match_score": 4.9805,
+            "blended_score": 0.7397,
             "matched_skills": [
               "A/B testing",
               "Excel",
@@ -222,20 +222,14 @@
               "SQL",
               "Tableau",
               "data pipelines",
-              "data visualization",
               "pandas",
               "scikit-learn"
             ]
           }
         ],
         "skill_gaps": {
-          "coverage_of_top_match": 0.153,
+          "coverage_of_top_match": 0.146,
           "strengths": [
-            {
-              "skill": "Data visualization",
-              "implied": false,
-              "via": null
-            },
             {
               "skill": "Git",
               "implied": false,
@@ -353,10 +347,10 @@
             }
           ],
           "highlights": [
-            "Data Analyst at TechRetail Inc. (1+ yrs)",
-            "B.S. Statistics, University of California, Davis",
-            "Analyzed 2M+ customer records, informing 12% revenue increase",
-            "3 years of professional experience",
+            "Data Analyst at TechRetail Inc. (June 2021 – Present)",
+            "B.S. Statistics, University of California, Davis (May 2019)",
+            "Increased upsell revenue by 12% through data-driven insights",
+            "6 years of professional experience",
             "Bachelor's degree"
           ],
           "gaps": [
@@ -489,8 +483,8 @@
           ]
         },
         "skill_strength": {
-          "score": 56,
-          "matched": 24,
+          "score": 55,
+          "matched": 23,
           "implied": 10,
           "ignored_basic": 5,
           "focus_skills": [
@@ -498,9 +492,9 @@
             "Grafana Cloud",
             "Ansible"
           ],
-          "breadth": 0.152,
-          "specialization": 0.579,
-          "complementarity": 0.542
+          "breadth": 0.147,
+          "specialization": 0.578,
+          "complementarity": 0.493
         },
         "recommendations": [
           {
@@ -570,46 +564,46 @@
           }
         ],
         "simulation": {
-          "baseline_score": 72.1,
-          "baseline_skill_strength": 56,
+          "baseline_score": 72.0,
+          "baseline_skill_strength": 55,
           "skills": [
             {
               "skill": "Ansible",
-              "score": 76.6,
-              "delta": 4.5,
-              "skill_strength": 68,
+              "score": 76.2,
+              "delta": 4.2,
+              "skill_strength": 66,
               "also_unlocks": 5,
               "measurable": true
             },
             {
               "skill": "Grafana Cloud",
-              "score": 75.2,
-              "delta": 3.1,
-              "skill_strength": 64,
+              "score": 74.8,
+              "delta": 2.8,
+              "skill_strength": 62,
               "also_unlocks": 2,
               "measurable": true
             },
             {
               "skill": "Linux",
-              "score": 74.2,
-              "delta": 2.1,
-              "skill_strength": 62,
+              "score": 74.0,
+              "delta": 2.0,
+              "skill_strength": 60,
               "also_unlocks": 3,
               "measurable": true
             },
             {
               "skill": "Docker",
-              "score": 73.8,
-              "delta": 1.7,
-              "skill_strength": 60,
+              "score": 73.6,
+              "delta": 1.6,
+              "skill_strength": 59,
               "also_unlocks": 2,
               "measurable": true
             },
             {
               "skill": "JavaScript",
-              "score": 72.4,
+              "score": 72.3,
               "delta": 0.3,
-              "skill_strength": 57,
+              "skill_strength": 56,
               "also_unlocks": 0,
               "measurable": true
             }
@@ -623,38 +617,38 @@
       },
       "25-2023": {
         "verdict": "Likely hirable for Career/Technical Education Teachers, Middle School — though the field is contracting.",
-        "summary_text": "For Career/Technical Education Teachers, Middle School, the highest-leverage next step is NoSQL, followed by UNIX, Ansible. With 3 years of experience, you can close these gaps and move up quickly.",
+        "summary_text": "For Career/Technical Education Teachers, Middle School, the highest-leverage next step is NoSQL, followed by UNIX, Ansible. With 6 years of experience, you can target senior postings once these land.",
         "score_breakdown": {
           "hirability": [
             {
               "label": "Skill strength",
-              "value": 0.477,
-              "weight": 0.45,
-              "points": 21.5,
+              "value": 0.457,
+              "weight": 0.42,
+              "points": 19.2,
               "detail": {
-                "breadth": 0.122,
-                "specialization": 0.397,
-                "complementarity": 0.542,
-                "evidence": 0.5
+                "breadth": 0.113,
+                "specialization": 0.379,
+                "complementarity": 0.493,
+                "evidence": 0.478
               }
             },
             {
               "label": "Experience fit",
               "value": 1.0,
-              "weight": 0.28,
-              "points": 28.0
+              "weight": 0.33,
+              "points": 33.0
             },
             {
               "label": "Education fit",
               "value": 1.0,
-              "weight": 0.17,
-              "points": 17.0
+              "weight": 0.1,
+              "points": 10.0
             },
             {
               "label": "Track record",
               "value": 0.55,
-              "weight": 0.1,
-              "points": 5.5,
+              "weight": 0.15,
+              "points": 8.2,
               "detail": {
                 "signals": [
                   "quantified results",
@@ -667,21 +661,21 @@
           "competitiveness": [
             {
               "label": "Skill strength",
-              "value": 0.477,
+              "value": 0.457,
               "weight": 0.35,
-              "points": 16.7,
+              "points": 16.0,
               "detail": {
-                "breadth": 0.122,
-                "specialization": 0.397,
-                "complementarity": 0.542,
-                "evidence": 0.5
+                "breadth": 0.113,
+                "specialization": 0.379,
+                "complementarity": 0.493,
+                "evidence": 0.478
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -698,37 +692,37 @@
           ]
         },
         "summary": {
-          "hirability_score": 72.0,
+          "hirability_score": 70.4,
           "hirability_range": [
-            61,
-            83
+            59,
+            81
           ],
           "hirability_level": "Likely hirable",
           "top_match_title": "Career/Technical Education Teachers, Middle School",
           "top_match_soc": "25-2023"
         },
         "competitiveness": {
-          "score": 53.7,
+          "score": 55.0,
           "level": "Competitive",
           "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
           "components": [
             {
               "label": "Skill strength",
-              "value": 0.477,
+              "value": 0.457,
               "weight": 0.35,
-              "points": 16.7,
+              "points": 16.0,
               "detail": {
-                "breadth": 0.122,
-                "specialization": 0.397,
-                "complementarity": 0.542,
-                "evidence": 0.5
+                "breadth": 0.113,
+                "specialization": 0.379,
+                "complementarity": 0.493,
+                "evidence": 0.478
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -762,8 +756,8 @@
             "soc_code": "25-2023",
             "title": "Career/Technical Education Teachers, Middle School",
             "description": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level.",
-            "match_score": 4.3502,
-            "blended_score": 0.3694,
+            "match_score": 4.0943,
+            "blended_score": 0.295,
             "matched_skills": [
               "Excel",
               "Git",
@@ -772,19 +766,13 @@
               "PostgreSQL",
               "Python",
               "SQL",
-              "Tableau",
-              "data visualization"
+              "Tableau"
             ]
           }
         ],
         "skill_gaps": {
-          "coverage_of_top_match": 0.148,
+          "coverage_of_top_match": 0.136,
           "strengths": [
-            {
-              "skill": "Data visualization",
-              "implied": false,
-              "via": null
-            },
             {
               "skill": "Git",
               "implied": false,
@@ -842,10 +830,10 @@
             }
           ],
           "highlights": [
-            "Data Analyst at TechRetail Inc. (1+ yrs)",
-            "B.S. Statistics, University of California, Davis",
-            "Analyzed 2M+ customer records, informing 12% revenue increase",
-            "3 years of professional experience",
+            "Data Analyst at TechRetail Inc. (June 2021 – Present)",
+            "B.S. Statistics, University of California, Davis (May 2019)",
+            "Increased upsell revenue by 12% through data-driven insights",
+            "6 years of professional experience",
             "Bachelor's degree"
           ],
           "gaps": [
@@ -978,8 +966,8 @@
           ]
         },
         "skill_strength": {
-          "score": 48,
-          "matched": 12,
+          "score": 46,
+          "matched": 11,
           "implied": 2,
           "ignored_basic": 12,
           "focus_skills": [
@@ -987,9 +975,9 @@
             "UNIX",
             "Ansible"
           ],
-          "breadth": 0.122,
-          "specialization": 0.397,
-          "complementarity": 0.542
+          "breadth": 0.113,
+          "specialization": 0.379,
+          "complementarity": 0.493
         },
         "recommendations": [
           {
@@ -1059,46 +1047,46 @@
           }
         ],
         "simulation": {
-          "baseline_score": 72.0,
-          "baseline_skill_strength": 48,
+          "baseline_score": 70.4,
+          "baseline_skill_strength": 46,
           "skills": [
             {
               "skill": "Ansible",
-              "score": 76.4,
-              "delta": 4.4,
-              "skill_strength": 58,
+              "score": 74.4,
+              "delta": 4.0,
+              "skill_strength": 56,
               "also_unlocks": 3,
               "measurable": true
             },
             {
-              "skill": "UNIX",
-              "score": 75.1,
-              "delta": 3.1,
-              "skill_strength": 55,
+              "skill": "Docker",
+              "score": 73.3,
+              "delta": 2.9,
+              "skill_strength": 53,
               "also_unlocks": 2,
               "measurable": true
             },
             {
-              "skill": "Docker",
-              "score": 75.1,
-              "delta": 3.1,
-              "skill_strength": 55,
+              "skill": "UNIX",
+              "score": 73.2,
+              "delta": 2.8,
+              "skill_strength": 53,
               "also_unlocks": 2,
               "measurable": true
             },
             {
               "skill": "NoSQL",
-              "score": 74.7,
-              "delta": 2.7,
-              "skill_strength": 54,
+              "score": 72.9,
+              "delta": 2.5,
+              "skill_strength": 52,
               "also_unlocks": 1,
               "measurable": true
             },
             {
               "skill": "Salesforce",
-              "score": 73.8,
-              "delta": 1.8,
-              "skill_strength": 52,
+              "score": 72.1,
+              "delta": 1.7,
+              "skill_strength": 50,
               "also_unlocks": 1,
               "measurable": true
             }
@@ -1110,40 +1098,40 @@
           "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
         }
       },
-      "19-2099": {
-        "verdict": "Likely hirable for Physical Scientists, All Other — a field holding roughly steady.",
-        "summary_text": "For Physical Scientists, All Other, the highest-leverage next step is NoSQL, followed by UNIX, Ansible. With 3 years of experience, you can close these gaps and move up quickly.",
+      "13-1111": {
+        "verdict": "Likely hirable for Management Analysts — a field growing faster than average.",
+        "summary_text": "For Management Analysts, the highest-leverage next step is Salesforce, followed by SharePoint, Visio. With 6 years of experience, you can target senior postings once these land.",
         "score_breakdown": {
           "hirability": [
             {
               "label": "Skill strength",
-              "value": 0.481,
-              "weight": 0.45,
-              "points": 21.6,
+              "value": 0.455,
+              "weight": 0.42,
+              "points": 19.1,
               "detail": {
-                "breadth": 0.123,
-                "specialization": 0.418,
-                "complementarity": 0.542,
-                "evidence": 0.478
+                "breadth": 0.115,
+                "specialization": 0.462,
+                "complementarity": 0.493,
+                "evidence": 0.636
               }
             },
             {
               "label": "Experience fit",
               "value": 1.0,
-              "weight": 0.28,
-              "points": 28.0
+              "weight": 0.33,
+              "points": 33.0
             },
             {
               "label": "Education fit",
               "value": 1.0,
-              "weight": 0.17,
-              "points": 17.0
+              "weight": 0.1,
+              "points": 10.0
             },
             {
               "label": "Track record",
               "value": 0.55,
-              "weight": 0.1,
-              "points": 5.5,
+              "weight": 0.15,
+              "points": 8.2,
               "detail": {
                 "signals": [
                   "quantified results",
@@ -1156,21 +1144,555 @@
           "competitiveness": [
             {
               "label": "Skill strength",
-              "value": 0.481,
+              "value": 0.455,
               "weight": 0.35,
-              "points": 16.8,
+              "points": 15.9,
+              "detail": {
+                "breadth": 0.115,
+                "specialization": 0.462,
+                "complementarity": 0.493,
+                "evidence": 0.636
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.529,
+              "weight": 0.25,
+              "points": 13.2
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.895,
+              "weight": 0.25,
+              "points": 22.4
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 70.3,
+          "hirability_range": [
+            63,
+            78
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Management Analysts",
+          "top_match_soc": "13-1111"
+        },
+        "competitiveness": {
+          "score": 66.5,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.455,
+              "weight": 0.35,
+              "points": 15.9,
+              "detail": {
+                "breadth": 0.115,
+                "specialization": 0.462,
+                "complementarity": 0.493,
+                "evidence": 0.636
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.529,
+              "weight": 0.25,
+              "points": 13.2
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.895,
+              "weight": 0.25,
+              "points": 22.4
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "13-1111",
+          "title": "Management Analysts",
+          "median_wage": 101190,
+          "wage_percentile": 86,
+          "growth_pct": 8.8,
+          "openings_k": 98.1,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "Less than 5 years",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "13-1111",
+            "title": "Management Analysts",
+            "description": "Conduct organizational studies and evaluations, design systems and procedures, conduct work simplification and measurement studies, and prepare operations and procedures manuals to assist management in operating more efficiently and effectively. Includes program analysts and management consultants.",
+            "match_score": 3.5887,
+            "blended_score": 0.2832,
+            "matched_skills": [
+              "Excel",
+              "Git",
+              "GitHub",
+              "MySQL",
+              "PostgreSQL",
+              "Power BI",
+              "Python",
+              "SQL",
+              "Tableau"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.108,
+          "strengths": [
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Excel",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Power BI",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Integration Services SSIS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Reporting Services SSRS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "MySQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Tableau",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redshift",
+              "implied": true,
+              "via": "Google BigQuery"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "SPSS Statistics",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "MicroStrategy",
+              "implied": true,
+              "via": "Tableau"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "QlikView",
+              "implied": true,
+              "via": "Tableau"
+            }
+          ],
+          "highlights": [
+            "Data Analyst at TechRetail Inc. (June 2021 – Present)",
+            "B.S. Statistics, University of California, Davis (May 2019)",
+            "Increased upsell revenue by 12% through data-driven insights",
+            "6 years of professional experience",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.6339
+            },
+            {
+              "skill": "SharePoint",
+              "element_category": "Document management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0222,
+              "relevance": 0.449,
+              "priority": 0.6143
+            },
+            {
+              "skill": "Visio",
+              "element_category": "Process mapping and design software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.38,
+              "priority": 0.566
+            },
+            {
+              "skill": "NoSQL",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0479,
+              "relevance": 0.529,
+              "priority": 0.5251
+            },
+            {
+              "skill": "PHP",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.502,
+              "priority": 0.5103
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.497,
+              "priority": 0.5075
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            },
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0292,
+              "relevance": 0.465,
+              "priority": 0.49
+            },
+            {
+              "skill": "Project",
+              "element_category": "Project management software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.461,
+              "priority": 0.4878
+            },
+            {
+              "skill": "Visual Basic",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.446,
+              "priority": 0.4796
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Active Listening",
+              "importance": 4.12
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 4.12
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 4.12
+            },
+            {
+              "skill": "Speaking",
+              "importance": 4.0
+            },
+            {
+              "skill": "Writing",
+              "importance": 4.0
+            },
+            {
+              "skill": "Monitoring",
+              "importance": 3.88
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 46,
+          "matched": 21,
+          "implied": 7,
+          "ignored_basic": 19,
+          "focus_skills": [
+            "Salesforce",
+            "SharePoint",
+            "Visio"
+          ],
+          "breadth": 0.115,
+          "specialization": 0.462,
+          "complementarity": 0.493
+        },
+        "recommendations": [
+          {
+            "skill": "Salesforce",
+            "element_category": "Customer relationship management CRM software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.746,
+            "complementarity": 0.477,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.238,
+            "rationale": "Salesforce is the largest CRM platform, with an entire job category of administrators and developers built around it. There is partial overlap with your GitHub background, which speeds up the early stages. The admin path is a few months of guided study; platform development adds Apex and its ecosystem on top."
+          },
+          {
+            "skill": "SharePoint",
+            "element_category": "Document management software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.742,
+            "complementarity": 0.449,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.226,
+            "rationale": "Microsoft SharePoint appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 145 occupations' requirements. Your work with MySQL gives you a foothold, though much of this will still be new. A three-to-six-month build with consistent hands-on work."
+          },
+          {
+            "skill": "Visio",
+            "element_category": "Process mapping and design software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.73,
+            "complementarity": 0.38,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.19,
+            "rationale": "Microsoft Visio appears in the listed toolset for this occupation. O*NET flags it as a hot technology, listed by 113 occupations — demand is growing. It does not build directly on anything currently on your resume, so budget real study time. A three-to-six-month build with consistent hands-on work."
+          },
+          {
+            "skill": "NoSQL",
+            "element_category": "Data base management system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.877,
+            "complementarity": 0.529,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.754,
+            "rationale": "NoSQL appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 25 occupations' requirements. It connects loosely to MySQL on your resume — enough to orient you, not enough to skip the fundamentals. Plan one to three months of regular practice to be genuinely productive."
+          },
+          {
+            "skill": "UNIX",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.875,
+            "complementarity": 0.497,
+            "effort_label": "4–6 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.75,
+            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your Python background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 70.4,
+          "baseline_skill_strength": 46,
+          "skills": [
+            {
+              "skill": "UNIX",
+              "score": 72.7,
+              "delta": 2.3,
+              "skill_strength": 51,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "NoSQL",
+              "score": 72.0,
+              "delta": 1.6,
+              "skill_strength": 49,
+              "also_unlocks": 1,
+              "measurable": true
+            },
+            {
+              "skill": "Salesforce",
+              "score": 71.8,
+              "delta": 1.4,
+              "skill_strength": 49,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "SharePoint",
+              "score": 71.7,
+              "delta": 1.3,
+              "skill_strength": 49,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Visio",
+              "score": 70.8,
+              "delta": 0.4,
+              "skill_strength": 46,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.343,
+          "level": "Low",
+          "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
+        }
+      },
+      "19-2099": {
+        "verdict": "Likely hirable for Physical Scientists, All Other — a field holding roughly steady.",
+        "summary_text": "For Physical Scientists, All Other, the highest-leverage next step is NoSQL, followed by UNIX, Ansible. With 6 years of experience, you can target senior postings once these land.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.478,
+              "weight": 0.42,
+              "points": 20.1,
               "detail": {
                 "breadth": 0.123,
                 "specialization": 0.418,
-                "complementarity": 0.542,
+                "complementarity": 0.493,
+                "evidence": 0.478
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.33,
+              "points": 33.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.1,
+              "points": 10.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.55,
+              "weight": 0.15,
+              "points": 8.2,
+              "detail": {
+                "signals": [
+                  "quantified results",
+                  "worked at scale",
+                  "shipped end-to-end work"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.478,
+              "weight": 0.35,
+              "points": 16.7,
+              "detail": {
+                "breadth": 0.123,
+                "specialization": 0.418,
+                "complementarity": 0.493,
                 "evidence": 0.478
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -1187,37 +1709,37 @@
           ]
         },
         "summary": {
-          "hirability_score": 72.1,
+          "hirability_score": 71.3,
           "hirability_range": [
             60,
-            84
+            82
           ],
           "hirability_level": "Likely hirable",
           "top_match_title": "Physical Scientists, All Other",
           "top_match_soc": "19-2099"
         },
         "competitiveness": {
-          "score": 56.2,
+          "score": 58.1,
           "level": "Competitive",
           "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
           "components": [
             {
               "label": "Skill strength",
-              "value": 0.481,
+              "value": 0.478,
               "weight": 0.35,
-              "points": 16.8,
+              "points": 16.7,
               "detail": {
                 "breadth": 0.123,
                 "specialization": 0.418,
-                "complementarity": 0.542,
+                "complementarity": 0.493,
                 "evidence": 0.478
               }
             },
             {
               "label": "In-demand skills",
-              "value": 0.45,
+              "value": 0.529,
               "weight": 0.25,
-              "points": 11.2
+              "points": 13.2
             },
             {
               "label": "Market outlook",
@@ -1252,7 +1774,7 @@
             "title": "Physical Scientists, All Other",
             "description": "All physical scientists not listed separately.",
             "match_score": 4.162,
-            "blended_score": 0.2807,
+            "blended_score": 0.2766,
             "matched_skills": [
               "Excel",
               "Git",
@@ -1325,10 +1847,10 @@
             }
           ],
           "highlights": [
-            "Data Analyst at TechRetail Inc. (1+ yrs)",
-            "B.S. Statistics, University of California, Davis",
-            "Analyzed 2M+ customer records, informing 12% revenue increase",
-            "3 years of professional experience",
+            "Data Analyst at TechRetail Inc. (June 2021 – Present)",
+            "B.S. Statistics, University of California, Davis (May 2019)",
+            "Increased upsell revenue by 12% through data-driven insights",
+            "6 years of professional experience",
             "Bachelor's degree"
           ],
           "gaps": [
@@ -1472,7 +1994,7 @@
           ],
           "breadth": 0.123,
           "specialization": 0.418,
-          "complementarity": 0.542
+          "complementarity": 0.493
         },
         "recommendations": [
           {
@@ -1542,45 +2064,45 @@
           }
         ],
         "simulation": {
-          "baseline_score": 72.1,
+          "baseline_score": 71.3,
           "baseline_skill_strength": 48,
           "skills": [
             {
               "skill": "Ansible",
-              "score": 76.3,
-              "delta": 4.2,
-              "skill_strength": 59,
+              "score": 75.2,
+              "delta": 3.9,
+              "skill_strength": 58,
               "also_unlocks": 3,
               "measurable": true
             },
             {
               "skill": "Docker",
-              "score": 75.1,
-              "delta": 3.0,
+              "score": 74.1,
+              "delta": 2.8,
               "skill_strength": 55,
               "also_unlocks": 2,
               "measurable": true
             },
             {
               "skill": "UNIX",
-              "score": 73.8,
-              "delta": 1.7,
+              "score": 72.9,
+              "delta": 1.6,
               "skill_strength": 52,
               "also_unlocks": 1,
               "measurable": true
             },
             {
               "skill": "NoSQL",
-              "score": 73.5,
-              "delta": 1.4,
+              "score": 72.6,
+              "delta": 1.3,
               "skill_strength": 51,
               "also_unlocks": 0,
               "measurable": true
             },
             {
               "skill": "Salesforce",
-              "score": 73.0,
-              "delta": 0.9,
+              "score": 72.1,
+              "delta": 0.8,
               "skill_strength": 50,
               "also_unlocks": 0,
               "measurable": true
@@ -1589,488 +2111,6 @@
         },
         "ai_displacement_exposure": {
           "score": 0.63,
-          "level": "High",
-          "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
-        }
-      },
-      "19-3011": {
-        "verdict": "Likely hirable for Economists — a field growing about as fast as average.",
-        "summary_text": "For Economists, the highest-leverage next step is R, followed by SAS, UNIX. With 3 years of experience, you can close these gaps and move up quickly.",
-        "score_breakdown": {
-          "hirability": [
-            {
-              "label": "Skill strength",
-              "value": 0.582,
-              "weight": 0.45,
-              "points": 26.2,
-              "detail": {
-                "breadth": 0.182,
-                "specialization": 0.387,
-                "complementarity": 0.542,
-                "evidence": 0.478
-              }
-            },
-            {
-              "label": "Experience fit",
-              "value": 1.0,
-              "weight": 0.28,
-              "points": 28.0
-            },
-            {
-              "label": "Education fit",
-              "value": 0.78,
-              "weight": 0.17,
-              "points": 13.3
-            },
-            {
-              "label": "Track record",
-              "value": 0.55,
-              "weight": 0.1,
-              "points": 5.5,
-              "detail": {
-                "signals": [
-                  "quantified results",
-                  "worked at scale",
-                  "shipped end-to-end work"
-                ]
-              }
-            }
-          ],
-          "competitiveness": [
-            {
-              "label": "Skill strength",
-              "value": 0.582,
-              "weight": 0.35,
-              "points": 20.4,
-              "detail": {
-                "breadth": 0.182,
-                "specialization": 0.387,
-                "complementarity": 0.542,
-                "evidence": 0.478
-              }
-            },
-            {
-              "label": "In-demand skills",
-              "value": 0.45,
-              "weight": 0.25,
-              "points": 11.2
-            },
-            {
-              "label": "Market outlook",
-              "value": 0.526,
-              "weight": 0.25,
-              "points": 13.2
-            },
-            {
-              "label": "Experience fit",
-              "value": 1.0,
-              "weight": 0.15,
-              "points": 15.0
-            }
-          ]
-        },
-        "summary": {
-          "hirability_score": 73.0,
-          "hirability_range": [
-            61,
-            85
-          ],
-          "hirability_level": "Likely hirable",
-          "top_match_title": "Economists",
-          "top_match_soc": "19-3011"
-        },
-        "competitiveness": {
-          "score": 59.8,
-          "level": "Competitive",
-          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
-          "components": [
-            {
-              "label": "Skill strength",
-              "value": 0.582,
-              "weight": 0.35,
-              "points": 20.4,
-              "detail": {
-                "breadth": 0.182,
-                "specialization": 0.387,
-                "complementarity": 0.542,
-                "evidence": 0.478
-              }
-            },
-            {
-              "label": "In-demand skills",
-              "value": 0.45,
-              "weight": 0.25,
-              "points": 11.2
-            },
-            {
-              "label": "Market outlook",
-              "value": 0.526,
-              "weight": 0.25,
-              "points": 13.2
-            },
-            {
-              "label": "Experience fit",
-              "value": 1.0,
-              "weight": 0.15,
-              "points": 15.0
-            }
-          ]
-        },
-        "labor_market": {
-          "soc_code": "19-3011",
-          "title": "Economists",
-          "median_wage": 115440,
-          "wage_percentile": 91,
-          "growth_pct": 1.2,
-          "openings_k": 0.9,
-          "outlook": "about average",
-          "typical_education": "Master's degree",
-          "typical_experience": "No experience required",
-          "education_fit": 0.78,
-          "experience_fit": 1.0
-        },
-        "top_job_matches": [
-          {
-            "soc_code": "19-3011",
-            "title": "Economists",
-            "description": "Conduct research, prepare reports, or formulate plans to address economic problems related to the production and distribution of goods and services or monetary and fiscal policy. May collect and process economic and statistical data using sampling techniques and econometric methods.",
-            "match_score": 3.8255,
-            "blended_score": 0.2595,
-            "matched_skills": [
-              "Excel",
-              "MySQL",
-              "Power BI",
-              "Python",
-              "SQL",
-              "Tableau",
-              "regression modeling"
-            ]
-          }
-        ],
-        "skill_gaps": {
-          "coverage_of_top_match": 0.22,
-          "strengths": [
-            {
-              "skill": "Excel",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "Power BI",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "SQL Server",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "MySQL",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "Python",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "Structure query language SQL",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "SQL",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "Tableau",
-              "implied": false,
-              "via": null
-            },
-            {
-              "skill": "SPSS Statistics",
-              "implied": true,
-              "via": "statistical analysis"
-            },
-            {
-              "skill": "Access",
-              "implied": true,
-              "via": "PostgreSQL"
-            },
-            {
-              "skill": "Statistical",
-              "implied": true,
-              "via": "statistical analysis"
-            }
-          ],
-          "highlights": [
-            "Data Analyst at TechRetail Inc. (1+ yrs)",
-            "B.S. Statistics, University of California, Davis",
-            "Analyzed 2M+ customer records, informing 12% revenue increase",
-            "3 years of professional experience",
-            "Bachelor's degree"
-          ],
-          "gaps": [
-            {
-              "skill": "SAS",
-              "element_category": "Analytical or scientific software",
-              "is_hot": true,
-              "in_demand": true,
-              "demand_score": 3.0,
-              "market_share": 0.0,
-              "relevance": 0.333,
-              "priority": 0.5331
-            },
-            {
-              "skill": "R",
-              "element_category": "Object or component oriented development software",
-              "is_hot": true,
-              "in_demand": true,
-              "demand_score": 3.0,
-              "market_share": 0.0,
-              "relevance": 0.298,
-              "priority": 0.5086
-            },
-            {
-              "skill": "UNIX",
-              "element_category": "Operating system software",
-              "is_hot": true,
-              "in_demand": false,
-              "demand_score": 2.0,
-              "market_share": 0.0125,
-              "relevance": 0.497,
-              "priority": 0.5075
-            },
-            {
-              "skill": "Visual Basic",
-              "element_category": "Development environment software",
-              "is_hot": true,
-              "in_demand": false,
-              "demand_score": 2.0,
-              "market_share": 0.0,
-              "relevance": 0.446,
-              "priority": 0.4796
-            },
-            {
-              "skill": "Teradata Database",
-              "element_category": "Data base management system software",
-              "is_hot": true,
-              "in_demand": false,
-              "demand_score": 2.0,
-              "market_share": 0.0,
-              "relevance": 0.431,
-              "priority": 0.4713
-            },
-            {
-              "skill": "ArcGIS",
-              "element_category": "Geographic information system",
-              "is_hot": true,
-              "in_demand": false,
-              "demand_score": 2.0,
-              "market_share": 0.0,
-              "relevance": 0.359,
-              "priority": 0.4319
-            },
-            {
-              "skill": "Firefox",
-              "element_category": "Internet browser software",
-              "is_hot": true,
-              "in_demand": false,
-              "demand_score": 2.0,
-              "market_share": 0.0,
-              "relevance": 0.303,
-              "priority": 0.4011
-            },
-            {
-              "skill": "LaTeX",
-              "element_category": "Desktop publishing software",
-              "is_hot": false,
-              "in_demand": false,
-              "demand_score": 0.0,
-              "market_share": 0.0,
-              "relevance": 0.516,
-              "priority": 0.2314
-            },
-            {
-              "skill": "MediaWiki",
-              "element_category": "Web page creation and editing software",
-              "is_hot": false,
-              "in_demand": false,
-              "demand_score": 0.0,
-              "market_share": 0.0,
-              "relevance": 0.359,
-              "priority": 0.193
-            },
-            {
-              "skill": "Lotus 1-2-3",
-              "element_category": "Spreadsheet software",
-              "is_hot": false,
-              "in_demand": false,
-              "demand_score": 0.0,
-              "market_share": 0.0,
-              "relevance": 0.24,
-              "priority": 0.1638
-            }
-          ],
-          "abstract_skills_required": [
-            {
-              "skill": "Critical Thinking",
-              "importance": 4.06
-            },
-            {
-              "skill": "Mathematics",
-              "importance": 4.06
-            },
-            {
-              "skill": "Reading Comprehension",
-              "importance": 4.06
-            },
-            {
-              "skill": "Writing",
-              "importance": 4.06
-            },
-            {
-              "skill": "Active Listening",
-              "importance": 4.0
-            },
-            {
-              "skill": "Active Learning",
-              "importance": 3.81
-            }
-          ]
-        },
-        "skill_strength": {
-          "score": 58,
-          "matched": 11,
-          "implied": 3,
-          "ignored_basic": 7,
-          "focus_skills": [
-            "R",
-            "SAS",
-            "UNIX"
-          ],
-          "breadth": 0.182,
-          "specialization": 0.387,
-          "complementarity": 0.542
-        },
-        "recommendations": [
-          {
-            "skill": "R",
-            "element_category": "Object or component oriented development software",
-            "is_hot": true,
-            "in_demand": true,
-            "demand_trend": "growing",
-            "feasibility": 0.787,
-            "complementarity": 0.298,
-            "effort_label": "1–3 months",
-            "difficulty_months": 3.0,
-            "priority_score": 2.361,
-            "rationale": "R keeps a strong position in statistics-heavy roles — biostatistics, research, parts of finance — where its modelling libraries lead. It does not build directly on anything currently on your resume, so budget real study time. A month or two via the tidyverse covers data work; the statistical depth is what you build over time."
-          },
-          {
-            "skill": "SAS",
-            "element_category": "Analytical or scientific software",
-            "is_hot": true,
-            "in_demand": true,
-            "demand_trend": "stable",
-            "feasibility": 0.722,
-            "complementarity": 0.333,
-            "effort_label": "3–6 months",
-            "difficulty_months": 4.0,
-            "priority_score": 2.166,
-            "rationale": "SAS remains entrenched in pharma, banking, and government analytics, though the wider market keeps shifting to Python and R. It does not build directly on anything currently on your resume, so budget real study time. The language basics take a few weeks; most postings care about specific procedures and industry conventions."
-          },
-          {
-            "skill": "UNIX",
-            "element_category": "Operating system software",
-            "is_hot": true,
-            "in_demand": false,
-            "demand_trend": "growing",
-            "feasibility": 0.875,
-            "complementarity": 0.497,
-            "effort_label": "4–6 weeks",
-            "difficulty_months": 2.0,
-            "priority_score": 1.75,
-            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your Python background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
-          },
-          {
-            "skill": "Visual Basic",
-            "element_category": "Development environment software",
-            "is_hot": true,
-            "in_demand": false,
-            "demand_trend": "growing",
-            "feasibility": 0.741,
-            "complementarity": 0.446,
-            "effort_label": "3–6 months",
-            "difficulty_months": 4.0,
-            "priority_score": 1.482,
-            "rationale": "Microsoft Visual Basic is developer tooling; it appears in postings as an environment expectation rather than a skill in itself. O*NET flags it as a hot technology, listed by 81 occupations — demand is growing. Your work with Excel gives you a foothold, though much of this will still be new. Picked up in days alongside real work."
-          },
-          {
-            "skill": "Teradata Database",
-            "element_category": "Data base management system software",
-            "is_hot": true,
-            "in_demand": false,
-            "demand_trend": "growing",
-            "feasibility": 0.738,
-            "complementarity": 0.431,
-            "effort_label": "3–6 months",
-            "difficulty_months": 4.0,
-            "priority_score": 1.476,
-            "rationale": "Teradata Database appears in the listed toolset for this occupation. O*NET flags it as a hot technology, listed by 47 occupations — demand is growing. There is partial overlap with your SQL background, which speeds up the early stages. A three-to-six-month build with consistent hands-on work."
-          }
-        ],
-        "simulation": {
-          "baseline_score": 73.0,
-          "baseline_skill_strength": 58,
-          "skills": [
-            {
-              "skill": "R",
-              "score": 78.3,
-              "delta": 5.3,
-              "skill_strength": 73,
-              "also_unlocks": 3,
-              "measurable": true
-            },
-            {
-              "skill": "SAS",
-              "score": 78.3,
-              "delta": 5.3,
-              "skill_strength": 73,
-              "also_unlocks": 3,
-              "measurable": true
-            },
-            {
-              "skill": "Visual Basic",
-              "score": 78.0,
-              "delta": 5.0,
-              "skill_strength": 72,
-              "also_unlocks": 2,
-              "measurable": true
-            },
-            {
-              "skill": "UNIX",
-              "score": 76.3,
-              "delta": 3.3,
-              "skill_strength": 67,
-              "also_unlocks": 1,
-              "measurable": true
-            },
-            {
-              "skill": "Teradata Database",
-              "score": 74.7,
-              "delta": 1.7,
-              "skill_strength": 63,
-              "also_unlocks": 0,
-              "measurable": true
-            }
-          ]
-        },
-        "ai_displacement_exposure": {
-          "score": 0.732,
           "level": "High",
           "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
         }
@@ -2090,24 +2130,24 @@
         "title": "Career/Technical Education Teachers, Middle School"
       },
       {
-        "soc_code": "19-2099",
-        "title": "Physical Scientists, All Other"
-      },
-      {
-        "soc_code": "19-3011",
-        "title": "Economists"
-      },
-      {
         "soc_code": "13-1111",
         "title": "Management Analysts"
+      },
+      {
+        "soc_code": "19-2099",
+        "title": "Physical Scientists, All Other"
       },
       {
         "soc_code": "15-1242",
         "title": "Database Administrators"
       },
       {
-        "soc_code": "15-2011",
-        "title": "Actuaries"
+        "soc_code": "19-3011",
+        "title": "Economists"
+      },
+      {
+        "soc_code": "15-1211",
+        "title": "Computer Systems Analysts"
       }
     ]
   },
@@ -2115,33 +2155,33 @@
     "hirability": [
       {
         "label": "Skill strength",
-        "value": 0.525,
-        "weight": 0.45,
-        "points": 23.6,
+        "value": 0.51,
+        "weight": 0.42,
+        "points": 21.4,
         "detail": {
-          "breadth": 0.136,
-          "specialization": 0.6,
-          "complementarity": 0.542,
-          "evidence": 0.721
+          "breadth": 0.132,
+          "specialization": 0.595,
+          "complementarity": 0.493,
+          "evidence": 0.714
         }
       },
       {
         "label": "Experience fit",
         "value": 1.0,
-        "weight": 0.28,
-        "points": 28.0
+        "weight": 0.33,
+        "points": 33.0
       },
       {
         "label": "Education fit",
         "value": 1.0,
-        "weight": 0.17,
-        "points": 17.0
+        "weight": 0.1,
+        "points": 10.0
       },
       {
         "label": "Track record",
         "value": 0.55,
-        "weight": 0.1,
-        "points": 5.5,
+        "weight": 0.15,
+        "points": 8.2,
         "detail": {
           "signals": [
             "quantified results",
@@ -2154,21 +2194,21 @@
     "competitiveness": [
       {
         "label": "Skill strength",
-        "value": 0.525,
+        "value": 0.51,
         "weight": 0.35,
-        "points": 18.4,
+        "points": 17.8,
         "detail": {
-          "breadth": 0.136,
-          "specialization": 0.6,
-          "complementarity": 0.542,
-          "evidence": 0.721
+          "breadth": 0.132,
+          "specialization": 0.595,
+          "complementarity": 0.493,
+          "evidence": 0.714
         }
       },
       {
         "label": "In-demand skills",
-        "value": 0.45,
+        "value": 0.529,
         "weight": 0.25,
-        "points": 11.2
+        "points": 13.2
       },
       {
         "label": "Market outlook",
@@ -2185,60 +2225,60 @@
     ]
   },
   "simulation": {
-    "baseline_score": 74.1,
-    "baseline_skill_strength": 52,
+    "baseline_score": 72.7,
+    "baseline_skill_strength": 51,
     "skills": [
       {
         "skill": "PyTorch",
-        "score": 77.0,
-        "delta": 2.9,
-        "skill_strength": 59,
-        "also_unlocks": 3,
-        "measurable": true
-      },
-      {
-        "skill": "TensorFlow",
-        "score": 77.0,
-        "delta": 2.9,
-        "skill_strength": 59,
+        "score": 75.3,
+        "delta": 2.6,
+        "skill_strength": 57,
         "also_unlocks": 3,
         "measurable": true
       },
       {
         "skill": "Azure",
-        "score": 76.2,
-        "delta": 2.1,
-        "skill_strength": 57,
+        "score": 74.6,
+        "delta": 1.9,
+        "skill_strength": 56,
         "also_unlocks": 3,
         "measurable": true
       },
       {
-        "skill": "AWS Lake Formation",
-        "score": 76.1,
-        "delta": 2.0,
-        "skill_strength": 57,
-        "also_unlocks": 3,
+        "skill": "R",
+        "score": 74.2,
+        "delta": 1.5,
+        "skill_strength": 55,
+        "also_unlocks": 4,
+        "measurable": true
+      },
+      {
+        "skill": "Docker/Kubernetes",
+        "score": 73.8,
+        "delta": 1.1,
+        "skill_strength": 54,
+        "also_unlocks": 2,
         "measurable": true
       },
       {
         "skill": "Spark",
-        "score": 74.7,
-        "delta": 0.6,
-        "skill_strength": 54,
+        "score": 73.1,
+        "delta": 0.4,
+        "skill_strength": 52,
         "also_unlocks": 0,
         "measurable": true
       }
     ]
   },
   "career_stage": {
-    "stage": "early",
-    "label": "a few years in",
-    "note": "Weighted for a few years in: experience is starting to carry more than the degree.",
+    "stage": "mid",
+    "label": "mid-career",
+    "note": "Weighted for a mid-career profile: what you have built now matters more than where you studied.",
     "weights": {
-      "skill": 0.45,
-      "experience": 0.28,
-      "education": 0.17,
-      "track_record": 0.1
+      "skill": 0.42,
+      "experience": 0.33,
+      "education": 0.1,
+      "track_record": 0.15
     },
     "track_record": {
       "score": 0.55,
@@ -2288,43 +2328,43 @@
     }
   },
   "summary": {
-    "hirability_score": 74.1,
+    "hirability_score": 72.6,
     "hirability_range": [
-      68,
-      80
+      67,
+      79
     ],
     "hirability_level": "Likely hirable",
-    "years_experience": 3,
+    "years_experience": 6,
     "education_level": "Bachelor's",
     "top_match_title": "Data Scientists",
     "top_match_soc": "15-2051",
-    "skills_extracted": 22,
-    "skills_from_section": 17,
+    "skills_extracted": 21,
+    "skills_from_section": 18,
     "skills_from_experience": 0,
-    "skills_matched_to_onet": 20
+    "skills_matched_to_onet": 17
   },
   "competitiveness": {
-    "score": 68.3,
+    "score": 69.7,
     "level": "Competitive",
     "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
     "components": [
       {
         "label": "Skill strength",
-        "value": 0.525,
+        "value": 0.51,
         "weight": 0.35,
-        "points": 18.4,
+        "points": 17.8,
         "detail": {
-          "breadth": 0.136,
-          "specialization": 0.6,
-          "complementarity": 0.542,
-          "evidence": 0.721
+          "breadth": 0.132,
+          "specialization": 0.595,
+          "complementarity": 0.493,
+          "evidence": 0.714
         }
       },
       {
         "label": "In-demand skills",
-        "value": 0.45,
+        "value": 0.529,
         "weight": 0.25,
-        "points": 11.2
+        "points": 13.2
       },
       {
         "label": "Market outlook",
@@ -2358,8 +2398,8 @@
       "soc_code": "15-2051",
       "title": "Data Scientists",
       "match_score": 4.3916,
-      "semantic_score": 0.505,
-      "blended_score": 0.7194,
+      "semantic_score": 0.527,
+      "blended_score": 0.7673,
       "matched_skills": [
         "Excel",
         "Git",
@@ -2380,9 +2420,9 @@
     {
       "soc_code": "15-1221",
       "title": "Computer and Information Research Scientists",
-      "match_score": 5.1971,
-      "semantic_score": 0.2534,
-      "blended_score": 0.7523,
+      "match_score": 4.9805,
+      "semantic_score": 0.2962,
+      "blended_score": 0.7397,
       "matched_skills": [
         "A/B testing",
         "Excel",
@@ -2395,7 +2435,6 @@
         "SQL",
         "Tableau",
         "data pipelines",
-        "data visualization",
         "pandas",
         "scikit-learn"
       ],
@@ -2404,9 +2443,9 @@
     {
       "soc_code": "25-2023",
       "title": "Career/Technical Education Teachers, Middle School",
-      "match_score": 4.3502,
-      "semantic_score": 0.1642,
-      "blended_score": 0.3694,
+      "match_score": 4.0943,
+      "semantic_score": 0.2124,
+      "blended_score": 0.295,
       "matched_skills": [
         "Excel",
         "Git",
@@ -2415,17 +2454,35 @@
         "PostgreSQL",
         "Python",
         "SQL",
-        "Tableau",
-        "data visualization"
+        "Tableau"
       ],
       "description": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level."
+    },
+    {
+      "soc_code": "13-1111",
+      "title": "Management Analysts",
+      "match_score": 3.5887,
+      "semantic_score": 0.379,
+      "blended_score": 0.2832,
+      "matched_skills": [
+        "Excel",
+        "Git",
+        "GitHub",
+        "MySQL",
+        "PostgreSQL",
+        "Power BI",
+        "Python",
+        "SQL",
+        "Tableau"
+      ],
+      "description": "Conduct organizational studies and evaluations, design systems and procedures, conduct work simplification and measurement studies, and prepare operations and procedures manuals to assist management in operating more efficiently and effectively. Includes program analysts and management consultants."
     },
     {
       "soc_code": "19-2099",
       "title": "Physical Scientists, All Other",
       "match_score": 4.162,
-      "semantic_score": 0.1407,
-      "blended_score": 0.2807,
+      "semantic_score": 0.1724,
+      "blended_score": 0.2766,
       "matched_skills": [
         "Excel",
         "Git",
@@ -2437,23 +2494,6 @@
         "Tableau"
       ],
       "description": "All physical scientists not listed separately."
-    },
-    {
-      "soc_code": "19-3011",
-      "title": "Economists",
-      "match_score": 3.8255,
-      "semantic_score": 0.2382,
-      "blended_score": 0.2595,
-      "matched_skills": [
-        "Excel",
-        "MySQL",
-        "Power BI",
-        "Python",
-        "SQL",
-        "Tableau",
-        "regression modeling"
-      ],
-      "description": "Conduct research, prepare reports, or formulate plans to address economic problems related to the production and distribution of goods and services or monetary and fiscal policy. May collect and process economic and statistical data using sampling techniques and econometric methods."
     }
   ],
   "skills": {
@@ -2475,11 +2515,10 @@
       "regression modeling",
       "data cleaning",
       "Git",
-      "data visualization",
-      "REST APIs",
       "data pipelines",
-      "data quality",
-      "GitHub"
+      "GitHub",
+      "Agile methodology",
+      "Data pipeline orchestration"
     ],
     "from_section": [
       "Python",
@@ -2498,7 +2537,8 @@
       "statistical analysis",
       "regression modeling",
       "data cleaning",
-      "Git"
+      "Git",
+      "data pipelines"
     ],
     "from_experience": [],
     "matched": [
@@ -2623,33 +2663,9 @@
         "match_type": "exact"
       },
       {
-        "original": "data visualization",
-        "matched_tool": "Data visualization software",
-        "element_name": "Analytical or scientific software",
-        "is_hot": false,
-        "in_demand": false,
-        "match_type": "substring"
-      },
-      {
-        "original": "REST APIs",
-        "matched_tool": "REST Assured",
-        "element_name": "Program testing software",
-        "is_hot": false,
-        "in_demand": true,
-        "match_type": "word"
-      },
-      {
         "original": "data pipelines",
         "matched_tool": "Graphics pipelines",
         "element_name": "Graphics or photo imaging software",
-        "is_hot": false,
-        "in_demand": false,
-        "match_type": "word"
-      },
-      {
-        "original": "data quality",
-        "matched_tool": "Air quality modeling software",
-        "element_name": "Analytical or scientific software",
         "is_hot": false,
         "in_demand": false,
         "match_type": "word"
@@ -2665,7 +2681,9 @@
     ],
     "unmatched": [
       "matplotlib",
-      "data cleaning"
+      "data cleaning",
+      "Agile methodology",
+      "Data pipeline orchestration"
     ]
   },
   "education": [
@@ -2689,7 +2707,7 @@
     "- Maintained data pipelines and flagged data quality issues to the engineering team"
   ],
   "skill_gaps": {
-    "coverage_of_top_match": 0.124,
+    "coverage_of_top_match": 0.12,
     "strengths": [
       {
         "skill": "Git",
@@ -2827,11 +2845,6 @@
         "via": "Tableau"
       },
       {
-        "skill": "RESTful API",
-        "implied": true,
-        "via": "REST APIs"
-      },
-      {
         "skill": "SciPy",
         "implied": true,
         "via": "scikit-learn"
@@ -2848,10 +2861,10 @@
       }
     ],
     "highlights": [
-      "Data Analyst at TechRetail Inc. (1+ yrs)",
-      "B.S. Statistics, University of California, Davis",
-      "Analyzed 2M+ customer records, informing 12% revenue increase",
-      "3 years of professional experience",
+      "Data Analyst at TechRetail Inc. (June 2021 – Present)",
+      "B.S. Statistics, University of California, Davis (May 2019)",
+      "Increased upsell revenue by 12% through data-driven insights",
+      "6 years of professional experience",
       "Bachelor's degree"
     ],
     "gaps": [
@@ -2984,64 +2997,64 @@
     ]
   },
   "skill_strength": {
-    "score": 52,
-    "matched": 31,
-    "implied": 12,
+    "score": 51,
+    "matched": 30,
+    "implied": 11,
     "ignored_basic": 16,
     "focus_skills": [
-      "PyTorch",
       "Spark",
+      "PyTorch",
       "Azure"
     ],
-    "breadth": 0.136,
-    "specialization": 0.6,
-    "complementarity": 0.542
+    "breadth": 0.132,
+    "specialization": 0.595,
+    "complementarity": 0.493
   },
   "recommendations": [
     {
-      "skill": "PyTorch",
-      "rationale": "The candidate's background in NumPy and scikit-learn provides a solid foundation for learning PyTorch, which is now the default framework for deep learning in both research and industry.",
-      "effort_label": "2-4 weeks",
+      "skill": "Spark",
+      "rationale": "Your strong Python, SQL, and data‑pipeline background lets you adopt Spark’s DataFrame API quickly, enabling you to process the 2M+ records you already handle at scale.",
+      "effort_label": "3-4 weeks",
       "demand_trend": "growing",
       "source": "dataset",
       "is_hot": true
     },
     {
-      "skill": "Spark",
-      "rationale": "With the candidate's experience in data pipelines and data quality, learning Apache Spark will enable them to handle large-scale data processing efficiently, a crucial skill for a Data Scientist.",
-      "effort_label": "1-3 months",
+      "skill": "PyTorch",
+      "rationale": "With NumPy and scikit‑learn experience, learning PyTorch will let you extend beyond classical models to deep‑learning projects that many senior Data Scientist roles now require.",
+      "effort_label": "2-3 weeks",
       "demand_trend": "growing",
       "source": "dataset",
       "is_hot": true
     },
     {
       "skill": "Azure",
-      "rationale": "Given the candidate's familiarity with cloud services like Google BigQuery, learning Microsoft Azure will expand their capabilities in cloud computing and make them more versatile in the job market.",
-      "effort_label": "1-2 months",
+      "rationale": "Azure is the default cloud in many enterprises; adding its data services (Synapse, Azure ML) complements your existing GCP/BigQuery experience and widens your job market.",
+      "effort_label": "3-4 weeks",
       "demand_trend": "growing",
       "source": "dataset",
       "is_hot": true
     },
     {
-      "skill": "TensorFlow",
-      "rationale": "As a complement to PyTorch, learning TensorFlow will provide the candidate with a broader understanding of deep learning frameworks, enhancing their ability to tackle complex projects.",
-      "effort_label": "2-4 weeks",
+      "skill": "Docker/Kubernetes",
+      "rationale": "You already build data pipelines; containerizing and orchestrating them will let you deploy models reliably in production, a key expectation for senior Data Scientists.",
+      "effort_label": "2-3 weeks",
       "demand_trend": "growing",
       "source": "new",
       "is_hot": true
     },
     {
-      "skill": "AWS Lake Formation",
-      "rationale": "With the candidate's experience in data pipelines and data quality, learning AWS Lake Formation will enable them to efficiently manage and analyze large datasets, a valuable skill in the Data Scientist role.",
-      "effort_label": "1-2 months",
+      "skill": "R",
+      "rationale": "R’s extensive statistical packages (tidymodels, caret) will deepen your analytical toolkit beyond Python, useful for research‑oriented or finance‑heavy Data Scientist roles you may target.",
+      "effort_label": "2-3 weeks",
       "demand_trend": "growing",
-      "source": "new",
+      "source": "dataset",
       "is_hot": true
     }
   ],
   "ai_displacement_exposure": {
     "score": 0.6,
     "level": "High",
-    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly. In the Data Scientists field, AI and automation are being used through tools like PyTorch for deep learning and Apache Spark for large-scale data processing, allowing for more efficient data analysis and modeling. This means that someone working in this field needs to stay updated on these technologies to remain competitive."
+    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly. Data scientists now rely on AutoML platforms (e.g., Google Vertex AI, Azure AutoML) to prototype models quickly, and AI‑driven data‑prep tools like Trifacta or pandas‑AI automate cleaning and feature engineering, so mastering cloud and MLOps tools is essential for staying effective."
   }
 }

@@ -42,21 +42,13 @@ from src.skill_matcher import _load_sw, get_occ_tools
 from src.embeddings import _embed
 from src.skill_implication import classify_occupation_tools, gap_priority
 
-# Calibration (tuned against the sample resumes so specialists aren't penalized).
-# Re-fit after implied-skill credit landed: crediting entailed skills and
-# dropping commodity tools raises breadth for everyone, so the curve flattened
-# to keep the top of the range unsaturated.
-_K_BREADTH = 2.8     # curve on value-weighted coverage (which is fractional)
-_A_SPEC = 0.40       # how much specialization amplifies
-_A_COMP = 0.30       # how much complementarity amplifies
-_N_FOCUS = 5         # priority gaps kept — a short list to act on, not a tally
+_K_BREADTH = 2.8
+_A_SPEC = 0.40
+_A_COMP = 0.30
+_N_FOCUS = 5
 
-# Thin evidence is not evidence of weakness. A resume listing a handful of tools
-# tells us little either way, so the measured value is shrunk toward an average
-# candidate in proportion to how much the resume actually demonstrates
-# (empirical-Bayes style). Only well-documented profiles reach the extremes.
-_PRIOR = 0.50            # assumed strength of a candidate we can't read
-_EVIDENCE_HALF = 12.0    # credited tools at which the resume carries half weight
+_PRIOR = 0.50
+_EVIDENCE_HALF = 12.0
 
 
 @lru_cache(maxsize=1)
@@ -106,11 +98,10 @@ def _complementarity(user_skills: List[str]) -> float:
         sims = embs @ embs.T
     iu = np.triu_indices(len(uniq), k=1)
     pairs = sims[iu]
-    pairs = pairs[pairs < 0.9]  # drop near-duplicate pairs
+    pairs = pairs[pairs < 0.9]
     if pairs.size == 0:
         return 0.5
     mean_pair = float(np.mean(pairs))
-    # observed range ~0.05-0.35 -> 0-1
     return float(np.clip((mean_pair - 0.05) / 0.30, 0.0, 1.0))
 
 
@@ -146,8 +137,6 @@ def compute_skill_capital(
         cls = status.get(tool_name, {})
         state = cls.get("status", "gap")
         if state == "commodity":
-            # Cheap and ubiquitous: no signal either way, so it never reaches
-            # the denominator.
             ignored_basic += 1
             continue
 
@@ -178,14 +167,10 @@ def compute_skill_capital(
     specialization = (float(np.mean(matched_idfs)) / idf_max) if matched_idfs else 0.0
     complementarity = _complementarity(user_skills)
 
-    # Value-weighted breadth, curved up, then amplified by specialization and
-    # complementarity — so a focused specialist isn't punished for narrow raw
-    # coverage of a huge tool list.
     base = min(1.0, breadth * _K_BREADTH)
     measured = float(np.clip(
         base * (1.0 + _A_SPEC * specialization + _A_COMP * complementarity), 0.0, 1.0))
 
-    # Shrink toward the prior when the resume documents little either way.
     evidence = matched_count / (matched_count + _EVIDENCE_HALF)
     score = evidence * measured + (1.0 - evidence) * _PRIOR
 

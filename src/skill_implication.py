@@ -31,24 +31,13 @@ import numpy as np
 
 from src.nlp_skills import _embed, _norm, batch_difficulty_months
 
-# ---------------------------------------------------------------------------
-# Thresholds
-# ---------------------------------------------------------------------------
 
-COMMODITY_MONTHS = 1.0       # <= ~2 weeks to working proficiency = no signal
-_NONTRIVIAL_MONTHS = 2.0     # candidate needs one skill this hard before we
-                             # forgive missing basics ("a very advanced skill
-                             # or something related is there")
-_SIM_IMPLIED = 0.62          # embedding proximity that counts as entailment
-_SIM_SAME_TOOL = 0.80        # at this range it is the same tool under another
-                             # spelling ("Hugging Face" / "HuggingFace
-                             # Transformers"), so the difficulty guard is moot
-_SLACK_MONTHS = 1.0          # an implied tool may be marginally harder than
-                             # the skill that vouches for it
+COMMODITY_MONTHS = 1.0
+_NONTRIVIAL_MONTHS = 2.0
+_SIM_IMPLIED = 0.62
+_SIM_SAME_TOOL = 0.80
+_SLACK_MONTHS = 1.0
 
-# Ubiquitous tools whose absence from a resume says nothing at all. Difficulty
-# already catches most of these; these are the ones O*NET names in ways the
-# difficulty table can't resolve ("Microsoft Office software").
 _UBIQUITOUS: Tuple[str, ...] = (
     "microsoft office", "office suite", "microsoft word", "microsoft excel",
     "microsoft powerpoint", "microsoft outlook", "microsoft onenote",
@@ -59,8 +48,6 @@ _UBIQUITOUS: Tuple[str, ...] = (
     "adobe acrobat", "zoom", "slack", "webex", "skype",
 )
 
-# Prerequisites: holding the key implies working familiarity with the values.
-# Deliberately conservative — only genuine "you cannot do X without Y" links.
 _PREREQUISITES: Dict[str, Tuple[str, ...]] = {
     "pytorch": ("python", "numpy", "linux", "machine learning"),
     "tensorflow": ("python", "numpy", "linux", "machine learning"),
@@ -120,8 +107,6 @@ _PREREQUISITES: Dict[str, Tuple[str, ...]] = {
     "scala": ("java",),
 }
 
-# Interchangeable substitutes: holding one member makes the others a matter of
-# weeks, so a resume naming only one is not evidence of a gap.
 _SUBSTITUTES: Tuple[Tuple[str, ...], ...] = (
     ("git", "github", "gitlab", "bitbucket", "subversion", "apache subversion"),
     ("aws", "amazon web services", "azure", "microsoft azure", "google cloud",
@@ -149,13 +134,7 @@ _SUBSTITUTES: Tuple[Tuple[str, ...], ...] = (
 )
 
 
-# ---------------------------------------------------------------------------
-# Token helpers
-# ---------------------------------------------------------------------------
-
-_MAX_VENDOR_TOKENS = 2  # "Terraform" still names the same thing as
-                        # "IBM Terraform"; "Java" does not name "Oracle Java 2
-                        # Platform Enterprise Edition J2EE"
+_MAX_VENDOR_TOKENS = 2
 
 
 def _tokens(text: str) -> FrozenSet[str]:
@@ -186,10 +165,6 @@ def _names_same_tool(phrase: FrozenSet[str], tool: FrozenSet[str]) -> bool:
 def _matches_any(tool: FrozenSet[str], phrases: Iterable[str]) -> bool:
     return any(_names_same_tool(_tokens(p), tool) for p in phrases)
 
-
-# ---------------------------------------------------------------------------
-# Classification
-# ---------------------------------------------------------------------------
 
 def _entailed_by(user_skills: List[str]) -> Dict[str, str]:
     """Skill phrases the candidate's listed skills presuppose → the voucher."""

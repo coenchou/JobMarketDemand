@@ -16,11 +16,7 @@ import numpy as np
 
 from src.embeddings import _embed, _norm
 
-# ---------------------------------------------------------------------------
-# Skill difficulty lookup  (estimated months to reach basic working proficiency)
-# ---------------------------------------------------------------------------
 SKILL_DIFFICULTY: Dict[str, float] = {
-    # Days to a week
     "git": 0.5,
     "github": 0.5,
     "gitlab": 0.5,
@@ -30,8 +26,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "trello": 0.2,
     "notion": 0.2,
     "google sheets": 0.5,
-    # Consumer apps. Using one is not a skill, and treating them as gaps
-    # produces reports that tell an engineer to go learn WhatsApp.
     "gmail": 0.1,
     "whatsapp": 0.1,
     "instagram": 0.2,
@@ -45,7 +39,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "excel": 0.5,
     "powerpoint": 0.5,
     "word": 0.3,
-    # Weeks to 1 month
     "sql": 1.5,
     "structured query language sql": 1.5,
     "tableau": 1.5,
@@ -59,7 +52,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "postgresql": 2.0,
     "mysql": 2.0,
     "sqlite": 1.5,
-    # 2-4 months
     "python": 3.0,
     "r": 3.0,
     "pandas": 2.0,
@@ -88,7 +80,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "django": 4.0,
     "react": 5.0,
     "vue": 4.0,
-    # Modern data / platform tooling the survey-derived tables miss
     "terraform": 4.0,
     "ansible": 3.0,
     "kafka": 4.0,
@@ -106,7 +97,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "github actions": 1.5,
     "great expectations": 2.0,
     "looker": 2.0,
-    # 5-9 months
     "spark": 5.0,
     "apache spark": 5.0,
     "kubernetes": 6.0,
@@ -121,7 +111,6 @@ SKILL_DIFFICULTY: Dict[str, float] = {
     "data engineering": 8.0,
     "mlops": 10.0,
     "devops": 8.0,
-    # 10+ months
     "deep learning": 12.0,
     "neural networks": 12.0,
     "natural language processing": 10.0,
@@ -135,7 +124,7 @@ SKILL_DIFFICULTY: Dict[str, float] = {
 }
 
 
-DEFAULT_DIFFICULTY_MONTHS = 4.0  # unknown skill: assume a moderate lift
+DEFAULT_DIFFICULTY_MONTHS = 4.0
 
 
 def _difficulty_from_table(key: str) -> Optional[float]:

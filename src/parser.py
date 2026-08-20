@@ -18,25 +18,21 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-# Load .env so GOOGLE_API_KEY is available without manual export
 try:
     from dotenv import load_dotenv
     load_dotenv(ROOT / ".env")
 except ImportError:
     pass
 
+from src.llm_cache import MODEL
 from src.skill_matcher import _load_sw, _STOPWORDS, match_skills_to_onet
 
-# ---------------------------------------------------------------------------
-# Section extraction
-# ---------------------------------------------------------------------------
 
 _SECTION_HEADINGS = {
     "SKILLS", "TECHNICAL SKILLS", "CORE SKILLS", "KEY SKILLS",
     "TECHNOLOGIES", "TOOLS", "COMPETENCIES",
 }
 
-# All known resume section names — used to stop section extraction regardless of case
 _ALL_KNOWN_HEADINGS = {
     "SKILLS", "TECHNICAL SKILLS", "CORE SKILLS", "KEY SKILLS",
     "TECHNOLOGIES", "TOOLS", "COMPETENCIES",
@@ -54,9 +50,6 @@ _QUALIFIER_WORDS = {
     "beginner", "familiar", "working knowledge", "exposure",
 }
 
-# Boundaries use (?<![A-Za-z]) / (?![A-Za-z]) so "B.S." (trailing period, then
-# space) still matches and abbreviations don't fire inside words. Bare two-letter
-# forms (BS, MA, MS) are omitted — they collide with "MS Office", state codes, etc.
 _EDU_PATTERNS: List[tuple] = [
     (r"(?<![A-Za-z])(Ph\.?\s?D\.?|Doctorate|Doctoral|Doctor of)(?![A-Za-z])", "Doctorate"),
     (r"(?<![A-Za-z])(Master['']?s|MBA|M\.B\.A\.?|M\.S\.|M\.A\.|M\.?Sc\.?|M\.Eng\.?)(?![A-Za-z])", "Master's"),
@@ -76,7 +69,6 @@ def _find_section(text: str, *headings: str) -> str:
         matched = next((t for t in targets if label == t or label.startswith(t)), None)
         if matched:
             start = i + 1
-            # capture content on the heading line itself ("SKILLS | SQL | Python")
             rest = stripped[len(matched):].lstrip(" :|-–—\t")
             if rest:
                 inline = rest
@@ -87,9 +79,7 @@ def _find_section(text: str, *headings: str) -> str:
     for line in lines[start:]:
         stripped = line.strip()
         upper = stripped.upper()
-        # Stop at any known resume section heading (case-insensitive)
         is_known_heading = upper in _ALL_KNOWN_HEADINGS and upper not in targets
-        # Also stop at short all-caps lines (catches custom headings like "CERTIFICATIONS")
         is_allcaps_heading = (
             stripped
             and stripped == upper
@@ -101,10 +91,6 @@ def _find_section(text: str, *headings: str) -> str:
         section_lines.append(stripped)
     return "\n".join(ln for ln in section_lines if ln)
 
-
-# ---------------------------------------------------------------------------
-# Skill parsing
-# ---------------------------------------------------------------------------
 
 def _split_top_level(line: str) -> List[str]:
     """Split a comma/semicolon line while respecting parenthesis depth."""
@@ -164,7 +150,6 @@ def _parse_skills_section(section_text: str) -> List[str]:
         if not line:
             continue
         line = re.sub(r"^[-•*]\s*", "", line)
-        # Strip "Category: " prefixes (e.g. "Programming: ", "Databases: ")
         line = re.sub(r"^[A-Za-z][A-Za-z /&-]+:\s*", "", line)
         for item in _split_top_level(line):
             for skill in _expand_item(item):
@@ -173,10 +158,6 @@ def _parse_skills_section(section_text: str) -> List[str]:
                     skills.append(skill)
     return skills
 
-
-# ---------------------------------------------------------------------------
-# Experience-text NER (dictionary-based)
-# ---------------------------------------------------------------------------
 
 def _build_ner_vocab():
     """
@@ -191,7 +172,6 @@ def _build_ner_vocab():
     vocab: Dict[str, str] = {}
     for _, row in priority.iterrows():
         tn = str(row["tool_norm"])
-        # Require at least one non-stopword word of length >= 4
         sig = [w for w in tn.split() if len(w) >= 4 and w not in _STOPWORDS]
         if not sig:
             continue
@@ -199,7 +179,6 @@ def _build_ner_vocab():
     return vocab
 
 
-# Cached at module level so it's built once per process
 _NER_VOCAB: Dict[str, str] = {}
 
 
@@ -228,7 +207,6 @@ def extract_tools_from_experience(
     vocab = _get_ner_vocab()
     sw = _load_sw()
 
-    # Normalise the full experience block once
     exp_norm = re.sub(r"\W+", " ", " ".join(experience_lines)).lower()
 
     found: List[Dict] = []
@@ -238,8 +216,6 @@ def extract_tools_from_experience(
         if tool_norm in seen_norms:
             continue
 
-        # Multi-word tool: require contiguous phrase match ("apache spark" in text)
-        # Single-word tool: require word-boundary match to avoid "r" matching "router"
         words = tool_norm.split()
         if len(words) > 1:
             matched = tool_norm in exp_norm
@@ -251,7 +227,6 @@ def extract_tools_from_experience(
 
         seen_norms.add(tool_norm)
 
-        # Look up metadata for this tool
         rows = sw[sw["tool_norm"] == tool_norm]
         if rows.empty:
             continue
@@ -268,10 +243,6 @@ def extract_tools_from_experience(
 
     return found
 
-
-# ---------------------------------------------------------------------------
-# Groq LLM parser (Llama 3.1)
-# ---------------------------------------------------------------------------
 
 _GROQ_PROMPT = """You are a resume parser. Extract structured information from the resume below.
 Return ONLY a valid JSON object — no explanation, no markdown fences.
@@ -321,17 +292,16 @@ def _parse_with_groq(text: str) -> Optional[Dict]:
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         return None
-    # Cap payload — very long resumes waste tokens and risk truncation.
     prompt = _GROQ_PROMPT.format(text=text[:14000])
 
     last_err = None
     for attempt in range(2):
         try:
-            from groq import Groq  # type: ignore
+            from groq import Groq
             from src.llm_cache import complete
             client = Groq(api_key=api_key)
             raw = complete(
-                client, "llama-3.3-70b-versatile", prompt, temperature=0)
+                client, MODEL, prompt, temperature=0)
             data = json.loads(_strip_fences(raw))
             if not isinstance(data, dict):
                 raise ValueError("model did not return a JSON object")
@@ -342,7 +312,6 @@ def _parse_with_groq(text: str) -> Optional[Dict]:
             data.setdefault("education_level", None)
             data.setdefault("education_lines", [])
             data.setdefault("experience_lines", [])
-            # Coerce list-ish fields defensively (model may return a string)
             for k in ("skills", "implied_skills", "highlights", "education_lines", "experience_lines"):
                 if not isinstance(data[k], list):
                     data[k] = [data[k]] if data[k] else []
@@ -359,14 +328,10 @@ def _parse_with_groq(text: str) -> Optional[Dict]:
     return None
 
 
-# ---------------------------------------------------------------------------
-# Robust text extraction, skill cleaning, and date-range experience inference
-# ---------------------------------------------------------------------------
-
 def _extract_pdf(path: Path) -> str:
     """Extract PDF text with pdfplumber (better layout), falling back to PyPDF2."""
     try:
-        import pdfplumber  # type: ignore
+        import pdfplumber
         with pdfplumber.open(str(path)) as pdf:
             text = "\n".join(pg.extract_text() or "" for pg in pdf.pages)
         if text.strip():
@@ -374,7 +339,7 @@ def _extract_pdf(path: Path) -> str:
     except Exception:
         pass
     try:
-        import PyPDF2  # type: ignore
+        import PyPDF2
         with open(path, "rb") as f:
             reader = PyPDF2.PdfReader(f)
             return "\n".join(pg.extract_text() or "" for pg in reader.pages)
@@ -394,7 +359,6 @@ def _extract_text(path: Path) -> str:
     return path.read_bytes().decode("utf-8", errors="ignore")
 
 
-# URLs, emails, and long digit runs are never skills
 _SKILL_JUNK_RE = re.compile(r"https?://|www\.|@|\d{4,}")
 
 
@@ -414,11 +378,11 @@ def _clean_skills(raw: List[str]) -> List[str]:
             continue
         if not (2 <= len(s) <= 50):
             continue
-        if len(s.split()) > 6:               # a phrase/sentence, not a skill
+        if len(s.split()) > 6:
             continue
         if _SKILL_JUNK_RE.search(low):
             continue
-        if not re.search(r"[a-zA-Z]", s):    # must contain a letter
+        if not re.search(r"[a-zA-Z]", s):
             continue
         seen.add(low)
         out.append(s)
@@ -462,10 +426,6 @@ def _infer_years_from_dates(text: str) -> Optional[int]:
     return total if total > 0 else None
 
 
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
-
 def parse_resume(path: str) -> Dict:
     """
     Parse a resume file and return structured metadata.
@@ -481,14 +441,12 @@ def parse_resume(path: str) -> Dict:
     p = Path(path)
     text = _extract_text(p)
 
-    # --- Implicit skills from profile URLs ---
     implicit_skills: List[str] = []
     if re.search(r"github\.com/", text, re.I):
         implicit_skills += ["Git", "GitHub"]
     if re.search(r"gitlab\.com/", text, re.I):
         implicit_skills += ["Git", "GitLab"]
 
-    # --- Try Groq LLM parser first ---
     llm = _parse_with_groq(text)
 
     implied_skills: List[str] = []
@@ -501,9 +459,8 @@ def parse_resume(path: str) -> Dict:
         edu_level: Optional[str] = llm["education_level"]
         edu_lines: List[str] = llm["education_lines"]
         exp_lines: List[str] = llm["experience_lines"]
-        skills_from_section = list(skills)  # LLM extracts from whole resume
+        skills_from_section = list(skills)
     else:
-        # --- Regex fallback ---
         skills_section = _find_section(text, *_SECTION_HEADINGS)
         raw_skills = _parse_skills_section(skills_section)
 
@@ -534,28 +491,21 @@ def parse_resume(path: str) -> Dict:
         edu_lines = [ln.strip() for ln in edu_section.splitlines() if ln.strip()]
         skills_from_section = skills
 
-    # --- Normalize skills from either path: drop junk, dedup case-insensitively ---
     skills = _clean_skills(skills)
     implied_skills = _clean_skills(implied_skills)
     skills_from_section = _clean_skills(skills_from_section)
 
-    # --- Infer experience from employment date ranges if not explicitly stated ---
     if not years:
         years = _infer_years_from_dates("\n".join(exp_lines)) or _infer_years_from_dates(text)
 
-    # --- Merge implicit (URL) + implied (LLM-inferred) skills ---
-    # These suppress false gaps: a senior engineer who didn't list "Git" still
-    # shouldn't be told to learn it. Deduped against already-known skills.
     known_lower = {s.lower() for s in skills}
     for imp in implicit_skills + implied_skills:
         if imp.lower() not in known_lower:
             skills.append(imp)
             known_lower.add(imp.lower())
 
-    # --- ONET matching (always runs regardless of parser path) ---
     matched_skills = match_skills_to_onet(skills)
 
-    # --- NER scan of experience lines for additional tool mentions ---
     existing_norms = {re.sub(r"\W+", " ", s).lower().strip() for s in skills}
     ner_skills = extract_tools_from_experience(exp_lines, existing_norms)
 
@@ -574,13 +524,9 @@ def parse_resume(path: str) -> Dict:
         "education_level": edu_level,
         "education_lines": edu_lines,
         "experience_lines": exp_lines,
-        "parser": "groq/llama-3.3-70b" if llm else "regex",
+        "parser": f"groq/{MODEL}" if llm else "regex",
     }
 
-
-# ---------------------------------------------------------------------------
-# CLI (parser-only mode, for quick inspection)
-# ---------------------------------------------------------------------------
 
 def _cli() -> None:
     import argparse

@@ -20,8 +20,6 @@ import pandas as pd
 
 from src.skill_score import _PRIOR, compute_skill_capital
 
-# Simulating is a full classification pass per skill, so cap how many the
-# report offers to try.
 MAX_SIMULATED = 6
 
 
@@ -76,22 +74,12 @@ def simulate_additions(
             continue
         with_skill = compute_skill_capital(user_skills + [skill], tools=tools)
 
-        # Hold the evidence weight at the baseline. Learning a skill also makes
-        # the resume document more, which un-shrinks the estimate — for a thin
-        # resume that can drag the score *down* and produce "learn this, lose a
-        # point". The question here is what the skill is worth, not how much
-        # better documented the candidate would be, so only the measured term
-        # is allowed to move.
         measured = with_skill.get("measured", with_skill.get("score", 0.0))
         adjusted = base_evidence * measured + (1.0 - base_evidence) * _PRIOR
         score = _hirability(adjusted, exp_fit, edu_fit, weights, track)
         gained = with_skill.get("matched_count", 0) - base_matched
 
         if gained <= 0 or score - base_score < 0.05:
-            # Either the target never mentions this skill, or the movement is
-            # below what the model can resolve. Report no movement rather than
-            # a fraction of a point that would read as "learning this makes you
-            # worse" — not a claim the model is entitled to make.
             results.append({
                 "skill": skill,
                 "score": base_score,

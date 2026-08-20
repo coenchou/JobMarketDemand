@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Download selected O*NET Content Model files and extract CSVs into datasets/onet/
 
 Usage:
@@ -125,7 +124,6 @@ def main():
                 save_file(target, data)
                 saved_files.append(target)
         else:
-            # try to inspect content-type or filename inside
             print(f"Skipping unknown file type: {fname}")
 
     if saved_files:

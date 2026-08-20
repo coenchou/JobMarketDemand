@@ -43,7 +43,6 @@ if str(ROOT) not in sys.path:
 MUSE_API = "https://www.themuse.com/api/public/jobs"
 DEFAULT_OUT = ROOT / "data" / "processed" / "posting_skills.csv"
 
-# A skill has to show up in a few postings before it means anything.
 MIN_POSTINGS = 3
 
 
@@ -52,10 +51,6 @@ def _strip_html(html: str) -> str:
     return re.sub(r"\s+", " ", unescape(text)).strip()
 
 
-# Sampling the catalog unfiltered gives ~10 postings per category, which is
-# far too thin to measure a share. These are the category names the API
-# actually returns (several of the ones the codebase used to guess with —
-# "Data Science", "Marketing" — no longer exist and return nothing).
 CATEGORIES: Tuple[str, ...] = (
     "Software Engineering",
     "Data and Analytics",
@@ -99,13 +94,13 @@ def fetch_pages(
             yield r
         if data.get("page_count") and page + 1 >= data["page_count"]:
             break
-        time.sleep(delay)  # be polite to a free public API
+        time.sleep(delay)
 
 
 def harvest(pages: int) -> List[Dict[str, object]]:
     from src.target_role import extract_posting_skills
 
-    per_category: Dict[str, Set[str]] = defaultdict(set)   # category -> posting ids
+    per_category: Dict[str, Set[str]] = defaultdict(set)
     hits: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
     scanned = 0
 

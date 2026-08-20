@@ -13,7 +13,6 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data" / "raw" / "onet"
 
-# Generic words that appear in many tool names and shouldn't drive matching alone.
 _STOPWORDS: Set[str] = {
     "the", "and", "for", "with", "not", "all", "new", "use", "via",
     "data", "system", "systems", "software", "management", "information",
@@ -85,34 +84,28 @@ def _match_skill_to_tool_norms(skill: str) -> Tuple[Set[str], str]:
     idx = _build_word_index()
     skill_norm = _norm(skill)
 
-    # 1. Exact match
     if skill_norm in _all_tool_norms():
         return {skill_norm}, "exact"
 
-    # 2. Substring match: skill_norm is a phrase inside tool_norm
     substring_hits: Set[str] = {tn for tn in _all_tool_norms() if skill_norm in tn}
     if substring_hits:
         return substring_hits, "substring"
 
-    # 3 & 4. Word-based matching using only significant words
     sig_words = _significant_words(skill_norm)
     if not sig_words:
         return set(), "none"
 
     if len(sig_words) >= 2:
-        # Multi-word: ALL significant words must appear (intersection)
         candidate: Optional[Set[str]] = None
         for word in sig_words:
             hits = idx.get(word, set())
             candidate = hits.copy() if candidate is None else candidate & hits
         if candidate:
             return candidate, "word"
-        # Fallback: use only the longest significant word
         longest = max(sig_words, key=len)
         hits = idx.get(longest, set())
         return (hits, "word") if hits else (set(), "none")
     else:
-        # Single significant word
         hits = idx.get(sig_words[0], set())
         return (hits, "word") if hits else (set(), "none")
 
@@ -196,7 +189,6 @@ def match_skills_to_onet(skills: List[str]) -> List[Dict]:
             continue
 
         subset = sw[sw["tool_norm"].isin(matched_norms)]
-        # Pick the best representative row: prefer hot, then in-demand, then shortest name
         best = (
             subset
             .assign(_priority=subset["is_hot"].astype(int) * 2 + subset["in_demand"].astype(int))
@@ -234,7 +226,6 @@ def score_soc_candidates(skills: List[str], top_n: int = 10) -> List[Dict]:
         rows = sw[sw["tool_norm"].isin(matched_norms)]
         for soc, group in rows.groupby("soc_code"):
             weight = 2.0 if group["is_hot"].any() else (1.5 if group["in_demand"].any() else 1.0)
-            # Count each skill only once per occupation
             if skill not in soc_matched.get(soc, set()):
                 soc_scores[soc] = soc_scores.get(soc, 0.0) + weight
                 soc_matched.setdefault(soc, set()).add(skill)
@@ -245,10 +236,6 @@ def score_soc_candidates(skills: List[str], top_n: int = 10) -> List[Dict]:
     for soc, raw in soc_scores.items():
         total = int(soc_total.get(soc, 1))
         matched_count = len(soc_matched[soc])
-        # Score = raw / total^0.3
-        # Using 0.3 (not 0.5) means larger occupations are penalised less,
-        # so an occupation with 18 matched skills from 250 tools beats one with
-        # 7 matched skills from 25 tools — absolute match count drives ranking.
         score = round(float(raw) / max(1.0, total ** 0.3), 4)
         coverage = round(matched_count / max(1, total), 4)
         ranked.append({
@@ -260,7 +247,6 @@ def score_soc_candidates(skills: List[str], top_n: int = 10) -> List[Dict]:
             "total_occ_tools": total,
         })
 
-    # Filter: occupation must have >= 20 tools listed AND user must match >= 4 of them.
     ranked = [
         r for r in ranked
         if r["total_occ_tools"] >= 20 and len(r["matched_skills"]) >= 4

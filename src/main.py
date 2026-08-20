@@ -19,11 +19,6 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-# The landing page promises that nothing resume-derived is stored. The LLM
-# cache would break that promise — cached responses contain the skills and
-# experience extracted from the resume — so the server runs with it off.
-# The CLI keeps caching (regenerating dev fixtures is where it pays for
-# itself); export LLM_CACHE=1 to re-enable here if you accept the tradeoff.
 os.environ.setdefault("LLM_CACHE", "0")
 
 from src.pipeline import build_report
@@ -31,20 +26,10 @@ from src.job_search import find_jobs
 
 app = FastAPI(title="Hirely API")
 
-# Privacy model: uploads live in a temp file for the seconds the analysis
-# takes, then are unlinked. The only thing that persists is this counter —
-# one integer, no content, no filenames.
 COUNTER_FILE = ROOT / "data" / "cache" / "analysis_count.txt"
 
-# Requests run on parallel threadpool threads, so the read-modify-write needs
-# a lock, and the write must be atomic (write_text truncates first — a reader
-# landing in that window would see an empty file and reset the count to zero).
 _COUNTER_LOCK = threading.Lock()
 
-# Uploads get their own directory so a crash can't strand a resume among
-# files we don't own. Anything left from a previous run — the one way the
-# in-request cleanup can be skipped (power loss, SIGKILL) — is purged the
-# moment the server starts.
 UPLOAD_DIR = Path(tempfile.gettempdir()) / "hirely-uploads"
 shutil.rmtree(UPLOAD_DIR, ignore_errors=True)
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
@@ -80,6 +65,31 @@ if ALLOWED_ORIGINS:
     )
 
 FRONTEND = ROOT / "index.html"
+
+
+REQUIRED_DATA = {
+    "onet_software_skills": ROOT / "data" / "raw" / "onet" / "Software Skills.xlsx",
+    "onet_occupations": ROOT / "data" / "raw" / "onet" / "Occupation Data.xlsx",
+    "onet_essential_skills": ROOT / "data" / "raw" / "onet" / "Essential Skills.xlsx",
+    "bls_market": ROOT / "data" / "raw" / "bls" / "occupation_market.csv",
+}
+OPTIONAL_DATA = {
+    "posting_demand": ROOT / "data" / "processed" / "posting_skills.csv",
+    "occupation_embeddings": ROOT / "data" / "processed" / "occ_embeddings.npz",
+}
+
+
+@app.get("/health")
+def health() -> Dict[str, Any]:
+    required = {k: v.exists() for k, v in REQUIRED_DATA.items()}
+    optional = {k: v.exists() for k, v in OPTIONAL_DATA.items()}
+    return {
+        "ok": all(required.values()),
+        "required": required,
+        "optional": optional,
+        "llm": bool(os.getenv("GROQ_API_KEY")),
+        "model": os.getenv("LLM_MODEL", "openai/gpt-oss-120b"),
+    }
 
 
 @app.get("/stats")
@@ -134,10 +144,6 @@ def analyze_resume(
 
     content = file.file.read()
 
-    # The path exists before the first resume byte is written, and the finally
-    # owns it from that moment — so no failure between write and analysis can
-    # strand resume content on disk. (A hard kill mid-request is covered by the
-    # startup purge of UPLOAD_DIR.)
     fd, tmp_path = tempfile.mkstemp(suffix=ext, dir=UPLOAD_DIR)
     try:
         with os.fdopen(fd, "wb") as tmp:

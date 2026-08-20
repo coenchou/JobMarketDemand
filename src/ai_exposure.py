@@ -13,9 +13,6 @@ import numpy as np
 
 from src.embeddings import _embed
 
-# ---------------------------------------------------------------------------
-# AI / automation displacement signals
-# ---------------------------------------------------------------------------
 _AI_RISK_PHRASES = [
     "data entry", "clerical", "routine", "repetitive", "filing", "sorting",
     "scheduling", "processing forms", "check", "verify", "compile records",
@@ -53,14 +50,12 @@ def score_ai_displacement(description: str, title: str) -> Dict:
     """
     text = (description + " " + title).lower()
 
-    # Keyword signals
     risk_hits = sum(1 for p in _AI_RISK_PHRASES if p in text)
     safe_hits = sum(1 for p in _AI_SAFE_PHRASES if p in text)
     kw_score = 0.5
     if risk_hits + safe_hits > 0:
         kw_score = risk_hits / (risk_hits + safe_hits)
 
-    # NLP signal
     nlp_score = 0.5
     embs = _embed([description[:512], _AI_DISPLACEMENT_ANCHOR, _AI_SAFE_ANCHOR])
     if embs is not None:

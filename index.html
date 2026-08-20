@@ -8,9 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ════════════════════════════════════════════════════════
-   Design tokens
-   ════════════════════════════════════════════════════════ */
+
 :root {
   --bg:      #fcfcfa;
   --panel:   #ffffff;
@@ -19,15 +17,15 @@
   --ink:     #221a33;
   --muted:   #6f6a7e;
   --faint:   #a09aae;
-  --primary: #46308c;          /* deep purple — interface & interaction */
+  --primary: #46308c;
   --primary-strong: #372470;
-  --accent:  #9a7b1e;          /* gold, dark enough for text on white */
-  --gold:    #d4a017;          /* gold for fills, arcs, bars */
+  --accent:  #9a7b1e;
+  --gold:    #d4a017;
   --accent-dim: rgba(212, 160, 23, 0.10);
   --ok:      #2e7d5b;
   --warn:    #9a7b1e;
   --bad:     #b8433a;
-  --soft:    #f1eef7;          /* lavender tint for chips & soft fills */
+  --soft:    #f1eef7;
   --soft-2:  #e6e1f2;
   --r-lg: 20px;
   --r-md: 14px;
@@ -44,7 +42,7 @@ body {
   color: var(--ink);
   font-size: 15px;
   line-height: 1.6;
-  /* faint plotting-paper dot grid */
+
   background-image: radial-gradient(rgba(70, 48, 140, 0.06) 1px, transparent 1px);
   background-size: 26px 26px;
 }
@@ -111,9 +109,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 }
 .btn-text:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* ════════════════════════════════════════════════════════
-   Upload view — panel + occupation ticker
-   ════════════════════════════════════════════════════════ */
+
 #uploadView {
   min-height: 100vh;
   display: flex;
@@ -129,7 +125,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--accent);          /* gold — the wordmark is the brand */
+  color: var(--accent);
   margin-bottom: 40px;
 }
 .upload-panel h1 {
@@ -152,7 +148,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
   max-width: 44ch;
 }
 
-/* drop zone — floating surface with marching-dash border on hover */
+
 .drop-zone {
   position: relative;
   background: var(--panel);
@@ -215,7 +211,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .upload-actions { margin-top: 20px; display: none; }
 .upload-actions.show { display: block; }
 
-/* analysis log — dark terminal card set into the light page */
+
 .log {
   display: none;
   margin-top: 26px;
@@ -262,9 +258,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 }
 .err.show { display: block; }
 
-/* contour field — decoration only, faded like the ticker opposite it.
-   Topographic iso-lines (generated once, static): organic curves on the left
-   as a counterweight to the fine mono text drifting down the right. */
+
 .contour-field {
   position: absolute; left: 0; top: 0; bottom: 0;
   width: min(32vw, 480px); height: 100%; z-index: 1;
@@ -279,7 +273,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .cf-gold { fill: none; stroke: var(--gold); stroke-width: 1.3; opacity: 0.4; }
 @media (max-width: 1080px) { .contour-field { display: none; } }
 
-/* occupation ticker — the market drifting past */
+
 .ticker {
   position: absolute;
   right: 5vw;
@@ -303,13 +297,11 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .ticker-row b { color: rgba(154, 123, 30, 0.65); font-weight: 400; margin-right: 14px; }
 @media (max-width: 1280px) { .ticker { display: none; } }
 
-/* ════════════════════════════════════════════════════════
-   Report view
-   ════════════════════════════════════════════════════════ */
+
 #reportView { display: none; max-width: 860px; margin: 0 auto; padding: 48px 24px 64px; }
 #reportView.show { display: block; }
 
-/* scrollspy rail */
+
 .rail {
   position: fixed;
   left: 28px;
@@ -340,7 +332,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .rail a.active { color: var(--primary); }
 .rail a.active::before { width: 26px; background: var(--primary); }
 
-/* header */
+
 .rpt-top {
   display: flex;
   justify-content: space-between;
@@ -354,7 +346,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .rpt-top h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin-top: 8px; overflow-wrap: anywhere; }
 .rpt-meta { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 6px; }
 
-/* reveal-on-scroll primitives */
+
 .rv {
   opacity: 0;
   transform: translateY(16px);
@@ -369,7 +361,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 }
 .in .stag { opacity: 1; transform: none; }
 
-/* metrics: arc gauges on floating cards */
+
 .metrics {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -411,7 +403,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 }
 .m-note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 12px; }
 
-/* exposure metric */
+
 .exp-value {
   font-family: var(--mono);
   font-size: 27px;
@@ -432,7 +424,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .exposure-Medium { color: var(--warn); }
 .exposure-High   { color: var(--bad); }
 
-/* sections */
+
 .sec { margin-bottom: 52px; }
 .sec-head {
   display: flex;
@@ -456,12 +448,12 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .sec-num { font-family: var(--mono); font-size: 12px; color: var(--primary); }
 .sec-note { margin-left: auto; font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
 
-/* profile */
+
 .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .profile-grid .p-value { font-family: var(--mono); font-size: 15px; margin-top: 6px; }
 .profile-grid .p-sub   { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin-top: 3px; }
 
-/* occupation match */
+
 .match-title-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .match-title-row h2 { font-size: 21px; font-weight: 600; min-height: 1.4em; }
 .soc-code { font-family: var(--mono); font-size: 12px; color: var(--faint); }
@@ -479,7 +471,6 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .market-req .src { color: var(--faint); }
 
 
-/* tags */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .tag {
   font-family: var(--mono);
@@ -495,7 +486,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .tag .val { color: var(--faint); margin-left: 8px; }
 .coverage-line { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 16px; }
 
-/* gap rows */
+
 .gap-row {
   display: flex; gap: 18px;
   padding: 18px 14px;
@@ -523,13 +514,13 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .subsec { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); }
 .subsec-note { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin: 4px 0 16px; }
 
-/* exposure section */
+
 .exposure-grid { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: start; }
 .exposure-level { font-family: var(--mono); font-size: 25px; font-weight: 500; }
 .exposure-idx { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 4px; }
 .exposure-text { color: var(--muted); max-width: 64ch; }
 
-/* summary / next-steps card */
+
 .summary-card {
   background: var(--panel);
   border-radius: var(--r-lg);
@@ -541,7 +532,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .summary-card .label { color: var(--accent); }
 .summary-card p { font-size: 16px; line-height: 1.65; color: var(--ink); margin-top: 10px; max-width: 70ch; }
 
-/* strengths highlights */
+
 .highlights { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
 .highlights li {
   position: relative; padding-left: 20px;
@@ -552,7 +543,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
   color: var(--gold); font-size: 12px;
 }
 
-/* external job-board links */
+
 .job-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 22px; }
 .job-links:empty { margin: 0; }
 .job-links-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-right: 2px; }
@@ -566,7 +557,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .job-links a:hover { background: var(--soft-2); transform: translateY(-1px); }
 .job-links a::after { content: "↗"; font-weight: 400; color: var(--faint); }
 
-/* matching jobs */
+
 .jobs-intro { color: var(--muted); font-size: 14px; margin-bottom: 20px; max-width: 64ch; }
 .job-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
 .segmented {
@@ -646,7 +637,7 @@ footer {
   color: var(--faint);
 }
 
-/* ── verdict headline ─────────────────────────────────── */
+
 .verdict {
   font-size: 20px;
   font-weight: 500;
@@ -659,7 +650,7 @@ footer {
 
 .rpt-actions { display: flex; gap: 10px; }
 
-/* ── score breakdown ("why?") ─────────────────────────── */
+
 .why-btn {
   background: none; border: none;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
@@ -688,7 +679,7 @@ footer {
   padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--line-2); }
 .bd-detail { font-family: var(--mono); font-size: 9.5px; color: var(--faint); margin-top: 5px; line-height: 1.5; }
 
-/* ── market benchmark ─────────────────────────────────── */
+
 .wage-benchmark { flex-basis: 100%; margin-top: 4px; }
 .wb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
 .wb-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
@@ -701,7 +692,7 @@ footer {
 .growth-flat { color: var(--muted); }
 .growth-down { color: var(--bad); }
 
-/* ── headline score: lead metric + uncertainty band ───── */
+
 .metric-lead { grid-column: span 2; }
 .mstat-sub { font-size: 12px; color: var(--faint); margin-left: 2px; }
 .g-band { fill: none; stroke: var(--gold); opacity: 0.18; stroke-width: 9;
@@ -709,7 +700,7 @@ footer {
 .m-range { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--faint); margin-top: 4px; }
 
-/* ── retarget controls ────────────────────────────────── */
+
 .retarget { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
 .rt-head { display: flex; align-items: center; justify-content: space-between;
   gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -717,7 +708,7 @@ footer {
   text-transform: uppercase; color: var(--faint); }
 .rt-go { white-space: nowrap; }
 
-/* ── role cards: the same analysis, one per shortlisted occupation ── */
+
 .role-cards { display: grid; gap: 8px; }
 .role-card {
   position: relative; overflow: hidden;
@@ -731,8 +722,7 @@ footer {
 .role-card.active { border-color: var(--gold); background: var(--soft); cursor: default; }
 .role-card.active:hover { transform: none; }
 
-/* A light sweeps across the card you picked, then the report behind it
-   crossfades to that role's analysis. */
+
 .role-card::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(100deg, transparent 20%,
@@ -742,9 +732,7 @@ footer {
 .role-card.picking::after { animation: sweep 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
 @keyframes sweep { to { transform: translateX(110%); } }
 
-/* Everything the role change affects fades out, then rises back in. The role
-   cards themselves are deliberately left out of it: the control you clicked
-   should stay put while the content behind it changes. */
+
 .swap-out { opacity: 0; transform: translateY(-6px);
   transition: opacity 0.17s ease, transform 0.17s ease; }
 .swap-in { animation: swapIn 0.44s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
@@ -778,12 +766,12 @@ footer {
 }
 .rt-skill b { color: var(--ink); font-weight: 500; }
 
-/* ── inferred skill tags ──────────────────────────────── */
+
 .tag-inferred { border-style: dashed; color: var(--muted); }
 .tag-mark { font-family: var(--mono); font-size: 10px; color: var(--gold);
   margin-left: 5px; }
 
-/* ── simulated score movement ─────────────────────────── */
+
 .gap-delta {
   font-family: var(--mono); font-size: 11px; font-weight: 500;
   color: var(--gold); white-space: nowrap;
@@ -792,7 +780,7 @@ footer {
 .sim-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--faint); margin-top: 14px; }
 
-/* ── strengths: skill ring + resume signal check ──────── */
+
 .strength-grid {
   display: grid; grid-template-columns: 150px 1fr;
   gap: 28px; align-items: start; margin: 18px 0 24px;
@@ -807,7 +795,7 @@ footer {
 .clr-fill { fill: none; stroke: var(--gold); stroke-width: 7; stroke-linecap: round;
   stroke-dasharray: 213.6; stroke-dashoffset: 213.6;
   transition: stroke-dashoffset 1s cubic-bezier(0.3,0,0.2,1) 0.2s; }
-/* the number owns the ring — the label lives below, so nothing overlaps */
+
 .cl-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 24px; font-weight: 500; }
 
@@ -824,7 +812,7 @@ footer {
 .sc-label { font-weight: 500; }
 .sc-hint { display: block; font-size: 12px; color: var(--faint); margin-top: 1px; line-height: 1.45; }
 
-/* ── sticky mini-header ───────────────────────────────── */
+
 .mini-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 20;
   background: rgba(252, 252, 250, 0.92);
@@ -851,10 +839,10 @@ footer {
   .rt-select { flex: 1 1 auto; }
 }
 
-/* Long O*NET tool names must break rather than stretch their container. */
+
 .tag, .gap-name, .sc-hint { overflow-wrap: anywhere; }
 
-/* ── print / PDF ──────────────────────────────────────── */
+
 @media print {
   body { background: #fff; }
   #uploadView, .rail, .mini-header, .rpt-actions, .why-btn,
@@ -879,9 +867,9 @@ footer {
 </head>
 <body>
 
-<!-- ── Upload ──────────────────────────────────────────── -->
+
 <div id="uploadView">
-  <!-- decorative contour field; see .contour-field -->
+
   <svg class="contour-field" aria-hidden="true" viewBox="0 0 480 680"
        preserveAspectRatio="xMinYMid slice">
     <path class="cf-line" opacity="0.31" d="M 400 212 L 397 213 L 393 215 L 387 220 L 380 226 L 374 233 L 370 240 L 367 246 L 365 253 L 364 260 L 363 267 L 364 273 L 366 280 L 367 282 L 369 287 L 373 292 L 380 298 L 383 300 L 387 302 L 393 305 L 400 306 L 407 306 L 413 306 L 420 304 L 427 302 L 431 300 L 433 299 L 440 295 L 442 293 L 447 289 L 449 287 L 453 281 L 458 273 L 460 268 L 462 260 L 463 253 L 462 247 L 461 240 L 460 237 L 459 233 L 455 227 L 453 225 L 449 220 L 447 218 L 440 213 L 433 210 L 427 209 L 420 208 L 413 208 L 407 210 L 400 212"/>
@@ -945,7 +933,7 @@ footer {
   </div>
 </div>
 
-<!-- sticky mini-header (appears on scroll) -->
+
 <div class="mini-header" id="miniHeader" aria-hidden="true">
   <div class="mini-inner">
     <span class="mini-name" id="miniName"></span>
@@ -956,7 +944,7 @@ footer {
   </div>
 </div>
 
-<!-- ── Report ──────────────────────────────────────────── -->
+
 <div id="reportView">
 
   <div class="rpt-top rv">
@@ -971,10 +959,10 @@ footer {
     </div>
   </div>
 
-  <!-- Verdict headline -->
+
   <p class="verdict rv" id="verdict"></p>
 
-  <!-- Headline score -->
+
   <div class="metrics rv" id="secMetrics">
     <div class="metric metric-lead">
       <span class="label">Hirability</span>
@@ -1006,13 +994,13 @@ footer {
     </div>
   </div>
 
-  <!-- Next steps (LLM guidance) -->
+
   <div class="summary-card rv" id="summaryCard" style="display:none">
     <span class="label">What to do next</span>
     <p id="summaryText"></p>
   </div>
 
-  <!-- 01 Occupation match -->
+
   <div class="sec rv" id="secMatch">
     <div class="sec-head">
       <span class="sec-num">01</span>
@@ -1026,7 +1014,7 @@ footer {
     <p class="match-desc stag" style="--d:.2s" id="matchDesc"></p>
     <div class="market-stats" id="marketStats"></div>
 
-    <!-- Retarget: the guess drives every number, so let the user correct it -->
+
     <div class="retarget" id="retarget">
       <div class="rt-head">
         <span class="rt-label">Your top roles · hirability for each — click to switch</span>
@@ -1044,7 +1032,7 @@ footer {
     </div>
   </div>
 
-  <!-- 02 Skill gaps — what to do next comes before what you already have -->
+
   <div class="sec rv" id="secGaps">
     <div class="sec-head">
       <span class="sec-num">02</span>
@@ -1055,7 +1043,7 @@ footer {
     <div class="sim-note" id="simNote"></div>
   </div>
 
-  <!-- 03 Strengths -->
+
   <div class="sec rv" id="secStrengths">
     <div class="sec-head">
       <span class="sec-num">03</span>
@@ -1078,8 +1066,7 @@ footer {
         <div class="sg-counts" id="sgCounts"></div>
       </div>
 
-      <!-- What the resume itself signals to a reader, beyond the tool list —
-           the advice side of the product, not another number. -->
+
       <div class="signal-check">
         <div class="sc-head">Resume signal check</div>
         <p class="sc-sub">What your resume shows a reader beyond the tools you know.</p>
@@ -1090,7 +1077,7 @@ footer {
     <div class="tags" id="strengthTags"></div>
   </div>
 
-  <!-- 04 Automation exposure -->
+
   <div class="sec rv" id="secExposure">
     <div class="sec-head">
       <span class="sec-num">04</span>
@@ -1111,7 +1098,7 @@ footer {
     </div>
   </div>
 
-  <!-- 05 Matching jobs -->
+
   <div class="sec rv" id="secJobs">
     <div class="sec-head">
       <span class="sec-num">05</span>
@@ -1141,7 +1128,7 @@ footer {
 
 </div>
 
-<!-- scrollspy rail -->
+
 <nav class="rail" id="rail" aria-hidden="true">
   <a href="#secMatch"     data-sec="secMatch">01</a>
   <a href="#secGaps"      data-sec="secGaps">02</a>
@@ -1158,10 +1145,10 @@ const JOBS_API = API_BASE + '/jobs';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ARC_LEN = 157.1;
 let currentFile = null;
-let jobQuery = { title: '', skills: [] };   // captured from the last analysis
+let jobQuery = { title: '', skills: [] };
 let workMode = 'remote';
 
-/* ── utils ─────────────────────────────────────────────── */
+
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1190,7 +1177,7 @@ function scramble(el, text, speed = 26) {
   }, speed);
 }
 
-/* ── occupation ticker (upload view ambience) ──────────── */
+
 const TICKER_ROWS = [
   ['15-1252', 'Software Developers'],        ['29-1141', 'Registered Nurses'],
   ['15-2051', 'Data Scientists'],            ['13-2011', 'Accountants & Auditors'],
@@ -1212,7 +1199,7 @@ const TICKER_ROWS = [
   $('tickerTrack').innerHTML = rows;
 })();
 
-/* live analysis count for the privacy line — the one number the service keeps */
+
 (async function fetchStats() {
   try {
     const res = await fetch(API.replace('/analyze', '/stats'));
@@ -1224,10 +1211,10 @@ const TICKER_ROWS = [
         `Yours is analyzed in memory and deleted the moment your report is ready; ` +
         `only that running count is stored.`;
     }
-  } catch (e) { /* server offline — the static line stands */ }
+  } catch (e) {  }
 })();
 
-/* ── upload handling ───────────────────────────────────── */
+
 const dropZone = $('dropZone');
 const fileInput = $('fileInput');
 
@@ -1257,7 +1244,7 @@ function showErr(msg) {
   el.classList.add('show');
 }
 
-/* ── analysis log — pipeline stages as terminal output ── */
+
 const STAGES = [
   'reading document',
   'extracting skill entities',
@@ -1294,7 +1281,7 @@ function startLog(t0) {
   log.classList.add('show');
 
   const addLine = (text) => {
-    // mark previous line done
+
     const prev = log.querySelector('.log-line.active');
     if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.st').textContent = 'ok'; }
     const el = document.createElement('div');
@@ -1307,7 +1294,7 @@ function startLog(t0) {
   };
 
   addLine('POST /analyze');
-  // pace the pipeline stages across the expected wait; hold on the last one
+
   STAGES.forEach((stage, i) => {
     logTimers.push(setTimeout(() => addLine(stage), 900 + i * 3200));
   });
@@ -1316,7 +1303,7 @@ function startLog(t0) {
   bar.className = 'log-bar';
   bar.innerHTML = '<i></i>';
   log.appendChild(bar);
-  // keep the bar last as lines are appended
+
   logBarMO = new MutationObserver(() => {
     if (bar.parentNode === log && log.lastElementChild !== bar) log.appendChild(bar);
   });
@@ -1338,7 +1325,7 @@ function finishLog(ok) {
   if (bar) bar.remove();
 }
 
-/* ── analyze ───────────────────────────────────────────── */
+
 async function analyze(opts = {}) {
   if (!currentFile) return;
   $('uploadActions').classList.remove('show');
@@ -1348,8 +1335,8 @@ async function analyze(opts = {}) {
 
   const form = new FormData();
   form.append('file', currentFile);
-  // The browser still holds the file, so re-scoring against a different target
-  // is just another POST — no server-side session to keep in sync.
+
+
   if (opts.targetSoc) form.append('target_soc', opts.targetSoc);
   if (opts.jobDescription) form.append('job_description', opts.jobDescription);
   try {
@@ -1368,15 +1355,12 @@ async function analyze(opts = {}) {
   }
 }
 
-/* ── switching between the shortlisted roles ───────────────
-   Every role's analysis arrives with the report, so this is a local re-render:
-   no request, no trip back through the upload screen, no eight-second wait to
-   see numbers the server already sent. */
+
 let baseReport = null;
 
 function swapTargets() {
-  // Everything a role change affects — the role cards are excluded on purpose
-  // so the control you clicked stays still.
+
+
   const head = $('secMatch');
   return [
     $('verdict'), $('secMetrics'), $('summaryCard'), $('secGaps'),
@@ -1390,13 +1374,13 @@ function switchRole(soc, card) {
   if (!baseReport || !baseReport.target) return;
   const views = baseReport.target.role_views || {};
   const isBase = soc === baseReport.target.soc_code;
-  // Scoring against a pasted posting has no precomputed alternatives, so fall
-  // back to asking the server rather than leaving the click dead.
+
+
   if (!isBase && !views[soc]) { retarget(false, soc); return; }
 
   if (card) {
     card.classList.remove('picking');
-    void card.offsetWidth;              // restart the sweep
+    void card.offsetWidth;
     card.classList.add('picking');
   }
 
@@ -1418,7 +1402,7 @@ function switchRole(soc, card) {
   setTimeout(() => {
     const y = window.scrollY;
     renderReport(next, null, true);
-    window.scrollTo(0, y);             // re-render must not throw you to the top
+    window.scrollTo(0, y);
     swapTargets().forEach(n => {
       n.classList.remove('swap-out');
       n.classList.add('swap-in');
@@ -1428,7 +1412,7 @@ function switchRole(soc, card) {
   }, 180);
 }
 
-/* ── re-score against a different target ───────────────── */
+
 function toggleJd() {
   const box = $('rtJd');
   const open = box.style.display === 'none';
@@ -1464,7 +1448,7 @@ function resetView() {
   window.scrollTo(0, 0);
 }
 
-/* ── reveal-on-scroll + scrollspy ──────────────────────── */
+
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); } });
 }, { threshold: 0.12 });
@@ -1478,7 +1462,7 @@ const spyObs = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-35% 0px -55% 0px' });
 
-/* ── tag lists with show-all toggle ────────────────────── */
+
 function renderTags(el, items, limit) {
   const draw = (list, showToggle) => {
     el.innerHTML = list.map((t, i) => {
@@ -1501,14 +1485,14 @@ function renderTags(el, items, limit) {
 }
 
 function gapRow(idx, r, delay, sim) {
-  // Only surface a demand badge when it's a real caution — "growing" on every
-  // row is noise. A declining skill is the exception worth flagging.
+
+
   const trendTag = r.demand_trend === 'declining'
     ? `<span class="gap-meta trend-declining">declining demand</span>` : '';
   const effortTag = r.effort_label
     ? `<span class="gap-meta">${esc(r.effort_label)}</span>` : '';
-  // What learning it would actually move the score by — a recommendation
-  // without a number is just an opinion.
+
+
   let deltaTag = '';
   if (sim) {
     deltaTag = sim.measurable && sim.delta > 0
@@ -1527,7 +1511,7 @@ function gapRow(idx, r, delay, sim) {
   </div>`;
 }
 
-/* ── score breakdown ───────────────────────────────────── */
+
 function toggleBreakdown(id, btn) {
   const el = $(id);
   const open = el.classList.toggle('open');
@@ -1541,9 +1525,8 @@ function resetBreakdown(id) {
   if (btn && btn.classList.contains('why-btn')) btn.classList.remove('open');
 }
 function renderBreakdown(id, comps, note) {
-  // Each component's max possible contribution is its weight×100; the filled
-  // bar shows earned points against that cap. The weights themselves move with
-  // career stage, so say which stage produced them.
+
+
   const head = note ? `<div class="bd-note">${esc(note)}</div>` : '';
   $(id).innerHTML = head + comps.map(c => {
     const cap = Math.round(c.weight * 100);
@@ -1553,13 +1536,13 @@ function renderBreakdown(id, comps, note) {
       const d = c.detail, r = x => Math.round((x || 0) * 100);
       let bits;
       if (d.signals) {
-        bits = d.signals;                     // track record: what it found
+        bits = d.signals;
       } else {
         bits = [`weighted coverage ${r(d.breadth)}`,
                 `specialization ${r(d.specialization)}`,
                 `complementarity ${r(d.complementarity)}`];
-        // How much the resume itself documents; the rest is held at an average
-        // candidate rather than assumed weak.
+
+
         if (d.evidence != null) bits.push(`resume evidence ${r(d.evidence)}`);
       }
       sub = `<div class="bd-detail">${esc(bits.join(' · '))}</div>`;
@@ -1573,13 +1556,12 @@ function renderBreakdown(id, comps, note) {
   }).join('');
 }
 
-/* ── market benchmark ──────────────────────────────────── */
+
 function renderMarket(lm, comp) {
   if (!lm) return '';
   const tiles = [];
-  // Competitiveness lives here rather than beside hirability: it is a
-  // statement about market position, and two composite gauges side by side
-  // read as two verdicts when they are largely the same one.
+
+
   if (comp && comp.score != null) {
     tiles.push([`${Math.round(comp.score)}<span class="mstat-sub">/100</span>`,
                 `market position · ${comp.level || ''}`]);
@@ -1612,10 +1594,10 @@ function renderMarket(lm, comp) {
   return html;
 }
 
-/* ── report rendering ──────────────────────────────────── */
+
 function renderReport(d, elapsed, isSwitch) {
-  // The first render of a server response is the baseline every role switch
-  // is built from; switching roles must not overwrite it.
+
+
   if (!isSwitch) baseReport = d;
   const s    = d.summary || {};
   const comp = d.competitiveness || {};
@@ -1625,13 +1607,12 @@ function renderReport(d, elapsed, isSwitch) {
   const recs = d.recommendations || [];
   const highlights = gaps.highlights || [];
 
-  // reset reveal state for repeat runs — but not when swapping roles in place,
-  // where re-running the entrance animation would fight the crossfade.
+
   if (!isSwitch) {
     document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
   }
 
-  // header + verdict + sticky mini-header
+
   $('rptFile').textContent = d.resume || 'Report';
   $('miniName').textContent = d.resume || '';
   if (!isSwitch) {
@@ -1641,12 +1622,12 @@ function renderReport(d, elapsed, isSwitch) {
   $('verdict').innerHTML = d.verdict
     ? esc(d.verdict).replace(/^(.*?)(\sfor\s)/, '<b>$1</b>$2') : '';
 
-  // next-steps summary
+
   const summaryText = d.summary_text || '';
   $('summaryCard').style.display = summaryText ? '' : 'none';
   $('summaryText').textContent = summaryText;
 
-  // headline score — one number, rounded, with the band the model implies
+
   const h = s.hirability_score || 0;
   const c = comp.score || 0;
   const range = s.hirability_range;
@@ -1672,16 +1653,15 @@ function renderReport(d, elapsed, isSwitch) {
   const segIdx = { Low: 0, Medium: 1, High: 2 }[lvl];
   for (let i = 0; i < 3; i++) segs[i].className = (i === segIdx) ? 'on-' + lvl : '';
 
-  // 01 what we scored against, and the controls to change it
+
   const target = d.target || null;
   let topTitle = target ? target.title : '';
   if (tops.length || target) {
     const top = tops[0] || {};
     topTitle = (target && target.title) || top.title || '';
     $('secMatch').style.display = '';
-    // Set the title outright; the scramble effect replays it afterwards. If it
-    // only ever arrived via the animation, a print or an early screenshot
-    // would capture an empty heading.
+
+
     $('matchTitle').textContent = topTitle;
     $('matchSoc').textContent = target && target.soc_code ? 'SOC ' + target.soc_code : '';
     $('matchDesc').textContent = top.description || '';
@@ -1691,14 +1671,10 @@ function renderReport(d, elapsed, isSwitch) {
           auto: 'best match for your resume' }[target.source] || ''
       : '';
 
-    // BLS market snapshot + benchmark, with competitiveness folded in — it is
-    // a market-position statement, not a second headline verdict.
+
     $('marketStats').innerHTML = renderMarket(d.labor_market, comp);
 
-    // One card per shortlisted role, each showing the hirability score for
-    // *that* role — the whole report re-runs against whichever is clicked.
-    // Listed closest-match first — the order carries the fit, so no card needs
-    // to be labelled as the weaker one.
+
     const roles = (target && target.role_options) || [];
     $('roleCards').innerHTML = roles.map(r => {
       const active = target && r.soc_code === target.soc_code;
@@ -1714,7 +1690,7 @@ function renderReport(d, elapsed, isSwitch) {
     }).join('');
     $('retarget').style.display = roles.length > 1 ? '' : 'none';
 
-    // When scored against a posting, show what it actually asked for.
+
     const pskills = (target && target.posting_skills) || [];
     $('rtSkills').innerHTML = pskills.length
       ? `<span class="rt-skill">posting asks for:</span>` + pskills.slice(0, 14).map(p =>
@@ -1724,7 +1700,7 @@ function renderReport(d, elapsed, isSwitch) {
     $('secMatch').style.display = 'none';
   }
 
-  // 03 strengths — highlights + coverage ring ledger + matched skills
+
   const strengthItems = (gaps.strengths || []);
   const strengths = strengthItems.map(skillName);
   $('secStrengths').style.display = (strengths.length || highlights.length) ? '' : 'none';
@@ -1737,14 +1713,12 @@ function renderReport(d, elapsed, isSwitch) {
       + (implied ? ` · ${implied} inferred` : '');
     $('coverageLedger').style.display = '';
     $('clPct').textContent = ss ? ss.score : Math.round(ringFrac * 100);
-    $('clRing').style.strokeDashoffset = 213.6;  // reset; animated on reveal
+    $('clRing').style.strokeDashoffset = 213.6;
     const have = ss ? ss.matched : strengths.length;
     $('sgCounts').innerHTML = `<b>${have}</b> skills the role values`
       + (implied ? `<br><b>${implied}</b> inferred from related skills` : '');
 
-    // Resume signal check — what the text signals to a reader, with a concrete
-    // fix for each signal it doesn't send. This is where the resume-writing
-    // advice lives; everything else on the page is about skills.
+
     const checks = ((d.career_stage || {}).track_record || {}).checks || [];
     $('signalList').innerHTML = checks.map(c => `
       <li class="sc-item ${c.found ? 'found' : 'miss'}">
@@ -1754,8 +1728,7 @@ function renderReport(d, elapsed, isSwitch) {
       </li>`).join('');
     $('signalList').parentElement.style.display = checks.length ? '' : 'none';
 
-    // Mark the ones credited from a related skill rather than claimed, so the
-    // reader can check the inference instead of taking it on trust.
+
     renderTags($('strengthTags'), strengthItems.map(t => (
       typeof t === 'object' && t.implied
         ? { name: t.skill, note: t.via ? 'via ' + t.via : 'inferred' }
@@ -1767,7 +1740,7 @@ function renderReport(d, elapsed, isSwitch) {
     $('strengthTags').innerHTML = '';
   }
 
-  // 02 skill gaps, each with what learning it would move the score by
+
   const simBySkill = {};
   ((d.simulation && d.simulation.skills) || []).forEach(x => {
     simBySkill[skillName(x.skill).toLowerCase()] = x;
@@ -1786,7 +1759,7 @@ function renderReport(d, elapsed, isSwitch) {
     $('secGaps').style.display = 'none';
   }
 
-  // 04 automation exposure
+
   $('secExposure').style.display = exp.level ? '' : 'none';
   if (exp.level) {
     const el = $('expLevel');
@@ -1794,13 +1767,13 @@ function renderReport(d, elapsed, isSwitch) {
     el.className = 'exposure-level exposure-' + lvl;
     $('expIdx').textContent = `index ${(exp.score || 0).toFixed(2)} / 1.00`;
     $('expText').textContent = exp.explanation || '';
-    // names only — the raw O*NET importance numbers mean nothing to a user
+
     const protective = (gaps.abstract_skills_required || []).map(skillName);
     $('protectiveWrap').style.display = protective.length ? '' : 'none';
     renderTags($('protectiveTags'), protective, 8);
   }
 
-  // 05 matching jobs — capture query inputs, reset any prior results
+
   jobQuery = {
     title: topTitle || (s.top_match_title || ''),
     skills: (d.skills && d.skills.extracted) ? d.skills.extracted : strengths,
@@ -1811,7 +1784,7 @@ function renderReport(d, elapsed, isSwitch) {
   $('jobsNote').textContent = '';
   setWorkMode('remote');
 
-  // switch views, then choreograph the entrance
+
   $('uploadView').style.display = 'none';
   $('reportView').classList.add('show');
   $('rail').classList.add('show');
@@ -1824,9 +1797,7 @@ function renderReport(d, elapsed, isSwitch) {
   });
   miniObs.observe($('secMetrics'));
 
-  // The headline number is stated, not animated: a score counting up through
-  // values it never had reads as a glitch on the one figure that must look
-  // solid. The arc still animates.
+
   $('hVal').textContent = Math.round(h);
   requestAnimationFrame(() => requestAnimationFrame(() => {
     $('hArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(h, 100) / 100);
@@ -1840,7 +1811,7 @@ function renderReport(d, elapsed, isSwitch) {
   }));
 }
 
-/* ── sticky mini-header: show once the metrics scroll out of view ── */
+
 const miniObs = new IntersectionObserver(entries => {
   entries.forEach(en => {
     const show = !en.isIntersecting && en.boundingClientRect.top < 0;
@@ -1848,7 +1819,7 @@ const miniObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0 });
 
-/* ── matching jobs ─────────────────────────────────────── */
+
 function setWorkMode(mode) {
   workMode = mode;
   document.querySelectorAll('#workMode .seg-btn').forEach(b =>
@@ -1930,7 +1901,7 @@ async function searchJobs() {
     }
     const data = await res.json();
 
-    // Deep links to the major boards, pre-filled — always shown
+
     const links = data.search_links || [];
     $('jobLinks').innerHTML = links.length
       ? `<span class="job-links-label">Open on:</span>` +

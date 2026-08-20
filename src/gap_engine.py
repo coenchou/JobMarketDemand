@@ -51,7 +51,7 @@ def compute_skill_gaps(
         abstract_skills_required: top essential/cognitive skills for the occupation
     """
     from src import posting_demand
-    from src.skill_matcher import get_occ_tools  # avoid circular at module level
+    from src.skill_matcher import get_occ_tools
     from src.skill_implication import classify_occupation_tools, gap_priority
 
     occ_tools = tools if tools is not None else get_occ_tools(target_soc or "")
@@ -64,7 +64,6 @@ def compute_skill_gaps(
             "abstract_skills_required": [],
         }
 
-    # Deduplicate occupation tools by normalised name
     deduped = occ_tools.drop_duplicates(subset=["tool_norm"]).copy()
     status = classify_occupation_tools(
         [str(t) for t in deduped["tool_name"]], user_skills)
@@ -78,8 +77,6 @@ def compute_skill_gaps(
         cls = status.get(tool_name, {})
         state = cls.get("status", "gap")
         if state in ("held", "implied"):
-            # `implied` marks a skill credited from something related rather
-            # than claimed outright, so the report can show which is which.
             strengths.append({
                 "skill": tool_name,
                 "implied": state == "implied",
@@ -101,9 +98,6 @@ def compute_skill_gaps(
                 "priority": gap_priority(demand_score, cls.get("relevance", 0.0), share),
             })
 
-    # Skills the live market asks for that O*NET never lists for this
-    # occupation. The survey structurally cannot produce these, and they are
-    # often the most current thing a candidate could learn.
     market_only = posting_demand.market_only_skills(
         title, [str(t) for t in deduped["tool_name"]])
     if market_only:
@@ -126,11 +120,8 @@ def compute_skill_gaps(
                 "source": "postings",
             })
 
-    # Rank by demand weighted by closeness to the candidate's own work, so the
-    # list reads as "what to learn next" rather than "everything O*NET lists".
     gaps.sort(key=lambda x: (-x["priority"], x["element_category"], x["skill"]))
 
-    # Deduplicate by element_category — keep the highest-demand tool per category
     seen_cats: Set[str] = set()
     deduped_gaps: List[Dict] = []
     for g in gaps:
@@ -139,11 +130,9 @@ def compute_skill_gaps(
             seen_cats.add(cat)
             deduped_gaps.append(g)
 
-    # Fall back to non-deduped list if we filtered too aggressively
     final_gaps = deduped_gaps if len(deduped_gaps) >= 5 else gaps
     final_gaps = final_gaps[:max_gaps]
 
-    # Abstract essential skills for the occupation
     es = _load_essential_skills()
     occ_abstract = (
         es[es["soc_code"] == target_soc]
@@ -157,7 +146,6 @@ def compute_skill_gaps(
         for _, r in occ_abstract.head(8).iterrows()
     ]
 
-    # Commodity tools are excluded from the denominator, not counted as missing.
     total = max(1, len(deduped) - ignored_basic)
     matched_count = len(strengths)
     coverage = round(matched_count / total, 3)
@@ -168,7 +156,6 @@ def compute_skill_gaps(
         "matched_count": matched_count,
         "total_occ_tools": total,
         "ignored_basic": ignored_basic,
-        # Claimed skills first, then inferred ones, alphabetical within each.
         "strengths": sorted(strengths, key=lambda s: (s["implied"], s["skill"].lower())),
         "gaps": final_gaps,
         "abstract_skills_required": abstract_skills,

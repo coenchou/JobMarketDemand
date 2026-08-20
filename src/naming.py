@@ -14,7 +14,6 @@ from typing import Dict, List
 
 from src.embeddings import _norm
 
-# Leading tokens that name the seller, not the tool.
 _VENDOR_PREFIXES: List[List[str]] = [
     ["amazon", "web", "services"], ["amazon", "web", "service"],
     ["grafana", "labs"], ["hewlett", "packard", "enterprise"],
@@ -28,11 +27,9 @@ _VENDOR_PREFIXES: List[List[str]] = [
     ["splunk"], ["elastic"], ["hashicorp"], ["salesforce", "com"],
 ]
 
-# Trailing tokens that name the category, not the tool.
 _SUFFIXES = {"software", "systems", "system", "tools", "tool", "suite",
              "application", "applications", "platform", "program"}
 
-# Names whose tidy form isn't derivable from the string alone.
 _OVERRIDES: Dict[str, str] = {
     "structured query language sql": "SQL",
     "extensible markup language xml": "XML",

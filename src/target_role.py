@@ -29,29 +29,15 @@ import pandas as pd
 from src.embeddings import _embed, _norm
 from src.skill_matcher import _generic_words, _load_sw, get_occ_tools
 
-# A skill named this many times in one posting reads as a core requirement
-# rather than a passing mention.
 _HOT_MENTIONS = 2
 _MAX_NGRAM = 4
 
-
-# ---------------------------------------------------------------------------
-# Occupation targets
-# ---------------------------------------------------------------------------
 
 def occupation_frame(soc_code: str) -> pd.DataFrame:
     """The O*NET tool list for an occupation, deduped by normalised name."""
     return get_occ_tools(soc_code).drop_duplicates(subset=["tool_norm"]).copy()
 
 
-# ---------------------------------------------------------------------------
-# Job-posting targets
-# ---------------------------------------------------------------------------
-
-# Single-token tool names that are also ordinary English words, but whose tool
-# reading dominates in a job posting. Anything else that is a dictionary word
-# is dropped: "we analyze", "go to market" and "access the system" are prose,
-# not requirements, and no amount of counting separates them from the tools.
 _TOOL_WORDS: Set[str] = {
     "python", "ruby", "scala", "django", "flask", "angular", "react", "excel",
     "tableau", "oracle", "jira", "slack", "notion", "figma", "jenkins",
@@ -63,8 +49,6 @@ _TOOL_WORDS: Set[str] = {
 }
 
 
-# Fallback when the system word list is unavailable: the English words most
-# likely to collide with a tool name in posting prose.
 _COMMON_WORDS: Set[str] = {
     "go", "access", "word", "project", "analyze", "analysis", "build", "design",
     "test", "monitor", "process", "report", "review", "support", "train",
@@ -74,7 +58,6 @@ _COMMON_WORDS: Set[str] = {
 }
 
 
-# Acronyms the curated tables store lower-case; title-casing them reads wrong.
 _DISPLAY_OVERRIDES: Dict[str, str] = {
     "aws": "AWS", "gcp": "GCP", "sql": "SQL", "nosql": "NoSQL", "css": "CSS",
     "html": "HTML", "nlp": "NLP", "mlops": "MLOps", "dbt": "dbt", "ci cd": "CI/CD",
@@ -96,8 +79,6 @@ def _is_english(word: str, english: Set[str]) -> bool:
     return word in english or (word.endswith("s") and word[:-1] in english)
 
 
-# O*NET prefixes tool names with the vendor. Stripping a known vendor leaves a
-# product name that postings use on its own ("IBM Terraform" → "Terraform").
 _VENDORS: Set[str] = {
     "apache", "ibm", "microsoft", "oracle", "google", "amazon", "adobe", "esri",
     "sap", "salesforce", "cisco", "intel", "nvidia", "jetbrains", "atlassian",
@@ -107,18 +88,10 @@ _VENDORS: Set[str] = {
     "aws", "hewlett", "packard", "corel", "intuit", "quest", "tibco",
 }
 
-# Nominalisation endings: a token shaped like this names a *kind* of software
-# ("purchasing", "budgeting", "automation"), not a product. Without this the
-# alias rule turns half of O*NET's category-style entries into phantom skills
-# that fire on ordinary posting prose.
 _CATEGORY_SUFFIXES: Tuple[str, ...] = (
     "ing", "ion", "ions", "ment", "ments", "ance", "ence", "ity", "ities",
 )
 
-# Aliases that pass every structural test and are still wrong, because the
-# product borrowed a word the industry uses constantly. "Adobe LifeCycle ES"
-# would otherwise claim every posting that says "development lifecycle".
-# Curated from what the harvester surfaced; extend as new ones appear.
 _ALIAS_BLOCKLIST: Set[str] = {
     "lifecycle", "workstation", "workspace", "connect", "insight", "insights",
     "discovery", "foundation", "essentials", "enterprise", "professional",
@@ -155,8 +128,6 @@ def _skill_vocabulary() -> Dict[str, str]:
     english = _english_words()
     vocab: Dict[str, str] = {}
 
-    # Curated names first so they win the display form, then O*NET's full tool
-    # names, then single-word aliases derived from them.
     for name in SKILL_DIFFICULTY:
         vocab.setdefault(_norm(name), _display(name))
     for entry in EMERGING_AI_SKILLS:
@@ -167,16 +138,6 @@ def _skill_vocabulary() -> Dict[str, str]:
     for tool_norm, tool_name in tool_names.items():
         vocab.setdefault(tool_norm, tool_name)
 
-    # O*NET writes "Apache Kafka" and "IBM Terraform"; postings write "Kafka"
-    # and "Terraform". Register the product half of a vendor-prefixed name as
-    # an alias.
-    #
-    # Only vendor-prefixed names qualify. Deriving aliases from the rest turns
-    # O*NET's category-style entries into phantom skills that fire on ordinary
-    # prose — "Email software" donates "email", "Workforce management software"
-    # donates "workforce", and "Salesforce.com Salesforce CRM" donates "com",
-    # which then matches 86% of postings. A vendor prefix is the only reliable
-    # evidence that what remains is a product name.
     for tool_norm, tool_name in tool_names.items():
         words = tool_norm.split()
         if not set(words) & _VENDORS:
@@ -308,10 +269,6 @@ def nearest_occupation(
     pool.sort(key=lambda s: -by_soc[s])
     return [{"soc_code": s, "similarity": round(by_soc[s], 4)} for s in pool[:top_n]]
 
-
-# ---------------------------------------------------------------------------
-# Resolution
-# ---------------------------------------------------------------------------
 
 def resolve_target(
     candidates: List[Dict[str, Any]],

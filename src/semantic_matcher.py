@@ -28,10 +28,6 @@ EMB_FILE = PROCESSED_DIR / "occ_embeddings.npz"
 META_FILE = PROCESSED_DIR / "occ_embeddings_meta.json"
 
 
-# ---------------------------------------------------------------------------
-# Embedding cache
-# ---------------------------------------------------------------------------
-
 def _load_occ_data() -> pd.DataFrame:
     df = pd.read_excel(DATA_DIR / "Occupation Data.xlsx")
     df = df.rename(columns={
@@ -55,7 +51,6 @@ def _build_and_cache_embeddings() -> Tuple[List[str], np.ndarray]:
         return [], np.empty((0, 0), dtype=np.float32)
 
     occ = _load_occ_data()
-    # Embed title + description for richer context
     texts = (occ["title"] + ". " + occ["description"]).tolist()
     soc_codes = occ["soc_code"].tolist()
 
@@ -94,10 +89,6 @@ def load_occ_embeddings() -> Tuple[List[str], np.ndarray]:
     return _build_and_cache_embeddings()
 
 
-# ---------------------------------------------------------------------------
-# Resume query builder
-# ---------------------------------------------------------------------------
-
 def build_resume_query(
     experience_lines: List[str],
     skills: List[str],
@@ -114,10 +105,6 @@ def build_resume_query(
     exp_text = " ".join(experience_lines[:max_exp_lines])
     return f"Skills and technologies: {skills_text}. Work experience: {exp_text}"
 
-
-# ---------------------------------------------------------------------------
-# Semantic scoring and blending
-# ---------------------------------------------------------------------------
 
 def semantic_score_candidates(
     experience_lines: List[str],
@@ -176,12 +163,10 @@ def blend_scores(
             c["blended_score"] = c["match_score"]
         return candidates
 
-    # Normalise tool-based scores
     tool_vals = [c["match_score"] for c in candidates]
     t_min, t_max = min(tool_vals), max(tool_vals)
     t_range = max(t_max - t_min, 1e-6)
 
-    # Normalise semantic scores (only for candidates that have one)
     sem_vals = [v for v in semantic_scores.values() if v is not None]
     s_min = min(sem_vals) if sem_vals else 0.0
     s_max = max(sem_vals) if sem_vals else 1.0

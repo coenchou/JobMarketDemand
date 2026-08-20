@@ -38,7 +38,6 @@ from src.skill_score import compute_skill_capital
 from src.simulator import simulate_additions
 from src.target_role import extract_posting_skills, occupation_frame
 
-# Fixed skill lists, so the parser and the LLM are out of the loop.
 ML_ENGINEER = [
     "Python", "Scala", "SQL", "bash", "TensorFlow", "PyTorch", "scikit-learn",
     "XGBoost", "HuggingFace Transformers", "MLflow", "Kubeflow", "AWS SageMaker",
@@ -70,7 +69,6 @@ class StrictMatchingTests(unittest.TestCase):
         self.assertNotIn("apache pig", hits)
 
     def test_generic_phrase_claims_nothing(self):
-        # "system design" is two category words; it names no product.
         self.assertEqual(match_skill_to_tools_strict("system design"), set())
         self.assertEqual(match_skill_to_tools_strict("feature engineering"), set())
 
@@ -89,7 +87,6 @@ class ImplicationTests(unittest.TestCase):
         cls.status = classify_occupation_tools(tools, ML_ENGINEER)
 
     def test_prerequisite_of_an_advanced_skill_is_implied(self):
-        # Nobody who ships PyTorch models lists Python separately.
         self.assertIn(self.status["Python"]["status"], ("held", "implied"))
         self.assertEqual(self.status["Linux"]["status"], "implied")
 
@@ -106,14 +103,12 @@ class ImplicationTests(unittest.TestCase):
         self.assertEqual(self.status["Apache Hadoop"]["status"], "gap")
 
     def test_beginner_gets_no_commodity_forgiveness(self):
-        # Forgiving basics requires evidence of something non-trivial.
         status = classify_occupation_tools(["Microsoft Word"], ["Microsoft Excel"])
         self.assertNotEqual(status["Microsoft Word"]["status"], "commodity")
 
     def test_priority_rises_with_demand_and_relevance(self):
         self.assertGreater(gap_priority(3.0, 0.8), gap_priority(0.0, 0.8))
         self.assertGreater(gap_priority(3.0, 0.8), gap_priority(3.0, 0.1))
-        # Live posting demand can carry a skill O*NET never flagged.
         self.assertGreater(gap_priority(0.0, 0.5, market_share=0.4),
                            gap_priority(0.0, 0.5, market_share=0.0))
 
@@ -124,8 +119,6 @@ class DifficultyTests(unittest.TestCase):
         self.assertEqual(get_difficulty_months("Microsoft Word"), 0.3)
 
     def test_token_subset_beats_substring(self):
-        # The old substring rule let the one-letter key "r" claim any name with
-        # an r in it, so every unknown tool inherited Python's difficulty.
         self.assertIsNone(_difficulty_from_table("qorbulator"))
         self.assertEqual(get_difficulty_months("Apache Spark"), 5.0)
 
@@ -138,8 +131,6 @@ class DifficultyTests(unittest.TestCase):
 class SkillCapitalTests(unittest.TestCase):
     """The headline component, pinned against hand-checked baselines."""
 
-    # score, breadth — regenerate deliberately if the model changes, never
-    # casually. A drift of more than a few points is a behaviour change.
     BASELINES = {
         "ml_engineer": (ML_ENGINEER, 0.763, 0.05),
         "data_analyst": (DATA_ANALYST, 0.439, 0.05),
@@ -160,7 +151,6 @@ class SkillCapitalTests(unittest.TestCase):
         self.assertGreater(strong, weak)
 
     def test_thin_resume_is_pulled_toward_the_prior(self):
-        # Little evidence must not read as evidence of weakness.
         cap = compute_skill_capital(JUNIOR, DATA_SCIENTIST_SOC)
         self.assertLess(cap["evidence"], 0.5)
         self.assertGreater(cap["score"], cap["measured"])
@@ -258,8 +248,6 @@ class CareerStageTests(unittest.TestCase):
         self.assertLess(entry["track_record"], senior["track_record"])
 
     def test_graduate_is_not_scored_mainly_on_missing_experience(self):
-        # The whole point: a new grad's degree must outweigh the experience
-        # they have not had time to accumulate.
         w = stage_weights(career_stage(None))
         self.assertGreater(w["education"], w["experience"])
 
@@ -278,8 +266,6 @@ class CareerStageTests(unittest.TestCase):
         self.assertIn("led people or set direction", senior["signals"])
 
     def test_thin_evidence_is_pulled_toward_the_prior(self):
-        # A resume that parses into bare job headers says nothing about
-        # achievements, so it must not be scored as though it said "none".
         headers = score_track_record(
             ["Software Engineer at Apple Inc."],
             ["Senior Software Engineer 05/03/2023 - 01/26/2024", "Apple Inc. Cupertino, CA"])
@@ -289,7 +275,7 @@ class CareerStageTests(unittest.TestCase):
     def test_track_record_handles_an_empty_resume(self):
         empty = score_track_record([], [])
         self.assertEqual(empty["evidence"], 0.0)
-        self.assertEqual(empty["score"], 0.5)   # no evidence → assume average
+        self.assertEqual(empty["score"], 0.5)
         self.assertTrue(empty["missing"])
 
 
@@ -301,7 +287,6 @@ class RoleRankingTests(unittest.TestCase):
          "match_score": 6.8, "blended_score": 0.99},
         {"soc_code": "15-1252", "title": "Software Developers",
          "match_score": 6.1, "blended_score": 0.71},
-        # Low entry bar, high hirability, but the resume does not read like it.
         {"soc_code": "25-2023", "title": "Career/Technical Education Teachers",
          "match_score": 6.4, "blended_score": 0.51},
     ]
@@ -321,8 +306,6 @@ class RoleRankingTests(unittest.TestCase):
         self.assertNotEqual(_pick_default_role(self.ranked), "25-2023")
 
     def test_listed_closest_first(self):
-        # The order carries the fit, which is why no card needs a "weaker
-        # fit" label.
         fits = [r["fit"] for r in self.ranked]
         self.assertEqual(fits, sorted(fits, reverse=True))
 

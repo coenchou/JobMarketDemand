@@ -17,8 +17,6 @@ import numpy as np
 
 from src.embeddings import _embed, _norm
 
-# Curated notes: normalised-substring key → (what, learning, optional trend override)
-# Keys are matched longest-first against the normalised tool name.
 _SKILL_NOTES: Dict[str, Tuple[str, str, Optional[str]]] = {
     "structured query language": (
         "SQL remains the single most common data requirement in job postings; nearly every role that touches stored data assumes it.",
@@ -208,7 +206,6 @@ _SKILL_NOTES: Dict[str, Tuple[str, str, Optional[str]]] = {
         "R keeps a strong position in statistics-heavy roles — biostatistics, research, parts of finance — where its modelling libraries lead.",
         "A month or two via the tidyverse covers data work; the statistical depth is what you build over time.",
         None),
-    # Emerging AI/ML skills (not in O*NET's technology data)
     "prompt engineering": (
         "Structuring inputs that get reliable output from language models has become a baseline expectation in AI-adjacent engineering roles.",
         "There is little theory to absorb — competence comes from a week or two of deliberate experimentation against real tasks.",
@@ -275,7 +272,6 @@ _SKILL_NOTES: Dict[str, Tuple[str, str, Optional[str]]] = {
         "growing"),
 }
 
-# Category-level fallbacks keyed by substrings of the O*NET element name.
 _CATEGORY_NOTES: List[Tuple[str, str, str]] = [
     ("database management",
      "{s} is a database platform; roles that manage stored data at scale list it among their core systems.",
@@ -349,9 +345,9 @@ def _lookup_skill_notes(skill: str) -> Optional[Tuple[str, str, Optional[str]]]:
     for key, notes in _SKILL_NOTES.items():
         k = key.strip().lower()
         if any(ch in k for ch in "+#"):
-            hit = k in raw          # symbols are lost by normalisation
+            hit = k in raw
         elif len(k) <= 3:
-            hit = k in norm_words   # short names must match a whole word
+            hit = k in norm_words
         else:
             hit = _norm(k) in norm_text
         if hit and len(k) > best_len:
@@ -370,7 +366,6 @@ def _closest_user_skill(gap_skill: str, user_skills: List[str]) -> Tuple[Optiona
             sims = np.nan_to_num(user_embs @ gap_emb, nan=0.0, posinf=0.0, neginf=0.0)
         idx = int(np.argmax(sims))
         return user_skills[idx], float(np.clip(sims[idx], 0.0, 1.0))
-    # Keyword fallback
     gap_words = set(_norm(gap_skill).split())
     best_skill, best = None, 0.0
     for s in user_skills:

@@ -101,8 +101,17 @@ responses contain extracted resume content. The only state that persists is a
 count of analyses run, served at `/stats`.
 
 The O*NET and BLS datasets are not in the repository — they are large, licensed
-and regenerable. Fetch them with `scripts/download_onet.py` and
-`scripts/build_bls_market.py` before first run.
+and regenerable. Fetch them before first run:
+
+```bash
+python scripts/download_onet.py            # O*NET workbooks
+python -m scripts.build_bls_market         # BLS employment projections
+python -m scripts.harvest_posting_skills   # optional: live posting demand
+```
+
+`GET /health` reports which datasets are present, whether an LLM key is
+configured, and which model is in use — point your platform's health check at
+it. `GET /stats` returns the analysis count.
 
 ## Tests
 

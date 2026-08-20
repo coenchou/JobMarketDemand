@@ -20,16 +20,12 @@ import numpy as np
 def _load_model():
     """Load sentence-transformers model once per process; return None on failure."""
     try:
-        from sentence_transformers import SentenceTransformer  # type: ignore
+        from sentence_transformers import SentenceTransformer
         return SentenceTransformer("all-MiniLM-L6-v2")
     except Exception:
         return None
 
 
-# Per-string embedding cache. Scoring a resume against several occupations
-# re-embeds the same skill list and a heavily overlapping tool vocabulary each
-# time; encoding is the dominant cost, so remembering vectors turns repeat
-# passes nearly free. Bounded because tool names are drawn from a fixed corpus.
 _CACHE: Dict[str, np.ndarray] = {}
 _CACHE_MAX = 20000
 
@@ -58,15 +54,9 @@ def _embed(texts: List[str]) -> Optional[np.ndarray]:
         return None
 
 
-# ---------------------------------------------------------------------------
-# Skill difficulty
-# ---------------------------------------------------------------------------
-
 def _norm(text: str) -> str:
     return re.sub(r"\W+", " ", text).lower().strip()
 
 
-# Public aliases — the underscored names are kept because most of the codebase
-# already imports them.
 embed = _embed
 normalise = _norm

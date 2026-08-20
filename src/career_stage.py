@@ -32,7 +32,6 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List, Optional
 
-# Stage boundaries in years of professional experience.
 _ENTRY_MAX = 1
 _EARLY_MAX = 4
 _MID_MAX = 9
@@ -85,11 +84,6 @@ def stage_explanation(stage: str) -> str:
     }.get(stage, "")
 
 
-# ---------------------------------------------------------------------------
-# Track record
-# ---------------------------------------------------------------------------
-
-# Signals of what the work actually demonstrated, and what each is worth.
 _SIGNALS: List[Dict[str, Any]] = [
     {
         "key": "leadership",
@@ -150,13 +144,9 @@ _SIGNALS: List[Dict[str, Any]] = [
 ]
 
 
-# A résumé that parsed into nothing but job headers cannot be judged on its
-# achievements; this many achievement-like lines earns full confidence.
 _FULL_EVIDENCE = 6.0
 _PRIOR = 0.5
 
-# Job headers ("Senior Engineer 05/03/2023 - 01/26/2024") describe no
-# achievement, and some PDFs parse into nothing else.
 _HEADER = re.compile(r"\d{1,2}/\d{1,2}/\d{2,4}|\b(19|20)\d{2}\s*[-–]")
 
 

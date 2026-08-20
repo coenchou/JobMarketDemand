@@ -40,7 +40,6 @@ def _wrap(text: str, indent: str = "  ", width: int = _WIDTH - 4) -> List[str]:
 
 
 def _rec_block(i: int, rec: Dict, index_width: int = 2) -> List[str]:
-    # Only note demand when it's a caution ("declining"); "growing" on every row is noise.
     parts = [rec.get("effort_label", "")]
     if rec.get("demand_trend") == "declining":
         parts.append("declining demand")
@@ -59,7 +58,6 @@ def format_report(r: Dict[str, Any]) -> str:
     gaps = r.get("skill_gaps", {})
     recs = r.get("recommendations", [])
 
-    # ── Header ────────────────────────────────────────────────
     lines += [
         "═" * _WIDTH,
         "  RESUME ANALYSIS".center(_WIDTH),
@@ -67,19 +65,16 @@ def format_report(r: Dict[str, Any]) -> str:
         "═" * _WIDTH,
     ]
 
-    # ── Verdict headline ──────────────────────────────────────
     verdict = r.get("verdict", "")
     if verdict:
         lines.append("")
         lines += _wrap(verdict)
 
-    # ── Next steps (LLM guidance) ─────────────────────────────
     summary_text = r.get("summary_text", "")
     if summary_text:
         lines.append(_section("NEXT STEPS"))
         lines += _wrap(summary_text)
 
-    # ── Scores ────────────────────────────────────────────────
     breakdown = r.get("score_breakdown", {})
     lines.append(_section("SCORES"))
     lines.append(_score_line("Hirability", s.get("hirability_score", 0),
@@ -97,7 +92,6 @@ def format_report(r: Dict[str, Any]) -> str:
         lines.append(f"  {'Automation exposure':<24} {lvl}  (index {ai_disp.get('score', 0):.2f})")
     lines.append(f"\n  {comp.get('explanation', '')}")
 
-    # ── Occupation match ──────────────────────────────────────
     if top_matches:
         top = top_matches[0]
         lines.append(_section(f"OCCUPATION MATCH: {top['title'].upper()}"))
@@ -126,7 +120,6 @@ def format_report(r: Dict[str, Any]) -> str:
                 score = m.get("blended_score", 0)
                 lines.append(f"    {m['title']:<38} {score:.2f}")
 
-    # ── Strengths ─────────────────────────────────────────────
     highlights = gaps.get("highlights", [])
     strengths = gaps.get("strengths", [])
     if highlights or strengths:
@@ -140,7 +133,6 @@ def format_report(r: Dict[str, Any]) -> str:
             names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths]
             lines += _wrap("  ·  ".join(names))
 
-    # ── Skill gaps ────────────────────────────────────────────
     top_title = top_matches[0]["title"] if top_matches else "the matched occupation"
     if recs:
         lines.append(_section("SKILL GAPS"))
@@ -148,7 +140,6 @@ def format_report(r: Dict[str, Any]) -> str:
         for i, rec in enumerate(recs, 1):
             lines += _rec_block(i, rec)
 
-    # ── Automation exposure ───────────────────────────────────
     if ai_disp:
         lines.append(_section("AUTOMATION EXPOSURE"))
         lvl = ai_disp.get("level", "")
@@ -161,7 +152,6 @@ def format_report(r: Dict[str, Any]) -> str:
             names = [a["skill"] if isinstance(a, dict) else str(a) for a in abstract[:5]]
             lines += _wrap("  ·  ".join(names))
 
-    # ── Footer ────────────────────────────────────────────────
     lines += [
         f"\n{'═' * _WIDTH}",
         "  Sources: O*NET occupational database".center(_WIDTH),

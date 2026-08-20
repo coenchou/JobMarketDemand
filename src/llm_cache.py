@@ -23,8 +23,8 @@ from typing import Any, Callable, Dict, Optional
 ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = Path(os.getenv("LLM_CACHE_DIR", ROOT / "data" / "cache" / "llm"))
 
-# Entries older than this are re-fetched; the market commentary in a report
-# should not be a year stale.
+MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")
+
 MAX_AGE_DAYS = 30
 
 

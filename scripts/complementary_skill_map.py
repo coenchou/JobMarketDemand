@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Build a complementary software-skill pair map from ONET data.
 
 This script reads the ONET software skills table in datasets/onet and ranks
@@ -24,13 +23,11 @@ def load_skill_frame(file_name: str) -> pd.DataFrame:
     path = DATA_DIR / file_name
     df = pd.read_excel(path)
 
-    # Keep only the software-skill rows that are actually valuable in demand.
     if file_name == "Software Skills.xlsx":
         hot = df["Hot Technology"].astype(str).str.strip().eq("Y") if "Hot Technology" in df.columns else pd.Series(False, index=df.index)
         in_demand = df["In Demand"].astype(str).str.strip().eq("Y") if "In Demand" in df.columns else pd.Series(False, index=df.index)
         df = df[hot | in_demand].copy()
 
-    # Keep a stable occupation key and the skill label.
     if "O*NET-SOC Code" in df.columns:
         df = df.rename(columns={"O*NET-SOC Code": "occupation_code"})
     if "Title" in df.columns:
@@ -42,7 +39,6 @@ def load_skill_frame(file_name: str) -> pd.DataFrame:
     if "importance" not in df.columns:
         df["importance"] = 1.0
 
-    # Normalize the skill label for co-occurrence analysis.
     df["skill_name"] = df["skill_name"].astype(str).str.strip()
     df["occupation_code"] = df["occupation_code"].astype(str).str.strip()
     df["occupation_title"] = df["occupation_title"].astype(str).str.strip()
@@ -57,10 +53,8 @@ def build_occupation_skill_table() -> pd.DataFrame:
     frames = [load_skill_frame(name) for name in files]
     combined = pd.concat(frames, ignore_index=True)
 
-    # Deduplicate repeated skill rows for the same occupation (e.g. multiple scales).
     combined = combined.drop_duplicates(subset=["occupation_code", "skill_name"], keep="first")
 
-    # Keep only occupations with at least two skills to make pair analysis meaningful.
     skill_counts = combined.groupby("occupation_code")["skill_name"].nunique().reset_index(name="skill_count")
     combined = combined.merge(skill_counts, on="occupation_code", how="left")
     combined = combined[combined["skill_count"] >= 2].copy()
@@ -72,7 +66,6 @@ def compute_pair_scores(occupation_skill_df: pd.DataFrame) -> pd.DataFrame:
     """Compute pair support, lift and a simple synergy score."""
     occupation_skill_df = occupation_skill_df.copy()
 
-    # Build occupation-level skill sets.
     occupation_sets = (
         occupation_skill_df.groupby("occupation_code", sort=False)
         .agg(skills=("skill_name", lambda s: tuple(sorted(set(s)))) )
@@ -97,7 +90,6 @@ def compute_pair_scores(occupation_skill_df: pd.DataFrame) -> pd.DataFrame:
         freq_a = skill_counts.get(skill_a, 0)
         freq_b = skill_counts.get(skill_b, 0)
 
-        # Lift > 1 means the pair appears more often than expected by chance.
         expected_support = (freq_a * freq_b) / total_occupations
         lift = support / expected_support if expected_support > 0 else 0.0
         synergy = support * lift
@@ -127,7 +119,6 @@ def main() -> None:
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Save the ranked map.
     pair_df.to_csv(OUTPUT_FILE, index=False)
 
     summary = [
@@ -153,7 +144,6 @@ def main() -> None:
     print(f"Saved to: {OUTPUT_FILE}")
     print(f"Summary saved to: {SUMMARY_FILE}")
 
-    # Print a short summary for quick inspection.
     print("\nTop 25 complementary skill pairs:")
     print(pair_df.head(25).to_string(index=False))
 

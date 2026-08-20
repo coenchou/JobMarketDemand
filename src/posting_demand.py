@@ -31,8 +31,6 @@ from src.embeddings import _norm
 ROOT = Path(__file__).resolve().parents[1]
 POSTING_CSV = ROOT / "data" / "processed" / "posting_skills.csv"
 
-# Occupation title keyword → posting category. The catalog's own category names
-# (as returned by the API, not the stale list job_search.py used to guess with).
 _TITLE_TO_CATEGORY: Tuple[Tuple[str, Tuple[str, ...]], ...] = (
     ("Data and Analytics", ("data scien", "data analyst", "analytics", "statistic",
                             "machine learning", "data engineer", "business intelligence",

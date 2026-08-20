@@ -48,10 +48,6 @@ from src.semantic_matcher import semantic_score_candidates, blend_scores
 DATA_DIR = ROOT / "data" / "raw" / "onet"
 
 
-# ---------------------------------------------------------------------------
-# Occupation metadata
-# ---------------------------------------------------------------------------
-
 @lru_cache(maxsize=1)
 def _load_occ_data() -> pd.DataFrame:
     path = DATA_DIR / "Occupation Data.xlsx"
@@ -81,11 +77,6 @@ def _enrich_candidates(candidates: List[Dict]) -> List[Dict]:
     return enriched
 
 
-# ---------------------------------------------------------------------------
-# Scoring helpers
-# ---------------------------------------------------------------------------
-
-# Fallback curves — used only when the occupation has no BLS row.
 def _edu_score(level: Optional[str]) -> float:
     return {"Associate's": 0.4, "Bachelor's": 0.7, "Master's": 0.9, "Doctorate": 1.0}.get(
         level or "", 0.3
@@ -244,7 +235,6 @@ def _competitiveness(
             _component("Experience fit", exp_fit, 0.15),
         ]
     else:
-        # no BLS outlook — reweight onto the other three
         components = [
             _component("Skill strength", skill, 0.45, skill_detail),
             _component("In-demand skills", hot_ratio, 0.30),
@@ -263,17 +253,6 @@ def _competitiveness(
     return {"score": score, "level": level, "explanation": blurb, "components": components}
 
 
-# ---------------------------------------------------------------------------
-# Ranking roles by how hirable the candidate actually is for each
-# ---------------------------------------------------------------------------
-
-# A role only gets to lead on hirability if the resume genuinely fits it.
-# Hirability rewards a low entry bar, so without a gate the pick drifts to
-# whichever occupation asks least: a senior software engineer scores 93 as a
-# middle-school teacher, purely because O*NET lists Excel for teachers and BLS
-# asks for a bachelor's. Tool overlap alone cannot tell those apart — every
-# office job shares a toolchain — so the gate uses the blended fit score, which
-# also carries how much the resume *reads* like that occupation.
 _MIN_FIT_RATIO = 0.85
 _N_ROLES = 5
 
@@ -326,8 +305,6 @@ def _rank_roles(
             "match_score": round(cand.get("match_score", 0.0), 3),
             "blended_score": cand.get("blended_score"),
             "fit": round(fit(cand), 3),
-            # Only a role the resume genuinely fits may be promoted ahead of
-            # the closest match on hirability alone.
             "eligible": fit(cand) >= _MIN_FIT_RATIO * best_fit,
         })
 
@@ -469,10 +446,6 @@ def _market_snapshot(
     }
 
 
-# ---------------------------------------------------------------------------
-# Main report builder
-# ---------------------------------------------------------------------------
-
 def build_report(
     resume_path: str,
     target_soc: Optional[str] = None,
@@ -493,30 +466,23 @@ def build_report(
     years: Optional[int] = parsed["years_experience"]
     edu: Optional[str] = parsed["education_level"]
 
-    # SOC candidate scoring
     candidates = score_soc_candidates(skills, top_n=10)
     enriched = _enrich_candidates(candidates)
 
-    # Semantic re-ranking: blend tool-based score with NLP similarity
     exp_lines: List[str] = parsed.get("experience_lines", [])
     semantic_scores = semantic_score_candidates(
         exp_lines, skills, [c["soc_code"] for c in enriched]
     )
     enriched = blend_scores(enriched, semantic_scores)
 
-    # What the resume demonstrates, independent of any one role.
     track: Dict = score_track_record(parsed.get("highlights", []), exp_lines)
 
-    # Rank the shortlisted occupations by hirability, not by tool overlap, and
-    # lead with the best one — matching an occupation closely is not the same
-    # as being hirable for it.
     role_options = _rank_roles(enriched, skills, years, edu, track)
     if role_options and not (target_soc or job_description):
         best = _pick_default_role(role_options)
         enriched = ([c for c in enriched if c["soc_code"] == best]
                     + [c for c in enriched if c["soc_code"] != best])
 
-    # What we are scoring against: the best role, an override, or a posting.
     occ = _load_occ_data()
     titles = dict(zip(occ["soc_code"], occ["title"]))
     target = resolve_target(
@@ -526,7 +492,6 @@ def build_report(
         occ_titles=titles,
     )
 
-    # When a posting names an occupation we didn't rank, surface it as the match.
     top = enriched[0] if enriched else None
     if target and target["source"] != "auto" and target.get("soc_code"):
         pinned = next((c for c in enriched if c["soc_code"] == target["soc_code"]), None)
@@ -547,17 +512,11 @@ def build_report(
     market_title = (target.get("occupation_title") if target else None) or (
         top["title"] if top else None)
 
-    # Compute skill gaps first — its coverage fraction (matched/total occupation
-    # tools) is a real 0-1 measure, far more discriminating for scoring than the
-    # raw match_score, which saturates for any decent match.
     skill_gaps: Dict = compute_skill_gaps(
         skills, target["soc_code"] if target else None,
         tools=target_tools, title=market_title,
     ) if target else {}
 
-    # Skill strength — value-weighted coverage + specialization + complementarity
-    # (see skill_score.py), not naive fraction-of-toolset. A focused specialist's
-    # deep, mutually-reinforcing skills score high even at low raw coverage.
     skill_cap: Dict = compute_skill_capital(
         skills, tools=target_tools, title=market_title) if target else {}
     skill_component = skill_cap.get("score", 0.0)
@@ -568,7 +527,6 @@ def build_report(
         "evidence": skill_cap.get("evidence"),
     } if skill_cap else None
 
-    # BLS labor-market data for the top-matched occupation grounds the scores
     market = get_market(top["soc_code"]) if top else None
 
     evidence = skill_cap.get("evidence") if skill_cap else None
@@ -577,7 +535,6 @@ def build_report(
     competitiveness = _competitiveness(
         skill_component, years, hot_count, len(matched_tools), market, skill_detail)
 
-    # NLP recommendations for top candidate
     recommendations: List[Dict] = []
     ai_displacement: Optional[Dict] = None
     summary_text: str = ""
@@ -592,52 +549,38 @@ def build_report(
             top.get("description", ""),
             top.get("title", ""),
         )
-        # Hand the blunt dataset gap list to the LLM: prune what the candidate
-        # obviously already has, add current skills the dataset misses, and
-        # produce a concrete next-steps summary.
         refined = llm_refine_recommendations(
             target_title or top["title"], skills, years, exp_lines, dataset_recs,
         )
         summary_text = refined["summary"]
-        # Display names from here on, so the recommendation, the focus list and
-        # the simulated delta all refer to the same string.
         recommendations = [
             {**r, "skill": pretty_skill(r["skill"])} for r in refined["recommendations"]
         ]
 
-        # Enrich the automation-exposure blurb with a concrete note on how AI is
-        # actually used in this field (from the same LLM call — no extra request).
         note = refined.get("automation_note", "")
         if note and ai_displacement:
             ai_displacement["explanation"] = (
                 ai_displacement.get("explanation", "").rstrip() + " " + note
             ).strip()
 
-    # A short list of what to actually learn next, not a count of everything the
-    # occupation lists. Prefers the refined recommendations (already ranked and
-    # pruned of things the candidate obviously has); falls back to the top
-    # in-demand true gaps from the skill-capital pass.
     focus_skills: List[str] = [
         r["skill"] for r in recommendations[:3]
     ] or [pretty_skill(g["skill"]) for g in skill_cap.get("focus_skills", [])[:3]]
 
     skills_from_exp: List[str] = parsed.get("skills_from_experience", [])
 
-    # Notable non-skill strengths: LLM highlights + synthesized experience/education
     highlights: List[str] = list(parsed.get("highlights", []))
     synth: List[str] = []
     if years:
         synth.append(f"{years} year{'s' if years != 1 else ''} of professional experience")
     if edu:
         synth.append(f"{edu} degree")
-    # Keep synthesized items only if not already implied by an LLM highlight
     hl_blob = " ".join(highlights).lower()
     for s in synth:
         key = s.split()[0].lower()
         if key not in hl_blob:
             highlights.append(s)
 
-    # What learning each recommended skill would actually move the score by.
     simulation: Optional[Dict] = None
     if target and target_tools is not None and skill_cap:
         exp_fit, edu_fit = _fits(years, edu, market)
@@ -655,9 +598,6 @@ def build_report(
             entry["skill"] = pretty_skill(entry["skill"])
 
 
-    # The full analysis for every other shortlisted role, precomputed so the
-    # reader can switch between them without a round trip. The role currently
-    # in view is omitted — it is the report itself.
     role_views: Dict[str, Any] = {}
     if target and target["source"] != "posting":
         for cand in enriched[:_N_ROLES]:
@@ -669,7 +609,6 @@ def build_report(
                 highlights=highlights,
             )
 
-    # BLS market snapshot for the matched occupation (None if no data)
     labor_market: Optional[Dict] = (
         _market_snapshot(top["soc_code"], top["title"], market, years, edu)
         if top else None)

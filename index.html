@@ -1152,8 +1152,9 @@ footer {
 
 <script>
 'use strict';
-const API = 'http://localhost:8000/analyze';
-const JOBS_API = 'http://localhost:8000/jobs';
+const API_BASE = (location.protocol === 'file:') ? 'http://localhost:8000' : '';
+const API = API_BASE + '/analyze';
+const JOBS_API = API_BASE + '/jobs';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ARC_LEN = 157.1;
 let currentFile = null;
@@ -1363,7 +1364,7 @@ async function analyze(opts = {}) {
   } catch (e) {
     finishLog(false);
     $('uploadActions').classList.add('show');
-    showErr(e.message || 'Could not reach the server at localhost:8000.');
+    showErr(e.message || 'Could not reach the analysis server.');
   }
 }
 

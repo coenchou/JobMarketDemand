@@ -22,6 +22,7 @@ Output: data/raw/bls/occupation_market.csv (one row per SOC).
 
 from __future__ import annotations
 
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -31,7 +32,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 BLS_DIR = ROOT / "data" / "raw" / "bls"
 BASE_URL = "https://download.bls.gov/pub/time.series/ep/"
-UA = "Hirely-research/1.0 (choucoen@gmail.com)"
+UA = os.getenv("RESEARCH_UA", "Hirely-research/1.0")
 
 # Files needed from the EP flat-file DB
 FILES = ["ep.series", "ep.aspect", "ep.eductrn", "ep.wkex", "ep.otjt", "ep.occupation"]

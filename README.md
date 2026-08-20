@@ -9,6 +9,7 @@ skill mentions harvested from live job postings.
 
 ```bash
 pip install -r requirements.txt
+cp .env.example .env          # optional: add a GROQ_API_KEY for LLM parsing
 
 # report in the terminal
 python -m src.pipeline resumes/resume_1_data_analyst.txt
@@ -80,6 +81,28 @@ python -m scripts.harvest_posting_skills --pages 12
 Walks the public job catalog and writes per-category skill demand to
 `data/processed/posting_skills.csv`. Everything degrades to O*NET-only scoring
 when that file is absent.
+
+## Deploying
+
+The API serves the frontend, so a single process is the whole app:
+
+```bash
+uvicorn src.main:app --host 0.0.0.0 --port $PORT
+```
+
+`Procfile` declares exactly that for buildpack-style hosts. The page calls its
+own origin, so no API URL needs configuring; set `ALLOWED_ORIGINS` only if the
+frontend is served from a different host than the API.
+
+Nothing resume-derived is written to disk: uploads live in a per-request temp
+file that is deleted in a `finally`, any stragglers from a hard kill are purged
+at startup, and the LLM response cache is disabled server-side because cached
+responses contain extracted resume content. The only state that persists is a
+count of analyses run, served at `/stats`.
+
+The O*NET and BLS datasets are not in the repository — they are large, licensed
+and regenerable. Fetch them with `scripts/download_onet.py` and
+`scripts/build_bls_market.py` before first run.
 
 ## Tests
 

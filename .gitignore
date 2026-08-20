@@ -11,3 +11,9 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.vscode/
+.venv/
+*.ipynb_checkpoints
+outputs/**/*.txt
+.env.*
+!.env.example

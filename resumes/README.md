@@ -1,15 +1,11 @@
-# Resume parsing
+# Sample resumes
 
-This folder is intended for plain-text resume files (.txt).
+Fictional plain-text resumes used as fixtures and demos. They cover a range of
+profiles — a recent graduate, a career changer, a senior engineer — so scoring
+changes can be checked against more than one shape of career.
 
-Run the parser on one resume with:
+Analyse one with:
 
 ```sh
-/Users/coenchou/JobMarketDemand/venv/bin/python scripts/resume_parser.py --resume resumes/resume_1_data_analyst.txt
+python -m src.pipeline resumes/resume_1_data_analyst.txt
 ```
-
-The parser currently returns:
-- detected skills
-- education details
-- experience bullets
-- matching ONET vocabulary terms from the datasets folder

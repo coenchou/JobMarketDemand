@@ -965,7 +965,7 @@ footer {
 
   <div class="metrics rv" id="secMetrics">
     <div class="metric metric-lead">
-      <span class="label">Hirability</span>
+      <span class="label" id="scoreLabel">Hirability</span>
       <div class="gauge-wrap">
         <svg class="gauge" viewBox="0 0 120 64">
           <line class="g-tick" x1="18" y1="60" x2="13" y2="60"/>
@@ -1004,7 +1004,7 @@ footer {
   <div class="sec rv" id="secMatch">
     <div class="sec-head">
       <span class="sec-num">01</span>
-      <span class="label">Scored against</span>
+      <span class="label" id="matchLabel">Scored against</span>
       <span class="sec-note" id="targetNote"></span>
     </div>
     <div class="match-title-row">
@@ -1017,7 +1017,7 @@ footer {
 
     <div class="retarget" id="retarget">
       <div class="rt-head">
-        <span class="rt-label">Your top roles · hirability for each — click to switch</span>
+        <span class="rt-label" id="rolesLabel">Your top roles · hirability for each — click to switch</span>
         <button class="btn-ghost rt-toggle" onclick="toggleJd()">Use a job posting</button>
       </div>
       <div class="role-cards" id="roleCards"></div>
@@ -1631,8 +1631,18 @@ function renderReport(d, elapsed, isSwitch) {
   const h = s.hirability_score || 0;
   const c = comp.score || 0;
   const range = s.hirability_range;
+  const student = d.student || null;
+
+  $('scoreLabel').textContent = student ? 'Application competitiveness' : 'Hirability';
+  $('matchLabel').textContent = student ? 'Where this points' : 'Scored against';
+  $('rolesLabel').textContent = student
+    ? 'Roles this path leads to — click to switch'
+    : 'Your top roles · hirability for each — click to switch';
   $('hNote').textContent = s.hirability_level || '';
-  $('hRange').textContent = (range && range[1] - range[0] >= 2)
+  const peers = student ? (student.peer_group || 'other applicants') : '';
+  $('hRange').textContent = student
+    ? `vs ${peers} · likely ${range ? range[0] + '–' + range[1] : '—'}`
+    : (range && range[1] - range[0] >= 2)
     ? `likely ${range[0]}–${range[1]} · ${range[1] - range[0] > 14
         ? 'thin resume, wide margin' : 'based on what the resume documents'}`
     : '';
@@ -1665,11 +1675,14 @@ function renderReport(d, elapsed, isSwitch) {
     $('matchTitle').textContent = topTitle;
     $('matchSoc').textContent = target && target.soc_code ? 'SOC ' + target.soc_code : '';
     $('matchDesc').textContent = top.description || '';
-    $('targetNote').textContent = target
-      ? { posting: 'from the posting you pasted',
-          override: 'you picked this role',
-          auto: 'best match for your resume' }[target.source] || ''
-      : '';
+    const fieldNote = (d.field && d.field.share >= 0.22)
+      ? `${d.field.name} · ${Math.round(d.field.share * 100)}% of your skill signal`
+      : 'no clear direction yet — the skills below are how one forms';
+    $('targetNote').textContent = student
+      ? fieldNote
+      : (target ? { posting: 'from the posting you pasted',
+                    override: 'you picked this role',
+                    auto: 'best match for your resume' }[target.source] || '' : '');
 
 
     $('marketStats').innerHTML = renderMarket(d.labor_market, comp);

@@ -1,0 +1,25 @@
+JORDAN PARK
+Berkeley, CA | jordan.park@email.com
+
+EDUCATION
+University of California, Berkeley — B.S. Electrical Engineering & Computer Science
+Expected graduation May 2027 | GPA 3.7
+Coursework: Data Structures, Algorithms, Operating Systems, Machine Learning
+
+EXPERIENCE
+Software Engineering Intern — Stripe (Summer 2025)
+- Built internal dashboards in React and TypeScript used by 40 support agents
+- Reduced page load time 35% by memoizing expensive queries
+
+Undergraduate Researcher — Berkeley AI Research Lab, Jan 2025 – Present
+- Ran experiments on transformer fine-tuning; co-authored a workshop paper
+
+Teaching Assistant — CS61B Data Structures, Fall 2024
+- Led weekly discussion sections for 30 students
+
+PROJECTS
+DormShare — React Native app for campus item lending, 500 users
+SQL query optimizer written in Rust
+
+SKILLS
+Python, Java, Rust, React, TypeScript, SQL, PyTorch, Git, Docker

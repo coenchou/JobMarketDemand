@@ -24,6 +24,13 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.career_stage import career_stage, score_track_record, stage_weights
+from src.field_direction import infer_field
+from src.student_profile import (
+    COLLEGE,
+    HIGH_SCHOOL,
+    detect_student,
+    score_application,
+)
 from src.gap_engine import compute_skill_gaps
 from src.pipeline import _pick_default_role, _rank_roles
 from src.naming import pretty_skill
@@ -313,6 +320,115 @@ class RoleRankingTests(unittest.TestCase):
         eligible = [r for r in self.ranked if r["eligible"]]
         self.assertEqual(_pick_default_role(self.ranked),
                          max(eligible, key=lambda r: r["hirability"])["soc_code"])
+
+
+HS_RESUME = """ALEX RIVERA
+Lincoln High School, Class of 2027
+EDUCATION
+Lincoln High School - Expected graduation June 2027
+GPA: 3.9 unweighted. Relevant coursework: AP Computer Science A, AP Calculus BC
+SAT: 1480
+EXPERIENCE
+Founder & President - Lincoln Coding Club, Sept 2024 - Present
+Grew club from 6 to 45 members; organized a hackathon with 120 participants
+Software Development Intern - LocalBiz Solutions, summer 2025
+Built an inventory tool in Python and SQLite used by 3 storefronts
+AWARDS
+2nd place, State Science Fair. USACO Silver Division.
+SKILLS
+Python, Java, JavaScript, React, SQL, Git, Firebase, pandas
+"""
+
+PRO_RESUME = """DANA LEE
+EXPERIENCE
+Senior Software Engineer - Acme Corp, 2019 - Present
+Led a team of 8; scaled the platform to 4M users, cutting latency 40%
+EDUCATION
+B.S. Computer Science, State University, graduated 2015
+SKILLS
+Python, Kubernetes, Docker, PostgreSQL, Terraform, React
+"""
+
+
+class StudentDetectionTests(unittest.TestCase):
+    """A student is not a job candidate and must not be scored as one."""
+
+    def test_high_school_is_detected(self):
+        d = detect_student(HS_RESUME, education_level=None)
+        self.assertIsNotNone(d)
+        self.assertEqual(d["kind"], HIGH_SCHOOL)
+        self.assertEqual(d["grad_year"], 2027)
+
+    def test_college_is_detected(self):
+        text = ("B.S. Electrical Engineering, UC Berkeley. Expected graduation "
+                "May 2027. Undergraduate researcher. Coursework: Algorithms.")
+        d = detect_student(text, education_level="Bachelor's")
+        self.assertIsNotNone(d)
+        self.assertEqual(d["kind"], COLLEGE)
+
+    def test_working_professional_is_not_a_student(self):
+        self.assertIsNone(detect_student(PRO_RESUME, education_level="Bachelor's"))
+
+    def test_every_sample_resume_is_classified_correctly(self):
+        """Fixtures named student_* must be detected; the rest must not be."""
+        import glob
+        from src.parser import parse_resume
+        for path in sorted(glob.glob("resumes/*.txt")):
+            with self.subTest(resume=path):
+                parsed = parse_resume(path)
+                got = detect_student(
+                    Path(path).read_text(), parsed.get("education_lines"),
+                    parsed.get("education_level"))
+                expected_student = Path(path).name.startswith("student_")
+                self.assertEqual(bool(got), expected_student)
+
+    def test_ordinary_words_do_not_trigger_detection(self):
+        # "act" and "present" appear in every resume; they prove nothing.
+        text = ("Directed a play and act as the primary contact. 2019 - Present. "
+                "Managed university vendor relationships.")
+        self.assertIsNone(detect_student(text, education_level="Master's"))
+
+
+class StudentScoringTests(unittest.TestCase):
+    def test_dimensions_read_the_resume(self):
+        r = score_application(HS_RESUME, kind=HIGH_SCHOOL)
+        found = {d["key"]: d["found"] for d in r["dimensions"]}
+        self.assertTrue(found["recognition"], "science fair and USACO were missed")
+        self.assertTrue(found["initiative"], "founding a club was missed")
+        self.assertTrue(found["output"], "the internship was missed")
+
+    def test_strong_profile_beats_a_bare_one(self):
+        bare = score_application("Lincoln High School. Class of 2027.", kind=HIGH_SCHOOL)
+        strong = score_application(HS_RESUME, kind=HIGH_SCHOOL)
+        self.assertGreater(strong["score"], bare["score"] + 0.3)
+
+    def test_weights_sum_to_one_with_skill(self):
+        from src.student_profile import HEADLINE_WEIGHTS
+        self.assertAlmostEqual(sum(HEADLINE_WEIGHTS.values()), 1.0, places=6)
+
+    def test_college_rigour_credits_research_not_ap(self):
+        text = "Undergraduate researcher in the AI lab. Teaching assistant for CS61B. GPA 3.7"
+        r = score_application(text, kind=COLLEGE)
+        academics = next(d for d in r["dimensions"] if d["key"] == "academics")
+        self.assertGreater(academics["score"], 0.5)
+
+
+class FieldDirectionTests(unittest.TestCase):
+    """The fix for "high schooler -> Social Science Research Assistant"."""
+
+    def test_software_skills_point_at_computing(self):
+        f = infer_field(["Python", "React", "SQL", "Git", "JavaScript", "Firebase"])
+        self.assertEqual(f["name"], "Computing and Mathematics")
+        self.assertGreater(f["share"], 0.25)
+
+    def test_field_beats_single_occupation_noise(self):
+        # Occupation ranking put a technical-education role first for exactly
+        # these skills; the family signal must not.
+        f = infer_field(["Python", "Java", "React", "SQL", "Git", "pandas"])
+        self.assertNotEqual(f["name"], "Education")
+
+    def test_no_signal_returns_none(self):
+        self.assertIsNone(infer_field([]))
 
 
 class NamingTests(unittest.TestCase):

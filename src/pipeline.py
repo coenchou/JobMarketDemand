@@ -27,6 +27,7 @@ from src.career_stage import (
     stage_weights,
 )
 from src.naming import pretty_skill
+from src import field_direction, student_profile
 from src.simulator import simulate_additions
 from src.target_role import occupation_frame, resolve_target
 from src.nlp_skills import (
@@ -160,6 +161,75 @@ def _hirability(
     }
 
 
+def _application_competitiveness(
+    skill: float, student: Dict, app: Dict,
+    evidence: Optional[float] = None, skill_detail: Optional[Dict] = None,
+) -> Dict:
+    """
+    The student framing: how this application compares with others starting
+    from the same place.
+
+    Deliberately not the hirability blend. Education fit against a bachelor's
+    requirement and experience fit against a five-year bar are meaningless for
+    someone still in school — they only ever subtract, and they are what turned
+    a strong high-school profile into "Likely hirable for Middle School
+    Teacher". These are the dimensions that actually separate one application
+    from another.
+    """
+    kind = student["kind"]
+    w = student_profile.HEADLINE_WEIGHTS
+    by_key = {d["key"]: d for d in app["dimensions"]}
+
+    components = [_component("Skill depth", skill, w["skill"], skill_detail)]
+    for key in ("academics", "initiative", "recognition", "output"):
+        d = by_key[key]
+        detail = {"signals": d["found"]} if d["found"] else None
+        components.append(_component(d["label"], d["score"], w[key], detail))
+
+    score = round(sum(c["points"] for c in components), 1)
+    return {
+        "score": score,
+        "level": student_profile.competitiveness_level(score),
+        "range": _score_range(score, evidence, w["skill"]),
+        "stage": kind,
+        "stage_label": ("high school student" if kind == student_profile.HIGH_SCHOOL
+                        else "undergraduate"),
+        "stage_note": student_profile.stage_note(kind),
+        "peer_group": student_profile.PEER_LABEL.get(kind, "other applicants"),
+        "components": components,
+    }
+
+
+def _student_sim_inputs(application: Dict) -> Tuple[Dict[str, float], float]:
+    """
+    Weights that make a simulated skill gain move the student headline by the
+    same amount the headline itself would move: the rubric collapses into the
+    track-record slot, leaving skill as the only term the simulation varies.
+    """
+    w = student_profile.HEADLINE_WEIGHTS
+    return (
+        {"skill": w["skill"], "experience": 0.0, "education": 0.0,
+         "track_record": student_profile.RUBRIC_WEIGHT},
+        application["score"],
+    )
+
+
+def _student_verdict(
+    level: str, title: Optional[str], peers: str, field: Optional[Dict] = None,
+) -> str:
+    """
+    Name a destination only when the skills actually point at one. A resume of
+    Word, Excel and a cashier job carries no occupational signal, and telling a
+    tenth-grader they are on a path toward "Weighers, Measurers, Checkers" is
+    both unfounded and discouraging.
+    """
+    weak = not field or field.get("share", 0.0) < _FIELD_MIN_SHARE
+    if weak or not title:
+        return (f"{level} compared with {peers}. Your resume does not point at a "
+                f"field yet — normal this early, and the steps below are how it starts to.")
+    return f"{level} compared with {peers}, heading toward {field['name'].lower()} — {title}."
+
+
 def _score_range(
     score: float, evidence: Optional[float], skill_weight: float = 0.45
 ) -> Optional[List[int]]:
@@ -263,6 +333,8 @@ def _rank_roles(
     years: Optional[int],
     edu: Optional[str],
     track: Dict,
+    student: Optional[Dict] = None,
+    application: Optional[Dict] = None,
 ) -> List[Dict]:
     """
     Score the candidate against each of the top occupations and rank by
@@ -292,10 +364,14 @@ def _rank_roles(
         cap = compute_skill_capital(
             skills, tools=occupation_frame(soc), title=cand.get("title"))
         market = get_market(soc)
-        hire = _hirability(
-            cap.get("score", 0.0), years, edu, market,
-            evidence=cap.get("evidence"), track=track,
-        )
+        if student and application:
+            hire = _application_competitiveness(
+                cap.get("score", 0.0), student, application, cap.get("evidence"))
+        else:
+            hire = _hirability(
+                cap.get("score", 0.0), years, edu, market,
+                evidence=cap.get("evidence"), track=track,
+            )
         ranked.append({
             "soc_code": soc,
             "title": cand.get("title", soc),
@@ -312,10 +388,61 @@ def _rank_roles(
     return ranked
 
 
-def _pick_default_role(ranked: List[Dict]) -> Optional[str]:
-    """The role to lead with: most hirable among those the résumé really fits."""
+_FIELD_MIN_SHARE = 0.22
+_STUDENT_POOL = 30
+
+
+def _is_residual(title: str) -> bool:
+    """O*NET's "All Other" buckets are leftovers, not destinations."""
+    return title.strip().lower().endswith("all other")
+
+
+def _focus_on_field(
+    skills: List[str], exp_lines: List[str], enriched: List[Dict],
+    field: Optional[Dict],
+) -> List[Dict]:
+    """
+    Restrict a student's shortlist to the family their skills point at.
+
+    The default shortlist is drawn from the ten best tool matches, and for a
+    short student skill list those ten are dominated by occupations with tiny
+    tool lists — Software Developers, with 250 tools, ranked fourteenth for a
+    resume of Python, React, SQL and Git. Widening the pool and keeping only
+    the inferred family puts the plausible destinations back in front.
+    """
+    if not field or field["share"] < _FIELD_MIN_SHARE:
+        return enriched
+
+    in_field = field_direction.roles_in_field(enriched, field["code"])
+    if len(in_field) < _N_ROLES:
+        wider = _enrich_candidates(score_soc_candidates(skills, top_n=_STUDENT_POOL))
+        in_field = field_direction.roles_in_field(wider, field["code"])
+
+    named = [c for c in in_field if not _is_residual(c.get("title", ""))]
+    in_field = named or in_field
+    if not in_field:
+        return enriched
+
+    semantic = semantic_score_candidates(
+        exp_lines, skills, [c["soc_code"] for c in in_field])
+    return blend_scores(in_field, semantic)
+
+
+def _pick_default_role(ranked: List[Dict], prefer_fit: bool = False) -> Optional[str]:
+    """
+    The role to lead with: most hirable among those the résumé really fits.
+
+    Students are ranked on fit instead. Hirability rewards a low entry bar, and
+    a student clears none of them, so picking on hirability hands a high
+    schooler whichever occupation asks least — which is how one ended up on a
+    path toward middle-school teaching.
+    """
+    if not ranked:
+        return None
+    if prefer_fit:
+        return max(ranked, key=lambda r: r["fit"])["soc_code"]
     eligible = [r for r in ranked if r["eligible"]] or ranked
-    return max(eligible, key=lambda r: r["hirability"])["soc_code"] if eligible else None
+    return max(eligible, key=lambda r: r["hirability"])["soc_code"]
 
 
 def _role_view(
@@ -328,6 +455,9 @@ def _role_view(
     hot_count: int,
     matched_total: int,
     highlights: List[str],
+    student: Optional[Dict] = None,
+    application: Optional[Dict] = None,
+    field: Optional[Dict] = None,
 ) -> Dict[str, Any]:
     """
     The whole analysis for one occupation, as a patch over the base report.
@@ -352,9 +482,13 @@ def _role_view(
         "complementarity": cap.get("complementarity"),
         "evidence": cap.get("evidence"),
     }
-    hire = _hirability(
-        cap.get("score", 0.0), years, edu, market, detail,
-        cap.get("evidence"), track)
+    if student and application:
+        hire = _application_competitiveness(
+            cap.get("score", 0.0), student, application, cap.get("evidence"), detail)
+    else:
+        hire = _hirability(
+            cap.get("score", 0.0), years, edu, market, detail,
+            cap.get("evidence"), track)
     comp = _competitiveness(
         cap.get("score", 0.0), years, hot_count, matched_total, market, detail)
 
@@ -362,18 +496,26 @@ def _role_view(
     recs = [{**r, "skill": pretty_skill(r["skill"])} for r in recs]
 
     exp_fit, edu_fit = _fits(years, edu, market)
+    if student and application:
+        sim_weights, sim_track = _student_sim_inputs(application)
+        exp_fit = edu_fit = 0.0
+    else:
+        sim_weights = stage_weights(hire.get("stage", "early"))
+        sim_track = track.get("score", 0.0)
     simulation = simulate_additions(
         skills, [r["skill"] for r in recs], tools=tools,
         exp_fit=exp_fit, edu_fit=edu_fit,
-        weights=stage_weights(hire.get("stage", "early")),
-        track=track.get("score", 0.0), baseline=cap,
+        weights=sim_weights, track=sim_track, baseline=cap,
     )
 
     exposure = score_ai_displacement(cand.get("description", ""), title)
 
     return {
-        "verdict": _verdict(
-            hire["level"], title, market.get("growth_pct") if market else None),
+        "verdict": (
+            _student_verdict(hire["level"], title,
+                             hire.get("peer_group", "other applicants"), field)
+            if student else
+            _verdict(hire["level"], title, market.get("growth_pct") if market else None)),
         "summary_text": _fallback_summary(title, recs, years),
         "score_breakdown": {
             "hirability": hire["components"],
@@ -477,9 +619,25 @@ def build_report(
 
     track: Dict = score_track_record(parsed.get("highlights", []), exp_lines)
 
-    role_options = _rank_roles(enriched, skills, years, edu, track)
+    resume_text = "\n".join(
+        list(parsed.get("education_lines", [])) + exp_lines
+        + list(parsed.get("highlights", [])) + skills)
+    student = student_profile.detect_student(
+        resume_text, parsed.get("education_lines"), edu)
+    application = (
+        student_profile.score_application(
+            resume_text, parsed.get("highlights"), kind=student["kind"])
+        if student else None)
+
+    field: Optional[Dict] = None
+    if student:
+        field = field_direction.infer_field(skills)
+        enriched = _focus_on_field(skills, exp_lines, enriched, field)
+
+    role_options = _rank_roles(
+        enriched, skills, years, edu, track, student, application)
     if role_options and not (target_soc or job_description):
-        best = _pick_default_role(role_options)
+        best = _pick_default_role(role_options, prefer_fit=bool(student))
         enriched = ([c for c in enriched if c["soc_code"] == best]
                     + [c for c in enriched if c["soc_code"] != best])
 
@@ -530,8 +688,12 @@ def build_report(
     market = get_market(top["soc_code"]) if top else None
 
     evidence = skill_cap.get("evidence") if skill_cap else None
-    hire = _hirability(
-        skill_component, years, edu, market, skill_detail, evidence, track)
+    if student and application:
+        hire = _application_competitiveness(
+            skill_component, student, application, evidence, skill_detail)
+    else:
+        hire = _hirability(
+            skill_component, years, edu, market, skill_detail, evidence, track)
     competitiveness = _competitiveness(
         skill_component, years, hot_count, len(matched_tools), market, skill_detail)
 
@@ -584,14 +746,20 @@ def build_report(
     simulation: Optional[Dict] = None
     if target and target_tools is not None and skill_cap:
         exp_fit, edu_fit = _fits(years, edu, market)
+        if student and application:
+            sim_weights, sim_track = _student_sim_inputs(application)
+            exp_fit = edu_fit = 0.0
+        else:
+            sim_weights = stage_weights(hire.get("stage", "early"))
+            sim_track = track.get("score", 0.0)
         simulation = simulate_additions(
             skills,
             [r["skill"] for r in recommendations] or focus_skills,
             tools=target_tools,
             exp_fit=exp_fit,
             edu_fit=edu_fit,
-            weights=stage_weights(hire.get("stage", "early")),
-            track=track.get("score", 0.0),
+            weights=sim_weights,
+            track=sim_track,
             baseline=skill_cap,
         )
         for entry in simulation["skills"]:
@@ -606,18 +774,24 @@ def build_report(
             role_views[cand["soc_code"]] = _role_view(
                 cand, skills=skills, years=years, edu=edu, track=track,
                 hot_count=hot_count, matched_total=len(matched_tools),
-                highlights=highlights,
+                highlights=highlights, student=student, application=application,
+                field=field,
             )
 
     labor_market: Optional[Dict] = (
         _market_snapshot(top["soc_code"], top["title"], market, years, edu)
         if top else None)
 
-    verdict = _verdict(
-        hire["level"],
-        target_title or (top["title"] if top else None),
-        market.get("growth_pct") if market else None,
-    )
+    if student:
+        verdict = _student_verdict(
+            hire["level"], target_title or (top["title"] if top else None),
+            hire.get("peer_group", "other applicants"), field)
+    else:
+        verdict = _verdict(
+            hire["level"],
+            target_title or (top["title"] if top else None),
+            market.get("growth_pct") if market else None,
+        )
 
     return {
         "resume": resume_path.name,
@@ -642,6 +816,14 @@ def build_report(
             "competitiveness": competitiveness.get("components", []),
         },
         "simulation": simulation,
+        "field": field if student else None,
+        "student": {
+            "kind": student["kind"],
+            "grad_year": student.get("grad_year"),
+            "confidence": student.get("confidence"),
+            "peer_group": hire.get("peer_group"),
+            "dimensions": application["dimensions"],
+        } if student and application else None,
         "career_stage": {
             "stage": hire.get("stage"),
             "label": hire.get("stage_label"),

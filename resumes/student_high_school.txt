@@ -1,0 +1,30 @@
+ALEX RIVERA
+Lincoln High School, Class of 2027 | alex.rivera@email.com
+
+EDUCATION
+Lincoln High School — Expected graduation June 2027
+GPA: 3.9 unweighted / 4.4 weighted
+Relevant coursework: AP Computer Science A, AP Calculus BC, AP Statistics, AP Physics 1
+SAT: 1480
+
+EXPERIENCE
+Founder & President — Lincoln Coding Club, Sept 2024 – Present
+- Grew club from 6 to 45 members over two school years
+- Organized a district-wide hackathon with 120 student participants
+- Taught weekly Python workshops for beginners
+
+Software Development Intern — LocalBiz Solutions (summer 2025)
+- Built an inventory tracking tool in Python and SQLite used by 3 storefronts
+- Fixed bugs in the company's customer-facing website
+
+PROJECTS
+StudyBuddy — a flashcard app built with React and Firebase, 300+ users at my school
+Wildfire Risk Map — Python data analysis of CalFire data, presented at county science fair
+
+AWARDS
+2nd place, State Science Fair (2025)
+AP Scholar with Distinction
+USACO Silver Division
+
+SKILLS
+Python, Java, JavaScript, React, SQL, Git, HTML/CSS, Firebase, pandas

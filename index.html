@@ -1357,6 +1357,7 @@ async function analyze(opts = {}) {
 
 
 let baseReport = null;
+let scoreNoun = 'hirability';
 
 function swapTargets() {
 
@@ -1496,7 +1497,7 @@ function gapRow(idx, r, delay, sim) {
   let deltaTag = '';
   if (sim) {
     deltaTag = sim.measurable && sim.delta > 0
-      ? `<span class="gap-delta" title="Hirability with this skill: ${sim.score}">+${sim.delta.toFixed(1)} hirability${
+      ? `<span class="gap-delta" title="Score with this skill: ${sim.score}">+${sim.delta.toFixed(1)} ${scoreNoun}${
           sim.also_unlocks ? ` · unlocks ${sim.also_unlocks} more` : ''}</span>`
       : `<span class="gap-delta flat" title="This target's requirements don't mention it">not scored here</span>`;
   }
@@ -1633,6 +1634,7 @@ function renderReport(d, elapsed, isSwitch) {
   const range = s.hirability_range;
   const student = d.student || null;
 
+  scoreNoun = student ? 'competitiveness' : 'hirability';
   $('scoreLabel').textContent = student ? 'Application competitiveness' : 'Hirability';
   $('matchLabel').textContent = student ? 'Where this points' : 'Scored against';
   $('rolesLabel').textContent = student

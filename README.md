@@ -42,6 +42,24 @@ Every number is relative to one target, chosen three ways:
 | `override` | the user picked a different occupation from the ranked list |
 | `posting` | a pasted job description, scored against the skills it names |
 
+## Students
+
+Someone still in school is detected before scoring and judged as an applicant,
+not a job candidate. Education fit against a bachelor's requirement and
+experience fit against a five-year bar are meaningless for a high schooler —
+they only ever subtract — so the headline becomes **application
+competitiveness** against others at the same stage, built from academic rigour,
+initiative, recognition and what they have actually built.
+
+A student also gets a *field* rather than one occupation. Coverage measures
+favour occupations with short tool lists, so a teenager who knows Python, React
+and SQL matches a technical-education post better than Software Developers,
+whose list runs to 250 tools. Aggregating skill evidence to the SOC major group
+removes the artefact. A destination is named only when the skills support one.
+
+The peer comparison is a rubric over what the resume shows, not a measured
+percentile against real applicants.
+
 ## Scoring
 
 The weights move with career stage. A new graduate should not be scored mostly

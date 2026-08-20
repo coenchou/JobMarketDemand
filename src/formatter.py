@@ -136,7 +136,7 @@ def format_report(r: Dict[str, Any]) -> str:
         if strengths:
             if highlights:
                 lines.append("")
-            lines.append("  Skills the matched occupation lists:")
+            lines.append("  Skills the occupation lists that you have or clearly imply:")
             names = [g["skill"] if isinstance(g, dict) else str(g) for g in strengths]
             lines += _wrap("  ·  ".join(names))
 

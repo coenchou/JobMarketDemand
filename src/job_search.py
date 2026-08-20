@@ -213,13 +213,9 @@ def analyze_fit(title: str, skills: List[str], jobs: List[Dict[str, Any]]) -> Li
                 skills=", ".join(skills[:40]) or "none listed",
                 jobs=job_lines,
             )
-            resp = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0.2,
-            )
-            parsed = json.loads(resp.choices[0].message.content)
+            from src.llm_cache import complete
+            parsed = json.loads(
+                complete(client, "llama-3.3-70b-versatile", prompt, temperature=0.2))
             analyses = parsed.get("analyses", parsed if isinstance(parsed, list) else [])
             by_index = {a.get("index", n): a for n, a in enumerate(analyses)}
             for i, j in enumerate(jobs):

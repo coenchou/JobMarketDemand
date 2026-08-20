@@ -129,7 +129,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--primary);
+  color: var(--accent);          /* gold — the wordmark is the brand */
   margin-bottom: 40px;
 }
 .upload-panel h1 {
@@ -187,6 +187,14 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .drop-zone .dz-main { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
 .drop-zone .dz-sub  { font-family: var(--mono); font-size: 12px; color: var(--faint); }
 #fileInput { display: none; }
+
+.privacy {
+  display: flex; gap: 9px; align-items: baseline;
+  font-family: var(--mono); font-size: 11px; line-height: 1.6;
+  color: var(--faint); margin-top: 16px; max-width: 46ch;
+}
+.pv-dot { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ok); transform: translateY(-1px); }
 
 .file-row {
   display: none;
@@ -254,6 +262,23 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 }
 .err.show { display: block; }
 
+/* contour field — decoration only, faded like the ticker opposite it.
+   Topographic iso-lines (generated once, static): organic curves on the left
+   as a counterweight to the fine mono text drifting down the right. */
+.contour-field {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: min(32vw, 480px); height: 100%; z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent),
+                      linear-gradient(to right, black 45%, transparent 95%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent),
+              linear-gradient(to right, black 45%, transparent 95%);
+  mask-composite: intersect;
+}
+.cf-line { fill: none; stroke: #d5cde4; stroke-width: 1; }
+.cf-gold { fill: none; stroke: var(--gold); stroke-width: 1.3; opacity: 0.4; }
+@media (max-width: 1080px) { .contour-field { display: none; } }
+
 /* occupation ticker — the market drifting past */
 .ticker {
   position: absolute;
@@ -276,7 +301,7 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
   opacity: 0.75;
 }
 .ticker-row b { color: rgba(154, 123, 30, 0.65); font-weight: 400; margin-right: 14px; }
-@media (max-width: 1080px) { .ticker { display: none; } }
+@media (max-width: 1280px) { .ticker { display: none; } }
 
 /* ════════════════════════════════════════════════════════
    Report view
@@ -453,28 +478,6 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .market-req { flex-basis: 100%; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 2px; }
 .market-req .src { color: var(--faint); }
 
-table.alts { width: 100%; border-collapse: collapse; margin-top: 26px; }
-table.alts th {
-  font-family: var(--mono); font-size: 11px; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint);
-  text-align: left; padding: 0 0 8px;
-}
-table.alts th:last-child, table.alts td:last-child { text-align: right; }
-table.alts td { padding: 10px 0; border-top: 1px solid var(--line-2); font-size: 14px; }
-table.alts td.rank { font-family: var(--mono); font-size: 12px; color: var(--faint); width: 36px; }
-table.alts td.alt-title { position: relative; }
-table.alts td.alt-title span { position: relative; z-index: 1; }
-.alt-bar {
-  position: absolute;
-  left: -8px; top: 18%; bottom: 18%;
-  width: 0;
-  background: var(--accent-dim);
-  border-right: 1px solid rgba(212, 160, 23, 0.5);
-  transition: width 0.9s cubic-bezier(0.3, 0, 0.2, 1) 0.3s;
-}
-.sec.in .alt-bar { width: var(--w); }
-table.alts td.score { font-family: var(--mono); font-size: 13px; color: var(--muted); }
-table.alts tr:hover td.alt-title span { color: var(--primary); transition: color 0.15s; }
 
 /* tags */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -681,6 +684,8 @@ footer {
 .bd-track { height: 4px; background: var(--soft); border-radius: 99px; overflow: hidden; }
 .bd-bar { height: 100%; background: var(--primary); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(0.3,0,0.2,1); }
 .bd-bar.cap { background: var(--faint); opacity: 0.35; }
+.bd-note { font-size: 12px; line-height: 1.5; color: var(--muted);
+  padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--line-2); }
 .bd-detail { font-family: var(--mono); font-size: 9.5px; color: var(--faint); margin-top: 5px; line-height: 1.5; }
 
 /* ── market benchmark ─────────────────────────────────── */
@@ -696,22 +701,128 @@ footer {
 .growth-flat { color: var(--muted); }
 .growth-down { color: var(--bad); }
 
-/* ── coverage ledger + ring ───────────────────────────── */
-.coverage-ledger {
-  display: flex; align-items: center; justify-content: center;
-  gap: 28px; margin: 8px 0 22px;
+/* ── headline score: lead metric + uncertainty band ───── */
+.metric-lead { grid-column: span 2; }
+.mstat-sub { font-size: 12px; color: var(--faint); margin-left: 2px; }
+.g-band { fill: none; stroke: var(--gold); opacity: 0.18; stroke-width: 9;
+  stroke-dasharray: 157; stroke-dashoffset: 157; }
+.m-range { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--faint); margin-top: 4px; }
+
+/* ── retarget controls ────────────────────────────────── */
+.retarget { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+.rt-head { display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.rt-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--faint); }
+.rt-go { white-space: nowrap; }
+
+/* ── role cards: the same analysis, one per shortlisted occupation ── */
+.role-cards { display: grid; gap: 8px; }
+.role-card {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--bg); cursor: pointer; text-align: left;
+  font: inherit; color: var(--ink);
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
 }
-.cl-side { text-align: center; flex: 0 0 auto; min-width: 90px; }
-.cl-num { font-family: var(--mono); font-size: 26px; font-weight: 500; color: var(--ink); }
-.cl-lbl { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); margin-top: 3px; }
-.cl-ring { position: relative; width: 92px; height: 92px; flex: 0 0 auto; }
+.role-card:hover { border-color: var(--primary); transform: translateX(2px); }
+.role-card.active { border-color: var(--gold); background: var(--soft); cursor: default; }
+.role-card.active:hover { transform: none; }
+
+/* A light sweeps across the card you picked, then the report behind it
+   crossfades to that role's analysis. */
+.role-card::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 20%,
+    rgba(184, 148, 62, 0.22) 50%, transparent 80%);
+  transform: translateX(-110%);
+}
+.role-card.picking::after { animation: sweep 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes sweep { to { transform: translateX(110%); } }
+
+/* Everything the role change affects fades out, then rises back in. The role
+   cards themselves are deliberately left out of it: the control you clicked
+   should stay put while the content behind it changes. */
+.swap-out { opacity: 0; transform: translateY(-6px);
+  transition: opacity 0.17s ease, transform 0.17s ease; }
+.swap-in { animation: swapIn 0.44s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+@keyframes swapIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.rc-score {
+  font-family: var(--mono); font-size: 17px; font-weight: 500;
+  min-width: 34px; font-variant-numeric: tabular-nums;
+}
+.role-card.active .rc-score { color: var(--gold); }
+.rc-body { flex: 1 1 auto; min-width: 0; }
+.rc-title { display: block; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rc-meta { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--faint); margin-top: 2px; }
+.role-card.weak { opacity: 0.62; }
+.rc-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+.rt-jd { margin-top: 12px; }
+.rt-jd textarea {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 13px;
+  line-height: 1.5; padding: 10px 12px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--bg); color: var(--ink); resize: vertical;
+}
+.rt-jd-actions { margin-top: 10px; }
+.rt-skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.rt-skill {
+  font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 4px;
+  background: var(--soft); color: var(--muted);
+}
+.rt-skill b { color: var(--ink); font-weight: 500; }
+
+/* ── inferred skill tags ──────────────────────────────── */
+.tag-inferred { border-style: dashed; color: var(--muted); }
+.tag-mark { font-family: var(--mono); font-size: 10px; color: var(--gold);
+  margin-left: 5px; }
+
+/* ── simulated score movement ─────────────────────────── */
+.gap-delta {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--gold); white-space: nowrap;
+}
+.gap-delta.flat { color: var(--faint); }
+.sim-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--faint); margin-top: 14px; }
+
+/* ── strengths: skill ring + resume signal check ──────── */
+.strength-grid {
+  display: grid; grid-template-columns: 150px 1fr;
+  gap: 28px; align-items: start; margin: 18px 0 24px;
+}
+.sg-ring-col { text-align: center; }
+.cl-lbl { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); margin-top: 8px; }
+.sg-counts { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.7; }
+.sg-counts b { color: var(--ink); font-weight: 500; }
+.cl-ring { position: relative; width: 104px; height: 104px; margin: 0 auto; }
 .cl-ring svg { width: 100%; height: 100%; }
 .clr-track { fill: none; stroke: var(--soft); stroke-width: 7; }
 .clr-fill { fill: none; stroke: var(--gold); stroke-width: 7; stroke-linecap: round;
   stroke-dasharray: 213.6; stroke-dashoffset: 213.6;
   transition: stroke-dashoffset 1s cubic-bezier(0.3,0,0.2,1) 0.2s; }
-.cl-pct { position: absolute; top: 44%; left: 0; right: 0; transform: translateY(-50%); text-align: center; font-family: var(--mono); font-size: 19px; font-weight: 500; }
-.cl-caption { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; font-family: var(--mono); font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--faint); }
+/* the number owns the ring — the label lives below, so nothing overlaps */
+.cl-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 24px; font-weight: 500; }
+
+.signal-check { border-left: 1px solid var(--line); padding-left: 28px; min-width: 0; }
+.sc-head { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent); }
+.sc-sub { font-size: 12.5px; color: var(--muted); margin: 4px 0 12px; }
+.sc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.sc-item { display: flex; gap: 10px; align-items: baseline; font-size: 13px; }
+.sc-mark { font-family: var(--mono); font-size: 12px; flex: 0 0 auto; width: 16px; text-align: center; }
+.sc-item.found .sc-mark { color: var(--ok); }
+.sc-item.miss .sc-mark { color: var(--faint); }
+.sc-item.miss .sc-label { color: var(--muted); }
+.sc-label { font-weight: 500; }
+.sc-hint { display: block; font-size: 12px; color: var(--faint); margin-top: 1px; line-height: 1.45; }
 
 /* ── sticky mini-header ───────────────────────────────── */
 .mini-header {
@@ -731,11 +842,17 @@ footer {
 
 @media (max-width: 640px) {
   .metrics { grid-template-columns: 1fr; }
+  .metric-lead { grid-column: span 1; }
   .profile-grid { grid-template-columns: 1fr; gap: 16px; }
   .exposure-grid { grid-template-columns: 1fr; gap: 20px; }
-  .coverage-ledger { gap: 14px; }
-  .cl-side { min-width: 0; }
+  .strength-grid { grid-template-columns: 1fr; gap: 20px; }
+  .signal-check { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+  .rt-row { align-items: stretch; flex-direction: column; }
+  .rt-select { flex: 1 1 auto; }
 }
+
+/* Long O*NET tool names must break rather than stretch their container. */
+.tag, .gap-name, .sc-hint { overflow-wrap: anywhere; }
 
 /* ── print / PDF ──────────────────────────────────────── */
 @media print {
@@ -757,7 +874,6 @@ footer {
   }
   .rv, .stag { opacity: 1; transform: none; }
   .sec-head::after { transform: scaleX(1); }
-  .sec .alt-bar { width: var(--w); }
 }
 </style>
 </head>
@@ -765,12 +881,45 @@ footer {
 
 <!-- ── Upload ──────────────────────────────────────────── -->
 <div id="uploadView">
+  <!-- decorative contour field; see .contour-field -->
+  <svg class="contour-field" aria-hidden="true" viewBox="0 0 480 680"
+       preserveAspectRatio="xMinYMid slice">
+    <path class="cf-line" opacity="0.31" d="M 400 212 L 397 213 L 393 215 L 387 220 L 380 226 L 374 233 L 370 240 L 367 246 L 365 253 L 364 260 L 363 267 L 364 273 L 366 280 L 367 282 L 369 287 L 373 292 L 380 298 L 383 300 L 387 302 L 393 305 L 400 306 L 407 306 L 413 306 L 420 304 L 427 302 L 431 300 L 433 299 L 440 295 L 442 293 L 447 289 L 449 287 L 453 281 L 458 273 L 460 268 L 462 260 L 463 253 L 462 247 L 461 240 L 460 237 L 459 233 L 455 227 L 453 225 L 449 220 L 447 218 L 440 213 L 433 210 L 427 209 L 420 208 L 413 208 L 407 210 L 400 212"/>
+    <path class="cf-line" opacity="0.35" d="M 480 152 L 473 150 L 467 148 L 460 148 L 453 147 L 447 147 L 440 148 L 433 149 L 427 151 L 420 153 L 413 156 L 407 159 L 400 163 L 394 167 L 387 172 L 385 173 L 380 177 L 377 180 L 373 184 L 370 187 L 367 190 L 364 193 L 360 198 L 359 200 L 354 207 L 350 213 L 347 219 L 343 227 L 341 233 L 340 235 L 339 240 L 337 247 L 336 253 L 335 260 L 335 267 L 336 273 L 337 280 L 338 287 L 340 292 L 343 300 L 347 306 L 352 313 L 359 320 L 367 326 L 368 327 L 373 330 L 380 333 L 381 333 L 387 335 L 393 337 L 400 338 L 407 339 L 413 339 L 420 339 L 427 338 L 433 337 L 440 336 L 447 334 L 449 333 L 453 332 L 460 330 L 467 327 L 473 324 L 480 320"/>
+    <path class="cf-line" opacity="0.40" d="M 458 0 L 457 7 L 456 13 L 454 20 L 453 23 L 452 27 L 450 33 L 447 40 L 444 47 L 440 53 L 436 60 L 433 65 L 432 67 L 427 73 L 422 80 L 420 83 L 417 87 L 413 91 L 412 93 L 407 99 L 401 107 L 395 113 L 393 115 L 389 120 L 387 123 L 384 127 L 380 131 L 378 133 L 373 139 L 367 147 L 362 153 L 360 156 L 357 160 L 353 165 L 352 167 L 348 173 L 347 175 L 344 180 L 340 186 L 336 193 L 333 198 L 332 200 L 329 207 L 327 213 L 324 220 L 322 227 L 320 233 L 318 240 L 317 247 L 317 253 L 316 260 L 316 267 L 317 273 L 318 280 L 319 287 L 320 291 L 321 293 L 323 300 L 326 307 L 327 309 L 329 313 L 333 320 L 338 327 L 340 329 L 344 333 L 347 336 L 352 340 L 353 341 L 360 346 L 367 350 L 373 353 L 380 356 L 387 358 L 393 359 L 396 360 L 400 361 L 407 362 L 413 362 L 420 363 L 427 363 L 433 363 L 440 363 L 447 362 L 453 362 L 460 361 L 467 360 L 469 360 L 473 359 L 480 358"/>
+    <path class="cf-line" opacity="0.44" d="M 50 0 L 47 4 L 45 7 L 40 13 L 34 20 L 33 21 L 29 27 L 27 29 L 23 33 L 20 36 L 16 40 L 13 42 L 9 47 L 7 48 L 1 53 L 0 54"/>
+    <path class="cf-line" opacity="0.44" d="M 363 0 L 365 7 L 367 13 L 368 20 L 369 27 L 370 33 L 370 40 L 370 47 L 370 53 L 369 60 L 368 67 L 367 73 L 367 75 L 366 80 L 364 87 L 361 93 L 360 97 L 359 100 L 356 107 L 353 113 L 351 120 L 347 127 L 344 133 L 341 140 L 340 141 L 337 147 L 334 153 L 331 160 L 327 167 L 324 173 L 321 180 L 320 182 L 318 187 L 315 193 L 313 198 L 313 200 L 310 207 L 308 213 L 307 219 L 305 227 L 303 233 L 302 240 L 302 247 L 301 253 L 301 260 L 301 267 L 301 273 L 302 280 L 303 287 L 305 293 L 307 300 L 309 307 L 312 313 L 313 317 L 315 320 L 319 327 L 320 329 L 323 333 L 327 338 L 328 340 L 333 346 L 334 347 L 340 352 L 342 353 L 347 357 L 351 360 L 353 362 L 360 366 L 362 367 L 367 369 L 373 372 L 377 373 L 380 375 L 387 377 L 393 379 L 399 380 L 407 382 L 413 383 L 420 384 L 427 385 L 433 385 L 440 386 L 447 386 L 450 387 L 453 387 L 460 387 L 467 388 L 473 388 L 480 389"/>
+    <path class="cf-line" opacity="0.49" d="M 92 0 L 87 6 L 80 13 L 73 20 L 67 27 L 61 33 L 60 34 L 55 40 L 53 41 L 48 47 L 47 48 L 42 53 L 40 55 L 35 60 L 33 61 L 27 67 L 20 73 L 13 79 L 12 80 L 7 84 L 4 87 L 0 89"/>
+    <path class="cf-line" opacity="0.49" d="M 309 0 L 313 7 L 317 13 L 320 19 L 323 27 L 326 33 L 327 37 L 328 40 L 329 47 L 330 53 L 331 60 L 331 67 L 331 73 L 331 80 L 331 87 L 330 93 L 329 100 L 327 107 L 327 108 L 325 113 L 324 120 L 322 127 L 320 131 L 319 133 L 317 140 L 315 147 L 313 150 L 312 153 L 310 160 L 307 167 L 307 168 L 305 173 L 303 180 L 300 187 L 298 193 L 296 200 L 294 207 L 293 210 L 293 213 L 291 220 L 290 227 L 289 233 L 288 240 L 288 247 L 287 253 L 287 260 L 288 267 L 288 273 L 289 280 L 290 287 L 291 293 L 293 300 L 295 307 L 298 313 L 300 319 L 303 327 L 307 333 L 311 340 L 313 343 L 316 347 L 320 352 L 321 353 L 327 359 L 333 365 L 335 367 L 340 371 L 344 373 L 347 375 L 353 380 L 360 383 L 367 386 L 373 389 L 380 392 L 384 393 L 387 394 L 393 396 L 400 398 L 407 400 L 413 402 L 420 403 L 427 405 L 433 406 L 436 407 L 440 408 L 447 409 L 453 410 L 460 412 L 465 413 L 467 414 L 473 416 L 480 418"/>
+    <path class="cf-line" opacity="0.53" d="M 137 0 L 133 2 L 127 6 L 120 11 L 117 13 L 113 16 L 109 20 L 107 22 L 101 27 L 100 28 L 94 33 L 87 40 L 80 46 L 73 53 L 67 59 L 66 60 L 60 65 L 59 67 L 53 72 L 51 73 L 47 78 L 44 80 L 40 84 L 37 87 L 33 90 L 29 93 L 27 95 L 21 100 L 20 101 L 13 107 L 7 112 L 5 113 L 0 117"/>
+    <path class="cf-line" opacity="0.53" d="M 257 0 L 260 2 L 265 7 L 267 8 L 273 13 L 279 20 L 280 22 L 284 27 L 287 31 L 288 33 L 292 40 L 293 43 L 295 47 L 297 53 L 299 60 L 300 62 L 301 67 L 302 73 L 303 80 L 303 87 L 304 93 L 303 100 L 303 107 L 302 113 L 301 120 L 300 125 L 300 127 L 298 133 L 297 140 L 295 147 L 293 153 L 291 160 L 290 167 L 288 173 L 287 177 L 286 180 L 284 187 L 283 193 L 281 200 L 280 205 L 280 207 L 278 213 L 277 220 L 276 227 L 276 233 L 275 240 L 275 247 L 275 253 L 275 260 L 275 267 L 276 273 L 277 280 L 278 287 L 279 293 L 280 297 L 281 300 L 283 307 L 285 313 L 287 318 L 287 320 L 290 327 L 293 333 L 297 340 L 300 346 L 305 353 L 307 356 L 310 360 L 313 364 L 316 367 L 320 371 L 322 373 L 327 377 L 330 380 L 333 383 L 339 387 L 340 388 L 347 392 L 349 393 L 353 396 L 360 399 L 367 403 L 373 406 L 376 407 L 380 408 L 387 411 L 393 413 L 400 416 L 407 418 L 413 420 L 420 422 L 427 425 L 433 427 L 440 429 L 447 432 L 451 433 L 453 434 L 460 437 L 466 440 L 473 444 L 477 447 L 480 448"/>
+    <path class="cf-line" opacity="0.53" d="M 58 680 L 53 675 L 52 673 L 47 668 L 45 667 L 40 663 L 36 660 L 33 658 L 27 654 L 25 653 L 20 651 L 13 648 L 10 647 L 7 645 L 0 643"/>
+    <path class="cf-line" opacity="0.58" d="M 480 486 L 475 480 L 473 478 L 469 473 L 467 471 L 462 467 L 460 465 L 453 460 L 447 456 L 442 453 L 440 452 L 433 448 L 430 447 L 427 445 L 420 442 L 416 440 L 413 439 L 407 436 L 400 433 L 393 430 L 387 428 L 384 427 L 380 425 L 373 422 L 370 420 L 367 419 L 360 415 L 356 413 L 353 412 L 347 408 L 345 407 L 340 404 L 335 400 L 333 399 L 327 394 L 320 388 L 318 387 L 313 382 L 311 380 L 307 375 L 305 373 L 300 367 L 295 360 L 293 357 L 291 353 L 287 347 L 284 340 L 281 333 L 280 332 L 278 327 L 275 320 L 273 314 L 271 307 L 269 300 L 268 293 L 267 288 L 266 287 L 265 280 L 264 273 L 264 267 L 263 260 L 263 253 L 263 247 L 263 240 L 263 233 L 263 227 L 264 220 L 265 213 L 266 207 L 267 201 L 268 193 L 269 187 L 270 180 L 272 173 L 273 167 L 274 160 L 276 153 L 277 147 L 278 140 L 279 133 L 280 127 L 280 121 L 280 113 L 280 107 L 280 100 L 279 93 L 278 87 L 277 80 L 275 73 L 273 70 L 272 67 L 269 60 L 267 56 L 265 53 L 261 47 L 255 40 L 253 38 L 248 33 L 240 28 L 239 27 L 233 23 L 227 20 L 220 18 L 213 16 L 207 14 L 200 14 L 195 13 L 193 13 L 191 13 L 187 13 L 180 14 L 173 15 L 167 17 L 160 19 L 157 20 L 153 21 L 147 24 L 142 27 L 140 28 L 133 32 L 130 33 L 127 36 L 120 40 L 113 45 L 111 47 L 107 50 L 103 53 L 100 56 L 95 60 L 93 61 L 87 67 L 80 73 L 73 79 L 72 80 L 67 85 L 64 87 L 60 90 L 57 93 L 53 96 L 49 100 L 47 102 L 42 107 L 40 108 L 34 113 L 27 120 L 20 126 L 19 127 L 13 131 L 11 133 L 7 137 L 3 140 L 0 142"/>
+    <path class="cf-line" opacity="0.58" d="M 95 680 L 93 677 L 91 673 L 87 667 L 82 660 L 80 657 L 77 653 L 73 649 L 71 647 L 67 643 L 63 640 L 60 637 L 55 633 L 53 632 L 47 628 L 44 627 L 40 624 L 33 621 L 32 620 L 27 618 L 20 615 L 16 613 L 13 612 L 7 610 L 0 607"/>
+    <path class="cf-line" opacity="0.62" d="M 452 680 L 453 678 L 455 673 L 458 667 L 460 660 L 462 653 L 465 647 L 467 640 L 468 633 L 470 627 L 472 620 L 473 613 L 473 611 L 474 607 L 475 600 L 476 593 L 477 587 L 477 580 L 477 573 L 477 567 L 477 560 L 477 553 L 476 547 L 475 540 L 473 534 L 471 527 L 469 520 L 467 514 L 463 507 L 460 502 L 459 500 L 454 493 L 449 487 L 447 485 L 442 480 L 440 478 L 434 473 L 427 468 L 425 467 L 420 463 L 415 460 L 413 459 L 407 455 L 403 453 L 400 452 L 393 448 L 391 447 L 387 445 L 380 441 L 377 440 L 373 438 L 367 435 L 364 433 L 360 431 L 353 427 L 347 423 L 341 420 L 333 415 L 331 413 L 327 410 L 322 407 L 320 405 L 314 400 L 313 399 L 307 393 L 301 387 L 300 385 L 296 380 L 293 377 L 291 373 L 287 367 L 282 360 L 280 356 L 278 353 L 275 347 L 273 343 L 272 340 L 269 333 L 267 327 L 264 320 L 262 313 L 260 307 L 258 300 L 257 293 L 255 287 L 254 280 L 253 275 L 253 273 L 252 267 L 252 260 L 251 253 L 251 247 L 251 240 L 251 233 L 251 227 L 251 220 L 252 213 L 252 207 L 253 200 L 253 196 L 254 193 L 254 187 L 255 180 L 256 173 L 257 167 L 258 160 L 258 153 L 259 147 L 260 140 L 260 133 L 260 127 L 259 120 L 259 113 L 258 107 L 257 100 L 255 93 L 253 90 L 252 87 L 249 80 L 247 76 L 245 73 L 240 67 L 234 60 L 227 54 L 225 53 L 220 50 L 213 47 L 207 45 L 200 43 L 193 42 L 187 42 L 180 42 L 173 43 L 167 44 L 160 46 L 157 47 L 153 48 L 147 51 L 141 53 L 133 57 L 128 60 L 127 61 L 120 65 L 118 67 L 113 70 L 109 73 L 107 75 L 100 80 L 93 85 L 91 87 L 87 90 L 83 93 L 80 96 L 75 100 L 73 102 L 68 107 L 60 113 L 53 119 L 47 125 L 45 127 L 40 131 L 37 133 L 33 137 L 30 140 L 27 143 L 22 147 L 20 149 L 15 153 L 13 155 L 8 160 L 0 167 L 0 167"/>
+    <path class="cf-line" opacity="0.62" d="M 120 680 L 117 673 L 114 667 L 110 660 L 107 655 L 106 653 L 101 647 L 100 645 L 96 640 L 93 637 L 91 633 L 87 629 L 84 627 L 80 623 L 77 620 L 73 617 L 68 613 L 67 612 L 60 608 L 58 607 L 53 604 L 47 600 L 40 597 L 33 593 L 27 590 L 20 587 L 19 587 L 13 584 L 7 581 L 3 580 L 0 579"/>
+    <path class="cf-line" opacity="0.67" d="M 431 680 L 433 674 L 437 667 L 439 660 L 440 658 L 442 653 L 444 647 L 446 640 L 447 637 L 448 633 L 449 627 L 451 620 L 452 613 L 453 607 L 454 600 L 455 593 L 455 587 L 456 580 L 456 573 L 455 567 L 455 560 L 454 553 L 453 550 L 453 547 L 451 540 L 449 533 L 447 527 L 444 520 L 440 513 L 436 507 L 433 503 L 431 500 L 427 494 L 426 493 L 420 488 L 413 482 L 411 480 L 407 476 L 403 473 L 400 472 L 393 467 L 387 463 L 382 460 L 380 459 L 373 455 L 371 453 L 367 451 L 360 447 L 353 443 L 348 440 L 347 439 L 340 435 L 337 433 L 333 431 L 328 427 L 320 421 L 313 415 L 311 413 L 307 409 L 304 407 L 300 403 L 297 400 L 293 395 L 292 393 L 287 387 L 282 380 L 280 378 L 277 373 L 273 367 L 270 360 L 267 354 L 263 347 L 261 340 L 260 339 L 258 333 L 256 327 L 253 320 L 251 313 L 249 307 L 247 300 L 247 297 L 246 293 L 244 287 L 243 280 L 242 273 L 241 267 L 240 260 L 240 258 L 239 253 L 239 247 L 239 240 L 238 233 L 238 227 L 238 220 L 238 213 L 239 207 L 239 200 L 239 193 L 240 187 L 240 180 L 240 173 L 241 167 L 241 160 L 241 153 L 241 147 L 240 140 L 240 135 L 240 133 L 239 127 L 237 120 L 236 113 L 233 107 L 230 100 L 227 94 L 221 87 L 213 80 L 207 76 L 201 73 L 193 71 L 187 69 L 180 69 L 173 69 L 167 70 L 160 71 L 153 73 L 152 73 L 147 75 L 140 78 L 136 80 L 133 81 L 127 85 L 123 87 L 120 89 L 113 93 L 107 98 L 103 100 L 100 102 L 94 107 L 87 113 L 80 118 L 78 120 L 73 124 L 70 127 L 67 130 L 62 133 L 60 135 L 55 140 L 53 141 L 47 147 L 40 153 L 33 160 L 27 166 L 20 172 L 19 173 L 13 179 L 12 180 L 7 185 L 5 187 L 0 192"/>
+    <path class="cf-line" opacity="0.67" d="M 142 680 L 140 676 L 139 673 L 135 667 L 133 663 L 132 660 L 128 653 L 127 651 L 124 647 L 120 640 L 115 633 L 113 630 L 110 627 L 107 622 L 105 620 L 100 615 L 99 613 L 93 608 L 92 607 L 87 602 L 84 600 L 80 597 L 75 593 L 73 592 L 67 588 L 65 587 L 60 584 L 53 580 L 47 577 L 41 573 L 33 570 L 27 567 L 20 563 L 14 560 L 7 556 L 1 553 L 0 553"/>
+    <path class="cf-line" opacity="0.71" d="M 410 680 L 413 673 L 416 667 L 419 660 L 420 658 L 422 653 L 424 647 L 426 640 L 427 638 L 428 633 L 430 627 L 431 620 L 432 613 L 433 608 L 434 600 L 435 593 L 435 587 L 435 580 L 435 573 L 435 567 L 434 560 L 433 558 L 433 553 L 431 547 L 429 540 L 427 534 L 424 527 L 420 520 L 416 513 L 413 510 L 411 507 L 407 502 L 405 500 L 400 495 L 399 493 L 393 489 L 391 487 L 387 483 L 383 480 L 380 478 L 373 473 L 367 469 L 364 467 L 360 464 L 353 460 L 347 456 L 343 453 L 340 451 L 333 447 L 327 442 L 324 440 L 320 437 L 315 433 L 313 432 L 307 427 L 300 420 L 293 413 L 287 407 L 282 400 L 280 397 L 277 393 L 273 388 L 269 380 L 267 377 L 265 373 L 261 367 L 260 364 L 258 360 L 255 353 L 253 349 L 252 347 L 250 340 L 247 333 L 245 327 L 243 320 L 240 313 L 240 312 L 239 307 L 237 300 L 235 293 L 234 287 L 232 280 L 231 273 L 230 267 L 229 260 L 228 253 L 227 247 L 227 245 L 226 240 L 226 233 L 225 227 L 225 220 L 225 213 L 224 207 L 224 200 L 224 193 L 224 187 L 224 180 L 223 173 L 223 167 L 222 160 L 222 153 L 220 147 L 220 145 L 219 140 L 217 133 L 214 127 L 213 125 L 211 120 L 207 114 L 200 107 L 193 102 L 188 100 L 187 99 L 180 97 L 173 96 L 167 96 L 160 97 L 153 98 L 147 100 L 140 102 L 133 105 L 130 107 L 127 108 L 120 112 L 118 113 L 113 116 L 107 120 L 100 125 L 98 127 L 93 130 L 89 133 L 87 135 L 80 140 L 73 146 L 67 152 L 65 153 L 60 158 L 57 160 L 53 164 L 50 167 L 47 170 L 43 173 L 40 176 L 36 180 L 33 183 L 29 187 L 27 189 L 23 193 L 20 196 L 17 200 L 13 204 L 11 207 L 7 211 L 5 213 L 0 219"/>
+    <path class="cf-line" opacity="0.71" d="M 162 680 L 160 676 L 158 673 L 155 667 L 153 664 L 151 660 L 148 653 L 147 651 L 144 647 L 140 640 L 136 633 L 133 629 L 132 627 L 127 620 L 122 613 L 120 611 L 116 607 L 113 603 L 110 600 L 107 597 L 103 593 L 100 590 L 96 587 L 93 585 L 87 580 L 80 575 L 78 573 L 73 571 L 67 567 L 60 562 L 56 560 L 53 559 L 47 555 L 44 553 L 40 551 L 33 548 L 32 547 L 27 544 L 20 540 L 13 536 L 9 533 L 7 532 L 0 527"/>
+    <path class="cf-line" opacity="0.76" d="M 389 680 L 392 673 L 393 672 L 396 667 L 399 660 L 400 658 L 402 653 L 404 647 L 407 640 L 409 633 L 411 627 L 412 620 L 413 613 L 414 607 L 415 600 L 415 593 L 416 587 L 416 580 L 415 573 L 414 567 L 413 561 L 412 553 L 410 547 L 407 540 L 404 533 L 401 527 L 396 520 L 393 516 L 392 513 L 387 507 L 380 500 L 373 494 L 367 489 L 364 487 L 360 483 L 356 480 L 353 478 L 347 473 L 340 469 L 337 467 L 333 464 L 328 460 L 327 459 L 320 454 L 313 449 L 311 447 L 307 443 L 303 440 L 300 438 L 296 433 L 293 431 L 289 427 L 287 424 L 283 420 L 280 417 L 277 413 L 273 408 L 272 407 L 268 400 L 267 399 L 263 393 L 260 388 L 256 380 L 253 375 L 253 373 L 249 367 L 247 361 L 244 353 L 241 347 L 240 344 L 238 340 L 236 333 L 234 327 L 233 325 L 232 320 L 230 313 L 228 307 L 227 303 L 226 300 L 224 293 L 222 287 L 221 280 L 220 277 L 219 273 L 218 267 L 216 260 L 215 253 L 214 247 L 213 241 L 212 233 L 211 227 L 210 220 L 210 213 L 209 207 L 208 200 L 207 193 L 207 189 L 206 187 L 205 180 L 204 173 L 202 167 L 200 160 L 198 153 L 195 147 L 193 145 L 190 140 L 187 136 L 183 133 L 180 131 L 173 127 L 171 127 L 167 126 L 160 125 L 153 125 L 147 126 L 144 127 L 140 128 L 133 130 L 127 133 L 125 133 L 120 136 L 113 139 L 107 144 L 102 147 L 100 148 L 93 153 L 87 158 L 84 160 L 80 163 L 76 167 L 73 169 L 68 173 L 67 174 L 61 180 L 54 187 L 47 193 L 40 200 L 34 207 L 28 213 L 27 215 L 22 220 L 20 223 L 17 227 L 13 231 L 11 233 L 7 240 L 2 247 L 0 249"/>
+    <path class="cf-line" opacity="0.76" d="M 182 680 L 180 677 L 178 673 L 174 667 L 170 660 L 167 654 L 163 647 L 160 642 L 159 640 L 155 633 L 153 630 L 151 627 L 147 620 L 142 613 L 140 610 L 137 607 L 133 601 L 132 600 L 127 594 L 120 587 L 113 580 L 107 574 L 100 569 L 97 567 L 93 564 L 88 560 L 87 559 L 80 554 L 78 553 L 73 550 L 68 547 L 60 542 L 57 540 L 53 538 L 47 534 L 40 530 L 35 527 L 33 526 L 27 521 L 25 520 L 20 517 L 15 513 L 13 512 L 7 507 L 0 500"/>
+    <path class="cf-gold" d="M 366 680 L 367 679 L 370 673 L 373 669 L 374 667 L 378 660 L 380 656 L 381 653 L 384 647 L 387 641 L 389 633 L 391 627 L 393 620 L 393 617 L 394 613 L 395 607 L 396 600 L 396 593 L 396 587 L 396 580 L 395 573 L 394 567 L 393 563 L 393 560 L 391 553 L 388 547 L 387 543 L 385 540 L 382 533 L 380 530 L 378 527 L 373 520 L 368 513 L 361 507 L 360 505 L 354 500 L 353 499 L 347 493 L 340 488 L 339 487 L 333 482 L 330 480 L 327 477 L 322 473 L 320 472 L 313 467 L 307 461 L 305 460 L 300 456 L 297 453 L 293 450 L 290 447 L 287 443 L 283 440 L 280 436 L 277 433 L 273 429 L 272 427 L 267 420 L 262 413 L 260 410 L 258 407 L 254 400 L 250 393 L 247 387 L 243 380 L 240 373 L 238 367 L 235 360 L 233 356 L 232 353 L 230 347 L 227 340 L 227 338 L 225 333 L 223 327 L 221 320 L 220 318 L 218 313 L 216 307 L 214 300 L 213 296 L 212 293 L 210 287 L 209 280 L 207 273 L 205 267 L 204 260 L 202 253 L 200 247 L 200 245 L 199 240 L 197 233 L 196 227 L 194 220 L 193 216 L 193 213 L 191 207 L 189 200 L 187 193 L 185 187 L 182 180 L 180 177 L 178 173 L 173 167 L 167 161 L 164 160 L 160 158 L 153 156 L 147 155 L 140 156 L 133 157 L 127 159 L 124 160 L 120 161 L 113 165 L 110 167 L 107 168 L 100 172 L 99 173 L 93 177 L 89 180 L 87 182 L 81 187 L 73 193 L 67 199 L 65 200 L 60 205 L 58 207 L 53 212 L 52 213 L 47 219 L 40 227 L 34 233 L 33 235 L 29 240 L 27 243 L 24 247 L 20 252 L 15 260 L 13 262 L 11 267 L 7 273 L 3 280 L 0 285"/>
+    <path class="cf-gold" d="M 203 680 L 200 676 L 198 673 L 194 667 L 189 660 L 187 655 L 185 653 L 181 647 L 180 644 L 178 640 L 174 633 L 170 627 L 167 622 L 166 620 L 161 613 L 160 611 L 157 607 L 153 601 L 152 600 L 147 593 L 142 587 L 140 584 L 136 580 L 133 577 L 130 573 L 127 570 L 123 567 L 120 564 L 115 560 L 113 558 L 107 553 L 100 548 L 98 547 L 93 543 L 89 540 L 87 539 L 80 534 L 79 533 L 73 530 L 68 527 L 67 526 L 60 521 L 58 520 L 53 517 L 48 513 L 47 512 L 40 508 L 39 507 L 33 502 L 30 500 L 27 497 L 22 493 L 20 491 L 15 487 L 13 484 L 9 480 L 7 477 L 4 473 L 0 468"/>
+    <path class="cf-line" opacity="0.76" d="M 338 680 L 340 678 L 345 673 L 347 671 L 350 667 L 353 662 L 355 660 L 359 653 L 360 652 L 363 647 L 366 640 L 367 638 L 368 633 L 371 627 L 372 620 L 373 616 L 374 613 L 375 607 L 376 600 L 376 593 L 376 587 L 375 580 L 375 573 L 373 567 L 371 560 L 369 553 L 367 547 L 363 540 L 360 535 L 359 533 L 354 527 L 353 525 L 349 520 L 347 517 L 343 513 L 340 510 L 336 507 L 333 504 L 329 500 L 327 498 L 321 493 L 320 492 L 313 487 L 307 481 L 305 480 L 300 475 L 298 473 L 293 470 L 290 467 L 287 464 L 283 460 L 280 457 L 276 453 L 273 450 L 270 447 L 267 442 L 265 440 L 260 434 L 255 427 L 253 424 L 251 420 L 247 413 L 243 407 L 240 401 L 237 393 L 234 387 L 231 380 L 228 373 L 227 370 L 225 367 L 223 360 L 220 353 L 218 347 L 216 340 L 213 333 L 211 327 L 209 320 L 207 314 L 204 307 L 202 300 L 200 294 L 198 287 L 195 280 L 193 273 L 191 267 L 189 260 L 187 253 L 184 247 L 182 240 L 180 234 L 177 227 L 174 220 L 173 219 L 171 213 L 167 207 L 161 200 L 160 198 L 154 193 L 147 190 L 140 188 L 133 187 L 127 188 L 120 190 L 113 192 L 111 193 L 107 195 L 100 199 L 98 200 L 93 203 L 88 207 L 87 208 L 80 213 L 73 219 L 67 225 L 65 227 L 60 232 L 59 233 L 53 239 L 47 247 L 42 253 L 40 256 L 37 260 L 33 266 L 28 273 L 27 276 L 24 280 L 21 287 L 20 288 L 17 293 L 14 300 L 13 302 L 11 307 L 9 313 L 7 318 L 6 320 L 4 327 L 2 333 L 0 340 L 0 341"/>
+    <path class="cf-line" opacity="0.76" d="M 228 680 L 227 678 L 222 673 L 220 671 L 216 667 L 213 663 L 211 660 L 207 654 L 201 647 L 200 644 L 197 640 L 193 634 L 189 627 L 187 623 L 185 620 L 181 613 L 177 607 L 173 602 L 172 600 L 168 593 L 167 592 L 163 587 L 160 583 L 158 580 L 153 575 L 152 573 L 147 567 L 140 560 L 133 554 L 127 548 L 125 547 L 120 542 L 117 540 L 113 537 L 108 533 L 107 532 L 100 527 L 93 523 L 89 520 L 87 518 L 80 514 L 73 509 L 70 507 L 67 504 L 61 500 L 53 494 L 47 489 L 44 487 L 40 483 L 37 480 L 33 476 L 31 473 L 27 469 L 25 467 L 20 460 L 15 453 L 13 450 L 12 447 L 8 440 L 7 437 L 5 433 L 3 427 L 1 420 L 0 418"/>
+    <path class="cf-line" opacity="0.71" d="M 107 224 L 102 227 L 100 228 L 93 232 L 91 233 L 87 236 L 82 240 L 80 242 L 75 247 L 73 248 L 68 253 L 67 255 L 62 260 L 60 262 L 57 267 L 53 271 L 52 273 L 47 280 L 43 287 L 40 292 L 39 293 L 36 300 L 33 305 L 33 307 L 30 313 L 27 320 L 25 327 L 23 333 L 21 340 L 20 345 L 20 347 L 18 353 L 17 360 L 17 367 L 16 373 L 16 380 L 17 387 L 17 393 L 18 400 L 20 407 L 20 409 L 21 413 L 23 420 L 26 427 L 27 429 L 29 433 L 32 440 L 33 442 L 36 447 L 40 452 L 41 453 L 46 460 L 52 467 L 53 468 L 59 473 L 60 475 L 66 480 L 73 486 L 80 491 L 83 493 L 87 496 L 92 500 L 93 501 L 100 506 L 102 507 L 107 510 L 111 513 L 113 515 L 120 520 L 127 525 L 129 527 L 133 530 L 137 533 L 140 536 L 145 540 L 147 542 L 152 547 L 153 548 L 158 553 L 160 555 L 164 560 L 167 563 L 170 567 L 173 571 L 175 573 L 180 580 L 185 587 L 187 590 L 189 593 L 193 600 L 198 607 L 200 611 L 202 613 L 206 620 L 211 627 L 213 631 L 215 633 L 220 640 L 225 647 L 227 648 L 232 653 L 233 655 L 239 660 L 240 661 L 247 666 L 253 670 L 260 673 L 267 676 L 273 677 L 280 678 L 287 678 L 293 677 L 300 675 L 305 673 L 307 673 L 313 669 L 317 667 L 320 664 L 325 660 L 327 659 L 332 653 L 333 651 L 337 647 L 340 642 L 341 640 L 345 633 L 347 628 L 347 627 L 350 620 L 351 613 L 353 607 L 353 603 L 354 600 L 354 593 L 354 587 L 353 580 L 352 573 L 351 567 L 349 560 L 347 555 L 346 553 L 343 547 L 340 542 L 339 540 L 334 533 L 329 527 L 327 524 L 323 520 L 320 517 L 316 513 L 313 510 L 309 507 L 307 504 L 302 500 L 300 498 L 295 493 L 293 492 L 287 487 L 280 480 L 273 474 L 267 467 L 261 460 L 255 453 L 253 451 L 250 447 L 247 441 L 246 440 L 242 433 L 240 431 L 238 427 L 234 420 L 233 418 L 231 413 L 228 407 L 227 403 L 225 400 L 222 393 L 220 387 L 217 380 L 215 373 L 213 369 L 212 367 L 210 360 L 208 353 L 207 350 L 205 347 L 203 340 L 201 333 L 200 332 L 198 327 L 196 320 L 193 313 L 191 307 L 188 300 L 187 296 L 186 293 L 183 287 L 180 280 L 177 273 L 174 267 L 173 265 L 171 260 L 167 253 L 167 252 L 163 247 L 160 241 L 159 240 L 153 233 L 147 227 L 140 223 L 133 221 L 127 220 L 120 221 L 113 222 L 107 224"/>
+    <path class="cf-line" opacity="0.67" d="M 120 253 L 113 254 L 107 256 L 100 259 L 98 260 L 93 263 L 88 267 L 87 268 L 80 273 L 74 280 L 69 287 L 67 289 L 64 293 L 60 299 L 56 307 L 53 311 L 52 313 L 49 320 L 47 327 L 44 333 L 43 340 L 41 347 L 40 352 L 39 360 L 38 367 L 38 373 L 38 380 L 39 387 L 39 393 L 40 397 L 41 400 L 42 407 L 44 413 L 47 420 L 50 427 L 53 433 L 58 440 L 60 443 L 63 447 L 67 452 L 68 453 L 73 459 L 74 460 L 80 465 L 82 467 L 87 471 L 89 473 L 93 476 L 98 480 L 100 482 L 107 486 L 113 491 L 117 493 L 120 496 L 127 500 L 133 505 L 136 507 L 140 509 L 145 513 L 147 514 L 153 520 L 160 525 L 162 527 L 167 531 L 169 533 L 173 538 L 175 540 L 180 545 L 181 547 L 187 553 L 192 560 L 193 562 L 197 567 L 200 572 L 201 573 L 206 580 L 207 582 L 210 587 L 213 592 L 214 593 L 219 600 L 220 602 L 223 607 L 227 611 L 228 613 L 233 620 L 240 627 L 247 633 L 253 638 L 256 640 L 260 642 L 267 645 L 273 646 L 276 647 L 280 647 L 285 647 L 287 647 L 293 645 L 300 642 L 303 640 L 307 637 L 311 633 L 313 631 L 316 627 L 320 621 L 324 613 L 326 607 L 327 602 L 327 600 L 328 593 L 328 587 L 327 580 L 327 577 L 326 573 L 324 567 L 322 560 L 320 557 L 318 553 L 314 547 L 313 545 L 310 540 L 307 536 L 305 533 L 300 528 L 299 527 L 293 521 L 292 520 L 287 515 L 285 513 L 280 509 L 278 507 L 273 502 L 271 500 L 267 496 L 264 493 L 260 489 L 257 487 L 253 482 L 251 480 L 247 474 L 241 467 L 236 460 L 233 455 L 232 453 L 229 447 L 227 443 L 225 440 L 222 433 L 220 428 L 219 427 L 217 420 L 214 413 L 213 411 L 212 407 L 209 400 L 207 393 L 207 392 L 205 387 L 203 380 L 201 373 L 200 372 L 198 367 L 196 360 L 194 353 L 191 347 L 189 340 L 187 334 L 184 327 L 181 320 L 180 318 L 178 313 L 175 307 L 173 304 L 171 300 L 168 293 L 167 291 L 164 287 L 160 280 L 155 273 L 153 271 L 149 267 L 147 264 L 141 260 L 133 256 L 127 254 L 122 253 L 120 253"/>
+    <path class="cf-line" opacity="0.62" d="M 107 290 L 100 293 L 93 298 L 91 300 L 87 305 L 85 307 L 80 313 L 76 320 L 73 324 L 72 327 L 69 333 L 67 340 L 65 347 L 63 353 L 62 360 L 62 367 L 61 373 L 62 380 L 62 387 L 64 393 L 65 400 L 67 405 L 67 407 L 70 413 L 73 420 L 77 427 L 80 431 L 82 433 L 87 439 L 93 446 L 100 452 L 107 458 L 110 460 L 113 463 L 119 467 L 127 471 L 130 473 L 133 475 L 140 479 L 142 480 L 147 482 L 153 486 L 155 487 L 160 489 L 167 492 L 169 493 L 173 495 L 180 499 L 183 500 L 187 502 L 193 505 L 196 507 L 200 509 L 207 513 L 213 519 L 215 520 L 219 527 L 220 528 L 223 533 L 226 540 L 227 542 L 229 547 L 232 553 L 233 556 L 236 560 L 239 567 L 244 573 L 247 577 L 249 580 L 253 585 L 256 587 L 260 590 L 267 593 L 273 593 L 280 588 L 281 587 L 283 580 L 282 573 L 281 567 L 280 565 L 277 560 L 273 554 L 267 547 L 260 540 L 253 534 L 252 533 L 247 530 L 242 527 L 240 525 L 233 520 L 227 515 L 225 513 L 220 507 L 217 500 L 214 493 L 213 491 L 212 487 L 210 480 L 208 473 L 207 467 L 205 460 L 203 453 L 202 447 L 200 440 L 200 438 L 199 433 L 197 427 L 196 420 L 194 413 L 193 409 L 193 407 L 191 400 L 189 393 L 187 387 L 187 384 L 185 380 L 183 373 L 181 367 L 180 363 L 179 360 L 177 353 L 174 347 L 173 345 L 171 340 L 168 333 L 167 330 L 165 327 L 161 320 L 160 318 L 157 313 L 153 309 L 152 307 L 147 301 L 140 295 L 137 293 L 133 291 L 127 288 L 120 288 L 113 288 L 107 290"/>
+    <path class="cf-line" opacity="0.58" d="M 113 332 L 110 333 L 107 336 L 103 340 L 100 343 L 98 347 L 95 353 L 93 359 L 93 360 L 92 367 L 91 373 L 92 380 L 93 387 L 93 389 L 94 393 L 97 400 L 100 406 L 105 413 L 107 416 L 111 420 L 113 423 L 118 427 L 120 428 L 127 432 L 130 433 L 133 435 L 140 437 L 147 437 L 153 435 L 156 433 L 160 429 L 161 427 L 163 420 L 164 413 L 165 407 L 164 400 L 164 393 L 163 387 L 161 380 L 160 376 L 159 373 L 157 367 L 154 360 L 153 358 L 151 353 L 147 347 L 141 340 L 140 339 L 133 333 L 127 331 L 120 330 L 113 332"/>
+  </svg>
+
   <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
 
   <div class="upload-panel">
     <div class="wordmark">Hirely</div>
     <h1>Resume Analysis</h1>
-    <p class="intro">Compares a resume against O*NET occupational data: matched occupations, skill coverage, gaps, and automation exposure.</p>
+    <p class="intro">AI-powered tailored resume advice using real world labor-market data.</p>
 
     <div class="drop-zone" id="dropZone">
       <svg class="dz-border" preserveAspectRatio="none"><rect></rect></svg>
@@ -782,6 +931,10 @@ footer {
       <span class="fname" id="fileName"></span>
       <span class="fsize" id="fileSize"></span>
     </div>
+
+    <p class="privacy"><span class="pv-dot"></span><span id="privacyText">Your
+      resume is never stored — it's analyzed in memory and deleted the moment
+      your report is ready. Only a running count of analyses is kept.</span></p>
 
     <div class="upload-actions" id="uploadActions">
       <button class="btn-primary" onclick="analyze()">Run analysis <span class="arr">→</span></button>
@@ -821,9 +974,9 @@ footer {
   <!-- Verdict headline -->
   <p class="verdict rv" id="verdict"></p>
 
-  <!-- Metrics -->
+  <!-- Headline score -->
   <div class="metrics rv" id="secMetrics">
-    <div class="metric">
+    <div class="metric metric-lead">
       <span class="label">Hirability</span>
       <div class="gauge-wrap">
         <svg class="gauge" viewBox="0 0 120 64">
@@ -833,33 +986,16 @@ footer {
           <line class="g-tick" x1="89.7" y1="30.3" x2="93.2" y2="26.8"/>
           <line class="g-tick" x1="102" y1="60" x2="107" y2="60"/>
           <path class="g-track" d="M 10 60 A 50 50 0 0 1 110 60"/>
+          <path class="g-band" id="hBand" d="M 10 60 A 50 50 0 0 1 110 60"/>
           <path class="g-fill" id="hArc" d="M 10 60 A 50 50 0 0 1 110 60"/>
         </svg>
-        <div class="g-value" id="hVal">0.0</div>
+        <div class="g-value" id="hVal">—</div>
       </div>
       <div class="g-scale"><span>0</span><span>100</span></div>
       <div class="m-note" id="hNote"></div>
+      <div class="m-range" id="hRange"></div>
       <button class="why-btn" onclick="toggleBreakdown('hBreak', this)"><span class="chev">▸</span> Score breakdown</button>
       <div class="breakdown" id="hBreak"></div>
-    </div>
-    <div class="metric">
-      <span class="label">Competitiveness</span>
-      <div class="gauge-wrap">
-        <svg class="gauge" viewBox="0 0 120 64">
-          <line class="g-tick" x1="18" y1="60" x2="13" y2="60"/>
-          <line class="g-tick" x1="30.3" y1="30.3" x2="26.8" y2="26.8"/>
-          <line class="g-tick" x1="60" y1="18" x2="60" y2="13"/>
-          <line class="g-tick" x1="89.7" y1="30.3" x2="93.2" y2="26.8"/>
-          <line class="g-tick" x1="102" y1="60" x2="107" y2="60"/>
-          <path class="g-track" d="M 10 60 A 50 50 0 0 1 110 60"/>
-          <path class="g-fill" id="cArc" d="M 10 60 A 50 50 0 0 1 110 60"/>
-        </svg>
-        <div class="g-value" id="cVal">0.0</div>
-      </div>
-      <div class="g-scale"><span>0</span><span>100</span></div>
-      <div class="m-note" id="cNote"></div>
-      <button class="why-btn" onclick="toggleBreakdown('cBreak', this)"><span class="chev">▸</span> Score breakdown</button>
-      <div class="breakdown" id="cBreak"></div>
     </div>
     <div class="metric">
       <span class="label">Automation exposure</span>
@@ -880,59 +1016,78 @@ footer {
   <div class="sec rv" id="secMatch">
     <div class="sec-head">
       <span class="sec-num">01</span>
-      <span class="label">Occupation match</span>
+      <span class="label">Scored against</span>
+      <span class="sec-note" id="targetNote"></span>
     </div>
     <div class="match-title-row">
       <h2 id="matchTitle"></h2>
       <span class="soc-code" id="matchSoc"></span>
-      <span class="match-index" id="matchIndex"></span>
     </div>
     <p class="match-desc stag" style="--d:.2s" id="matchDesc"></p>
     <div class="market-stats" id="marketStats"></div>
-    <table class="alts" id="altsTable">
-      <thead><tr><th>#</th><th>Alternative matches</th><th>Match index</th></tr></thead>
-      <tbody id="altsBody"></tbody>
-    </table>
+
+    <!-- Retarget: the guess drives every number, so let the user correct it -->
+    <div class="retarget" id="retarget">
+      <div class="rt-head">
+        <span class="rt-label">Your top roles · hirability for each — click to switch</span>
+        <button class="btn-ghost rt-toggle" onclick="toggleJd()">Use a job posting</button>
+      </div>
+      <div class="role-cards" id="roleCards"></div>
+      <div class="rt-jd" id="rtJd" style="display:none">
+        <textarea id="jdText" rows="6"
+          placeholder="Paste a job description — you'll be scored against the skills it actually asks for, not an occupation average."></textarea>
+        <div class="rt-jd-actions">
+          <button class="btn-primary rt-go" onclick="retarget(true)">Score against this posting <span class="arr">→</span></button>
+        </div>
+      </div>
+      <div class="rt-skills" id="rtSkills"></div>
+    </div>
+  </div>
+
+  <!-- 02 Skill gaps — what to do next comes before what you already have -->
+  <div class="sec rv" id="secGaps">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <span class="label">What to learn next</span>
+      <span class="sec-note" id="gapNote"></span>
+    </div>
+    <div id="gapRows"></div>
+    <div class="sim-note" id="simNote"></div>
   </div>
 
   <!-- 03 Strengths -->
   <div class="sec rv" id="secStrengths">
     <div class="sec-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">03</span>
       <span class="label">Strengths</span>
       <span class="sec-note" id="strengthNote"></span>
     </div>
     <ul class="highlights" id="strengthHighlights"></ul>
-    <div class="coverage-ledger" id="coverageLedger">
-      <div class="cl-side">
-        <div class="cl-num" id="clHave">—</div>
-        <div class="cl-lbl">skills the role values</div>
-      </div>
-      <div class="cl-ring">
-        <svg viewBox="0 0 80 80">
-          <circle class="clr-track" cx="40" cy="40" r="34"/>
-          <circle class="clr-fill" id="clRing" cx="40" cy="40" r="34"
-                  transform="rotate(-90 40 40)"/>
-        </svg>
-        <div class="cl-pct" id="clPct">—</div>
-        <div class="cl-caption">skill strength</div>
-      </div>
-      <div class="cl-side">
-        <div class="cl-num" id="clGaps">—</div>
-        <div class="cl-lbl">in-demand skills missing</div>
-      </div>
-    </div>
-    <div class="tags" id="strengthTags"></div>
-  </div>
 
-  <!-- 03 Skill gaps -->
-  <div class="sec rv" id="secGaps">
-    <div class="sec-head">
-      <span class="sec-num">03</span>
-      <span class="label">Skill gaps</span>
-      <span class="sec-note" id="gapNote"></span>
+    <div class="strength-grid" id="coverageLedger">
+      <div class="sg-ring-col">
+        <div class="cl-ring">
+          <svg viewBox="0 0 80 80">
+            <circle class="clr-track" cx="40" cy="40" r="34"/>
+            <circle class="clr-fill" id="clRing" cx="40" cy="40" r="34"
+                    transform="rotate(-90 40 40)"/>
+          </svg>
+          <div class="cl-pct" id="clPct">—</div>
+        </div>
+        <div class="cl-lbl">skill strength</div>
+        <div class="sg-counts" id="sgCounts"></div>
+      </div>
+
+      <!-- What the resume itself signals to a reader, beyond the tool list —
+           the advice side of the product, not another number. -->
+      <div class="signal-check">
+        <div class="sc-head">Resume signal check</div>
+        <p class="sc-sub">What your resume shows a reader beyond the tools you know.</p>
+        <ul class="sc-list" id="signalList"></ul>
+      </div>
     </div>
-    <div id="gapRows"></div>
+
+    <div class="tags" id="strengthTags"></div>
   </div>
 
   <!-- 04 Automation exposure -->
@@ -989,8 +1144,8 @@ footer {
 <!-- scrollspy rail -->
 <nav class="rail" id="rail" aria-hidden="true">
   <a href="#secMatch"     data-sec="secMatch">01</a>
-  <a href="#secStrengths" data-sec="secStrengths">02</a>
-  <a href="#secGaps"      data-sec="secGaps">03</a>
+  <a href="#secGaps"      data-sec="secGaps">02</a>
+  <a href="#secStrengths" data-sec="secStrengths">03</a>
   <a href="#secExposure"  data-sec="secExposure">04</a>
   <a href="#secJobs"      data-sec="secJobs">05</a>
 </nav>
@@ -1054,6 +1209,21 @@ const TICKER_ROWS = [
   const rows = [...TICKER_ROWS, ...TICKER_ROWS].map(([code, title]) =>
     `<div class="ticker-row"><b>${code}</b>${esc(title)}</div>`).join('');
   $('tickerTrack').innerHTML = rows;
+})();
+
+/* live analysis count for the privacy line — the one number the service keeps */
+(async function fetchStats() {
+  try {
+    const res = await fetch(API.replace('/analyze', '/stats'));
+    if (!res.ok) return;
+    const n = (await res.json()).analyses;
+    if (n > 0) {
+      $('privacyText').textContent =
+        `${n.toLocaleString()} resume${n === 1 ? '' : 's'} analyzed so far — none kept. ` +
+        `Yours is analyzed in memory and deleted the moment your report is ready; ` +
+        `only that running count is stored.`;
+    }
+  } catch (e) { /* server offline — the static line stands */ }
 })();
 
 /* ── upload handling ───────────────────────────────────── */
@@ -1168,7 +1338,7 @@ function finishLog(ok) {
 }
 
 /* ── analyze ───────────────────────────────────────────── */
-async function analyze() {
+async function analyze(opts = {}) {
   if (!currentFile) return;
   $('uploadActions').classList.remove('show');
   $('errBox').classList.remove('show');
@@ -1177,6 +1347,10 @@ async function analyze() {
 
   const form = new FormData();
   form.append('file', currentFile);
+  // The browser still holds the file, so re-scoring against a different target
+  // is just another POST — no server-side session to keep in sync.
+  if (opts.targetSoc) form.append('target_soc', opts.targetSoc);
+  if (opts.jobDescription) form.append('job_description', opts.jobDescription);
   try {
     const res = await fetch(API, { method: 'POST', body: form });
     if (!res.ok) {
@@ -1191,6 +1365,88 @@ async function analyze() {
     $('uploadActions').classList.add('show');
     showErr(e.message || 'Could not reach the server at localhost:8000.');
   }
+}
+
+/* ── switching between the shortlisted roles ───────────────
+   Every role's analysis arrives with the report, so this is a local re-render:
+   no request, no trip back through the upload screen, no eight-second wait to
+   see numbers the server already sent. */
+let baseReport = null;
+
+function swapTargets() {
+  // Everything a role change affects — the role cards are excluded on purpose
+  // so the control you clicked stays still.
+  const head = $('secMatch');
+  return [
+    $('verdict'), $('secMetrics'), $('summaryCard'), $('secGaps'),
+    $('secStrengths'), $('secExposure'),
+    head && head.querySelector('.match-title-row'),
+    $('matchDesc'), $('marketStats'),
+  ].filter(Boolean);
+}
+
+function switchRole(soc, card) {
+  if (!baseReport || !baseReport.target) return;
+  const views = baseReport.target.role_views || {};
+  const isBase = soc === baseReport.target.soc_code;
+  // Scoring against a pasted posting has no precomputed alternatives, so fall
+  // back to asking the server rather than leaving the click dead.
+  if (!isBase && !views[soc]) { retarget(false, soc); return; }
+
+  if (card) {
+    card.classList.remove('picking');
+    void card.offsetWidth;              // restart the sweep
+    card.classList.add('picking');
+  }
+
+  const next = isBase ? baseReport : {
+    ...baseReport,
+    ...views[soc],
+    target: {
+      ...baseReport.target,
+      soc_code: soc,
+      title: views[soc].summary.top_match_title,
+      occupation_title: views[soc].summary.top_match_title,
+    },
+  };
+
+  const nodes = swapTargets();
+  if (REDUCED) { renderReport(next, null, true); return; }
+
+  nodes.forEach(n => n.classList.add('swap-out'));
+  setTimeout(() => {
+    const y = window.scrollY;
+    renderReport(next, null, true);
+    window.scrollTo(0, y);             // re-render must not throw you to the top
+    swapTargets().forEach(n => {
+      n.classList.remove('swap-out');
+      n.classList.add('swap-in');
+      n.addEventListener('animationend',
+        () => n.classList.remove('swap-in'), { once: true });
+    });
+  }, 180);
+}
+
+/* ── re-score against a different target ───────────────── */
+function toggleJd() {
+  const box = $('rtJd');
+  const open = box.style.display === 'none';
+  box.style.display = open ? '' : 'none';
+  if (open) $('jdText').focus();
+}
+
+async function retarget(usePosting, socCode) {
+  const jd = usePosting ? $('jdText').value.trim() : '';
+  if (usePosting && jd.length < 40) {
+    showErr('Paste a bit more of the posting — a line or two is not enough to score against.');
+    return;
+  }
+  $('reportView').classList.remove('show');
+  $('rail').classList.remove('show');
+  $('miniHeader').classList.remove('show');
+  $('uploadView').style.display = 'flex';
+  window.scrollTo(0, 0);
+  await analyze(usePosting ? { jobDescription: jd } : { targetSoc: socCode });
 }
 
 function resetView() {
@@ -1226,9 +1482,11 @@ function renderTags(el, items, limit) {
   const draw = (list, showToggle) => {
     el.innerHTML = list.map((t, i) => {
       const d = Math.min(i * 0.03, 0.6);
-      return typeof t === 'object' && t.val !== undefined
-        ? `<span class="tag stag" style="--d:${d}s">${esc(t.name)}<span class="val">${esc(t.val)}</span></span>`
-        : `<span class="tag stag" style="--d:${d}s">${esc(t)}</span>`;
+      if (typeof t === 'object' && t.val !== undefined)
+        return `<span class="tag stag" style="--d:${d}s">${esc(t.name)}<span class="val">${esc(t.val)}</span></span>`;
+      if (typeof t === 'object' && t.note !== undefined)
+        return `<span class="tag tag-inferred stag" style="--d:${d}s" title="${esc(t.note)}">${esc(t.name)}<span class="tag-mark">~</span></span>`;
+      return `<span class="tag stag" style="--d:${d}s">${esc(t)}</span>`;
     }).join('');
     if (showToggle) {
       const btn = document.createElement('button');
@@ -1241,18 +1499,27 @@ function renderTags(el, items, limit) {
   draw(items.slice(0, limit), items.length > limit);
 }
 
-function gapRow(idx, r, delay) {
+function gapRow(idx, r, delay, sim) {
   // Only surface a demand badge when it's a real caution — "growing" on every
   // row is noise. A declining skill is the exception worth flagging.
   const trendTag = r.demand_trend === 'declining'
     ? `<span class="gap-meta trend-declining">declining demand</span>` : '';
   const effortTag = r.effort_label
     ? `<span class="gap-meta">${esc(r.effort_label)}</span>` : '';
+  // What learning it would actually move the score by — a recommendation
+  // without a number is just an opinion.
+  let deltaTag = '';
+  if (sim) {
+    deltaTag = sim.measurable && sim.delta > 0
+      ? `<span class="gap-delta" title="Hirability with this skill: ${sim.score}">+${sim.delta.toFixed(1)} hirability${
+          sim.also_unlocks ? ` · unlocks ${sim.also_unlocks} more` : ''}</span>`
+      : `<span class="gap-delta flat" title="This target's requirements don't mention it">not scored here</span>`;
+  }
   return `<div class="gap-row stag" style="--d:${delay}s">
     <div class="gap-idx">${idx}</div>
     <div class="gap-body">
       <div class="gap-name-row">
-        <span class="gap-name">${esc(r.skill)}</span>${effortTag}${trendTag}
+        <span class="gap-name">${esc(r.skill)}</span>${effortTag}${trendTag}${deltaTag}
       </div>
       <p class="gap-desc">${esc(r.rationale)}</p>
     </div>
@@ -1272,16 +1539,29 @@ function resetBreakdown(id) {
   const btn = el.previousElementSibling;
   if (btn && btn.classList.contains('why-btn')) btn.classList.remove('open');
 }
-function renderBreakdown(id, comps) {
+function renderBreakdown(id, comps, note) {
   // Each component's max possible contribution is its weight×100; the filled
-  // bar shows earned points against that cap.
-  $(id).innerHTML = comps.map(c => {
+  // bar shows earned points against that cap. The weights themselves move with
+  // career stage, so say which stage produced them.
+  const head = note ? `<div class="bd-note">${esc(note)}</div>` : '';
+  $(id).innerHTML = head + comps.map(c => {
     const cap = Math.round(c.weight * 100);
     const pct = cap ? Math.round(c.points / cap * 100) : 0;
     let sub = '';
     if (c.detail) {
       const d = c.detail, r = x => Math.round((x || 0) * 100);
-      sub = `<div class="bd-detail">weighted coverage ${r(d.breadth)} · specialization ${r(d.specialization)} · complementarity ${r(d.complementarity)}</div>`;
+      let bits;
+      if (d.signals) {
+        bits = d.signals;                     // track record: what it found
+      } else {
+        bits = [`weighted coverage ${r(d.breadth)}`,
+                `specialization ${r(d.specialization)}`,
+                `complementarity ${r(d.complementarity)}`];
+        // How much the resume itself documents; the rest is held at an average
+        // candidate rather than assumed weak.
+        if (d.evidence != null) bits.push(`resume evidence ${r(d.evidence)}`);
+      }
+      sub = `<div class="bd-detail">${esc(bits.join(' · '))}</div>`;
     }
     return `<div class="bd-row">
       <div class="bd-top"><span class="bd-label">${esc(c.label)}</span>
@@ -1293,9 +1573,16 @@ function renderBreakdown(id, comps) {
 }
 
 /* ── market benchmark ──────────────────────────────────── */
-function renderMarket(lm) {
+function renderMarket(lm, comp) {
   if (!lm) return '';
   const tiles = [];
+  // Competitiveness lives here rather than beside hirability: it is a
+  // statement about market position, and two composite gauges side by side
+  // read as two verdicts when they are largely the same one.
+  if (comp && comp.score != null) {
+    tiles.push([`${Math.round(comp.score)}<span class="mstat-sub">/100</span>`,
+                `market position · ${comp.level || ''}`]);
+  }
   if (lm.median_wage) tiles.push([`$${lm.median_wage.toLocaleString()}`, 'median wage']);
   if (lm.openings_k != null) tiles.push([Math.round(lm.openings_k * 1000).toLocaleString(), 'openings / yr']);
   if (lm.growth_pct != null) {
@@ -1325,7 +1612,10 @@ function renderMarket(lm) {
 }
 
 /* ── report rendering ──────────────────────────────────── */
-function renderReport(d, elapsed) {
+function renderReport(d, elapsed, isSwitch) {
+  // The first render of a server response is the baseline every role switch
+  // is built from; switching roles must not overwrite it.
+  if (!isSwitch) baseReport = d;
   const s    = d.summary || {};
   const comp = d.competitiveness || {};
   const exp  = d.ai_displacement_exposure || {};
@@ -1334,14 +1624,19 @@ function renderReport(d, elapsed) {
   const recs = d.recommendations || [];
   const highlights = gaps.highlights || [];
 
-  // reset reveal state for repeat runs
-  document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
+  // reset reveal state for repeat runs — but not when swapping roles in place,
+  // where re-running the entrance animation would fight the crossfade.
+  if (!isSwitch) {
+    document.querySelectorAll('#reportView .rv').forEach(el => el.classList.remove('in'));
+  }
 
   // header + verdict + sticky mini-header
   $('rptFile').textContent = d.resume || 'Report';
   $('miniName').textContent = d.resume || '';
-  $('rptMeta').textContent =
-    `${new Date().toISOString().slice(0, 10)} · analyzed in ${elapsed ? elapsed.toFixed(1) : '—'}s`;
+  if (!isSwitch) {
+    $('rptMeta').textContent =
+      `${new Date().toISOString().slice(0, 10)} · analyzed in ${elapsed ? elapsed.toFixed(1) : '—'}s`;
+  }
   $('verdict').innerHTML = d.verdict
     ? esc(d.verdict).replace(/^(.*?)(\sfor\s)/, '<b>$1</b>$2') : '';
 
@@ -1350,19 +1645,22 @@ function renderReport(d, elapsed) {
   $('summaryCard').style.display = summaryText ? '' : 'none';
   $('summaryText').textContent = summaryText;
 
-  // metrics
+  // headline score — one number, rounded, with the band the model implies
   const h = s.hirability_score || 0;
   const c = comp.score || 0;
+  const range = s.hirability_range;
   $('hNote').textContent = s.hirability_level || '';
-  $('cNote').textContent = comp.level || '';
-  $('miniHire').textContent = h.toFixed(0);
-  $('miniComp').textContent = c.toFixed(0);
+  $('hRange').textContent = (range && range[1] - range[0] >= 2)
+    ? `likely ${range[0]}–${range[1]} · ${range[1] - range[0] > 14
+        ? 'thin resume, wide margin' : 'based on what the resume documents'}`
+    : '';
+  $('miniHire').textContent = Math.round(h);
+  $('miniComp').textContent = Math.round(c);
   $('hArc').style.strokeDashoffset = ARC_LEN;
-  $('cArc').style.strokeDashoffset = ARC_LEN;
+  $('hBand').style.strokeDashoffset = ARC_LEN;
   const bd = d.score_breakdown || {};
-  renderBreakdown('hBreak', bd.hirability || []);
-  renderBreakdown('cBreak', bd.competitiveness || []);
-  resetBreakdown('hBreak'); resetBreakdown('cBreak');
+  renderBreakdown('hBreak', bd.hirability || [], (d.career_stage || {}).note);
+  resetBreakdown('hBreak');
 
   const lvl = exp.level || '—';
   const eVal = $('eVal');
@@ -1373,56 +1671,116 @@ function renderReport(d, elapsed) {
   const segIdx = { Low: 0, Medium: 1, High: 2 }[lvl];
   for (let i = 0; i < 3; i++) segs[i].className = (i === segIdx) ? 'on-' + lvl : '';
 
-  // 01 occupation match
-  let topTitle = '';
-  if (tops.length) {
-    const top = tops[0];
-    topTitle = top.title;
+  // 01 what we scored against, and the controls to change it
+  const target = d.target || null;
+  let topTitle = target ? target.title : '';
+  if (tops.length || target) {
+    const top = tops[0] || {};
+    topTitle = (target && target.title) || top.title || '';
     $('secMatch').style.display = '';
-    $('matchSoc').textContent = 'SOC ' + top.soc_code;
-    $('matchIndex').textContent = (top.blended_score || top.match_score || 0).toFixed(2);
+    // Set the title outright; the scramble effect replays it afterwards. If it
+    // only ever arrived via the animation, a print or an early screenshot
+    // would capture an empty heading.
+    $('matchTitle').textContent = topTitle;
+    $('matchSoc').textContent = target && target.soc_code ? 'SOC ' + target.soc_code : '';
     $('matchDesc').textContent = top.description || '';
+    $('targetNote').textContent = target
+      ? { posting: 'from the posting you pasted',
+          override: 'you picked this role',
+          auto: 'best match for your resume' }[target.source] || ''
+      : '';
 
-    // BLS market snapshot + benchmark
-    $('marketStats').innerHTML = renderMarket(d.labor_market);
+    // BLS market snapshot + benchmark, with competitiveness folded in — it is
+    // a market-position statement, not a second headline verdict.
+    $('marketStats').innerHTML = renderMarket(d.labor_market, comp);
 
-    const alts = tops.slice(1, 5);
-    $('altsTable').style.display = alts.length ? '' : 'none';
-    $('altsBody').innerHTML = alts.map((m, i) =>
-      `<tr><td class="rank">${i + 2}</td>
-       <td class="alt-title"><div class="alt-bar" style="--w:${((m.blended_score || 0) * 100).toFixed(0)}%"></div><span>${esc(m.title)}</span></td>
-       <td class="score">${(m.blended_score || 0).toFixed(2)}</td></tr>`
-    ).join('');
+    // One card per shortlisted role, each showing the hirability score for
+    // *that* role — the whole report re-runs against whichever is clicked.
+    // Listed closest-match first — the order carries the fit, so no card needs
+    // to be labelled as the weaker one.
+    const roles = (target && target.role_options) || [];
+    $('roleCards').innerHTML = roles.map(r => {
+      const active = target && r.soc_code === target.soc_code;
+      return `<button class="role-card${active ? ' active' : ''}"
+        ${active ? 'disabled' : `onclick="switchRole('${esc(r.soc_code)}', this)"`}>
+        <span class="rc-score">${Math.round(r.hirability)}</span>
+        <span class="rc-body">
+          <span class="rc-title">${esc(r.title)}</span>
+          <span class="rc-meta">skill strength ${r.skill_strength}</span>
+        </span>
+        <span class="rc-tag">${active ? 'showing' : 'view'}</span>
+      </button>`;
+    }).join('');
+    $('retarget').style.display = roles.length > 1 ? '' : 'none';
+
+    // When scored against a posting, show what it actually asked for.
+    const pskills = (target && target.posting_skills) || [];
+    $('rtSkills').innerHTML = pskills.length
+      ? `<span class="rt-skill">posting asks for:</span>` + pskills.slice(0, 14).map(p =>
+          `<span class="rt-skill"><b>${esc(p.skill)}</b>${p.mentions > 1 ? ' ×' + p.mentions : ''}</span>`).join('')
+      : '';
   } else {
     $('secMatch').style.display = 'none';
   }
 
-  // 02 strengths — highlights + coverage ring ledger + matched skills
-  const strengths = (gaps.strengths || []).map(skillName);
+  // 03 strengths — highlights + coverage ring ledger + matched skills
+  const strengthItems = (gaps.strengths || []);
+  const strengths = strengthItems.map(skillName);
   $('secStrengths').style.display = (strengths.length || highlights.length) ? '' : 'none';
   $('strengthHighlights').innerHTML = highlights.map(h => `<li>${esc(h)}</li>`).join('');
   const ss = d.skill_strength;
   const ringFrac = ss ? Math.min(1, ss.score / 100) : (gaps.coverage_of_top_match || 0);
   if (strengths.length) {
-    $('strengthNote').textContent = strengths.length + ' skills';
+    const implied = (ss && ss.implied) || 0;
+    $('strengthNote').textContent = strengths.length + ' skills'
+      + (implied ? ` · ${implied} inferred` : '');
     $('coverageLedger').style.display = '';
-    $('clHave').textContent = ss ? ss.matched : strengths.length;
-    $('clGaps').textContent = ss ? ss.high_demand_gaps : recs.length;
     $('clPct').textContent = ss ? ss.score : Math.round(ringFrac * 100);
     $('clRing').style.strokeDashoffset = 213.6;  // reset; animated on reveal
-    renderTags($('strengthTags'), strengths, 14);
+    const have = ss ? ss.matched : strengths.length;
+    $('sgCounts').innerHTML = `<b>${have}</b> skills the role values`
+      + (implied ? `<br><b>${implied}</b> inferred from related skills` : '');
+
+    // Resume signal check — what the text signals to a reader, with a concrete
+    // fix for each signal it doesn't send. This is where the resume-writing
+    // advice lives; everything else on the page is about skills.
+    const checks = ((d.career_stage || {}).track_record || {}).checks || [];
+    $('signalList').innerHTML = checks.map(c => `
+      <li class="sc-item ${c.found ? 'found' : 'miss'}">
+        <span class="sc-mark">${c.found ? '✓' : '○'}</span>
+        <span class="sc-body"><span class="sc-label">${esc(c.label)}</span>
+          ${c.hint ? `<span class="sc-hint">${esc(c.hint)}</span>` : ''}</span>
+      </li>`).join('');
+    $('signalList').parentElement.style.display = checks.length ? '' : 'none';
+
+    // Mark the ones credited from a related skill rather than claimed, so the
+    // reader can check the inference instead of taking it on trust.
+    renderTags($('strengthTags'), strengthItems.map(t => (
+      typeof t === 'object' && t.implied
+        ? { name: t.skill, note: t.via ? 'via ' + t.via : 'inferred' }
+        : skillName(t)
+    )), 14);
   } else {
     $('strengthNote').textContent = '';
     $('coverageLedger').style.display = 'none';
     $('strengthTags').innerHTML = '';
   }
 
-  // 03 skill gaps
+  // 02 skill gaps, each with what learning it would move the score by
+  const simBySkill = {};
+  ((d.simulation && d.simulation.skills) || []).forEach(x => {
+    simBySkill[skillName(x.skill).toLowerCase()] = x;
+  });
   if (recs.length) {
     $('secGaps').style.display = '';
     $('gapNote').textContent = topTitle ? 'vs. ' + topTitle : '';
-    $('gapRows').innerHTML =
-      recs.map((r, i) => gapRow(String(i + 1).padStart(2, '0'), r, i * 0.08)).join('');
+    $('gapRows').innerHTML = recs.map((r, i) => gapRow(
+      String(i + 1).padStart(2, '0'), r, i * 0.08,
+      simBySkill[skillName(r.skill).toLowerCase()])).join('');
+    const base = d.simulation && d.simulation.baseline_score;
+    $('simNote').textContent = base != null
+      ? `movement is modelled against your current score of ${Math.round(base)}`
+      : '';
   } else {
     $('secGaps').style.display = 'none';
   }
@@ -1456,7 +1814,7 @@ function renderReport(d, elapsed) {
   $('uploadView').style.display = 'none';
   $('reportView').classList.add('show');
   $('rail').classList.add('show');
-  window.scrollTo(0, 0);
+  if (!isSwitch) window.scrollTo(0, 0);
 
   document.querySelectorAll('#reportView .rv').forEach(el => revealObs.observe(el));
   ['secMatch', 'secStrengths', 'secGaps', 'secExposure', 'secJobs'].forEach(id => {
@@ -1465,11 +1823,15 @@ function renderReport(d, elapsed) {
   });
   miniObs.observe($('secMetrics'));
 
+  // The headline number is stated, not animated: a score counting up through
+  // values it never had reads as a glitch on the one figure that must look
+  // solid. The arc still animates.
+  $('hVal').textContent = Math.round(h);
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    countUp($('hVal'), h);
-    countUp($('cVal'), c);
     $('hArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(h, 100) / 100);
-    $('cArc').style.strokeDashoffset = ARC_LEN * (1 - Math.min(c, 100) / 100);
+    if (range) {
+      $('hBand').style.strokeDashoffset = ARC_LEN * (1 - Math.min(range[1], 100) / 100);
+    }
     if (strengths.length) {
       $('clRing').style.strokeDashoffset = 213.6 * (1 - Math.min(1, ringFrac));
     }

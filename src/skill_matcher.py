@@ -117,6 +117,62 @@ def _match_skill_to_tool_norms(skill: str) -> Tuple[Set[str], str]:
         return (hits, "word") if hits else (set(), "none")
 
 
+@lru_cache(maxsize=1)
+def _token_index() -> Dict[str, Set[str]]:
+    """Every token (not just significant ones) → tool_norm values containing it."""
+    index: Dict[str, Set[str]] = {}
+    for tn in _all_tool_norms():
+        for token in tn.split():
+            index.setdefault(token, set()).add(tn)
+    return index
+
+
+@lru_cache(maxsize=1)
+def _generic_words() -> Set[str]:
+    """
+    Words that describe a category of software rather than name one: every word
+    O*NET uses in its Element Names ("design", "planning", "testing"), plus the
+    usual filler. A skill built only from these identifies no specific tool.
+    """
+    sw = _load_sw()
+    words = set(_STOPWORDS)
+    for element in sw["element_name"].unique():
+        words.update(_significant_words(_norm(element)))
+    return words
+
+
+def match_skill_to_tools_strict(skill: str) -> Set[str]:
+    """
+    High-precision counterpart to _match_skill_to_tool_norms: the tools this
+    skill actually names, for deciding whether to *credit* a candidate with one.
+
+    Ranking wants recall — a near-miss still says something about which
+    occupation fits. Crediting wants precision, because a false positive invents
+    a strength the candidate never claimed. So every token of the skill must
+    appear in the tool's name ("Power BI" → "Microsoft Power BI", but "Apache
+    Flink" no longer claims Cassandra, Hadoop, Hive and Pig), and a skill made
+    purely of category words ("system design") claims nothing.
+    """
+    skill_norm = _norm(skill)
+    if not skill_norm:
+        return set()
+    if skill_norm in _all_tool_norms():
+        return {skill_norm}
+
+    tokens = set(skill_norm.split())
+    if tokens <= _generic_words():
+        return set()
+
+    index = _token_index()
+    hits: Optional[Set[str]] = None
+    for token in tokens:
+        matched = index.get(token, set())
+        hits = set(matched) if hits is None else hits & matched
+        if not hits:
+            return set()
+    return hits or set()
+
+
 def match_skills_to_onet(skills: List[str]) -> List[Dict]:
     """
     For each extracted skill, find the best representative ONET tool entry.

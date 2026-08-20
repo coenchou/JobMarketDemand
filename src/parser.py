@@ -328,14 +328,11 @@ def _parse_with_groq(text: str) -> Optional[Dict]:
     for attempt in range(2):
         try:
             from groq import Groq  # type: ignore
+            from src.llm_cache import complete
             client = Groq(api_key=api_key)
-            response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                temperature=0,
-            )
-            data = json.loads(_strip_fences(response.choices[0].message.content))
+            raw = complete(
+                client, "llama-3.3-70b-versatile", prompt, temperature=0)
+            data = json.loads(_strip_fences(raw))
             if not isinstance(data, dict):
                 raise ValueError("model did not return a JSON object")
 

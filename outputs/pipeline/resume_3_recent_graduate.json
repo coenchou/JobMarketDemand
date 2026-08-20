@@ -1,136 +1,2239 @@
 {
   "resume": "resume_3_recent_graduate.txt",
+  "parser": "groq/llama-3.3-70b",
+  "summary_text": "Given the candidate's background in data analysis and visualization, focusing on learning Tableau and Microsoft Access will enhance their skills in data visualization and management, directly applicable to the Statistical Assistants role. They can improve quickly, with Tableau taking a couple of weeks to learn for day-to-day use. Additionally, exploring machine learning concepts will be beneficial, building on their data analysis experience.",
+  "verdict": "Likely hirable for Statistical Assistants — though the field is contracting.",
+  "target": {
+    "source": "auto",
+    "title": "Statistical Assistants",
+    "soc_code": "43-9111",
+    "occupation_title": "Statistical Assistants",
+    "posting_skills": [],
+    "role_options": [
+      {
+        "soc_code": "19-1041",
+        "title": "Epidemiologists",
+        "hirability": 63.3,
+        "level": "Likely hirable",
+        "skill_strength": 42,
+        "match_score": 4.562,
+        "blended_score": 0.6,
+        "fit": 0.6,
+        "eligible": true
+      },
+      {
+        "soc_code": "43-9111",
+        "title": "Statistical Assistants",
+        "hirability": 74.4,
+        "level": "Likely hirable",
+        "skill_strength": 49,
+        "match_score": 4.149,
+        "blended_score": 0.5499,
+        "fit": 0.55,
+        "eligible": true
+      },
+      {
+        "soc_code": "19-2011",
+        "title": "Astronomers",
+        "hirability": 54.5,
+        "level": "Moderately hirable",
+        "skill_strength": 39,
+        "match_score": 4.365,
+        "blended_score": 0.5018,
+        "fit": 0.502,
+        "eligible": false
+      },
+      {
+        "soc_code": "19-4061",
+        "title": "Social Science Research Assistants",
+        "hirability": 74.2,
+        "level": "Likely hirable",
+        "skill_strength": 49,
+        "match_score": 4.204,
+        "blended_score": 0.4779,
+        "fit": 0.478,
+        "eligible": false
+      },
+      {
+        "soc_code": "53-6041",
+        "title": "Traffic Technicians",
+        "hirability": 72.2,
+        "level": "Likely hirable",
+        "skill_strength": 44,
+        "match_score": 4.048,
+        "blended_score": 0.3185,
+        "fit": 0.319,
+        "eligible": false
+      }
+    ],
+    "role_views": {
+      "19-1041": {
+        "verdict": "Likely hirable for Epidemiologists — a field growing faster than average.",
+        "summary_text": "For Epidemiologists, the highest-leverage next step is R, followed by SAS, Tableau.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.416,
+              "weight": 0.45,
+              "points": 18.7,
+              "detail": {
+                "breadth": 0.081,
+                "specialization": 0.208,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            },
+            {
+              "label": "Education fit",
+              "value": 0.78,
+              "weight": 0.35,
+              "points": 27.3
+            },
+            {
+              "label": "Track record",
+              "value": 0.45,
+              "weight": 0.05,
+              "points": 2.3,
+              "detail": {
+                "signals": [
+                  "quantified results",
+                  "worked at scale"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.416,
+              "weight": 0.35,
+              "points": 14.6,
+              "detail": {
+                "breadth": 0.081,
+                "specialization": 0.208,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.885,
+              "weight": 0.25,
+              "points": 22.1
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 63.3,
+          "hirability_range": [
+            50,
+            77
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Epidemiologists",
+          "top_match_soc": "19-1041"
+        },
+        "competitiveness": {
+          "score": 62.0,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.416,
+              "weight": 0.35,
+              "points": 14.6,
+              "detail": {
+                "breadth": 0.081,
+                "specialization": 0.208,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.885,
+              "weight": 0.25,
+              "points": 22.1
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "19-1041",
+          "title": "Epidemiologists",
+          "median_wage": 83980,
+          "wage_percentile": 78,
+          "growth_pct": 16.2,
+          "openings_k": 0.8,
+          "outlook": "much faster than average",
+          "typical_education": "Master's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 0.78,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "19-1041",
+            "title": "Epidemiologists",
+            "description": "Investigate and describe the determinants and distribution of disease, disability, or health outcomes. May develop the means for prevention and control.",
+            "match_score": 4.562,
+            "blended_score": 0.6,
+            "matched_skills": [
+              "Data analysis",
+              "Data visualization",
+              "Microsoft Excel",
+              "Microsoft Office Suite",
+              "PowerPoint",
+              "Python",
+              "SQL",
+              "Word"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.205,
+          "strengths": [
+            {
+              "skill": "Data visualization",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Excel",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PowerPoint",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "Database management"
+            },
+            {
+              "skill": "Microsoft Office",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            },
+            {
+              "skill": "Word",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            }
+          ],
+          "highlights": [
+            "Microsoft Office Specialist: Excel Associate (2023)",
+            "Bachelor of Business Administration — Information Systems, University of North Carolina Charlotte",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "R",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.345,
+              "priority": 0.5415
+            },
+            {
+              "skill": "Access",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.517,
+              "priority": 0.5185
+            },
+            {
+              "skill": "SAS",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.306,
+              "priority": 0.5142
+            },
+            {
+              "skill": "ArcGIS",
+              "element_category": "Map creation software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.4905
+            },
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0482,
+              "relevance": 0.333,
+              "priority": 0.4176
+            },
+            {
+              "skill": "Machine Learning",
+              "element_category": "Live market demand",
+              "is_hot": false,
+              "in_demand": true,
+              "demand_score": 1.0,
+              "market_share": 0.0625,
+              "relevance": 0.554,
+              "priority": 0.3898,
+              "source": "postings"
+            },
+            {
+              "skill": "ArcView",
+              "element_category": "Geographic information system",
+              "is_hot": false,
+              "in_demand": false,
+              "demand_score": 0.0,
+              "market_share": 0.0,
+              "relevance": 0.366,
+              "priority": 0.1947
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 4.25
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 4.25
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 4.12
+            },
+            {
+              "skill": "Science",
+              "importance": 4.12
+            },
+            {
+              "skill": "Speaking",
+              "importance": 4.12
+            },
+            {
+              "skill": "Writing",
+              "importance": 4.12
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 42,
+          "matched": 8,
+          "implied": 3,
+          "ignored_basic": 3,
+          "focus_skills": [
+            "R",
+            "SAS",
+            "Tableau"
+          ],
+          "breadth": 0.081,
+          "specialization": 0.208,
+          "complementarity": 0.684
+        },
+        "recommendations": [
+          {
+            "skill": "R",
+            "element_category": "Object or component oriented development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.793,
+            "complementarity": 0.345,
+            "effort_label": "1–3 months",
+            "difficulty_months": 3.0,
+            "priority_score": 2.379,
+            "rationale": "R keeps a strong position in statistics-heavy roles — biostatistics, research, parts of finance — where its modelling libraries lead. It does not build directly on anything currently on your resume, so budget real study time. A month or two via the tidyverse covers data work; the statistical depth is what you build over time."
+          },
+          {
+            "skill": "SAS",
+            "element_category": "Analytical or scientific software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.718,
+            "complementarity": 0.306,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.154,
+            "rationale": "SAS remains entrenched in pharma, banking, and government analytics, though the wider market keeps shifting to Python and R. It does not build directly on anything currently on your resume, so budget real study time. The language basics take a few weeks; most postings care about specific procedures and industry conventions."
+          },
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.896,
+            "complementarity": 0.333,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.792,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. Nothing on your resume shortcuts this one — plan for the full learning curve. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "Access",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.753,
+            "complementarity": 0.517,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.506,
+            "rationale": "Microsoft Access is a data-access and query tool used daily in roles that work directly with stored records. O*NET flags it as a hot technology, listed by 316 occupations — demand is growing. There is partial overlap with your Microsoft Office Suite background, which speeds up the early stages. Query tools reward consistent use — a few weeks of real work covers what postings expect."
+          },
+          {
+            "skill": "ArcGIS",
+            "element_category": "Map creation software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.744,
+            "complementarity": 0.466,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.488,
+            "rationale": "ESRI ArcGIS software appears in the listed toolset for this occupation. O*NET flags it as a hot technology, listed by 78 occupations — demand is growing. Your work with Microsoft Office Suite gives you a foothold, though much of this will still be new. A three-to-six-month build with consistent hands-on work."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 63.3,
+          "baseline_skill_strength": 42,
+          "skills": [
+            {
+              "skill": "R",
+              "score": 68.8,
+              "delta": 5.5,
+              "skill_strength": 55,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "SAS",
+              "score": 68.7,
+              "delta": 5.4,
+              "skill_strength": 55,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "ArcGIS",
+              "score": 68.0,
+              "delta": 4.7,
+              "skill_strength": 53,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Tableau",
+              "score": 65.0,
+              "delta": 1.7,
+              "skill_strength": 45,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Access",
+              "score": 63.9,
+              "delta": 0.6,
+              "skill_strength": 42,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.417,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      },
+      "19-2011": {
+        "verdict": "Moderately hirable for Astronomers — a field growing about as fast as average.",
+        "summary_text": "For Astronomers, the highest-leverage next step is MATLAB, followed by Linux, Hadoop.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.392,
+              "weight": 0.45,
+              "points": 17.6,
+              "detail": {
+                "breadth": 0.05,
+                "specialization": 0.134,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            },
+            {
+              "label": "Education fit",
+              "value": 0.56,
+              "weight": 0.35,
+              "points": 19.6
+            },
+            {
+              "label": "Track record",
+              "value": 0.45,
+              "weight": 0.05,
+              "points": 2.3,
+              "detail": {
+                "signals": [
+                  "quantified results",
+                  "worked at scale"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.392,
+              "weight": 0.35,
+              "points": 13.7,
+              "detail": {
+                "breadth": 0.05,
+                "specialization": 0.134,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.573,
+              "weight": 0.25,
+              "points": 14.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 54.5,
+          "hirability_range": [
+            39,
+            70
+          ],
+          "hirability_level": "Moderately hirable",
+          "top_match_title": "Astronomers",
+          "top_match_soc": "19-2011"
+        },
+        "competitiveness": {
+          "score": 53.3,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.392,
+              "weight": 0.35,
+              "points": 13.7,
+              "detail": {
+                "breadth": 0.05,
+                "specialization": 0.134,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.573,
+              "weight": 0.25,
+              "points": 14.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "19-2011",
+          "title": "Astronomers",
+          "median_wage": 132170,
+          "wage_percentile": 94,
+          "growth_pct": 2.2,
+          "openings_k": 0.1,
+          "outlook": "about average",
+          "typical_education": "Doctoral or professional degree",
+          "typical_experience": "No experience required",
+          "education_fit": 0.56,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "19-2011",
+            "title": "Astronomers",
+            "description": "Observe, research, and interpret astronomical phenomena to increase basic knowledge or apply such information to practical problems.",
+            "match_score": 4.3652,
+            "blended_score": 0.5018,
+            "matched_skills": [
+              "Data analysis",
+              "Microsoft Excel",
+              "Microsoft Office Suite",
+              "PowerPoint",
+              "Python",
+              "SQL",
+              "Word"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.167,
+          "strengths": [
+            {
+              "skill": "Excel",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PowerPoint",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Microsoft Office",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            },
+            {
+              "skill": "Word",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            }
+          ],
+          "highlights": [
+            "Microsoft Office Specialist: Excel Associate (2023)",
+            "Bachelor of Business Administration — Information Systems, University of North Carolina Charlotte",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0292,
+              "relevance": 0.511,
+              "priority": 0.6577
+            },
+            {
+              "skill": "C",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.371,
+              "priority": 0.5597
+            },
+            {
+              "skill": "Java",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.392,
+              "priority": 0.4499
+            },
+            {
+              "skill": "Linux",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0167,
+              "relevance": 0.387,
+              "priority": 0.4472
+            },
+            {
+              "skill": "Hadoop",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0417,
+              "relevance": 0.328,
+              "priority": 0.4149
+            },
+            {
+              "skill": "Spectroscopy databases",
+              "element_category": "Data base user interface and query software",
+              "is_hot": false,
+              "in_demand": false,
+              "demand_score": 0.0,
+              "market_share": 0.0,
+              "relevance": 0.429,
+              "priority": 0.2101
+            },
+            {
+              "skill": "IRIS",
+              "element_category": "Graphics or photo imaging software",
+              "is_hot": false,
+              "in_demand": false,
+              "demand_score": 0.0,
+              "market_share": 0.0,
+              "relevance": 0.288,
+              "priority": 0.1756
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Reading Comprehension",
+              "importance": 4.25
+            },
+            {
+              "skill": "Science",
+              "importance": 4.25
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 4.12
+            },
+            {
+              "skill": "Mathematics",
+              "importance": 4.12
+            },
+            {
+              "skill": "Writing",
+              "importance": 4.12
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 4.0
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 39,
+          "matched": 6,
+          "implied": 2,
+          "ignored_basic": 1,
+          "focus_skills": [
+            "MATLAB",
+            "Linux",
+            "Hadoop"
+          ],
+          "breadth": 0.05,
+          "specialization": 0.134,
+          "complementarity": 0.684
+        },
+        "recommendations": [
+          {
+            "skill": "MATLAB",
+            "element_category": "Analytical or scientific software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.752,
+            "complementarity": 0.511,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.256,
+            "rationale": "MATLAB holds steady demand in engineering, signal processing, and research roles, though open-source tools are eroding it. It connects loosely to Google Sheets on your resume — enough to orient you, not enough to skip the fundamentals. With any programming background the language is quick; the value is in its domain toolboxes."
+          },
+          {
+            "skill": "Linux",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.866,
+            "complementarity": 0.387,
+            "effort_label": "4–6 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.732,
+            "rationale": "Linux underlies nearly all server infrastructure; shell fluency is a quiet prerequisite for backend, data, and DevOps work. Nothing on your resume shortcuts this one — plan for the full learning curve. Daily comfort takes a few weeks in a terminal; system administration is a longer, mostly on-the-job accumulation."
+          },
+          {
+            "skill": "Hadoop",
+            "element_category": "Data base management system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "declining",
+            "feasibility": 0.652,
+            "complementarity": 0.328,
+            "effort_label": "3–6 months",
+            "difficulty_months": 5.0,
+            "priority_score": 1.304,
+            "rationale": "Hadoop demand has been declining as workloads move to cloud warehouses, but it persists in large legacy data platforms. It does not build directly on anything currently on your resume, so budget real study time. Worth learning only if you are targeting those environments; the distributed-computing concepts transfer either way."
+          },
+          {
+            "skill": "Java",
+            "element_category": "Object or component oriented development software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.531,
+            "complementarity": 0.392,
+            "effort_label": "3–6 months",
+            "difficulty_months": 7.0,
+            "priority_score": 1.062,
+            "rationale": "Java still underpins most large enterprise backends and remains among the top languages by total job volume. This would be new territory relative to your current skills. It rewards patience — expect several months to internalise the type system, JVM ecosystem, and standard tooling."
+          },
+          {
+            "skill": "C",
+            "element_category": "Development environment software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.321,
+            "complementarity": 0.371,
+            "effort_label": "6–12 months",
+            "difficulty_months": 10.0,
+            "priority_score": 0.963,
+            "rationale": "C is developer tooling; it appears in postings as an environment expectation rather than a skill in itself. Demand is trending up: it carries O*NET's hot-technology flag and appears in 88 occupations' requirements. Nothing on your resume shortcuts this one — plan for the full learning curve. Picked up in days alongside real work."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 54.5,
+          "baseline_skill_strength": 39,
+          "skills": [
+            {
+              "skill": "MATLAB",
+              "score": 59.4,
+              "delta": 4.9,
+              "skill_strength": 50,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "Hadoop",
+              "score": 56.2,
+              "delta": 1.7,
+              "skill_strength": 42,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Java",
+              "score": 55.8,
+              "delta": 1.3,
+              "skill_strength": 41,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Linux",
+              "score": 55.7,
+              "delta": 1.2,
+              "skill_strength": 41,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "C",
+              "score": 55.7,
+              "delta": 1.2,
+              "skill_strength": 41,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.558,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      },
+      "19-4061": {
+        "verdict": "Likely hirable for Social Science Research Assistants — a field growing faster than average.",
+        "summary_text": "For Social Science Research Assistants, the highest-leverage next step is R, followed by Tableau, Access.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.487,
+              "weight": 0.45,
+              "points": 21.9,
+              "detail": {
+                "breadth": 0.13,
+                "specialization": 0.184,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.35,
+              "points": 35.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.45,
+              "weight": 0.05,
+              "points": 2.3,
+              "detail": {
+                "signals": [
+                  "quantified results",
+                  "worked at scale"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.487,
+              "weight": 0.35,
+              "points": 17.0,
+              "detail": {
+                "breadth": 0.13,
+                "specialization": 0.184,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.79,
+              "weight": 0.25,
+              "points": 19.8
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 74.2,
+          "hirability_range": [
+            61,
+            88
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Social Science Research Assistants",
+          "top_match_soc": "19-4061"
+        },
+        "competitiveness": {
+          "score": 62.1,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.487,
+              "weight": 0.35,
+              "points": 17.0,
+              "detail": {
+                "breadth": 0.13,
+                "specialization": 0.184,
+                "complementarity": 0.684,
+                "evidence": 0.4
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.79,
+              "weight": 0.25,
+              "points": 19.8
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "19-4061",
+          "title": "Social Science Research Assistants",
+          "median_wage": 58040,
+          "wage_percentile": 47,
+          "growth_pct": 4.4,
+          "openings_k": 5.2,
+          "outlook": "faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "19-4061",
+            "title": "Social Science Research Assistants",
+            "description": "Assist social scientists in laboratory, survey, and other social science research. May help prepare findings for publication and assist in laboratory analysis, quality control, or data management.",
+            "match_score": 4.2037,
+            "blended_score": 0.4779,
+            "matched_skills": [
+              "Microsoft Excel",
+              "Microsoft Office Suite",
+              "PowerPoint",
+              "Python",
+              "SQL",
+              "Word"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.258,
+          "strengths": [
+            {
+              "skill": "Excel",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PowerPoint",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "Database management"
+            },
+            {
+              "skill": "Microsoft Office",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            },
+            {
+              "skill": "Word",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            }
+          ],
+          "highlights": [
+            "Microsoft Office Specialist: Excel Associate (2023)",
+            "Bachelor of Business Administration — Information Systems, University of North Carolina Charlotte",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "R",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.345,
+              "priority": 0.5415
+            },
+            {
+              "skill": "Access",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.517,
+              "priority": 0.5185
+            },
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0292,
+              "relevance": 0.511,
+              "priority": 0.5152
+            },
+            {
+              "skill": "Visual Basic",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.507,
+              "priority": 0.513
+            },
+            {
+              "skill": "ArcGIS",
+              "element_category": "Geographic information system",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.4905
+            },
+            {
+              "skill": "Illustrator",
+              "element_category": "Graphics or photo imaging software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.465,
+              "priority": 0.49
+            },
+            {
+              "skill": "InDesign",
+              "element_category": "Desktop publishing software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0208,
+              "relevance": 0.395,
+              "priority": 0.4516
+            },
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0482,
+              "relevance": 0.333,
+              "priority": 0.4176
+            },
+            {
+              "skill": "JavaScript",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0292,
+              "relevance": 0.311,
+              "priority": 0.4055
+            },
+            {
+              "skill": "XML",
+              "element_category": "Enterprise application integration software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.195,
+              "priority": 0.3419
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Reading Comprehension",
+              "importance": 4.0
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.75
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.75
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.75
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.38
+            },
+            {
+              "skill": "Science",
+              "importance": 3.25
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 49,
+          "matched": 8,
+          "implied": 3,
+          "ignored_basic": 2,
+          "focus_skills": [
+            "R",
+            "Tableau",
+            "Access"
+          ],
+          "breadth": 0.13,
+          "specialization": 0.184,
+          "complementarity": 0.684
+        },
+        "recommendations": [
+          {
+            "skill": "R",
+            "element_category": "Object or component oriented development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.793,
+            "complementarity": 0.345,
+            "effort_label": "1–3 months",
+            "difficulty_months": 3.0,
+            "priority_score": 2.379,
+            "rationale": "R keeps a strong position in statistics-heavy roles — biostatistics, research, parts of finance — where its modelling libraries lead. It does not build directly on anything currently on your resume, so budget real study time. A month or two via the tidyverse covers data work; the statistical depth is what you build over time."
+          },
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.896,
+            "complementarity": 0.333,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.792,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. Nothing on your resume shortcuts this one — plan for the full learning curve. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "Access",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.753,
+            "complementarity": 0.517,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.506,
+            "rationale": "Microsoft Access is a data-access and query tool used daily in roles that work directly with stored records. O*NET flags it as a hot technology, listed by 316 occupations — demand is growing. There is partial overlap with your Microsoft Office Suite background, which speeds up the early stages. Query tools reward consistent use — a few weeks of real work covers what postings expect."
+          },
+          {
+            "skill": "MATLAB",
+            "element_category": "Analytical or scientific software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "stable",
+            "feasibility": 0.752,
+            "complementarity": 0.511,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.504,
+            "rationale": "MATLAB holds steady demand in engineering, signal processing, and research roles, though open-source tools are eroding it. It connects loosely to Google Sheets on your resume — enough to orient you, not enough to skip the fundamentals. With any programming background the language is quick; the value is in its domain toolboxes."
+          },
+          {
+            "skill": "Visual Basic",
+            "element_category": "Development environment software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.751,
+            "complementarity": 0.507,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.502,
+            "rationale": "Microsoft Visual Basic is developer tooling; it appears in postings as an environment expectation rather than a skill in itself. O*NET flags it as a hot technology, listed by 81 occupations — demand is growing. Your work with Microsoft Excel gives you a foothold, though much of this will still be new. Picked up in days alongside real work."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 74.2,
+          "baseline_skill_strength": 49,
+          "skills": [
+            {
+              "skill": "R",
+              "score": 83.7,
+              "delta": 9.5,
+              "skill_strength": 76,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "MATLAB",
+              "score": 83.7,
+              "delta": 9.5,
+              "skill_strength": 76,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "Tableau",
+              "score": 76.9,
+              "delta": 2.7,
+              "skill_strength": 55,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Visual Basic",
+              "score": 76.5,
+              "delta": 2.3,
+              "skill_strength": 54,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Access",
+              "score": 75.1,
+              "delta": 0.9,
+              "skill_strength": 51,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.0,
+          "level": "Low",
+          "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
+        }
+      },
+      "53-6041": {
+        "verdict": "Likely hirable for Traffic Technicians — a field growing about as fast as average.",
+        "summary_text": "For Traffic Technicians, the highest-leverage next step is Database, followed by Tableau, Salesforce.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.442,
+              "weight": 0.45,
+              "points": 19.9,
+              "detail": {
+                "breadth": 0.091,
+                "specialization": 0.179,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.35,
+              "points": 35.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.45,
+              "weight": 0.05,
+              "points": 2.3,
+              "detail": {
+                "signals": [
+                  "quantified results",
+                  "worked at scale"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.442,
+              "weight": 0.35,
+              "points": 15.5,
+              "detail": {
+                "breadth": 0.091,
+                "specialization": 0.179,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.725,
+              "weight": 0.25,
+              "points": 18.1
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 72.2,
+          "hirability_range": [
+            57,
+            87
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Traffic Technicians",
+          "top_match_soc": "53-6041"
+        },
+        "competitiveness": {
+          "score": 58.9,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.442,
+              "weight": 0.35,
+              "points": 15.5,
+              "detail": {
+                "breadth": 0.091,
+                "specialization": 0.179,
+                "complementarity": 0.684,
+                "evidence": 0.333
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.412,
+              "weight": 0.25,
+              "points": 10.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.725,
+              "weight": 0.25,
+              "points": 18.1
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "53-6041",
+          "title": "Traffic Technicians",
+          "median_wage": 58480,
+          "wage_percentile": 48,
+          "growth_pct": 3.7,
+          "openings_k": 0.8,
+          "outlook": "about average",
+          "typical_education": "High school diploma or equivalent",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "53-6041",
+            "title": "Traffic Technicians",
+            "description": "Conduct field studies to determine traffic volume, speed, effectiveness of signals, adequacy of lighting, and other factors influencing traffic conditions, under direction of traffic engineer.",
+            "match_score": 4.048,
+            "blended_score": 0.3185,
+            "matched_skills": [
+              "Microsoft Excel",
+              "Microsoft Office Suite",
+              "PowerPoint",
+              "Python",
+              "SQL",
+              "Word"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.222,
+          "strengths": [
+            {
+              "skill": "Excel",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PowerPoint",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Structure query language SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Microsoft Office",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            },
+            {
+              "skill": "Word",
+              "implied": true,
+              "via": "Microsoft Office Suite"
+            }
+          ],
+          "highlights": [
+            "Microsoft Office Specialist: Excel Associate (2023)",
+            "Bachelor of Business Administration — Information Systems, University of North Carolina Charlotte",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.599,
+              "priority": 0.5635
+            },
+            {
+              "skill": "Database",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0297,
+              "relevance": 0.599,
+              "priority": 0.5635
+            },
+            {
+              "skill": "Windows",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.559,
+              "priority": 0.5415
+            },
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0292,
+              "relevance": 0.511,
+              "priority": 0.5152
+            },
+            {
+              "skill": "ArcGIS",
+              "element_category": "Geographic information system",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.4905
+            },
+            {
+              "skill": "C++",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.445,
+              "priority": 0.479
+            },
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0482,
+              "relevance": 0.333,
+              "priority": 0.4176
+            },
+            {
+              "skill": "Bentley MicroStation",
+              "element_category": "Computer aided design CAD software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.23,
+              "priority": 0.3611
+            },
+            {
+              "skill": "Traffic control",
+              "element_category": "Industrial control software",
+              "is_hot": false,
+              "in_demand": false,
+              "demand_score": 0.0,
+              "market_share": 0.0,
+              "relevance": 0.272,
+              "priority": 0.1716
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Active Listening",
+              "importance": 3.62
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.25
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.25
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.25
+            },
+            {
+              "skill": "Monitoring",
+              "importance": 3.12
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.12
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 44,
+          "matched": 6,
+          "implied": 2,
+          "ignored_basic": 1,
+          "focus_skills": [
+            "Database",
+            "Tableau",
+            "Salesforce"
+          ],
+          "breadth": 0.091,
+          "specialization": 0.179,
+          "complementarity": 0.684
+        },
+        "recommendations": [
+          {
+            "skill": "Database",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.912,
+            "complementarity": 0.599,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.824,
+            "rationale": "Oracle Database is a data-access and query tool used daily in roles that work directly with stored records. Demand is trending up: it carries O*NET's hot-technology flag and appears in 84 occupations' requirements. Your work with Database management gives you a foothold, though much of this will still be new. Query tools reward consistent use — a few weeks of real work covers what postings expect."
+          },
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.896,
+            "complementarity": 0.333,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.792,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. Nothing on your resume shortcuts this one — plan for the full learning curve. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "Salesforce",
+            "element_category": "Customer relationship management CRM software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.766,
+            "complementarity": 0.599,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.532,
+            "rationale": "Salesforce is the largest CRM platform, with an entire job category of administrators and developers built around it. There is partial overlap with your Microsoft Office Suite background, which speeds up the early stages. The admin path is a few months of guided study; platform development adds Apex and its ecosystem on top."
+          },
+          {
+            "skill": "Windows",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.76,
+            "complementarity": 0.559,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.52,
+            "rationale": "Microsoft Windows is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 219 occupations — demand is growing. It connects loosely to Microsoft Office Suite on your resume — enough to orient you, not enough to skip the fundamentals. Mostly hands-on learning — weeks to be functional, longer to administer."
+          },
+          {
+            "skill": "MATLAB",
+            "element_category": "Analytical or scientific software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "stable",
+            "feasibility": 0.752,
+            "complementarity": 0.511,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.504,
+            "rationale": "MATLAB holds steady demand in engineering, signal processing, and research roles, though open-source tools are eroding it. It connects loosely to Google Sheets on your resume — enough to orient you, not enough to skip the fundamentals. With any programming background the language is quick; the value is in its domain toolboxes."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 72.1,
+          "baseline_skill_strength": 44,
+          "skills": [
+            {
+              "skill": "MATLAB",
+              "score": 78.4,
+              "delta": 6.3,
+              "skill_strength": 60,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Tableau",
+              "score": 74.7,
+              "delta": 2.6,
+              "skill_strength": 50,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Database",
+              "score": 74.4,
+              "delta": 2.3,
+              "skill_strength": 49,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Salesforce",
+              "score": 74.3,
+              "delta": 2.2,
+              "skill_strength": 49,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Windows",
+              "score": 73.3,
+              "delta": 1.2,
+              "skill_strength": 46,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.591,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      }
+    },
+    "alternatives": [
+      {
+        "soc_code": "43-9111",
+        "title": "Statistical Assistants"
+      },
+      {
+        "soc_code": "19-1041",
+        "title": "Epidemiologists"
+      },
+      {
+        "soc_code": "19-2011",
+        "title": "Astronomers"
+      },
+      {
+        "soc_code": "19-4061",
+        "title": "Social Science Research Assistants"
+      },
+      {
+        "soc_code": "53-6041",
+        "title": "Traffic Technicians"
+      },
+      {
+        "soc_code": "15-2099",
+        "title": "Mathematical Science Occupations, All Other"
+      },
+      {
+        "soc_code": "19-1023",
+        "title": "Zoologists and Wildlife Biologists"
+      },
+      {
+        "soc_code": "19-4013",
+        "title": "Food Science Technicians"
+      }
+    ]
+  },
+  "score_breakdown": {
+    "hirability": [
+      {
+        "label": "Skill strength",
+        "value": 0.49,
+        "weight": 0.45,
+        "points": 22.1,
+        "detail": {
+          "breadth": 0.13,
+          "specialization": 0.251,
+          "complementarity": 0.684,
+          "evidence": 0.429
+        }
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      },
+      {
+        "label": "Education fit",
+        "value": 1.0,
+        "weight": 0.35,
+        "points": 35.0
+      },
+      {
+        "label": "Track record",
+        "value": 0.45,
+        "weight": 0.05,
+        "points": 2.3,
+        "detail": {
+          "signals": [
+            "quantified results",
+            "worked at scale"
+          ]
+        }
+      }
+    ],
+    "competitiveness": [
+      {
+        "label": "Skill strength",
+        "value": 0.49,
+        "weight": 0.35,
+        "points": 17.1,
+        "detail": {
+          "breadth": 0.13,
+          "specialization": 0.251,
+          "complementarity": 0.684,
+          "evidence": 0.429
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.412,
+        "weight": 0.25,
+        "points": 10.3
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.531,
+        "weight": 0.25,
+        "points": 13.3
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "simulation": {
+    "baseline_score": 74.3,
+    "baseline_skill_strength": 49,
+    "skills": [
+      {
+        "skill": "Tableau",
+        "score": 76.0,
+        "delta": 1.7,
+        "skill_strength": 53,
+        "also_unlocks": 0,
+        "measurable": true
+      },
+      {
+        "skill": "Power BI",
+        "score": 76.0,
+        "delta": 1.7,
+        "skill_strength": 53,
+        "also_unlocks": 0,
+        "measurable": true
+      },
+      {
+        "skill": "Machine Learning",
+        "score": 75.8,
+        "delta": 1.5,
+        "skill_strength": 52,
+        "also_unlocks": 0,
+        "measurable": true
+      },
+      {
+        "skill": "Access",
+        "score": 74.7,
+        "delta": 0.4,
+        "skill_strength": 50,
+        "also_unlocks": 0,
+        "measurable": true
+      },
+      {
+        "skill": "SQL Advanced Concepts",
+        "score": 74.3,
+        "delta": 0.0,
+        "skill_strength": 49,
+        "also_unlocks": 0,
+        "measurable": false
+      }
+    ]
+  },
+  "career_stage": {
+    "stage": "entry",
+    "label": "early-career",
+    "note": "Weighted for an early-career profile: your degree counts for more and the experience you have not had yet counts for less.",
+    "weights": {
+      "skill": 0.45,
+      "experience": 0.15,
+      "education": 0.35,
+      "track_record": 0.05
+    },
+    "track_record": {
+      "score": 0.45,
+      "raw": 0.45,
+      "evidence": 1.0,
+      "signals": [
+        "quantified results",
+        "worked at scale"
+      ],
+      "missing": [
+        "led people or set direction",
+        "recognised outside the job",
+        "shipped end-to-end work"
+      ],
+      "checks": [
+        {
+          "key": "leadership",
+          "label": "led people or set direction",
+          "found": false,
+          "hint": "If you ran a team, mentored anyone or owned a decision, say so — nothing on the resume shows it."
+        },
+        {
+          "key": "impact",
+          "label": "quantified results",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "scale",
+          "label": "worked at scale",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "recognition",
+          "label": "recognised outside the job",
+          "found": false,
+          "hint": "Certifications, talks, publications and open-source work all count — list one if you have it."
+        },
+        {
+          "key": "delivery",
+          "label": "shipped end-to-end work",
+          "found": false,
+          "hint": "Nothing reads as built-and-launched. Describe one thing you carried from start to shipped."
+        }
+      ]
+    }
+  },
   "summary": {
-    "hirability_score": 71.5,
+    "hirability_score": 74.4,
+    "hirability_range": [
+      62,
+      87
+    ],
+    "hirability_level": "Likely hirable",
     "years_experience": null,
     "education_level": "Bachelor's",
-    "top_match_title": "Social Science Research Assistants",
-    "top_match_soc": "19-4061",
-    "skills_extracted": 17,
-    "skills_from_section": 17,
+    "top_match_title": "Statistical Assistants",
+    "top_match_soc": "43-9111",
+    "skills_extracted": 19,
+    "skills_from_section": 15,
     "skills_from_experience": 0,
-    "skills_matched_to_onet": 13
+    "skills_matched_to_onet": 17
   },
   "competitiveness": {
-    "score": 61.3,
+    "score": 55.7,
     "level": "Competitive",
-    "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile."
+    "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+    "components": [
+      {
+        "label": "Skill strength",
+        "value": 0.49,
+        "weight": 0.35,
+        "points": 17.1,
+        "detail": {
+          "breadth": 0.13,
+          "specialization": 0.251,
+          "complementarity": 0.684,
+          "evidence": 0.429
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.412,
+        "weight": 0.25,
+        "points": 10.3
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.531,
+        "weight": 0.25,
+        "points": 13.3
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "labor_market": {
+    "soc_code": "43-9111",
+    "title": "Statistical Assistants",
+    "median_wage": 51440,
+    "wage_percentile": 40,
+    "growth_pct": -2.5,
+    "openings_k": 0.8,
+    "outlook": "declining",
+    "typical_education": "Bachelor's degree",
+    "typical_experience": "No experience required",
+    "education_fit": 1.0,
+    "experience_fit": 1.0
   },
   "top_job_matches": [
     {
-      "soc_code": "19-4061",
-      "title": "Social Science Research Assistants",
-      "match_score": 3.503,
-      "semantic_score": 0.2689,
-      "blended_score": 0.9249,
+      "soc_code": "43-9111",
+      "title": "Statistical Assistants",
+      "match_score": 4.1493,
+      "semantic_score": 0.37,
+      "blended_score": 0.5499,
       "matched_skills": [
+        "Data visualization",
         "Microsoft Excel",
+        "Microsoft Office Suite",
         "PowerPoint",
         "Python",
         "SQL",
         "Word"
       ],
-      "description_snippet": "Assist social scientists in laboratory, survey, and other social science research. May help prepare findings for publication and assist in laboratory analysis, quality control, or data management...."
+      "description": "Compile and compute data according to statistical formulas for use in statistical studies. May perform actuarial computations and compile charts and graphs for use by actuaries. Includes actuarial clerks."
+    },
+    {
+      "soc_code": "19-1041",
+      "title": "Epidemiologists",
+      "match_score": 4.562,
+      "semantic_score": 0.0927,
+      "blended_score": 0.6,
+      "matched_skills": [
+        "Data analysis",
+        "Data visualization",
+        "Microsoft Excel",
+        "Microsoft Office Suite",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description": "Investigate and describe the determinants and distribution of disease, disability, or health outcomes. May develop the means for prevention and control."
+    },
+    {
+      "soc_code": "19-2011",
+      "title": "Astronomers",
+      "match_score": 4.3652,
+      "semantic_score": 0.1734,
+      "blended_score": 0.5018,
+      "matched_skills": [
+        "Data analysis",
+        "Microsoft Excel",
+        "Microsoft Office Suite",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description": "Observe, research, and interpret astronomical phenomena to increase basic knowledge or apply such information to practical problems."
+    },
+    {
+      "soc_code": "19-4061",
+      "title": "Social Science Research Assistants",
+      "match_score": 4.2037,
+      "semantic_score": 0.2789,
+      "blended_score": 0.4779,
+      "matched_skills": [
+        "Microsoft Excel",
+        "Microsoft Office Suite",
+        "PowerPoint",
+        "Python",
+        "SQL",
+        "Word"
+      ],
+      "description": "Assist social scientists in laboratory, survey, and other social science research. May help prepare findings for publication and assist in laboratory analysis, quality control, or data management."
     },
     {
       "soc_code": "53-6041",
       "title": "Traffic Technicians",
-      "match_score": 3.312,
-      "semantic_score": 0.3062,
-      "blended_score": 0.6097,
+      "match_score": 4.048,
+      "semantic_score": 0.2861,
+      "blended_score": 0.3185,
       "matched_skills": [
         "Microsoft Excel",
+        "Microsoft Office Suite",
         "PowerPoint",
         "Python",
         "SQL",
         "Word"
       ],
-      "description_snippet": "Conduct field studies to determine traffic volume, speed, effectiveness of signals, adequacy of lighting, and other factors influencing traffic conditions, under direction of traffic engineer...."
-    },
-    {
-      "soc_code": "17-3021",
-      "title": "Aerospace Engineering and Operations Technologists and Technicians",
-      "match_score": 3.3066,
-      "semantic_score": 0.2793,
-      "blended_score": 0.5445,
-      "matched_skills": [
-        "Microsoft Excel",
-        "PowerPoint",
-        "Python",
-        "SQL",
-        "Word"
-      ],
-      "description_snippet": "Operate, install, adjust, and maintain integrated computer/communications systems, consoles, simulators, and other data acquisition, test, and measurement instruments and equipment, which are used to launch, track, position, and evaluate air and spac..."
-    },
-    {
-      "soc_code": "13-2041",
-      "title": "Credit Analysts",
-      "match_score": 3.2822,
-      "semantic_score": 0.2882,
-      "blended_score": 0.5125,
-      "matched_skills": [
-        "Microsoft Excel",
-        "PowerPoint",
-        "Python",
-        "SQL",
-        "Word"
-      ],
-      "description_snippet": "Analyze credit data and financial statements of individuals or firms to determine the degree of risk involved in extending credit or lending money. Prepare reports with credit information for use in decisionmaking...."
-    },
-    {
-      "soc_code": "15-2011",
-      "title": "Actuaries",
-      "match_score": 3.2586,
-      "semantic_score": 0.2972,
-      "blended_score": 0.4824,
-      "matched_skills": [
-        "Microsoft Excel",
-        "PowerPoint",
-        "Python",
-        "SQL",
-        "Word"
-      ],
-      "description_snippet": "Analyze statistical data, such as mortality, accident, sickness, disability, and retirement rates and construct probability tables to forecast risk and liability for payment of future benefits. May ascertain insurance rates required and cash reserves..."
+      "description": "Conduct field studies to determine traffic volume, speed, effectiveness of signals, adequacy of lighting, and other factors influencing traffic conditions, under direction of traffic engineer."
     }
   ],
   "skills": {
     "extracted": [
       "Microsoft Excel",
-      "pivot tables",
-      "VLOOKUP",
-      "basic macros",
       "PowerPoint",
       "Word",
       "Google Sheets",
       "Python",
-      "beginner — pandas",
+      "pandas",
       "matplotlib",
       "SQL",
-      "basic SELECT queries",
+      "VLOOKUP",
+      "macros",
       "Data entry",
-      "report preparation",
-      "communication",
-      "attention to detail",
-      "teamwork"
+      "Report preparation",
+      "Communication",
+      "Attention to detail",
+      "Teamwork",
+      "Data analysis",
+      "Data visualization",
+      "Database management",
+      "Microsoft Office Suite"
     ],
     "from_section": [
       "Microsoft Excel",
-      "pivot tables",
-      "VLOOKUP",
-      "basic macros",
       "PowerPoint",
       "Word",
       "Google Sheets",
       "Python",
-      "beginner — pandas",
+      "pandas",
       "matplotlib",
       "SQL",
-      "basic SELECT queries",
+      "VLOOKUP",
+      "macros",
       "Data entry",
-      "report preparation",
-      "communication",
-      "attention to detail",
-      "teamwork"
+      "Report preparation",
+      "Communication",
+      "Attention to detail",
+      "Teamwork"
     ],
     "from_experience": [],
     "matched": [
@@ -141,14 +2244,6 @@
         "is_hot": true,
         "in_demand": true,
         "match_type": "exact"
-      },
-      {
-        "original": "pivot tables",
-        "matched_tool": "North American Regional Climate Change Assessment Program NARCCAP data tables",
-        "element_name": "Information retrieval or search software",
-        "is_hot": false,
-        "in_demand": false,
-        "match_type": "word"
       },
       {
         "original": "PowerPoint",
@@ -183,12 +2278,12 @@
         "match_type": "exact"
       },
       {
-        "original": "beginner — pandas",
-        "matched_tool": "Beginner's all-purpose symbolic instruction code BASIC",
-        "element_name": "Development environment software",
+        "original": "pandas",
+        "matched_tool": "pandas",
+        "element_name": "Data base user interface and query software",
         "is_hot": false,
-        "in_demand": false,
-        "match_type": "word"
+        "in_demand": true,
+        "match_type": "exact"
       },
       {
         "original": "SQL",
@@ -196,6 +2291,14 @@
         "element_name": "Data base user interface and query software",
         "is_hot": true,
         "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "macros",
+        "matched_tool": "Macroscopic diffusion software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
         "match_type": "substring"
       },
       {
@@ -207,7 +2310,7 @@
         "match_type": "substring"
       },
       {
-        "original": "report preparation",
+        "original": "Report preparation",
         "matched_tool": "Income tax return preparation software",
         "element_name": "Tax preparation software",
         "is_hot": false,
@@ -215,7 +2318,7 @@
         "match_type": "word"
       },
       {
-        "original": "communication",
+        "original": "Communication",
         "matched_tool": "CCC EZNet electronic communications network",
         "element_name": "Access software",
         "is_hot": false,
@@ -223,7 +2326,7 @@
         "match_type": "substring"
       },
       {
-        "original": "attention to detail",
+        "original": "Attention to detail",
         "matched_tool": "The Tova Company Test of Variables of Attention",
         "element_name": "Medical software",
         "is_hot": false,
@@ -231,24 +2334,56 @@
         "match_type": "word"
       },
       {
-        "original": "teamwork",
+        "original": "Teamwork",
         "matched_tool": "Digital Crew Teamwork Project Manager",
         "element_name": "Project management software",
         "is_hot": false,
         "in_demand": false,
         "match_type": "substring"
+      },
+      {
+        "original": "Data analysis",
+        "matched_tool": "Data analysis software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "Data visualization",
+        "matched_tool": "Data visualization software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "Database management",
+        "matched_tool": "Relational database management system software",
+        "element_name": "Data base management system software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "substring"
+      },
+      {
+        "original": "Microsoft Office Suite",
+        "matched_tool": "Microsoft .NET Framework",
+        "element_name": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "word"
       }
     ],
     "unmatched": [
-      "VLOOKUP",
-      "basic macros",
       "matplotlib",
-      "basic SELECT queries"
+      "VLOOKUP"
     ]
   },
   "education": [
     "Bachelor of Business Administration — Information Systems",
-    "University of North Carolina Charlotte | Graduated December 2023"
+    "University of North Carolina Charlotte | Graduated December 2023",
+    "GPA: 3.2",
+    "Relevant Coursework: Database Management, Business Statistics, Information Systems Analysis, Intro to Programming"
   ],
   "experience": [
     "Operations Intern — Logistics Partners Inc., Charlotte, NC",
@@ -264,184 +2399,248 @@
     "- Responded to member inquiries via phone and email, developing strong communication skills"
   ],
   "skill_gaps": {
-    "coverage_of_top_match": 0.333,
+    "coverage_of_top_match": 0.225,
     "strengths": [
-      "Microsoft Access",
-      "Microsoft Excel",
-      "Microsoft Office software",
-      "Microsoft Outlook",
-      "Microsoft PowerPoint",
-      "Microsoft SQL Server",
-      "Microsoft Visual Basic",
-      "Microsoft Word",
-      "Python",
-      "REDCap Research Electronic Data Capture",
-      "Structured query language SQL"
+      {
+        "skill": "Data visualization",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Excel",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "PowerPoint",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "PL/SQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Python",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "SQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Database",
+        "implied": true,
+        "via": "Database management"
+      },
+      {
+        "skill": "Microsoft Office",
+        "implied": true,
+        "via": "Microsoft Office Suite"
+      },
+      {
+        "skill": "Word",
+        "implied": true,
+        "via": "Microsoft Office Suite"
+      }
+    ],
+    "highlights": [
+      "Microsoft Office Specialist: Excel Associate (2023)",
+      "Bachelor of Business Administration — Information Systems, University of North Carolina Charlotte",
+      "Bachelor's degree"
     ],
     "gaps": [
       {
-        "skill": "R",
+        "skill": "C#",
         "element_category": "Object or component oriented development software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.394,
+        "priority": 0.5758
       },
       {
-        "skill": "IBM SPSS Statistics",
+        "skill": "Visual Studio",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0,
+        "relevance": 0.541,
+        "priority": 0.5316
+      },
+      {
+        "skill": "Access",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0,
+        "relevance": 0.517,
+        "priority": 0.5185
+      },
+      {
+        "skill": "MATLAB",
         "element_category": "Analytical or scientific software",
         "is_hot": true,
         "in_demand": false,
-        "demand_score": 2.0
+        "demand_score": 2.0,
+        "market_share": 0.0292,
+        "relevance": 0.511,
+        "priority": 0.5152
+      },
+      {
+        "skill": "Machine Learning",
+        "element_category": "Live market demand",
+        "is_hot": false,
+        "in_demand": true,
+        "demand_score": 1.0,
+        "market_share": 0.2292,
+        "relevance": 0.554,
+        "priority": 0.4969,
+        "source": "postings"
       },
       {
         "skill": "Tableau",
         "element_category": "Business intelligence and data analysis software",
         "is_hot": true,
         "in_demand": false,
-        "demand_score": 2.0
+        "demand_score": 2.0,
+        "market_share": 0.1,
+        "relevance": 0.333,
+        "priority": 0.4176
       },
       {
-        "skill": "Adobe InDesign",
-        "element_category": "Desktop publishing software",
-        "is_hot": true,
-        "in_demand": false,
-        "demand_score": 2.0
-      },
-      {
-        "skill": "Extensible markup language XML",
-        "element_category": "Enterprise application integration software",
-        "is_hot": true,
-        "in_demand": false,
-        "demand_score": 2.0
-      },
-      {
-        "skill": "ESRI ArcGIS software",
-        "element_category": "Geographic information system",
-        "is_hot": true,
-        "in_demand": false,
-        "demand_score": 2.0
-      },
-      {
-        "skill": "Adobe Illustrator",
-        "element_category": "Graphics or photo imaging software",
-        "is_hot": true,
-        "in_demand": false,
-        "demand_score": 2.0
-      },
-      {
-        "skill": "JavaScript",
+        "skill": "Active Server Pages ASP",
         "element_category": "Web platform development software",
         "is_hot": true,
         "in_demand": false,
-        "demand_score": 2.0
+        "demand_score": 2.0,
+        "market_share": 0.0,
+        "relevance": 0.271,
+        "priority": 0.3836
       },
       {
-        "skill": "Appletree",
-        "element_category": "Computer based training software",
-        "is_hot": false,
+        "skill": "Bentley MicroStation",
+        "element_category": "Computer aided design CAD software",
+        "is_hot": true,
         "in_demand": false,
-        "demand_score": 0.0
+        "demand_score": 2.0,
+        "market_share": 0.0,
+        "relevance": 0.23,
+        "priority": 0.3611
       },
       {
-        "skill": "Database software",
-        "element_category": "Data base user interface and query software",
+        "skill": "Hyland OnBase Enterprise Content Management",
+        "element_category": "Document management software",
         "is_hot": false,
         "in_demand": false,
-        "demand_score": 0.0
+        "demand_score": 0.0,
+        "market_share": 0.0,
+        "relevance": 0.455,
+        "priority": 0.2165
+      },
+      {
+        "skill": "BusinessObjects Crystal Reports",
+        "element_category": "Data base reporting software",
+        "is_hot": false,
+        "in_demand": false,
+        "demand_score": 0.0,
+        "market_share": 0.0,
+        "relevance": 0.389,
+        "priority": 0.2003
       }
     ],
     "abstract_skills_required": [
       {
-        "skill": "Reading Comprehension",
-        "importance": 4.0
-      },
-      {
-        "skill": "Active Listening",
-        "importance": 3.75
+        "skill": "Mathematics",
+        "importance": 4.38
       },
       {
         "skill": "Critical Thinking",
         "importance": 3.75
       },
       {
-        "skill": "Writing",
+        "skill": "Reading Comprehension",
         "importance": 3.75
       },
       {
-        "skill": "Speaking",
-        "importance": 3.38
+        "skill": "Active Learning",
+        "importance": 3.62
       },
       {
-        "skill": "Science",
-        "importance": 3.25
+        "skill": "Writing",
+        "importance": 3.5
+      },
+      {
+        "skill": "Active Listening",
+        "importance": 3.38
       }
     ]
   },
+  "skill_strength": {
+    "score": 49,
+    "matched": 9,
+    "implied": 3,
+    "ignored_basic": 4,
+    "focus_skills": [
+      "Tableau",
+      "Access",
+      "Machine Learning"
+    ],
+    "breadth": 0.13,
+    "specialization": 0.251,
+    "complementarity": 0.684
+  },
   "recommendations": [
     {
-      "skill": "R",
-      "element_category": "Object or component oriented development software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.793,
-      "complementarity": 0.345,
-      "effort_label": "1–6 months",
-      "difficulty_months": 3.0,
-      "priority_score": 2.379,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
-    },
-    {
       "skill": "Tableau",
-      "element_category": "Business intelligence and data analysis software",
-      "is_hot": true,
-      "in_demand": false,
-      "feasibility": 0.9,
-      "complementarity": 0.399,
-      "effort_label": "weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 1.8,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: weeks."
+      "rationale": "The candidate's experience with data visualization using matplotlib and pandas makes Tableau a natural next step, enhancing their ability to create interactive dashboards for data analysis.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Adobe Illustrator",
-      "element_category": "Graphics or photo imaging software",
-      "is_hot": true,
-      "in_demand": false,
-      "feasibility": 0.808,
-      "complementarity": 0.465,
-      "effort_label": "1–6 months",
-      "difficulty_months": 3.0,
-      "priority_score": 1.616,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
+      "skill": "Access",
+      "rationale": "With a background in database management and Microsoft Office Suite, learning Microsoft Access will be more straightforward, allowing the candidate to manage and query databases more effectively.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "ESRI ArcGIS software",
-      "element_category": "Geographic information system",
-      "is_hot": true,
-      "in_demand": false,
-      "feasibility": 0.798,
-      "complementarity": 0.383,
-      "effort_label": "1–6 months",
-      "difficulty_months": 3.0,
-      "priority_score": 1.596,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
+      "skill": "Machine Learning",
+      "rationale": "Building on the candidate's data analysis skills, learning machine learning will enable them to perform more complex data analysis tasks, such as predictive modeling and clustering, which are valuable in statistical roles.",
+      "effort_label": "6 months or more",
+      "demand_trend": "stable",
+      "source": "dataset",
+      "is_hot": false
     },
     {
-      "skill": "Extensible markup language XML",
-      "element_category": "Enterprise application integration software",
-      "is_hot": true,
-      "in_demand": false,
-      "feasibility": 0.772,
-      "complementarity": 0.178,
-      "effort_label": "1–6 months",
-      "difficulty_months": 3.0,
-      "priority_score": 1.544,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 1–6 months."
+      "skill": "Power BI",
+      "rationale": "Given the candidate's familiarity with Microsoft Office Suite and data visualization tools like matplotlib, learning Power BI will provide them with another powerful tool for data analysis and visualization, directly applicable to the Statistical Assistants role.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
+    },
+    {
+      "skill": "SQL Advanced Concepts",
+      "rationale": "The candidate already has a foundation in SQL, so diving deeper into advanced concepts such as window functions, common table expressions, and performance optimization will significantly enhance their database management and analysis capabilities.",
+      "effort_label": "1-3 months",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
     }
   ],
   "ai_displacement_exposure": {
-    "score": 0.0,
-    "level": "Low",
-    "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
+    "score": 0.8,
+    "level": "High",
+    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly. In the Statistical Assistants field, automation tools like Tableau and Power BI are being used to streamline data visualization and reporting, allowing for more efficient analysis. This means that understanding how to work with such tools is crucial for someone in this role."
   }
 }

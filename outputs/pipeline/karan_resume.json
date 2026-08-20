@@ -1,35 +1,2886 @@
 {
   "resume": "karan_resume.pdf",
+  "parser": "groq/llama-3.3-70b",
+  "summary_text": "This candidate can improve by focusing on SQL, NoSQL, and Tableau, building on their existing experience with GraphQL, PostgreSQL, and data visualization. With 4 years of experience, they can quickly absorb these new skills and enhance their web development capabilities. They can improve in 2-6 months, depending on the skill.",
+  "verdict": "Very likely hirable for Web Developers — a field growing faster than average.",
+  "target": {
+    "source": "auto",
+    "title": "Web Developers",
+    "soc_code": "15-1254",
+    "occupation_title": "Web Developers",
+    "posting_skills": [],
+    "role_options": [
+      {
+        "soc_code": "15-1254",
+        "title": "Web Developers",
+        "hirability": 84.4,
+        "level": "Very likely hirable",
+        "skill_strength": 82,
+        "match_score": 6.861,
+        "blended_score": 0.9472,
+        "fit": 0.947,
+        "eligible": true
+      },
+      {
+        "soc_code": "15-1221",
+        "title": "Computer and Information Research Scientists",
+        "hirability": 76.0,
+        "level": "Likely hirable",
+        "skill_strength": 71,
+        "match_score": 6.713,
+        "blended_score": 0.8699,
+        "fit": 0.87,
+        "eligible": true
+      },
+      {
+        "soc_code": "15-1252",
+        "title": "Software Developers",
+        "hirability": 72.9,
+        "level": "Likely hirable",
+        "skill_strength": 56,
+        "match_score": 6.324,
+        "blended_score": 0.8258,
+        "fit": 0.826,
+        "eligible": true
+      },
+      {
+        "soc_code": "25-2023",
+        "title": "Career/Technical Education Teachers, Middle School",
+        "hirability": 85.6,
+        "level": "Very likely hirable",
+        "skill_strength": 84,
+        "match_score": 6.909,
+        "blended_score": 0.77,
+        "fit": 0.77,
+        "eligible": false
+      },
+      {
+        "soc_code": "15-1299",
+        "title": "Computer Occupations, All Other",
+        "hirability": 65.7,
+        "level": "Likely hirable",
+        "skill_strength": 40,
+        "match_score": 5.582,
+        "blended_score": 0.6247,
+        "fit": 0.625,
+        "eligible": false
+      }
+    ],
+    "role_views": {
+      "15-1221": {
+        "verdict": "Likely hirable for Computer and Information Research Scientists — a field growing faster than average.",
+        "summary_text": "For Computer and Information Research Scientists, the highest-leverage next step is SQL, followed by Grafana Cloud, Snowflake. With 4 years of experience, you can close these gaps and move up quickly.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.712,
+              "weight": 0.45,
+              "points": 32.0,
+              "detail": {
+                "breadth": 0.21,
+                "specialization": 0.586,
+                "complementarity": 0.399,
+                "evidence": 0.714
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.28,
+              "points": 28.0
+            },
+            {
+              "label": "Education fit",
+              "value": 0.78,
+              "weight": 0.17,
+              "points": 13.3
+            },
+            {
+              "label": "Track record",
+              "value": 0.267,
+              "weight": 0.1,
+              "points": 2.7,
+              "detail": {
+                "signals": [
+                  "recognised outside the job"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.712,
+              "weight": 0.35,
+              "points": 24.9,
+              "detail": {
+                "breadth": 0.21,
+                "specialization": 0.586,
+                "complementarity": 0.399,
+                "evidence": 0.714
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.915,
+              "weight": 0.25,
+              "points": 22.9
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 76.0,
+          "hirability_range": [
+            70,
+            82
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Computer and Information Research Scientists",
+          "top_match_soc": "15-1221"
+        },
+        "competitiveness": {
+          "score": 81.8,
+          "level": "Strong",
+          "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.712,
+              "weight": 0.35,
+              "points": 24.9,
+              "detail": {
+                "breadth": 0.21,
+                "specialization": 0.586,
+                "complementarity": 0.399,
+                "evidence": 0.714
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.915,
+              "weight": 0.25,
+              "points": 22.9
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1221",
+          "title": "Computer and Information Research Scientists",
+          "median_wage": 140910,
+          "wage_percentile": 96,
+          "growth_pct": 19.7,
+          "openings_k": 3.2,
+          "outlook": "much faster than average",
+          "typical_education": "Master's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 0.78,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1221",
+            "title": "Computer and Information Research Scientists",
+            "description": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software.",
+            "match_score": 6.7129,
+            "blended_score": 0.8699,
+            "matched_skills": [
+              "Amazon Web Services (AWS)",
+              "Django",
+              "Docker",
+              "Git",
+              "GitHub",
+              "Google Cloud Platform (GCP)",
+              "Java",
+              "JavaScript",
+              "Jenkins",
+              "Kubernetes",
+              "Node.js",
+              "PostgreSQL",
+              "Python",
+              "Redis",
+              "Terraform",
+              "data visualization"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.191,
+          "strengths": [
+            {
+              "skill": "AWS CloudFormation",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS SageMaker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Data visualization",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Django",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Terraform",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "JavaScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Jenkins CI",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Node.js",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java EE",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redis",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Ansible",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bash",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Chef",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "GitLab",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "SQL Server",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Puppet",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            }
+          ],
+          "highlights": [
+            "Software Engineer at Apple Inc.",
+            "Published 50+ technical articles on software engineering",
+            "Author and maintainer of GitHub’s top 500 global repository 'System Design'",
+            "Co-authored U.S. patents in software security and delivery pipelines",
+            "4 years of professional experience",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "SQL",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.6262
+            },
+            {
+              "skill": "Scala",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0875,
+              "relevance": 0.462,
+              "priority": 0.6234
+            },
+            {
+              "skill": "TensorFlow",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0625,
+              "relevance": 0.431,
+              "priority": 0.6017
+            },
+            {
+              "skill": "Go",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.426,
+              "priority": 0.5982
+            },
+            {
+              "skill": "Grafana Cloud",
+              "element_category": "Graphical user interface development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.402,
+              "priority": 0.5814
+            },
+            {
+              "skill": "DynamoDB",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.569,
+              "priority": 0.547
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.514,
+              "priority": 0.5168
+            },
+            {
+              "skill": "Spark",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0167,
+              "relevance": 0.298,
+              "priority": 0.5086
+            },
+            {
+              "skill": "Snowflake",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0542,
+              "relevance": 0.273,
+              "priority": 0.4911
+            },
+            {
+              "skill": "ArcGIS",
+              "element_category": "Geographic information system",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.424,
+              "priority": 0.4675
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 4.0
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.75
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.75
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.5
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.5
+            },
+            {
+              "skill": "Mathematics",
+              "importance": 3.38
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 71,
+          "matched": 30,
+          "implied": 12,
+          "ignored_basic": 5,
+          "focus_skills": [
+            "SQL",
+            "Grafana Cloud",
+            "Snowflake"
+          ],
+          "breadth": 0.21,
+          "specialization": 0.586,
+          "complementarity": 0.399
+        },
+        "recommendations": [
+          {
+            "skill": "SQL",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.904,
+            "complementarity": 0.466,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.712,
+            "rationale": "SQL remains the single most common data requirement in job postings; nearly every role that touches stored data assumes it. It connects loosely to GraphQL on your resume — enough to orient you, not enough to skip the fundamentals. The core select–join–group pattern takes two or three weeks of practice; window functions and query optimisation add another month."
+          },
+          {
+            "skill": "Grafana Cloud",
+            "element_category": "Graphical user interface development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.867,
+            "complementarity": 0.402,
+            "effort_label": "4–6 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 2.601,
+            "rationale": "Grafana Labs Grafana Cloud is a design and graphics tool; demand sits in creative and marketing-adjacent roles. O*NET flags it as a hot technology, listed by 4 occupations — demand is growing. It does not build directly on anything currently on your resume, so budget real study time. A few weeks to basic production work; a portfolio matters more than time served."
+          },
+          {
+            "skill": "Snowflake",
+            "element_category": "Data mining software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.784,
+            "complementarity": 0.273,
+            "effort_label": "1–3 months",
+            "difficulty_months": 3.0,
+            "priority_score": 2.352,
+            "rationale": "Snowflake has become the leading cloud data warehouse and appears in a growing share of data engineering postings. This would be new territory relative to your current skills. SQL carries you most of the way within weeks; cost management and warehouse sizing are the platform-specific craft."
+          },
+          {
+            "skill": "Go",
+            "element_category": "Development environment software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.738,
+            "complementarity": 0.426,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.214,
+            "rationale": "Go is developer tooling; it appears in postings as an environment expectation rather than a skill in itself. O*NET flags it as a hot technology, listed by 20 occupations — demand is growing. It connects loosely to Golang on your resume — enough to orient you, not enough to skip the fundamentals. Picked up in days alongside real work."
+          },
+          {
+            "skill": "Spark",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.645,
+            "complementarity": 0.298,
+            "effort_label": "3–6 months",
+            "difficulty_months": 5.0,
+            "priority_score": 1.935,
+            "rationale": "Spark is the dominant engine for large-scale data processing and a fixture in data engineering requirements. Nothing on your resume shortcuts this one — plan for the full learning curve. With Python or SQL, the DataFrame API takes a few weeks; debugging slow jobs — partitioning, shuffles — takes months."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 76.0,
+          "baseline_skill_strength": 71,
+          "skills": [
+            {
+              "skill": "Grafana Cloud",
+              "score": 79.3,
+              "delta": 3.3,
+              "skill_strength": 79,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Snowflake",
+              "score": 78.0,
+              "delta": 2.0,
+              "skill_strength": 76,
+              "also_unlocks": 1,
+              "measurable": true
+            },
+            {
+              "skill": "Spark",
+              "score": 76.8,
+              "delta": 0.8,
+              "skill_strength": 73,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Go",
+              "score": 76.7,
+              "delta": 0.7,
+              "skill_strength": 73,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "SQL",
+              "score": 76.3,
+              "delta": 0.3,
+              "skill_strength": 72,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.501,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      },
+      "15-1252": {
+        "verdict": "Likely hirable for Software Developers — a field growing faster than average.",
+        "summary_text": "For Software Developers, the highest-leverage next step is SQL, followed by NoSQL, Go. With 4 years of experience, you can close these gaps and move up quickly.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.559,
+              "weight": 0.45,
+              "points": 25.2,
+              "detail": {
+                "breadth": 0.148,
+                "specialization": 0.655,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.28,
+              "points": 28.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.17,
+              "points": 17.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.267,
+              "weight": 0.1,
+              "points": 2.7,
+              "detail": {
+                "signals": [
+                  "recognised outside the job"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.559,
+              "weight": 0.35,
+              "points": 19.6,
+              "detail": {
+                "breadth": 0.148,
+                "specialization": 0.655,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.892,
+              "weight": 0.25,
+              "points": 22.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 72.9,
+          "hirability_range": [
+            69,
+            77
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Software Developers",
+          "top_match_soc": "15-1252"
+        },
+        "competitiveness": {
+          "score": 75.9,
+          "level": "Strong",
+          "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.559,
+              "weight": 0.35,
+              "points": 19.6,
+              "detail": {
+                "breadth": 0.148,
+                "specialization": 0.655,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.892,
+              "weight": 0.25,
+              "points": 22.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1252",
+          "title": "Software Developers",
+          "median_wage": 133080,
+          "wage_percentile": 94,
+          "growth_pct": 15.8,
+          "openings_k": 115.2,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1252",
+            "title": "Software Developers",
+            "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software systems, and develop specifications and performance requirements. May maintain databases within an application area, working individually or coordinating database development as part of a team.",
+            "match_score": 6.3245,
+            "blended_score": 0.8258,
+            "matched_skills": [
+              "Amazon Web Services (AWS)",
+              "Django",
+              "Docker",
+              "Git",
+              "GitHub",
+              "Google Cloud Platform (GCP)",
+              "GraphQL",
+              "Java",
+              "JavaScript",
+              "Jenkins",
+              "Kubernetes",
+              "Node.js",
+              "PostgreSQL",
+              "Python",
+              "React Native",
+              "React.js",
+              "Redis",
+              "Spring Boot",
+              "Terraform",
+              "TypeScript"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.124,
+          "strengths": [
+            {
+              "skill": "AWS CloudFormation",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Django",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GraphQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Terraform",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "JavaScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Jenkins CI",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Node.js",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java EE",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java Message Service JMS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "React Native",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redis",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spring Boot",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Sun Microsystems Java Persistence API",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "TypeScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Ansible",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bamboo",
+              "implied": true,
+              "via": "Jenkins"
+            },
+            {
+              "skill": "Bitbucket",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bash",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Chef",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Enterprise JavaBeans",
+              "implied": true,
+              "via": "Java"
+            },
+            {
+              "skill": "GitLab",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Angular",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "Cloud",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "JavaScript framework",
+              "implied": true,
+              "via": "TypeScript"
+            },
+            {
+              "skill": "jQuery",
+              "implied": true,
+              "via": "JavaScript"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure DevOps Services",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "SQL Server",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Puppet",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "React",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "React Redux",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "RESTful API",
+              "implied": true,
+              "via": "REST APIs"
+            },
+            {
+              "skill": "Spring Framework",
+              "implied": true,
+              "via": "Spring Boot"
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Vue.js",
+              "implied": true,
+              "via": "React.js"
+            }
+          ],
+          "highlights": [
+            "Software Engineer at Apple Inc.",
+            "Published 50+ technical articles on software engineering",
+            "Author and maintainer of GitHub’s top 500 global repository 'System Design'",
+            "Co-authored U.S. patents in software security and delivery pipelines",
+            "4 years of professional experience",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "NoSQL",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.05,
+              "relevance": 0.546,
+              "priority": 0.6822
+            },
+            {
+              "skill": "SQL",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.6262
+            },
+            {
+              "skill": "Go",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.426,
+              "priority": 0.5982
+            },
+            {
+              "skill": "AJAX",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.562,
+              "priority": 0.5432
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.514,
+              "priority": 0.5168
+            },
+            {
+              "skill": "SharePoint",
+              "element_category": "Document management software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0222,
+              "relevance": 0.503,
+              "priority": 0.5108
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.482,
+              "priority": 0.4993
+            },
+            {
+              "skill": "Scala",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0875,
+              "relevance": 0.462,
+              "priority": 0.4883
+            },
+            {
+              "skill": "WordPress",
+              "element_category": "Web page creation and editing software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.461,
+              "priority": 0.4878
+            },
+            {
+              "skill": "JUnit",
+              "element_category": "Program testing software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0167,
+              "relevance": 0.455,
+              "priority": 0.4845
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.5
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.5
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.38
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.25
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.12
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 56,
+          "matched": 50,
+          "implied": 28,
+          "ignored_basic": 25,
+          "focus_skills": [
+            "SQL",
+            "NoSQL",
+            "Go"
+          ],
+          "breadth": 0.148,
+          "specialization": 0.655,
+          "complementarity": 0.399
+        },
+        "recommendations": [
+          {
+            "skill": "SQL",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.904,
+            "complementarity": 0.466,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.712,
+            "rationale": "SQL remains the single most common data requirement in job postings; nearly every role that touches stored data assumes it. It connects loosely to GraphQL on your resume — enough to orient you, not enough to skip the fundamentals. The core select–join–group pattern takes two or three weeks of practice; window functions and query optimisation add another month."
+          },
+          {
+            "skill": "NoSQL",
+            "element_category": "Data base management system software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.879,
+            "complementarity": 0.546,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 2.637,
+            "rationale": "NoSQL appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 25 occupations' requirements. It connects loosely to GraphQL on your resume — enough to orient you, not enough to skip the fundamentals. Plan one to three months of regular practice to be genuinely productive."
+          },
+          {
+            "skill": "Go",
+            "element_category": "Development environment software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.738,
+            "complementarity": 0.426,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.214,
+            "rationale": "Go is developer tooling; it appears in postings as an environment expectation rather than a skill in itself. O*NET flags it as a hot technology, listed by 20 occupations — demand is growing. It connects loosely to Golang on your resume — enough to orient you, not enough to skip the fundamentals. Picked up in days alongside real work."
+          },
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.895,
+            "complementarity": 0.321,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.79,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. Nothing on your resume shortcuts this one — plan for the full learning curve. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "UNIX",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.876,
+            "complementarity": 0.514,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.752,
+            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your Java background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 72.8,
+          "baseline_skill_strength": 56,
+          "skills": [
+            {
+              "skill": "Tableau",
+              "score": 74.4,
+              "delta": 1.6,
+              "skill_strength": 60,
+              "also_unlocks": 5,
+              "measurable": true
+            },
+            {
+              "skill": "SQL",
+              "score": 74.2,
+              "delta": 1.4,
+              "skill_strength": 59,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "UNIX",
+              "score": 74.1,
+              "delta": 1.3,
+              "skill_strength": 59,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "NoSQL",
+              "score": 73.6,
+              "delta": 0.8,
+              "skill_strength": 58,
+              "also_unlocks": 1,
+              "measurable": true
+            },
+            {
+              "skill": "Go",
+              "score": 73.2,
+              "delta": 0.4,
+              "skill_strength": 57,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.542,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      },
+      "25-2023": {
+        "verdict": "Very likely hirable for Career/Technical Education Teachers, Middle School — though the field is contracting.",
+        "summary_text": "For Career/Technical Education Teachers, Middle School, the highest-leverage next step is Tableau, followed by UNIX, Elastic Compute Cloud EC2. With 4 years of experience, you can close these gaps and move up quickly.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.842,
+              "weight": 0.45,
+              "points": 37.9,
+              "detail": {
+                "breadth": 0.346,
+                "specialization": 0.522,
+                "complementarity": 0.399,
+                "evidence": 0.684
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.28,
+              "points": 28.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.17,
+              "points": 17.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.267,
+              "weight": 0.1,
+              "points": 2.7,
+              "detail": {
+                "signals": [
+                  "recognised outside the job"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.842,
+              "weight": 0.35,
+              "points": 29.5,
+              "detail": {
+                "breadth": 0.346,
+                "specialization": 0.522,
+                "complementarity": 0.399,
+                "evidence": 0.684
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.433,
+              "weight": 0.25,
+              "points": 10.8
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 85.6,
+          "hirability_range": [
+            78,
+            93
+          ],
+          "hirability_level": "Very likely hirable",
+          "top_match_title": "Career/Technical Education Teachers, Middle School",
+          "top_match_soc": "25-2023"
+        },
+        "competitiveness": {
+          "score": 74.3,
+          "level": "Strong",
+          "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.842,
+              "weight": 0.35,
+              "points": 29.5,
+              "detail": {
+                "breadth": 0.346,
+                "specialization": 0.522,
+                "complementarity": 0.399,
+                "evidence": 0.684
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.433,
+              "weight": 0.25,
+              "points": 10.8
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "25-2023",
+          "title": "Career/Technical Education Teachers, Middle School",
+          "median_wage": 63620,
+          "wage_percentile": 58,
+          "growth_pct": -2.0,
+          "openings_k": 0.9,
+          "outlook": "declining",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "Less than 5 years",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "25-2023",
+            "title": "Career/Technical Education Teachers, Middle School",
+            "description": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level.",
+            "match_score": 6.9092,
+            "blended_score": 0.77,
+            "matched_skills": [
+              "Amazon Web Services (AWS)",
+              "Docker",
+              "Git",
+              "GitHub",
+              "Google Cloud Platform (GCP)",
+              "Java",
+              "JavaScript",
+              "Jenkins",
+              "Node.js",
+              "PostgreSQL",
+              "Python",
+              "React.js",
+              "Spring Boot",
+              "data visualization"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.321,
+          "strengths": [
+            {
+              "skill": "AWS CloudFormation",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Data visualization",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "JavaScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Jenkins CI",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Node.js",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spring Boot",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Ansible",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Bamboo",
+              "implied": true,
+              "via": "Jenkins"
+            },
+            {
+              "skill": "Bash",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Angular",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "jQuery",
+              "implied": true,
+              "via": "JavaScript"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "SQL Server",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Puppet",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "React",
+              "implied": true,
+              "via": "React.js"
+            }
+          ],
+          "highlights": [
+            "Software Engineer at Apple Inc.",
+            "Published 50+ technical articles on software engineering",
+            "Author and maintainer of GitHub’s top 500 global repository 'System Design'",
+            "Co-authored U.S. patents in software security and delivery pipelines",
+            "4 years of professional experience",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Elastic Compute Cloud EC2",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.601,
+              "priority": 0.5645
+            },
+            {
+              "skill": "DynamoDB",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.569,
+              "priority": 0.547
+            },
+            {
+              "skill": "JSON",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.523,
+              "priority": 0.5218
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.514,
+              "priority": 0.5168
+            },
+            {
+              "skill": "C#",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.494,
+              "priority": 0.5059
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.482,
+              "priority": 0.4993
+            },
+            {
+              "skill": "JUnit",
+              "element_category": "Program testing software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0167,
+              "relevance": 0.455,
+              "priority": 0.4845
+            },
+            {
+              "skill": "Eclipse IDE",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.435,
+              "priority": 0.4735
+            },
+            {
+              "skill": "Visio",
+              "element_category": "Process mapping and design software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.38,
+              "priority": 0.4434
+            },
+            {
+              "skill": "PeopleSoft",
+              "element_category": "Enterprise resource planning ERP software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.349,
+              "priority": 0.4264
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Speaking",
+              "importance": 4.12
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 4.0
+            },
+            {
+              "skill": "Learning Strategies",
+              "importance": 4.0
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 4.0
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Monitoring",
+              "importance": 3.88
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 84,
+          "matched": 26,
+          "implied": 13,
+          "ignored_basic": 12,
+          "focus_skills": [
+            "Tableau",
+            "UNIX",
+            "Elastic Compute Cloud EC2"
+          ],
+          "breadth": 0.346,
+          "specialization": 0.522,
+          "complementarity": 0.399
+        },
+        "recommendations": [
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.895,
+            "complementarity": 0.321,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 1.79,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. Nothing on your resume shortcuts this one — plan for the full learning curve. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "UNIX",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.876,
+            "complementarity": 0.514,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.752,
+            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your Java background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
+          },
+          {
+            "skill": "Elastic Compute Cloud EC2",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.767,
+            "complementarity": 0.601,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.534,
+            "rationale": "Amazon Elastic Compute Cloud EC2 is a data-access and query tool used daily in roles that work directly with stored records. Demand is trending up: it carries O*NET's hot-technology flag and appears in 22 occupations' requirements. Coming from Amazon Web Services (AWS), most of the underlying concepts will already be familiar. Query tools reward consistent use — a few weeks of real work covers what postings expect."
+          },
+          {
+            "skill": "DynamoDB",
+            "element_category": "Data base management system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.762,
+            "complementarity": 0.569,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.524,
+            "rationale": "Amazon DynamoDB appears in the listed toolset for this occupation. O*NET flags it as a hot technology, listed by 18 occupations — demand is growing. Your work with Amazon Web Services (AWS) gives you a foothold, though much of this will still be new. A three-to-six-month build with consistent hands-on work."
+          },
+          {
+            "skill": "JSON",
+            "element_category": "Web platform development software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.754,
+            "complementarity": 0.523,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.508,
+            "rationale": "JavaScript is unavoidable in web-facing work: every front end and much of modern tooling runs on it. Your work with JavaScript gives you a foothold, though much of this will still be new. Working proficiency takes one to two months; asynchronous patterns and ecosystem churn are what extend the curve."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 85.6,
+          "baseline_skill_strength": 84,
+          "skills": [
+            {
+              "skill": "Tableau",
+              "score": 85.6,
+              "delta": 0.0,
+              "skill_strength": 84,
+              "also_unlocks": 0,
+              "measurable": false
+            },
+            {
+              "skill": "UNIX",
+              "score": 85.6,
+              "delta": 0.0,
+              "skill_strength": 84,
+              "also_unlocks": 0,
+              "measurable": false
+            },
+            {
+              "skill": "Elastic Compute Cloud EC2",
+              "score": 85.6,
+              "delta": 0.0,
+              "skill_strength": 84,
+              "also_unlocks": 0,
+              "measurable": false
+            },
+            {
+              "skill": "DynamoDB",
+              "score": 85.6,
+              "delta": 0.0,
+              "skill_strength": 84,
+              "also_unlocks": 0,
+              "measurable": false
+            },
+            {
+              "skill": "JSON",
+              "score": 85.6,
+              "delta": 0.0,
+              "skill_strength": 84,
+              "also_unlocks": 0,
+              "measurable": false
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.309,
+          "level": "Low",
+          "explanation": "This occupation involves complex judgment, creativity, or social skills that are difficult to automate."
+        }
+      },
+      "15-1299": {
+        "verdict": "Likely hirable for Computer Occupations, All Other — a field growing faster than average.",
+        "summary_text": "For Computer Occupations, All Other, the highest-leverage next step is SQL, followed by SharePoint, WordPress. With 4 years of experience, you can close these gaps and move up quickly.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.4,
+              "weight": 0.45,
+              "points": 18.0,
+              "detail": {
+                "breadth": 0.097,
+                "specialization": 0.653,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.28,
+              "points": 28.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.17,
+              "points": 17.0
+            },
+            {
+              "label": "Track record",
+              "value": 0.267,
+              "weight": 0.1,
+              "points": 2.7,
+              "detail": {
+                "signals": [
+                  "recognised outside the job"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.4,
+              "weight": 0.35,
+              "points": 14.0,
+              "detail": {
+                "breadth": 0.097,
+                "specialization": 0.653,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.821,
+              "weight": 0.25,
+              "points": 20.5
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 65.7,
+          "hirability_range": [
+            61,
+            70
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Computer Occupations, All Other",
+          "top_match_soc": "15-1299"
+        },
+        "competitiveness": {
+          "score": 68.5,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.4,
+              "weight": 0.35,
+              "points": 14.0,
+              "detail": {
+                "breadth": 0.097,
+                "specialization": 0.653,
+                "complementarity": 0.399,
+                "evidence": 0.806
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.76,
+              "weight": 0.25,
+              "points": 19.0
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.821,
+              "weight": 0.25,
+              "points": 20.5
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1299",
+          "title": "Computer Occupations, All Other",
+          "median_wage": 108970,
+          "wage_percentile": 90,
+          "growth_pct": 8.2,
+          "openings_k": 31.3,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1299",
+            "title": "Computer Occupations, All Other",
+            "description": "All computer occupations not listed separately.",
+            "match_score": 5.5818,
+            "blended_score": 0.6247,
+            "matched_skills": [
+              "Amazon Web Services (AWS)",
+              "Django",
+              "Docker",
+              "Git",
+              "GitHub",
+              "Google Cloud Platform (GCP)",
+              "GraphQL",
+              "Java",
+              "JavaScript",
+              "Jenkins",
+              "Kubernetes",
+              "Node.js",
+              "PostgreSQL",
+              "Python",
+              "React.js",
+              "Redis",
+              "Spring Boot",
+              "Terraform",
+              "TypeScript"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.088,
+          "strengths": [
+            {
+              "skill": "AWS CloudFormation",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Django",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GraphQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Terraform",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "JavaScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Jenkins CI",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Node.js",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java EE",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Java Message Service JMS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redis",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spring Boot",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Sun Microsystems Java",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Sun Microsystems Java Servlet API",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "TypeScript",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Elastic Container Service ECS",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "Ansible",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bamboo",
+              "implied": true,
+              "via": "Jenkins"
+            },
+            {
+              "skill": "Bitbucket",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bash",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Chef",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "Enterprise JavaBeans",
+              "implied": true,
+              "via": "Java"
+            },
+            {
+              "skill": "GitLab",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Angular",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "Cloud",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "jQuery",
+              "implied": true,
+              "via": "JavaScript"
+            },
+            {
+              "skill": "Kali Linux",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "Docker"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure DevOps Services",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "Azure Sentinel",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "Amazon Web Services (AWS)"
+            },
+            {
+              "skill": "SQL Server",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Puppet",
+              "implied": true,
+              "via": "Terraform"
+            },
+            {
+              "skill": "React",
+              "implied": true,
+              "via": "React.js"
+            },
+            {
+              "skill": "RESTful API",
+              "implied": true,
+              "via": "REST APIs"
+            },
+            {
+              "skill": "Spring Framework",
+              "implied": true,
+              "via": "Spring Boot"
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            }
+          ],
+          "highlights": [
+            "Software Engineer at Apple Inc.",
+            "Published 50+ technical articles on software engineering",
+            "Author and maintainer of GitHub’s top 500 global repository 'System Design'",
+            "Co-authored U.S. patents in software security and delivery pipelines",
+            "4 years of professional experience",
+            "Bachelor's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "SharePoint",
+              "element_category": "Document management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0222,
+              "relevance": 0.503,
+              "priority": 0.6521
+            },
+            {
+              "skill": "SQL",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.466,
+              "priority": 0.6262
+            },
+            {
+              "skill": "WordPress",
+              "element_category": "Web page creation and editing software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.461,
+              "priority": 0.6227
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.43,
+              "priority": 0.601
+            },
+            {
+              "skill": "ArcGIS",
+              "element_category": "Geographic information system",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.424,
+              "priority": 0.5968
+            },
+            {
+              "skill": "PHP",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0125,
+              "relevance": 0.375,
+              "priority": 0.5625
+            },
+            {
+              "skill": "DynamoDB",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.569,
+              "priority": 0.547
+            },
+            {
+              "skill": "Photoshop",
+              "element_category": "Graphics or photo imaging software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0333,
+              "relevance": 0.334,
+              "priority": 0.5338
+            },
+            {
+              "skill": "Enterprise",
+              "element_category": "Enterprise system management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.322,
+              "priority": 0.5254
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.514,
+              "priority": 0.5168
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.96
+            },
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.92
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.81
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.6
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.52
+            },
+            {
+              "skill": "Monitoring",
+              "importance": 3.46
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 40,
+          "matched": 50,
+          "implied": 28,
+          "ignored_basic": 27,
+          "focus_skills": [
+            "SQL",
+            "SharePoint",
+            "WordPress"
+          ],
+          "breadth": 0.097,
+          "specialization": 0.653,
+          "complementarity": 0.399
+        },
+        "recommendations": [
+          {
+            "skill": "SQL",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.904,
+            "complementarity": 0.466,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.712,
+            "rationale": "SQL remains the single most common data requirement in job postings; nearly every role that touches stored data assumes it. It connects loosely to GraphQL on your resume — enough to orient you, not enough to skip the fundamentals. The core select–join–group pattern takes two or three weeks of practice; window functions and query optimisation add another month."
+          },
+          {
+            "skill": "SharePoint",
+            "element_category": "Document management software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.75,
+            "complementarity": 0.503,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.25,
+            "rationale": "Microsoft SharePoint appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 145 occupations' requirements. Your work with Java gives you a foothold, though much of this will still be new. A three-to-six-month build with consistent hands-on work."
+          },
+          {
+            "skill": "WordPress",
+            "element_category": "Web page creation and editing software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.743,
+            "complementarity": 0.461,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.229,
+            "rationale": "WordPress is a site-building platform; a large share of small-business and agency web work runs through tools like it. O*NET flags it as a hot technology, listed by 19 occupations — demand is growing. There is partial overlap with your GitHub background, which speeds up the early stages. Productive within days; the depth is in theming, plugins, and deployment rather than the tool itself."
+          },
+          {
+            "skill": "ArcGIS",
+            "element_category": "Geographic information system",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.737,
+            "complementarity": 0.424,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.211,
+            "rationale": "ESRI ArcGIS software is a design and graphics tool; demand sits in creative and marketing-adjacent roles. O*NET flags it as a hot technology, listed by 78 occupations — demand is growing. Your work with Java gives you a foothold, though much of this will still be new. A few weeks to basic production work; a portfolio matters more than time served."
+          },
+          {
+            "skill": "PHP",
+            "element_category": "Web platform development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.729,
+            "complementarity": 0.375,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.187,
+            "rationale": "PHP still runs a large fraction of the web — WordPress alone guarantees demand — mostly in maintenance and agency work. This would be new territory relative to your current skills. Quick to start, but employers want modern practice: Composer, a framework, and testing habits."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 65.7,
+          "baseline_skill_strength": 40,
+          "skills": [
+            {
+              "skill": "ArcGIS",
+              "score": 67.6,
+              "delta": 1.9,
+              "skill_strength": 44,
+              "also_unlocks": 6,
+              "measurable": true
+            },
+            {
+              "skill": "SharePoint",
+              "score": 66.7,
+              "delta": 1.0,
+              "skill_strength": 42,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "SQL",
+              "score": 66.3,
+              "delta": 0.6,
+              "skill_strength": 41,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "WordPress",
+              "score": 66.3,
+              "delta": 0.6,
+              "skill_strength": 41,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "PHP",
+              "score": 66.2,
+              "delta": 0.5,
+              "skill_strength": 41,
+              "also_unlocks": 1,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.675,
+          "level": "High",
+          "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+        }
+      }
+    },
+    "alternatives": [
+      {
+        "soc_code": "15-1254",
+        "title": "Web Developers"
+      },
+      {
+        "soc_code": "15-1221",
+        "title": "Computer and Information Research Scientists"
+      },
+      {
+        "soc_code": "15-1252",
+        "title": "Software Developers"
+      },
+      {
+        "soc_code": "25-2023",
+        "title": "Career/Technical Education Teachers, Middle School"
+      },
+      {
+        "soc_code": "15-1299",
+        "title": "Computer Occupations, All Other"
+      },
+      {
+        "soc_code": "15-1255",
+        "title": "Web and Digital Interface Designers"
+      },
+      {
+        "soc_code": "11-9041",
+        "title": "Architectural and Engineering Managers"
+      },
+      {
+        "soc_code": "17-2112",
+        "title": "Industrial Engineers"
+      }
+    ]
+  },
+  "score_breakdown": {
+    "hirability": [
+      {
+        "label": "Skill strength",
+        "value": 0.815,
+        "weight": 0.45,
+        "points": 36.7,
+        "detail": {
+          "breadth": 0.235,
+          "specialization": 0.624,
+          "complementarity": 0.399,
+          "evidence": 0.786
+        }
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.28,
+        "points": 28.0
+      },
+      {
+        "label": "Education fit",
+        "value": 1.0,
+        "weight": 0.17,
+        "points": 17.0
+      },
+      {
+        "label": "Track record",
+        "value": 0.267,
+        "weight": 0.1,
+        "points": 2.7,
+        "detail": {
+          "signals": [
+            "recognised outside the job"
+          ]
+        }
+      }
+    ],
+    "competitiveness": [
+      {
+        "label": "Skill strength",
+        "value": 0.815,
+        "weight": 0.35,
+        "points": 28.5,
+        "detail": {
+          "breadth": 0.235,
+          "specialization": 0.624,
+          "complementarity": 0.399,
+          "evidence": 0.786
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.76,
+        "weight": 0.25,
+        "points": 19.0
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.787,
+        "weight": 0.25,
+        "points": 19.7
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "simulation": {
+    "baseline_score": 84.3,
+    "baseline_skill_strength": 82,
+    "skills": [
+      {
+        "skill": "SQL",
+        "score": 86.1,
+        "delta": 1.8,
+        "skill_strength": 86,
+        "also_unlocks": 2,
+        "measurable": true
+      },
+      {
+        "skill": "NoSQL",
+        "score": 85.8,
+        "delta": 1.5,
+        "skill_strength": 85,
+        "also_unlocks": 1,
+        "measurable": true
+      },
+      {
+        "skill": "Tableau",
+        "score": 85.4,
+        "delta": 1.1,
+        "skill_strength": 84,
+        "also_unlocks": 3,
+        "measurable": true
+      },
+      {
+        "skill": "Kafka",
+        "score": 85.0,
+        "delta": 0.7,
+        "skill_strength": 83,
+        "also_unlocks": 0,
+        "measurable": true
+      },
+      {
+        "skill": "Azure",
+        "score": 84.3,
+        "delta": 0.0,
+        "skill_strength": 82,
+        "also_unlocks": 0,
+        "measurable": false
+      }
+    ]
+  },
+  "career_stage": {
+    "stage": "early",
+    "label": "a few years in",
+    "note": "Weighted for a few years in: experience is starting to carry more than the degree.",
+    "weights": {
+      "skill": 0.45,
+      "experience": 0.28,
+      "education": 0.17,
+      "track_record": 0.1
+    },
+    "track_record": {
+      "score": 0.267,
+      "raw": 0.15,
+      "evidence": 0.667,
+      "signals": [
+        "recognised outside the job"
+      ],
+      "missing": [
+        "led people or set direction",
+        "quantified results",
+        "worked at scale",
+        "shipped end-to-end work"
+      ],
+      "checks": [
+        {
+          "key": "leadership",
+          "label": "led people or set direction",
+          "found": false,
+          "hint": "If you ran a team, mentored anyone or owned a decision, say so — nothing on the resume shows it."
+        },
+        {
+          "key": "impact",
+          "label": "quantified results",
+          "found": false,
+          "hint": "No outcome has a number attached. Quantify one result — a percentage, dollar figure or time saved."
+        },
+        {
+          "key": "scale",
+          "label": "worked at scale",
+          "found": false,
+          "hint": "Nothing conveys scope. If your work touched real users, records or traffic, say how much."
+        },
+        {
+          "key": "recognition",
+          "label": "recognised outside the job",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "delivery",
+          "label": "shipped end-to-end work",
+          "found": false,
+          "hint": "Nothing reads as built-and-launched. Describe one thing you carried from start to shipped."
+        }
+      ]
+    }
+  },
   "summary": {
-    "hirability_score": 86.5,
+    "hirability_score": 84.4,
+    "hirability_range": [
+      80,
+      89
+    ],
+    "hirability_level": "Very likely hirable",
     "years_experience": 4,
     "education_level": "Bachelor's",
     "top_match_title": "Web Developers",
     "top_match_soc": "15-1254",
     "skills_extracted": 30,
-    "skills_from_section": 27,
-    "skills_from_experience": 3,
-    "skills_matched_to_onet": 27
+    "skills_from_section": 24,
+    "skills_from_experience": 0,
+    "skills_matched_to_onet": 25
   },
   "competitiveness": {
-    "score": 85.8,
+    "score": 82.2,
     "level": "Strong",
-    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+    "components": [
+      {
+        "label": "Skill strength",
+        "value": 0.815,
+        "weight": 0.35,
+        "points": 28.5,
+        "detail": {
+          "breadth": 0.235,
+          "specialization": 0.624,
+          "complementarity": 0.399,
+          "evidence": 0.786
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.76,
+        "weight": 0.25,
+        "points": 19.0
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.787,
+        "weight": 0.25,
+        "points": 19.7
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "labor_market": {
+    "soc_code": "15-1254",
+    "title": "Web Developers",
+    "median_wage": 90930,
+    "wage_percentile": 81,
+    "growth_pct": 7.5,
+    "openings_k": 5.4,
+    "outlook": "faster than average",
+    "typical_education": "Bachelor's degree",
+    "typical_experience": "No experience required",
+    "education_fit": 1.0,
+    "experience_fit": 1.0
   },
   "top_job_matches": [
     {
       "soc_code": "15-1254",
       "title": "Web Developers",
-      "match_score": 7.9094,
-      "semantic_score": 0.3172,
-      "blended_score": 1.0,
+      "match_score": 6.8612,
+      "semantic_score": 0.393,
+      "blended_score": 0.9472,
       "matched_skills": [
         "Amazon Web Services (AWS)",
         "Django",
         "Docker",
         "Git",
         "GitHub",
-        "Google Cloud CDN",
         "Google Cloud Platform (GCP)",
         "GraphQL",
         "Java",
@@ -39,28 +2890,51 @@
         "Node.js",
         "PostgreSQL",
         "Python",
-        "RESTful API",
-        "React",
         "React.js",
         "Redis",
         "Spring Boot",
         "TypeScript"
       ],
-      "description_snippet": "Develop and implement websites, web applications, application databases, and interactive web interfaces. Evaluate code to ensure that it is properly structured, meets industry standards, and is compatible with browsers and devices. Optimize website p..."
+      "description": "Develop and implement websites, web applications, application databases, and interactive web interfaces. Evaluate code to ensure that it is properly structured, meets industry standards, and is compatible with browsers and devices. Optimize website performance, scalability, and server-side code and processes. May develop website infrastructure and integrate websites with other computer applications."
     },
     {
-      "soc_code": "15-1252",
-      "title": "Software Developers",
-      "match_score": 7.2164,
-      "semantic_score": 0.2015,
-      "blended_score": 0.642,
+      "soc_code": "15-1221",
+      "title": "Computer and Information Research Scientists",
+      "match_score": 6.7129,
+      "semantic_score": 0.3747,
+      "blended_score": 0.8699,
       "matched_skills": [
         "Amazon Web Services (AWS)",
         "Django",
         "Docker",
         "Git",
         "GitHub",
-        "Google Cloud CDN",
+        "Google Cloud Platform (GCP)",
+        "Java",
+        "JavaScript",
+        "Jenkins",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "Python",
+        "Redis",
+        "Terraform",
+        "data visualization"
+      ],
+      "description": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software."
+    },
+    {
+      "soc_code": "15-1252",
+      "title": "Software Developers",
+      "match_score": 6.3245,
+      "semantic_score": 0.4087,
+      "blended_score": 0.8258,
+      "matched_skills": [
+        "Amazon Web Services (AWS)",
+        "Django",
+        "Docker",
+        "Git",
+        "GitHub",
         "Google Cloud Platform (GCP)",
         "GraphQL",
         "Java",
@@ -70,8 +2944,6 @@
         "Node.js",
         "PostgreSQL",
         "Python",
-        "RESTful API",
-        "React",
         "React Native",
         "React.js",
         "Redis",
@@ -79,20 +2951,19 @@
         "Terraform",
         "TypeScript"
       ],
-      "description_snippet": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update sof..."
+      "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software systems, and develop specifications and performance requirements. May maintain databases within an application area, working individually or coordinating database development as part of a team."
     },
     {
       "soc_code": "25-2023",
       "title": "Career/Technical Education Teachers, Middle School",
-      "match_score": 7.6768,
-      "semantic_score": 0.0734,
-      "blended_score": 0.5436,
+      "match_score": 6.9092,
+      "semantic_score": 0.2942,
+      "blended_score": 0.77,
       "matched_skills": [
         "Amazon Web Services (AWS)",
         "Docker",
         "Git",
         "GitHub",
-        "Google Cloud CDN",
         "Google Cloud Platform (GCP)",
         "Java",
         "JavaScript",
@@ -100,26 +2971,26 @@
         "Node.js",
         "PostgreSQL",
         "Python",
-        "React",
         "React.js",
-        "Spring Boot"
+        "Spring Boot",
+        "data visualization"
       ],
-      "description_snippet": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level...."
+      "description": "Teach occupational, vocational, career, or technical subjects to students at the middle, intermediate, or junior high school level."
     },
     {
-      "soc_code": "15-1221",
-      "title": "Computer and Information Research Scientists",
-      "match_score": 6.9294,
-      "semantic_score": 0.1635,
-      "blended_score": 0.5101,
+      "soc_code": "15-1299",
+      "title": "Computer Occupations, All Other",
+      "match_score": 5.5818,
+      "semantic_score": 0.4133,
+      "blended_score": 0.6247,
       "matched_skills": [
         "Amazon Web Services (AWS)",
         "Django",
         "Docker",
         "Git",
         "GitHub",
-        "Google Cloud CDN",
         "Google Cloud Platform (GCP)",
+        "GraphQL",
         "Java",
         "JavaScript",
         "Jenkins",
@@ -127,36 +2998,13 @@
         "Node.js",
         "PostgreSQL",
         "Python",
-        "Redis",
-        "Terraform"
-      ],
-      "description_snippet": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software...."
-    },
-    {
-      "soc_code": "15-1255",
-      "title": "Web and Digital Interface Designers",
-      "match_score": 6.0417,
-      "semantic_score": 0.2836,
-      "blended_score": 0.4917,
-      "matched_skills": [
-        "Amazon Web Services (AWS)",
-        "Django",
-        "Docker",
-        "Git",
-        "GitHub",
-        "Google Cloud CDN",
-        "Google Cloud Platform (GCP)",
-        "Java",
-        "JavaScript",
-        "Node.js",
-        "PostgreSQL",
-        "Python",
-        "React",
         "React.js",
+        "Redis",
         "Spring Boot",
+        "Terraform",
         "TypeScript"
       ],
-      "description_snippet": "Design digital user interfaces or websites. Develop and test layouts, interfaces, functionality, and navigation menus to ensure compatibility and usability across browsers or devices. May use web framework applications as well as client-side code and..."
+      "description": "All computer occupations not listed separately."
     }
   ],
   "skills": {
@@ -185,12 +3033,12 @@
       "Google Cloud Platform (GCP)",
       "Node.js",
       "React Native",
-      "Google Cloud CDN",
       "Git",
       "GitHub",
-      "React",
-      "Google",
-      "RESTful API"
+      "REST APIs",
+      "data visualization",
+      "CI/CD",
+      "SDLC"
     ],
     "from_section": [
       "Golang",
@@ -216,16 +3064,9 @@
       "Amazon Web Services (AWS)",
       "Google Cloud Platform (GCP)",
       "Node.js",
-      "React Native",
-      "Google Cloud CDN",
-      "Git",
-      "GitHub"
+      "React Native"
     ],
-    "from_experience": [
-      "React",
-      "Google",
-      "RESTful API"
-    ],
+    "from_experience": [],
     "matched": [
       {
         "original": "Python",
@@ -396,14 +3237,6 @@
         "match_type": "exact"
       },
       {
-        "original": "Google Cloud CDN",
-        "matched_tool": "Google Analytics",
-        "element_name": "Data mining software",
-        "is_hot": true,
-        "in_demand": true,
-        "match_type": "word"
-      },
-      {
         "original": "Git",
         "matched_tool": "Git",
         "element_name": "File versioning software",
@@ -420,37 +3253,28 @@
         "match_type": "exact"
       },
       {
-        "original": "React",
-        "matched_tool": "React",
-        "element_name": "Web platform development software",
-        "is_hot": true,
-        "in_demand": true,
-        "match_type": "experience_ner",
-        "source": "experience"
-      },
-      {
-        "original": "Google",
-        "matched_tool": "Google",
-        "element_name": "Data base user interface and query software",
+        "original": "REST APIs",
+        "matched_tool": "REST Assured",
+        "element_name": "Program testing software",
         "is_hot": false,
         "in_demand": true,
-        "match_type": "experience_ner",
-        "source": "experience"
+        "match_type": "word"
       },
       {
-        "original": "RESTful API",
-        "matched_tool": "RESTful API",
-        "element_name": "Web platform development software",
+        "original": "data visualization",
+        "matched_tool": "Data visualization software",
+        "element_name": "Analytical or scientific software",
         "is_hot": false,
-        "in_demand": true,
-        "match_type": "experience_ner",
-        "source": "experience"
+        "in_demand": false,
+        "match_type": "substring"
       }
     ],
     "unmatched": [
       "Golang",
       "FastAPI",
-      "Pulumi"
+      "Pulumi",
+      "CI/CD",
+      "SDLC"
     ]
   },
   "education": [
@@ -462,146 +3286,345 @@
     "Apple Inc. Cupertino, CA",
     "Senior Software Engineer 05/03/2023 - 01/26/2024",
     "The Guardian Life Insurance Company of America Holmdel, NJ",
-    "•Developed features for Guardian Anytime web app leveraging React.js and Node.js serving over 4M users .",
-    "•Migrated legacy Java SOAP APIs to RESTful APIs using Spring Boot ensuring robust code quality.",
-    "•Improved reliability and maintainability of React.js application by increasing test coverage by 12% .",
     "Senior Engineer 12/07/2020 - 05/13/2023",
     "Curebase San Francisco, CA",
-    "•Designed scalable REST and GraphQL APIs using TypeScript, Node.js, Redis, and PostgreSQL .",
-    "•Led initiative for codebase migration to TypeScript, reducing cost and API latency by 50% .",
-    "•Built fault-tolerant, horizontally scalable multi-tenancy for core SaaS product leveraging AWS (ALB, ECS, S3, RDS, SQS, DynamoDB) with a focus on security, GDPR, and HIPAA compliance .",
-    "•Utilized Golang, Python, and Terraform to develop business-critical internal tools and simplify SDLC.",
     "Software Developer 05/26/2020 - 01/31/2021",
     "Quotient Inc. Maryland, USA (Remote)",
-    "•Created a digital asset management platform using React, TypeScript, Node.js, and GraphQL .",
-    "•Implemented terabyte-scale data ingestion and streaming with Node.js for over 150 million artifacts .",
-    "•Designed end-to-end GraphQL data layer and client-side enterprise search solution with React.",
-    "•Optimized production CI/CD pipeline using Docker multi-stage builds, reducing container size by 80% .",
     "Software Developer 08/17/2019 - 06/07/2020",
-    "Stewards London, UK (Remote)",
-    "•Implemented event-driven food delivery mobile application with React Native.",
-    "•Consolidated internal sales and custom B2B integrations with React and Node.js.",
-    "•Edge-optimized GraphQL API utilizing Google Cloud CDN, increasing customer retention by 60% ."
+    "Stewards London, UK (Remote)"
   ],
   "skill_gaps": {
-    "coverage_of_top_match": 0.181,
+    "coverage_of_top_match": 0.19,
     "strengths": [
-      "Adobe Creative Cloud software",
-      "Amazon DynamoDB",
-      "Amazon Elastic Compute Cloud EC2",
-      "Amazon Kinesis",
-      "Amazon Redshift",
-      "Amazon Simple Storage Service S3",
-      "Amazon Web Services AWS CloudFormation",
-      "Amazon Web Services AWS software",
-      "Django",
-      "Docker",
-      "Git",
-      "GitHub",
-      "Google Ads",
-      "Google Analytics",
-      "Google Android",
-      "Google Angular",
-      "Google Cloud software",
-      "Google Docs",
-      "Google Drive",
-      "Google Meet",
-      "Google Sites",
-      "Google Slides",
-      "GraphQL",
-      "JavaScript",
-      "JavaScript Object Notation JSON",
-      "JavaScript framework software",
-      "Jenkins CI",
-      "Kubernetes",
-      "Microsoft Internet Information Services (IIS)",
-      "Microsoft SQL Server Integration Services SSIS",
-      "Microsoft SQL Server Reporting Services SSRS",
-      "Node.js",
-      "Oracle Java",
-      "Oracle Java 2 Platform Enterprise Edition J2EE",
-      "PostgreSQL",
-      "Python",
-      "RESTful API",
-      "React",
-      "React Redux",
-      "Redis",
-      "Spring Boot",
-      "Spring Framework",
-      "TypeScript",
-      "Web application software",
-      "Web content management system CMS software"
-    ],
-    "gaps": [
       {
-        "skill": "Atlassian JIRA",
-        "element_category": "Content workflow software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "AWS CloudFormation",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "MongoDB",
-        "element_category": "Data base management system software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "AWS",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Structured query language SQL",
-        "element_category": "Data base user interface and query software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Django",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Apache Kafka",
-        "element_category": "Development environment software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Docker",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Git",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "GitHub",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "GraphQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "JavaScript",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Jenkins CI",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Kubernetes",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Node.js",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Java",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Java EE",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "PostgreSQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Python",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Redis",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Spring Boot",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "TypeScript",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Ansible",
+        "implied": true,
+        "via": "Terraform"
+      },
+      {
+        "skill": "Subversion SVN",
+        "implied": true,
+        "via": "Git"
+      },
+      {
+        "skill": "Bamboo",
+        "implied": true,
+        "via": "Jenkins"
+      },
+      {
+        "skill": "Bitbucket",
+        "implied": true,
+        "via": "Git"
+      },
+      {
+        "skill": "Bash",
+        "implied": true,
+        "via": "Docker"
+      },
+      {
+        "skill": "Chef",
+        "implied": true,
+        "via": "Terraform"
+      },
+      {
+        "skill": "Enterprise JavaBeans",
+        "implied": true,
+        "via": "Java"
+      },
+      {
+        "skill": "Angular",
+        "implied": true,
+        "via": "React.js"
+      },
+      {
+        "skill": "Cloud",
+        "implied": true,
+        "via": "Amazon Web Services (AWS)"
+      },
+      {
+        "skill": "JavaScript framework",
+        "implied": true,
+        "via": "TypeScript"
       },
       {
         "skill": "jQuery",
-        "element_category": "Object or component oriented development software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "implied": true,
+        "via": "JavaScript"
       },
       {
         "skill": "Linux",
-        "element_category": "Operating system software",
+        "implied": true,
+        "via": "Docker"
+      },
+      {
+        "skill": "Access",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Azure",
+        "implied": true,
+        "via": "Amazon Web Services (AWS)"
+      },
+      {
+        "skill": "SQL Server",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "MySQL",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Database",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "PL/SQL",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Puppet",
+        "implied": true,
+        "via": "Terraform"
+      },
+      {
+        "skill": "React",
+        "implied": true,
+        "via": "React.js"
+      },
+      {
+        "skill": "React Redux",
+        "implied": true,
+        "via": "React.js"
+      },
+      {
+        "skill": "RESTful API",
+        "implied": true,
+        "via": "REST APIs"
+      },
+      {
+        "skill": "Spring Framework",
+        "implied": true,
+        "via": "Spring Boot"
+      },
+      {
+        "skill": "Transact-SQL",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Travis",
+        "implied": true,
+        "via": "Jenkins"
+      },
+      {
+        "skill": "Vue.js",
+        "implied": true,
+        "via": "React.js"
+      }
+    ],
+    "highlights": [
+      "Software Engineer at Apple Inc.",
+      "Published 50+ technical articles on software engineering",
+      "Author and maintainer of GitHub’s top 500 global repository 'System Design'",
+      "Co-authored U.S. patents in software security and delivery pipelines",
+      "4 years of professional experience",
+      "Bachelor's degree"
+    ],
+    "gaps": [
+      {
+        "skill": "NoSQL",
+        "element_category": "Data base management system software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.05,
+        "relevance": 0.546,
+        "priority": 0.6822
+      },
+      {
+        "skill": "JSON",
+        "element_category": "Web platform development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.523,
+        "priority": 0.6661
+      },
+      {
+        "skill": "SQL",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.466,
+        "priority": 0.6262
       },
       {
         "skill": "WordPress",
         "element_category": "Web page creation and editing software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.461,
+        "priority": 0.6227
       },
       {
-        "skill": "Cascading style sheets CSS",
-        "element_category": "Web platform development software",
+        "skill": "Go",
+        "element_category": "Development environment software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.426,
+        "priority": 0.5982
       },
       {
-        "skill": "IBM SPSS Statistics",
-        "element_category": "Analytical or scientific software",
+        "skill": "UNIX",
+        "element_category": "Operating system software",
         "is_hot": true,
         "in_demand": false,
-        "demand_score": 2.0
+        "demand_score": 2.0,
+        "market_share": 0.0125,
+        "relevance": 0.514,
+        "priority": 0.5168
       },
       {
-        "skill": "Atlassian Bitbucket",
-        "element_category": "Application server software",
+        "skill": "SharePoint",
+        "element_category": "Document management software",
         "is_hot": true,
         "in_demand": false,
-        "demand_score": 2.0
+        "demand_score": 2.0,
+        "market_share": 0.0222,
+        "relevance": 0.503,
+        "priority": 0.5108
+      },
+      {
+        "skill": "Salesforce",
+        "element_category": "Customer relationship management CRM software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0,
+        "relevance": 0.482,
+        "priority": 0.4993
+      },
+      {
+        "skill": "Scala",
+        "element_category": "Object or component oriented development software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0875,
+        "relevance": 0.462,
+        "priority": 0.4883
+      },
+      {
+        "skill": "JUnit",
+        "element_category": "Program testing software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0167,
+        "relevance": 0.455,
+        "priority": 0.4845
       }
     ],
     "abstract_skills_required": [
@@ -631,143 +3654,65 @@
       }
     ]
   },
+  "skill_strength": {
+    "score": 82,
+    "matched": 44,
+    "implied": 26,
+    "ignored_basic": 17,
+    "focus_skills": [
+      "SQL",
+      "NoSQL",
+      "Tableau"
+    ],
+    "breadth": 0.235,
+    "specialization": 0.624,
+    "complementarity": 0.399
+  },
   "recommendations": [
     {
-      "skill": "WordPress",
-      "element_category": "Web page creation and editing software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.981,
-      "complementarity": 0.461,
-      "effort_label": "days",
-      "difficulty_months": 0.3,
-      "priority_score": 2.943,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
+      "skill": "SQL",
+      "rationale": "Given their experience with GraphQL and PostgreSQL, learning SQL fundamentals will be a natural extension, allowing them to work with a wider range of databases and improve their data modeling skills.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Atlassian JIRA",
-      "element_category": "Content workflow software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.965,
-      "complementarity": 0.324,
-      "effort_label": "days",
-      "difficulty_months": 0.5,
-      "priority_score": 2.895,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days."
+      "skill": "NoSQL",
+      "rationale": "Their background in GraphQL and experience with various databases make NoSQL a valuable addition, enabling them to work with diverse data storage solutions and improve their data handling capabilities.",
+      "effort_label": "1-3 months",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Structured query language SQL",
-      "element_category": "Data base user interface and query software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.904,
-      "complementarity": 0.466,
-      "effort_label": "2–4 weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 2.712,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
+      "skill": "Tableau",
+      "rationale": "As someone with experience in data visualization, learning Tableau will enhance their ability to create interactive and informative dashboards, making them more versatile in data analysis and presentation.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Cascading style sheets CSS",
-      "element_category": "Web platform development software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.886,
-      "complementarity": 0.18,
-      "effort_label": "2–4 weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 2.658,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: 2–4 weeks."
+      "skill": "Azure",
+      "rationale": "With experience in AWS and GCP, adding Microsoft Azure to their skillset will make them more competitive in the job market, allowing them to work with a broader range of cloud platforms and technologies.",
+      "effort_label": "1-3 months",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
     },
     {
-      "skill": "Linux",
-      "element_category": "Operating system software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.868,
-      "complementarity": 0.421,
-      "effort_label": "4–6 weeks",
-      "difficulty_months": 2.0,
-      "priority_score": 2.604,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 4–6 weeks."
-    }
-  ],
-  "emerging_ai_recommendations": [
-    {
-      "skill": "OpenAI API",
-      "category": "Emerging AI/ML",
-      "tags": [
-        "LLM",
-        "AI"
-      ],
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.903,
-      "complementarity": 0.452,
-      "effort_label": "2–4 weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 1.3112,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
-    },
-    {
-      "skill": "Anthropic Claude API",
-      "category": "Emerging AI/ML",
-      "tags": [
-        "LLM",
-        "AI"
-      ],
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.902,
-      "complementarity": 0.434,
-      "effort_label": "2–4 weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 1.2935,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
-    },
-    {
-      "skill": "Pinecone",
-      "category": "Emerging AI/ML",
-      "tags": [
-        "vector-db",
-        "AI"
-      ],
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.902,
-      "complementarity": 0.426,
-      "effort_label": "2–4 weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 1.2863,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 2–4 weeks."
-    }
-  ],
-  "llm_skill_suggestions": [
-    {
-      "skill": "Qwik",
-      "reason": "Rapidly gaining adoption for building high-performance web applications",
-      "time_to_learn": "1-2 months"
-    },
-    {
-      "skill": "Bun.js",
-      "reason": "Fast and modern JavaScript runtime for building server-side applications",
-      "time_to_learn": "1-3 weeks"
-    },
-    {
-      "skill": "Nuxt 3",
-      "reason": "Latest version of the popular Vue.js framework for building server-rendered and static web applications",
-      "time_to_learn": "2-3 months"
-    },
-    {
-      "skill": "Deno",
-      "reason": "Secure and modern JavaScript runtime for building server-side applications, gaining traction as an alternative to Node.js",
-      "time_to_learn": "1-2 months"
+      "skill": "Kafka",
+      "rationale": "Given their experience with real-time data processing and event-driven systems, learning Apache Kafka will enable them to handle high-throughput and provide low-latency, fault-tolerant, and scalable data processing, making them more attractive to potential employers.",
+      "effort_label": "2-4 months",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
     }
   ],
   "ai_displacement_exposure": {
     "score": 0.497,
     "level": "Medium",
-    "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+    "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work. AI and automation are being used in web development for tasks like code review and testing, with tools such as GitHub's code review AI and automated testing frameworks like Jest. This means web developers need to focus on high-level skills like data modeling and visualization."
   }
 }

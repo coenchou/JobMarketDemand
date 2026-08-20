@@ -1,28 +1,3014 @@
 {
   "resume": "resume_5_senior_ml_engineer.txt",
+  "parser": "groq/llama-3.3-70b",
+  "summary_text": "Given the candidate's strong background in machine learning and cloud infrastructure, focusing on skills that enhance their ability to manage and optimize complex systems, as well as expanding their data analysis capabilities, will be beneficial. They can quickly improve by learning tools like Terraform for infrastructure management and Prometheus for monitoring. With their experience in leading teams and technical mentoring, they are well-positioned to adapt to new technologies.",
+  "verdict": "Very likely hirable for Computer and Information Research Scientists — a field growing faster than average.",
+  "target": {
+    "source": "auto",
+    "title": "Computer and Information Research Scientists",
+    "soc_code": "15-1221",
+    "occupation_title": "Computer and Information Research Scientists",
+    "posting_skills": [],
+    "role_options": [
+      {
+        "soc_code": "15-1221",
+        "title": "Computer and Information Research Scientists",
+        "hirability": 94.0,
+        "level": "Very likely hirable",
+        "skill_strength": 86,
+        "match_score": 8.878,
+        "blended_score": 0.8189,
+        "fit": 0.819,
+        "eligible": true
+      },
+      {
+        "soc_code": "15-2051",
+        "title": "Data Scientists",
+        "hirability": 91.3,
+        "level": "Very likely hirable",
+        "skill_strength": 79,
+        "match_score": 7.569,
+        "blended_score": 0.7873,
+        "fit": 0.787,
+        "eligible": true
+      },
+      {
+        "soc_code": "15-1252",
+        "title": "Software Developers",
+        "hirability": 78.0,
+        "level": "Likely hirable",
+        "skill_strength": 48,
+        "match_score": 5.838,
+        "blended_score": 0.4366,
+        "fit": 0.437,
+        "eligible": false
+      },
+      {
+        "soc_code": "15-1242",
+        "title": "Database Administrators",
+        "hirability": 84.5,
+        "level": "Very likely hirable",
+        "skill_strength": 63,
+        "match_score": 5.852,
+        "blended_score": 0.3256,
+        "fit": 0.326,
+        "eligible": false
+      },
+      {
+        "soc_code": "15-1243",
+        "title": "Database Architects",
+        "hirability": 79.8,
+        "level": "Likely hirable",
+        "skill_strength": 52,
+        "match_score": 5.184,
+        "blended_score": 0.3108,
+        "fit": 0.311,
+        "eligible": false
+      }
+    ],
+    "role_views": {
+      "15-2051": {
+        "verdict": "Very likely hirable for Data Scientists — a field growing faster than average.",
+        "summary_text": "For Data Scientists, the highest-leverage next step is Tableau, followed by R, Salesforce. With 8 years of experience, you can target senior postings once these land.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.792,
+              "weight": 0.42,
+              "points": 33.3,
+              "detail": {
+                "breadth": 0.223,
+                "specialization": 0.662,
+                "complementarity": 0.409,
+                "evidence": 0.797
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.33,
+              "points": 33.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.1,
+              "points": 10.0
+            },
+            {
+              "label": "Track record",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0,
+              "detail": {
+                "signals": [
+                  "led people or set direction",
+                  "quantified results",
+                  "worked at scale",
+                  "recognised outside the job",
+                  "shipped end-to-end work"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.792,
+              "weight": 0.35,
+              "points": 27.7,
+              "detail": {
+                "breadth": 0.223,
+                "specialization": 0.662,
+                "complementarity": 0.409,
+                "evidence": 0.797
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.948,
+              "weight": 0.25,
+              "points": 23.7
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 91.3,
+          "hirability_range": [
+            87,
+            96
+          ],
+          "hirability_level": "Very likely hirable",
+          "top_match_title": "Data Scientists",
+          "top_match_soc": "15-2051"
+        },
+        "competitiveness": {
+          "score": 79.7,
+          "level": "Strong",
+          "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.792,
+              "weight": 0.35,
+              "points": 27.7,
+              "detail": {
+                "breadth": 0.223,
+                "specialization": 0.662,
+                "complementarity": 0.409,
+                "evidence": 0.797
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.948,
+              "weight": 0.25,
+              "points": 23.7
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-2051",
+          "title": "Data Scientists",
+          "median_wage": 112590,
+          "wage_percentile": 91,
+          "growth_pct": 33.5,
+          "openings_k": 23.4,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-2051",
+            "title": "Data Scientists",
+            "description": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets. Visualize, interpret, and report data findings. May create dynamic data reports.",
+            "match_score": 7.5686,
+            "blended_score": 0.7873,
+            "matched_skills": [
+              "AWS SageMaker",
+              "Airflow",
+              "Apache Flink",
+              "Apache Spark",
+              "BigQuery",
+              "Docker",
+              "DynamoDB",
+              "Git",
+              "GitHub",
+              "Kafka",
+              "Kubeflow",
+              "Kubernetes",
+              "MLflow",
+              "PostgreSQL",
+              "PyTorch",
+              "Python",
+              "Redshift",
+              "SQL",
+              "Scala",
+              "TensorFlow",
+              "XGBoost",
+              "bash",
+              "scikit-learn"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.187,
+          "strengths": [
+            {
+              "skill": "DynamoDB",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redshift",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS SageMaker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Airflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kafka",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spark",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Bash",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "BigQuery",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubeflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Integration Services SSIS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Reporting Services SSRS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Mlflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Loader",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PyTorch",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Scala",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Scikit-learn",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "TensorFlow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "XGBoost",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Cloud",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "SPSS Statistics",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Keras",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "NumPy",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Java",
+              "implied": true,
+              "via": "Scala"
+            },
+            {
+              "skill": "pandas",
+              "implied": true,
+              "via": "scikit-learn"
+            },
+            {
+              "skill": "RESTful API",
+              "implied": true,
+              "via": "REST APIs"
+            },
+            {
+              "skill": "SciPy",
+              "implied": true,
+              "via": "scikit-learn"
+            },
+            {
+              "skill": "Shell scripting",
+              "implied": true,
+              "via": "bash"
+            },
+            {
+              "skill": "Snowflake",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Statistical",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Unix shell",
+              "implied": true,
+              "via": "bash"
+            }
+          ],
+          "highlights": [
+            "Senior Machine Learning Engineer at StreamVault (3 yrs)",
+            "Led a team of 12 people",
+            "Scaled platform to 8M users",
+            "Published in RecSys Workshop",
+            "Master's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Hadoop",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0417,
+              "relevance": 0.602,
+              "priority": 0.7214
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.6339
+            },
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.1,
+              "relevance": 0.45,
+              "priority": 0.615
+            },
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0292,
+              "relevance": 0.443,
+              "priority": 0.6101
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.576,
+              "priority": 0.5508
+            },
+            {
+              "skill": "R",
+              "element_category": "Object or component oriented development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.329,
+              "priority": 0.5303
+            },
+            {
+              "skill": "DB2",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.53,
+              "priority": 0.5256
+            },
+            {
+              "skill": "software",
+              "element_category": "Enterprise resource planning ERP software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.303,
+              "priority": 0.5121
+            },
+            {
+              "skill": "Django",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.496,
+              "priority": 0.507
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.94
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.94
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.88
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.75
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.75
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 79,
+          "matched": 47,
+          "implied": 18,
+          "ignored_basic": 14,
+          "focus_skills": [
+            "Tableau",
+            "R",
+            "Salesforce"
+          ],
+          "breadth": 0.223,
+          "specialization": 0.662,
+          "complementarity": 0.409
+        },
+        "recommendations": [
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.903,
+            "complementarity": 0.45,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.709,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. It connects loosely to dbt on your resume — enough to orient you, not enough to skip the fundamentals. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "R",
+            "element_category": "Object or component oriented development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.791,
+            "complementarity": 0.329,
+            "effort_label": "1–3 months",
+            "difficulty_months": 3.0,
+            "priority_score": 2.373,
+            "rationale": "R keeps a strong position in statistics-heavy roles — biostatistics, research, parts of finance — where its modelling libraries lead. It does not build directly on anything currently on your resume, so budget real study time. A month or two via the tidyverse covers data work; the statistical depth is what you build over time."
+          },
+          {
+            "skill": "Salesforce",
+            "element_category": "Customer relationship management CRM software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.746,
+            "complementarity": 0.477,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.238,
+            "rationale": "Salesforce is the largest CRM platform, with an entire job category of administrators and developers built around it. There is partial overlap with your GitHub background, which speeds up the early stages. The admin path is a few months of guided study; platform development adds Apex and its ecosystem on top."
+          },
+          {
+            "skill": "MATLAB",
+            "element_category": "Analytical or scientific software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.741,
+            "complementarity": 0.443,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.223,
+            "rationale": "MATLAB holds steady demand in engineering, signal processing, and research roles, though open-source tools are eroding it. It connects loosely to TensorFlow on your resume — enough to orient you, not enough to skip the fundamentals. With any programming background the language is quick; the value is in its domain toolboxes."
+          },
+          {
+            "skill": "software",
+            "element_category": "Enterprise resource planning ERP software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.717,
+            "complementarity": 0.303,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.151,
+            "rationale": "SAP runs core operations at a large share of the world's biggest companies, and SAP-adjacent skills stay durable and well paid. Nothing on your resume shortcuts this one — plan for the full learning curve. It is a deep ecosystem — count on months, usually tied to a specific module rather than the platform in general."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 91.3,
+          "baseline_skill_strength": 79,
+          "skills": [
+            {
+              "skill": "Tableau",
+              "score": 93.7,
+              "delta": 2.4,
+              "skill_strength": 86,
+              "also_unlocks": 5,
+              "measurable": true
+            },
+            {
+              "skill": "R",
+              "score": 93.0,
+              "delta": 1.7,
+              "skill_strength": 84,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "MATLAB",
+              "score": 93.0,
+              "delta": 1.7,
+              "skill_strength": 84,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "Salesforce",
+              "score": 92.3,
+              "delta": 1.0,
+              "skill_strength": 82,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "software",
+              "score": 91.6,
+              "delta": 0.3,
+              "skill_strength": 80,
+              "also_unlocks": 1,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.6,
+          "level": "High",
+          "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+        }
+      },
+      "15-1252": {
+        "verdict": "Likely hirable for Software Developers — a field growing faster than average.",
+        "summary_text": "For Software Developers, the highest-leverage next step is NoSQL, followed by Terraform, Jenkins CI. With 8 years of experience, you can target senior postings once these land.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.477,
+              "weight": 0.42,
+              "points": 20.0,
+              "detail": {
+                "breadth": 0.123,
+                "specialization": 0.61,
+                "complementarity": 0.409,
+                "evidence": 0.782
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.33,
+              "points": 33.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.1,
+              "points": 10.0
+            },
+            {
+              "label": "Track record",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0,
+              "detail": {
+                "signals": [
+                  "led people or set direction",
+                  "quantified results",
+                  "worked at scale",
+                  "recognised outside the job",
+                  "shipped end-to-end work"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.477,
+              "weight": 0.35,
+              "points": 16.7,
+              "detail": {
+                "breadth": 0.123,
+                "specialization": 0.61,
+                "complementarity": 0.409,
+                "evidence": 0.782
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.892,
+              "weight": 0.25,
+              "points": 22.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 78.0,
+          "hirability_range": [
+            73,
+            83
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Software Developers",
+          "top_match_soc": "15-1252"
+        },
+        "competitiveness": {
+          "score": 67.3,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.477,
+              "weight": 0.35,
+              "points": 16.7,
+              "detail": {
+                "breadth": 0.123,
+                "specialization": 0.61,
+                "complementarity": 0.409,
+                "evidence": 0.782
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.892,
+              "weight": 0.25,
+              "points": 22.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1252",
+          "title": "Software Developers",
+          "median_wage": 133080,
+          "wage_percentile": 94,
+          "growth_pct": 15.8,
+          "openings_k": 115.2,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1252",
+            "title": "Software Developers",
+            "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software systems, and develop specifications and performance requirements. May maintain databases within an application area, working individually or coordinating database development as part of a team.",
+            "match_score": 5.838,
+            "blended_score": 0.4366,
+            "matched_skills": [
+              "A/B testing",
+              "Airflow",
+              "Apache Flink",
+              "Apache Spark",
+              "Docker",
+              "DynamoDB",
+              "Git",
+              "GitHub",
+              "Kafka",
+              "Kubernetes",
+              "PostgreSQL",
+              "PyTorch",
+              "Python",
+              "Redshift",
+              "SQL",
+              "Scala",
+              "TensorFlow",
+              "bash",
+              "system design"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.106,
+          "strengths": [
+            {
+              "skill": "DynamoDB",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redshift",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Airflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kafka",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spark",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Bash",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Integration Services SSIS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Reporting Services SSRS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "transact-structural query language T-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PyTorch",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Scala",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "TensorFlow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS CloudFormation",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "AWS",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Bitbucket",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "GitLab",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "Cloud",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "SPSS Statistics",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure DevOps Services",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Java",
+              "implied": true,
+              "via": "Scala"
+            },
+            {
+              "skill": "RabbitMQ",
+              "implied": true,
+              "via": "Kafka"
+            },
+            {
+              "skill": "OpenShift",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "RESTful API",
+              "implied": true,
+              "via": "REST APIs"
+            },
+            {
+              "skill": "Shell scripting",
+              "implied": true,
+              "via": "bash"
+            },
+            {
+              "skill": "Snowflake",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Unix shell",
+              "implied": true,
+              "via": "bash"
+            }
+          ],
+          "highlights": [
+            "Senior Machine Learning Engineer at StreamVault (3 yrs)",
+            "Led a team of 12 people",
+            "Scaled platform to 8M users",
+            "Published in RecSys Workshop",
+            "Master's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "NoSQL",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.05,
+              "relevance": 0.517,
+              "priority": 0.6619
+            },
+            {
+              "skill": "Terraform",
+              "element_category": "Configuration management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.404,
+              "priority": 0.5828
+            },
+            {
+              "skill": "C",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.375,
+              "priority": 0.5625
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.576,
+              "priority": 0.5508
+            },
+            {
+              "skill": "Jenkins CI",
+              "element_category": "Enterprise application integration software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.331,
+              "priority": 0.5317
+            },
+            {
+              "skill": "DB2",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.53,
+              "priority": 0.5256
+            },
+            {
+              "skill": "Node.js",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0167,
+              "relevance": 0.321,
+              "priority": 0.5247
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            },
+            {
+              "skill": "WordPress",
+              "element_category": "Web page creation and editing software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.461,
+              "priority": 0.4878
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.5
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.5
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.38
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.25
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.12
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 48,
+          "matched": 43,
+          "implied": 20,
+          "ignored_basic": 23,
+          "focus_skills": [
+            "NoSQL",
+            "Terraform",
+            "Jenkins CI"
+          ],
+          "breadth": 0.123,
+          "specialization": 0.61,
+          "complementarity": 0.409
+        },
+        "recommendations": [
+          {
+            "skill": "NoSQL",
+            "element_category": "Data base management system software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.876,
+            "complementarity": 0.517,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 2.628,
+            "rationale": "NoSQL appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 25 occupations' requirements. It connects loosely to DynamoDB on your resume — enough to orient you, not enough to skip the fundamentals. Plan one to three months of regular practice to be genuinely productive."
+          },
+          {
+            "skill": "Terraform",
+            "element_category": "Configuration management software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.734,
+            "complementarity": 0.404,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.202,
+            "rationale": "Terraform is the standard for infrastructure-as-code across clouds and has become a fixture in platform engineering postings. Nothing on your resume shortcuts this one — plan for the full learning curve. First configurations take days; state management and module design across a real environment take a couple of months."
+          },
+          {
+            "skill": "Jenkins CI",
+            "element_category": "Enterprise application integration software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.722,
+            "complementarity": 0.331,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.166,
+            "rationale": "Jenkins remains the most installed CI server; enterprise demand is stable even as newer hosted CI services grow faster. This would be new territory relative to your current skills. Setting up pipelines takes a week or two; its plugin ecosystem is where the depth lives."
+          },
+          {
+            "skill": "Node.js",
+            "element_category": "Web platform development software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.72,
+            "complementarity": 0.321,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.16,
+            "rationale": "Node.js runs a large share of modern web APIs and is the standard way to take JavaScript server-side. Nothing on your resume shortcuts this one — plan for the full learning curve. With JavaScript in hand, a few weeks of building services covers the core; streams and performance tuning come later."
+          },
+          {
+            "skill": "Spring Boot",
+            "element_category": "Application server software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.706,
+            "complementarity": 0.237,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.118,
+            "rationale": "Spring Boot appears in the listed toolset for this occupation. O*NET flags it as a hot technology, listed by 12 occupations — demand is growing. This would be new territory relative to your current skills. A three-to-six-month build with consistent hands-on work."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 78.0,
+          "baseline_skill_strength": 48,
+          "skills": [
+            {
+              "skill": "Terraform",
+              "score": 79.7,
+              "delta": 1.7,
+              "skill_strength": 52,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "Node.js",
+              "score": 79.0,
+              "delta": 1.0,
+              "skill_strength": 50,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Spring Boot",
+              "score": 78.9,
+              "delta": 0.9,
+              "skill_strength": 50,
+              "also_unlocks": 1,
+              "measurable": true
+            },
+            {
+              "skill": "NoSQL",
+              "score": 78.8,
+              "delta": 0.8,
+              "skill_strength": 50,
+              "also_unlocks": 1,
+              "measurable": true
+            },
+            {
+              "skill": "Jenkins CI",
+              "score": 78.7,
+              "delta": 0.7,
+              "skill_strength": 49,
+              "also_unlocks": 1,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.542,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      },
+      "15-1242": {
+        "verdict": "Very likely hirable for Database Administrators — a field holding roughly steady.",
+        "summary_text": "For Database Administrators, the highest-leverage next step is Tableau, followed by UNIX, Salesforce. With 8 years of experience, you can target senior postings once these land.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.631,
+              "weight": 0.42,
+              "points": 26.5,
+              "detail": {
+                "breadth": 0.175,
+                "specialization": 0.613,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.33,
+              "points": 33.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.1,
+              "points": 10.0
+            },
+            {
+              "label": "Track record",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0,
+              "detail": {
+                "signals": [
+                  "led people or set direction",
+                  "quantified results",
+                  "worked at scale",
+                  "recognised outside the job",
+                  "shipped end-to-end work"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.631,
+              "weight": 0.35,
+              "points": 22.1,
+              "detail": {
+                "breadth": 0.175,
+                "specialization": 0.613,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.45,
+              "weight": 0.25,
+              "points": 11.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 84.5,
+          "hirability_range": [
+            80,
+            89
+          ],
+          "hirability_level": "Very likely hirable",
+          "top_match_title": "Database Administrators",
+          "top_match_soc": "15-1242"
+        },
+        "competitiveness": {
+          "score": 61.7,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.631,
+              "weight": 0.35,
+              "points": 22.1,
+              "detail": {
+                "breadth": 0.175,
+                "specialization": 0.613,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.45,
+              "weight": 0.25,
+              "points": 11.3
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1242",
+          "title": "Database Administrators",
+          "median_wage": 104620,
+          "wage_percentile": 88,
+          "growth_pct": -0.7,
+          "openings_k": 3.8,
+          "outlook": "little change",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "No experience required",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1242",
+            "title": "Database Administrators",
+            "description": "Administer, test, and implement computer databases, applying knowledge of database management systems. Coordinate changes to computer databases. Identify, investigate, and resolve database performance issues, database capacity, and database scalability. May plan, coordinate, and implement security measures to safeguard computer databases.",
+            "match_score": 5.8524,
+            "blended_score": 0.3256,
+            "matched_skills": [
+              "A/B testing",
+              "Airflow",
+              "Apache Flink",
+              "Apache Spark",
+              "Docker",
+              "DynamoDB",
+              "Git",
+              "GitHub",
+              "Kafka",
+              "Kubernetes",
+              "PostgreSQL",
+              "Python",
+              "Redshift",
+              "SQL",
+              "Scala",
+              "bash",
+              "system design"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.149,
+          "strengths": [
+            {
+              "skill": "DynamoDB",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redshift",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Airflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kafka",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spark",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Bash",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kubernetes",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Micosoft SQL Server Analysis Services SSAS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Integration Services SSIS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Reporting Services SSRS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Loader",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Plus",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redgate SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Scala",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SentryOne SQL Sentry",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS CloudFormation",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "AWS",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "SPSS Statistics",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "MariaDB",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure Data Factory",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Java",
+              "implied": true,
+              "via": "Scala"
+            },
+            {
+              "skill": "OpenShift",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Shell scripting",
+              "implied": true,
+              "via": "bash"
+            },
+            {
+              "skill": "Snowflake",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Unix shell",
+              "implied": true,
+              "via": "bash"
+            }
+          ],
+          "highlights": [
+            "Senior Machine Learning Engineer at StreamVault (3 yrs)",
+            "Led a team of 12 people",
+            "Scaled platform to 8M users",
+            "Published in RecSys Workshop",
+            "Master's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Hadoop",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0417,
+              "relevance": 0.602,
+              "priority": 0.7214
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0125,
+              "relevance": 0.576,
+              "priority": 0.7032
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.6339
+            },
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.1,
+              "relevance": 0.45,
+              "priority": 0.615
+            },
+            {
+              "skill": "PowerShell",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0125,
+              "relevance": 0.409,
+              "priority": 0.5863
+            },
+            {
+              "skill": "Terraform",
+              "element_category": "Configuration management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.404,
+              "priority": 0.5828
+            },
+            {
+              "skill": "DB2",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.53,
+              "priority": 0.5256
+            },
+            {
+              "skill": "Informatica",
+              "element_category": "Metadata management software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.0,
+              "relevance": 0.318,
+              "priority": 0.5226
+            },
+            {
+              "skill": "Django",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.496,
+              "priority": 0.507
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.75
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.75
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.5
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.38
+            },
+            {
+              "skill": "Monitoring",
+              "importance": 3.25
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 63,
+          "matched": 41,
+          "implied": 16,
+          "ignored_basic": 10,
+          "focus_skills": [
+            "Tableau",
+            "UNIX",
+            "Salesforce"
+          ],
+          "breadth": 0.175,
+          "specialization": 0.613,
+          "complementarity": 0.409
+        },
+        "recommendations": [
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.903,
+            "complementarity": 0.45,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.709,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. It connects loosely to dbt on your resume — enough to orient you, not enough to skip the fundamentals. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "UNIX",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.881,
+            "complementarity": 0.576,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 2.643,
+            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your bash background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
+          },
+          {
+            "skill": "Salesforce",
+            "element_category": "Customer relationship management CRM software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.746,
+            "complementarity": 0.477,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.238,
+            "rationale": "Salesforce is the largest CRM platform, with an entire job category of administrators and developers built around it. There is partial overlap with your GitHub background, which speeds up the early stages. The admin path is a few months of guided study; platform development adds Apex and its ecosystem on top."
+          },
+          {
+            "skill": "PowerShell",
+            "element_category": "Development environment software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "stable",
+            "feasibility": 0.735,
+            "complementarity": 0.409,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.205,
+            "rationale": "PowerShell is the automation language of Windows environments, with steady demand in corporate IT and DevOps. It does not build directly on anything currently on your resume, so budget real study time. With any scripting background, a few weeks; its object pipeline is the concept that differs from Unix shells."
+          },
+          {
+            "skill": "Terraform",
+            "element_category": "Configuration management software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.734,
+            "complementarity": 0.404,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 2.202,
+            "rationale": "Terraform is the standard for infrastructure-as-code across clouds and has become a fixture in platform engineering postings. Nothing on your resume shortcuts this one — plan for the full learning curve. First configurations take days; state management and module design across a real environment take a couple of months."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 84.5,
+          "baseline_skill_strength": 63,
+          "skills": [
+            {
+              "skill": "Terraform",
+              "score": 86.9,
+              "delta": 2.4,
+              "skill_strength": 69,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "Tableau",
+              "score": 85.8,
+              "delta": 1.3,
+              "skill_strength": 67,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "UNIX",
+              "score": 85.8,
+              "delta": 1.3,
+              "skill_strength": 66,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "Salesforce",
+              "score": 85.4,
+              "delta": 0.9,
+              "skill_strength": 66,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "PowerShell",
+              "score": 84.9,
+              "delta": 0.4,
+              "skill_strength": 64,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.79,
+          "level": "High",
+          "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+        }
+      },
+      "15-1243": {
+        "verdict": "Likely hirable for Database Architects — a field growing faster than average.",
+        "summary_text": "For Database Architects, the highest-leverage next step is Tableau, followed by UNIX, Ansible. With 8 years of experience, you can target senior postings once these land.",
+        "score_breakdown": {
+          "hirability": [
+            {
+              "label": "Skill strength",
+              "value": 0.519,
+              "weight": 0.42,
+              "points": 21.8,
+              "detail": {
+                "breadth": 0.137,
+                "specialization": 0.62,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.33,
+              "points": 33.0
+            },
+            {
+              "label": "Education fit",
+              "value": 1.0,
+              "weight": 0.1,
+              "points": 10.0
+            },
+            {
+              "label": "Track record",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0,
+              "detail": {
+                "signals": [
+                  "led people or set direction",
+                  "quantified results",
+                  "worked at scale",
+                  "recognised outside the job",
+                  "shipped end-to-end work"
+                ]
+              }
+            }
+          ],
+          "competitiveness": [
+            {
+              "label": "Skill strength",
+              "value": 0.519,
+              "weight": 0.35,
+              "points": 18.2,
+              "detail": {
+                "breadth": 0.137,
+                "specialization": 0.62,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.826,
+              "weight": 0.25,
+              "points": 20.6
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "summary": {
+          "hirability_score": 79.8,
+          "hirability_range": [
+            75,
+            85
+          ],
+          "hirability_level": "Likely hirable",
+          "top_match_title": "Database Architects",
+          "top_match_soc": "15-1243"
+        },
+        "competitiveness": {
+          "score": 67.1,
+          "level": "Competitive",
+          "explanation": "Solid foundation — adding a few in-demand skills would significantly boost your profile.",
+          "components": [
+            {
+              "label": "Skill strength",
+              "value": 0.519,
+              "weight": 0.35,
+              "points": 18.2,
+              "detail": {
+                "breadth": 0.137,
+                "specialization": 0.62,
+                "complementarity": 0.409,
+                "evidence": 0.774
+              }
+            },
+            {
+              "label": "In-demand skills",
+              "value": 0.531,
+              "weight": 0.25,
+              "points": 13.3
+            },
+            {
+              "label": "Market outlook",
+              "value": 0.826,
+              "weight": 0.25,
+              "points": 20.6
+            },
+            {
+              "label": "Experience fit",
+              "value": 1.0,
+              "weight": 0.15,
+              "points": 15.0
+            }
+          ]
+        },
+        "labor_market": {
+          "soc_code": "15-1243",
+          "title": "Database Architects",
+          "median_wage": 135980,
+          "wage_percentile": 94,
+          "growth_pct": 8.7,
+          "openings_k": 4.0,
+          "outlook": "much faster than average",
+          "typical_education": "Bachelor's degree",
+          "typical_experience": "Less than 5 years",
+          "education_fit": 1.0,
+          "experience_fit": 1.0
+        },
+        "top_job_matches": [
+          {
+            "soc_code": "15-1243",
+            "title": "Database Architects",
+            "description": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses. Create and optimize data models for warehouse infrastructure and workflow. Integrate new systems with existing warehouse structure and refine system performance and functionality.",
+            "match_score": 5.1838,
+            "blended_score": 0.3108,
+            "matched_skills": [
+              "A/B testing",
+              "Airflow",
+              "Apache Flink",
+              "Apache Spark",
+              "Docker",
+              "DynamoDB",
+              "Git",
+              "GitHub",
+              "Kafka",
+              "PostgreSQL",
+              "Python",
+              "Redshift",
+              "SQL",
+              "Scala",
+              "bash",
+              "system design"
+            ]
+          }
+        ],
+        "skill_gaps": {
+          "coverage_of_top_match": 0.123,
+          "strengths": [
+            {
+              "skill": "DynamoDB",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redshift",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Airflow",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Kafka",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Spark",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Bash",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Data Recovery Software SQL Server Data Recovery",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Docker",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Git",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "GitHub",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Micosoft SQL Server Analysis Services SSAS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Integration Services SSIS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Server Reporting Services SSRS",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PL/SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Developer",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Loader",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL Plus",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "PostgreSQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Python",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Quest SQL Optimizer for Oracle",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Redgate SQL Server",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Scala",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SentryOne SQL Sentry",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "Transact-SQL",
+              "implied": false,
+              "via": null
+            },
+            {
+              "skill": "AWS CloudFormation",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "AWS",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "Subversion SVN",
+              "implied": true,
+              "via": "Git"
+            },
+            {
+              "skill": "SPSS Statistics",
+              "implied": true,
+              "via": "statistical analysis"
+            },
+            {
+              "skill": "Linux",
+              "implied": true,
+              "via": "TensorFlow"
+            },
+            {
+              "skill": "MariaDB",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Access",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Azure",
+              "implied": true,
+              "via": "AWS SageMaker"
+            },
+            {
+              "skill": "MySQL",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Database",
+              "implied": true,
+              "via": "PostgreSQL"
+            },
+            {
+              "skill": "Java",
+              "implied": true,
+              "via": "Scala"
+            },
+            {
+              "skill": "OpenShift",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Shell scripting",
+              "implied": true,
+              "via": "bash"
+            },
+            {
+              "skill": "Snowflake",
+              "implied": true,
+              "via": "Redshift"
+            },
+            {
+              "skill": "Unix shell",
+              "implied": true,
+              "via": "bash"
+            }
+          ],
+          "highlights": [
+            "Senior Machine Learning Engineer at StreamVault (3 yrs)",
+            "Led a team of 12 people",
+            "Scaled platform to 8M users",
+            "Published in RecSys Workshop",
+            "Master's degree"
+          ],
+          "gaps": [
+            {
+              "skill": "Tableau",
+              "element_category": "Business intelligence and data analysis software",
+              "is_hot": true,
+              "in_demand": true,
+              "demand_score": 3.0,
+              "market_share": 0.1,
+              "relevance": 0.45,
+              "priority": 0.615
+            },
+            {
+              "skill": "Hadoop",
+              "element_category": "Data base management system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0417,
+              "relevance": 0.602,
+              "priority": 0.5651
+            },
+            {
+              "skill": "UNIX",
+              "element_category": "Operating system software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.576,
+              "priority": 0.5508
+            },
+            {
+              "skill": "DB2",
+              "element_category": "Data base user interface and query software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.53,
+              "priority": 0.5256
+            },
+            {
+              "skill": "Django",
+              "element_category": "Web platform development software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.496,
+              "priority": 0.507
+            },
+            {
+              "skill": "Salesforce",
+              "element_category": "Customer relationship management CRM software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            },
+            {
+              "skill": "Analytics",
+              "element_category": "Data mining software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.477,
+              "priority": 0.4966
+            },
+            {
+              "skill": "MATLAB",
+              "element_category": "Analytical or scientific software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0292,
+              "relevance": 0.443,
+              "priority": 0.4779
+            },
+            {
+              "skill": "Puppet",
+              "element_category": "Configuration management software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0,
+              "relevance": 0.435,
+              "priority": 0.4735
+            },
+            {
+              "skill": "Ruby",
+              "element_category": "Development environment software",
+              "is_hot": true,
+              "in_demand": false,
+              "demand_score": 2.0,
+              "market_share": 0.0125,
+              "relevance": 0.428,
+              "priority": 0.4697
+            }
+          ],
+          "abstract_skills_required": [
+            {
+              "skill": "Critical Thinking",
+              "importance": 3.88
+            },
+            {
+              "skill": "Reading Comprehension",
+              "importance": 3.88
+            },
+            {
+              "skill": "Active Listening",
+              "importance": 3.5
+            },
+            {
+              "skill": "Speaking",
+              "importance": 3.44
+            },
+            {
+              "skill": "Writing",
+              "importance": 3.19
+            },
+            {
+              "skill": "Active Learning",
+              "importance": 3.12
+            }
+          ]
+        },
+        "skill_strength": {
+          "score": 52,
+          "matched": 41,
+          "implied": 15,
+          "ignored_basic": 13,
+          "focus_skills": [
+            "Tableau",
+            "UNIX",
+            "Ansible"
+          ],
+          "breadth": 0.137,
+          "specialization": 0.62,
+          "complementarity": 0.409
+        },
+        "recommendations": [
+          {
+            "skill": "Tableau",
+            "element_category": "Business intelligence and data analysis software",
+            "is_hot": true,
+            "in_demand": true,
+            "demand_trend": "growing",
+            "feasibility": 0.903,
+            "complementarity": 0.45,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 1.5,
+            "priority_score": 2.709,
+            "rationale": "Tableau leads the dedicated BI-tool market, and analyst postings frequently name it specifically. It connects loosely to dbt on your resume — enough to orient you, not enough to skip the fundamentals. A couple of weeks of building dashboards covers day-to-day use; calculated fields and LOD expressions are the advanced layer."
+          },
+          {
+            "skill": "UNIX",
+            "element_category": "Operating system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.881,
+            "complementarity": 0.576,
+            "effort_label": "2–4 weeks",
+            "difficulty_months": 2.0,
+            "priority_score": 1.762,
+            "rationale": "UNIX is systems-level infrastructure; comfort with it signals you can work below the application layer. O*NET flags it as a hot technology, listed by 67 occupations — demand is growing. There is partial overlap with your bash background, which speeds up the early stages. Mostly hands-on learning — weeks to be functional, longer to administer."
+          },
+          {
+            "skill": "Ansible",
+            "element_category": "Expert system software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.799,
+            "complementarity": 0.394,
+            "effort_label": "1–3 months",
+            "difficulty_months": 3.0,
+            "priority_score": 1.598,
+            "rationale": "Ansible software appears in the listed toolset for this occupation. Demand is trending up: it carries O*NET's hot-technology flag and appears in 24 occupations' requirements. Nothing on your resume shortcuts this one — plan for the full learning curve. Plan one to three months of regular practice to be genuinely productive."
+          },
+          {
+            "skill": "DB2",
+            "element_category": "Data base user interface and query software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.755,
+            "complementarity": 0.53,
+            "effort_label": "1–3 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.51,
+            "rationale": "IBM DB2 is a data-access and query tool used daily in roles that work directly with stored records. O*NET flags it as a hot technology, listed by 10 occupations — demand is growing. There is partial overlap with your dbt background, which speeds up the early stages. Query tools reward consistent use — a few weeks of real work covers what postings expect."
+          },
+          {
+            "skill": "Django",
+            "element_category": "Web platform development software",
+            "is_hot": true,
+            "in_demand": false,
+            "demand_trend": "growing",
+            "feasibility": 0.749,
+            "complementarity": 0.496,
+            "effort_label": "3–6 months",
+            "difficulty_months": 4.0,
+            "priority_score": 1.498,
+            "rationale": "Django is Python's dominant full-featured web framework, common in startups and data-heavy products. Your work with Python gives you a foothold, though much of this will still be new. With Python, a few weeks to ship a first app; its ORM and conventions reward a couple of months of practice."
+          }
+        ],
+        "simulation": {
+          "baseline_score": 79.8,
+          "baseline_skill_strength": 52,
+          "skills": [
+            {
+              "skill": "Ansible",
+              "score": 81.5,
+              "delta": 1.7,
+              "skill_strength": 56,
+              "also_unlocks": 3,
+              "measurable": true
+            },
+            {
+              "skill": "Tableau",
+              "score": 80.9,
+              "delta": 1.1,
+              "skill_strength": 55,
+              "also_unlocks": 4,
+              "measurable": true
+            },
+            {
+              "skill": "UNIX",
+              "score": 80.8,
+              "delta": 1.0,
+              "skill_strength": 54,
+              "also_unlocks": 2,
+              "measurable": true
+            },
+            {
+              "skill": "DB2",
+              "score": 80.3,
+              "delta": 0.5,
+              "skill_strength": 53,
+              "also_unlocks": 0,
+              "measurable": true
+            },
+            {
+              "skill": "Django",
+              "score": 80.2,
+              "delta": 0.4,
+              "skill_strength": 53,
+              "also_unlocks": 0,
+              "measurable": true
+            }
+          ]
+        },
+        "ai_displacement_exposure": {
+          "score": 0.565,
+          "level": "Medium",
+          "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work."
+        }
+      }
+    },
+    "alternatives": [
+      {
+        "soc_code": "15-1221",
+        "title": "Computer and Information Research Scientists"
+      },
+      {
+        "soc_code": "15-2051",
+        "title": "Data Scientists"
+      },
+      {
+        "soc_code": "15-1252",
+        "title": "Software Developers"
+      },
+      {
+        "soc_code": "15-1242",
+        "title": "Database Administrators"
+      },
+      {
+        "soc_code": "15-1243",
+        "title": "Database Architects"
+      },
+      {
+        "soc_code": "11-9041",
+        "title": "Architectural and Engineering Managers"
+      },
+      {
+        "soc_code": "25-2023",
+        "title": "Career/Technical Education Teachers, Middle School"
+      },
+      {
+        "soc_code": "15-1254",
+        "title": "Web Developers"
+      }
+    ]
+  },
+  "score_breakdown": {
+    "hirability": [
+      {
+        "label": "Skill strength",
+        "value": 0.858,
+        "weight": 0.42,
+        "points": 36.0,
+        "detail": {
+          "breadth": 0.255,
+          "specialization": 0.613,
+          "complementarity": 0.409,
+          "evidence": 0.75
+        }
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.33,
+        "points": 33.0
+      },
+      {
+        "label": "Education fit",
+        "value": 1.0,
+        "weight": 0.1,
+        "points": 10.0
+      },
+      {
+        "label": "Track record",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0,
+        "detail": {
+          "signals": [
+            "led people or set direction",
+            "quantified results",
+            "worked at scale",
+            "recognised outside the job",
+            "shipped end-to-end work"
+          ]
+        }
+      }
+    ],
+    "competitiveness": [
+      {
+        "label": "Skill strength",
+        "value": 0.858,
+        "weight": 0.35,
+        "points": 30.0,
+        "detail": {
+          "breadth": 0.255,
+          "specialization": 0.613,
+          "complementarity": 0.409,
+          "evidence": 0.75
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.531,
+        "weight": 0.25,
+        "points": 13.3
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.915,
+        "weight": 0.25,
+        "points": 22.9
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "simulation": {
+    "baseline_score": 94.0,
+    "baseline_skill_strength": 86,
+    "skills": [
+      {
+        "skill": "Terraform",
+        "score": 94.8,
+        "delta": 0.8,
+        "skill_strength": 88,
+        "also_unlocks": 3,
+        "measurable": true
+      },
+      {
+        "skill": "Prometheus",
+        "score": 94.8,
+        "delta": 0.8,
+        "skill_strength": 88,
+        "also_unlocks": 2,
+        "measurable": true
+      },
+      {
+        "skill": "R",
+        "score": 94.8,
+        "delta": 0.8,
+        "skill_strength": 88,
+        "also_unlocks": 3,
+        "measurable": true
+      },
+      {
+        "skill": "Airflow 2.x",
+        "score": 94.0,
+        "delta": 0.0,
+        "skill_strength": 86,
+        "also_unlocks": 0,
+        "measurable": false
+      },
+      {
+        "skill": "Graph Neural Networks",
+        "score": 94.0,
+        "delta": 0.0,
+        "skill_strength": 86,
+        "also_unlocks": 0,
+        "measurable": false
+      }
+    ]
+  },
+  "career_stage": {
+    "stage": "mid",
+    "label": "mid-career",
+    "note": "Weighted for a mid-career profile: what you have built now matters more than where you studied.",
+    "weights": {
+      "skill": 0.42,
+      "experience": 0.33,
+      "education": 0.1,
+      "track_record": 0.15
+    },
+    "track_record": {
+      "score": 1.0,
+      "raw": 1.0,
+      "evidence": 1.0,
+      "signals": [
+        "led people or set direction",
+        "quantified results",
+        "worked at scale",
+        "recognised outside the job",
+        "shipped end-to-end work"
+      ],
+      "missing": [],
+      "checks": [
+        {
+          "key": "leadership",
+          "label": "led people or set direction",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "impact",
+          "label": "quantified results",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "scale",
+          "label": "worked at scale",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "recognition",
+          "label": "recognised outside the job",
+          "found": true,
+          "hint": null
+        },
+        {
+          "key": "delivery",
+          "label": "shipped end-to-end work",
+          "found": true,
+          "hint": null
+        }
+      ]
+    }
+  },
   "summary": {
-    "hirability_score": 95.0,
+    "hirability_score": 94.0,
+    "hirability_range": [
+      89,
+      99
+    ],
+    "hirability_level": "Very likely hirable",
     "years_experience": 8,
     "education_level": "Master's",
-    "top_match_title": "Data Scientists",
-    "top_match_soc": "15-2051",
-    "skills_extracted": 31,
+    "top_match_title": "Computer and Information Research Scientists",
+    "top_match_soc": "15-1221",
+    "skills_extracted": 37,
     "skills_from_section": 31,
     "skills_from_experience": 0,
-    "skills_matched_to_onet": 27
+    "skills_matched_to_onet": 32
   },
   "competitiveness": {
-    "score": 83.7,
+    "score": 81.2,
     "level": "Strong",
-    "explanation": "Your skill set aligns well with market demand and includes high-value technologies."
+    "explanation": "Your skill set aligns well with market demand and includes high-value technologies.",
+    "components": [
+      {
+        "label": "Skill strength",
+        "value": 0.858,
+        "weight": 0.35,
+        "points": 30.0,
+        "detail": {
+          "breadth": 0.255,
+          "specialization": 0.613,
+          "complementarity": 0.409,
+          "evidence": 0.75
+        }
+      },
+      {
+        "label": "In-demand skills",
+        "value": 0.531,
+        "weight": 0.25,
+        "points": 13.3
+      },
+      {
+        "label": "Market outlook",
+        "value": 0.915,
+        "weight": 0.25,
+        "points": 22.9
+      },
+      {
+        "label": "Experience fit",
+        "value": 1.0,
+        "weight": 0.15,
+        "points": 15.0
+      }
+    ]
+  },
+  "labor_market": {
+    "soc_code": "15-1221",
+    "title": "Computer and Information Research Scientists",
+    "median_wage": 140910,
+    "wage_percentile": 96,
+    "growth_pct": 19.7,
+    "openings_k": 3.2,
+    "outlook": "much faster than average",
+    "typical_education": "Master's degree",
+    "typical_experience": "No experience required",
+    "education_fit": 1.0,
+    "experience_fit": 1.0
   },
   "top_job_matches": [
     {
+      "soc_code": "15-1221",
+      "title": "Computer and Information Research Scientists",
+      "match_score": 8.8783,
+      "semantic_score": 0.2586,
+      "blended_score": 0.8189,
+      "matched_skills": [
+        "A/B testing",
+        "AWS SageMaker",
+        "Airflow",
+        "Apache Flink",
+        "Apache Spark",
+        "Docker",
+        "DynamoDB",
+        "Git",
+        "GitHub",
+        "HuggingFace Transformers",
+        "Kafka",
+        "Kubernetes",
+        "PostgreSQL",
+        "PyTorch",
+        "Python",
+        "Redshift",
+        "SQL",
+        "Scala",
+        "TensorFlow",
+        "bash",
+        "data visualization",
+        "scikit-learn",
+        "system design"
+      ],
+      "description": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software."
+    },
+    {
       "soc_code": "15-2051",
       "title": "Data Scientists",
-      "match_score": 6.8211,
-      "semantic_score": 0.343,
-      "blended_score": 0.827,
+      "match_score": 7.5686,
+      "semantic_score": 0.3485,
+      "blended_score": 0.7873,
       "matched_skills": [
         "AWS SageMaker",
         "Airflow",
@@ -31,6 +3017,8 @@
         "BigQuery",
         "Docker",
         "DynamoDB",
+        "Git",
+        "GitHub",
         "Kafka",
         "Kubeflow",
         "Kubernetes",
@@ -46,44 +3034,14 @@
         "bash",
         "scikit-learn"
       ],
-      "description_snippet": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing,..."
-    },
-    {
-      "soc_code": "15-1221",
-      "title": "Computer and Information Research Scientists",
-      "match_score": 7.7956,
-      "semantic_score": 0.241,
-      "blended_score": 0.7993,
-      "matched_skills": [
-        "A/B testing",
-        "AWS SageMaker",
-        "Airflow",
-        "Apache Flink",
-        "Apache Spark",
-        "Docker",
-        "DynamoDB",
-        "HuggingFace Transformers",
-        "Kafka",
-        "Kubernetes",
-        "PostgreSQL",
-        "PyTorch",
-        "Python",
-        "Redshift",
-        "SQL",
-        "Scala",
-        "TensorFlow",
-        "bash",
-        "scikit-learn",
-        "system design"
-      ],
-      "description_snippet": "Conduct research into fundamental computer and information science as theorists, designers, or inventors. Develop solutions to problems in the field of computer hardware and software...."
+      "description": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets. Visualize, interpret, and report data findings. May create dynamic data reports."
     },
     {
       "soc_code": "15-1252",
       "title": "Software Developers",
-      "match_score": 5.1893,
-      "semantic_score": 0.3015,
-      "blended_score": 0.4557,
+      "match_score": 5.838,
+      "semantic_score": 0.3139,
+      "blended_score": 0.4366,
       "matched_skills": [
         "A/B testing",
         "Airflow",
@@ -91,6 +3049,8 @@
         "Apache Spark",
         "Docker",
         "DynamoDB",
+        "Git",
+        "GitHub",
         "Kafka",
         "Kubernetes",
         "PostgreSQL",
@@ -103,14 +3063,14 @@
         "bash",
         "system design"
       ],
-      "description_snippet": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update sof..."
+      "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software systems, and develop specifications and performance requirements. May maintain databases within an application area, working individually or coordinating database development as part of a team."
     },
     {
       "soc_code": "15-1242",
       "title": "Database Administrators",
-      "match_score": 5.1208,
-      "semantic_score": 0.2497,
-      "blended_score": 0.3416,
+      "match_score": 5.8524,
+      "semantic_score": 0.2576,
+      "blended_score": 0.3256,
       "matched_skills": [
         "A/B testing",
         "Airflow",
@@ -118,6 +3078,8 @@
         "Apache Spark",
         "Docker",
         "DynamoDB",
+        "Git",
+        "GitHub",
         "Kafka",
         "Kubernetes",
         "PostgreSQL",
@@ -128,14 +3090,14 @@
         "bash",
         "system design"
       ],
-      "description_snippet": "Administer, test, and implement computer databases, applying knowledge of database management systems. Coordinate changes to computer databases. Identify, investigate, and resolve database performance issues, database capacity, and database scalabili..."
+      "description": "Administer, test, and implement computer databases, applying knowledge of database management systems. Coordinate changes to computer databases. Identify, investigate, and resolve database performance issues, database capacity, and database scalability. May plan, coordinate, and implement security measures to safeguard computer databases."
     },
     {
       "soc_code": "15-1243",
       "title": "Database Architects",
-      "match_score": 4.4926,
-      "semantic_score": 0.301,
-      "blended_score": 0.331,
+      "match_score": 5.1838,
+      "semantic_score": 0.3042,
+      "blended_score": 0.3108,
       "matched_skills": [
         "A/B testing",
         "Airflow",
@@ -143,6 +3105,8 @@
         "Apache Spark",
         "Docker",
         "DynamoDB",
+        "Git",
+        "GitHub",
         "Kafka",
         "PostgreSQL",
         "Python",
@@ -152,7 +3116,7 @@
         "bash",
         "system design"
       ],
-      "description_snippet": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data ware..."
+      "description": "Design strategies for enterprise databases, data warehouse systems, and multidimensional networks. Set standards for database operations, programming, query processes, and security. Model, design, and construct large relational databases or data warehouses. Create and optimize data models for warehouse infrastructure and workflow. Integrate new systems with existing warehouse structure and refine system performance and functionality."
     }
   ],
   "skills": {
@@ -187,7 +3151,13 @@
       "feature engineering",
       "system design",
       "team leadership",
-      "technical mentoring"
+      "technical mentoring",
+      "Git",
+      "GitHub",
+      "REST APIs",
+      "data visualization",
+      "statistical analysis",
+      "hypothesis testing"
     ],
     "from_section": [
       "Python",
@@ -439,257 +3409,457 @@
         "is_hot": false,
         "in_demand": false,
         "match_type": "word"
+      },
+      {
+        "original": "Git",
+        "matched_tool": "Git",
+        "element_name": "File versioning software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "GitHub",
+        "matched_tool": "GitHub",
+        "element_name": "Application server software",
+        "is_hot": true,
+        "in_demand": true,
+        "match_type": "exact"
+      },
+      {
+        "original": "REST APIs",
+        "matched_tool": "REST Assured",
+        "element_name": "Program testing software",
+        "is_hot": false,
+        "in_demand": true,
+        "match_type": "word"
+      },
+      {
+        "original": "data visualization",
+        "matched_tool": "Data visualization software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
+      },
+      {
+        "original": "statistical analysis",
+        "matched_tool": "Statistical analysis software",
+        "element_name": "Analytical or scientific software",
+        "is_hot": false,
+        "in_demand": false,
+        "match_type": "substring"
       }
     ],
     "unmatched": [
       "LightGBM",
       "NLP",
       "recommendation systems",
-      "team leadership"
+      "team leadership",
+      "hypothesis testing"
     ]
   },
   "education": [
-    "Master of Science in Computer Science — Machine Learning Track",
-    "Carnegie Mellon University | Graduated May 2015",
-    "Bachelor of Science in Statistics and Computer Science",
-    "University of Michigan | Graduated May 2013"
+    "Master of Science in Computer Science — Machine Learning Track, Carnegie Mellon University | Graduated May 2015",
+    "Bachelor of Science in Statistics and Computer Science, University of Michigan | Graduated May 2013"
   ],
   "experience": [
-    "Senior Machine Learning Engineer — StreamVault (Streaming Platform), San Francisco, CA",
-    "April 2020 – Present",
+    "Senior Machine Learning Engineer — StreamVault (Streaming Platform), San Francisco, CA, April 2020 – Present",
     "- Architected and deployed a real-time recommendation system serving 8M daily active users, increasing average watch time by 22%",
     "- Led a team of 6 ML engineers and 2 data scientists, setting technical direction and conducting performance reviews",
     "- Built end-to-end MLOps infrastructure using MLflow, Kubeflow, and AWS SageMaker, reducing model deployment time from 3 weeks to 4 hours",
     "- Developed a two-tower neural network for content embedding using TensorFlow, replacing rule-based system that had been in place for 5 years",
     "- Implemented A/B testing framework for ML experiments with statistical guardrails to prevent false positives",
     "- Reduced model training costs by 40% by migrating batch jobs to spot instances and optimising data pipelines in Apache Spark",
-    "Machine Learning Engineer — AdTech Dynamics, New York, NY",
-    "July 2017 – March 2020",
+    "Machine Learning Engineer — AdTech Dynamics, New York, NY, July 2017 – March 2020",
     "- Built click-through rate prediction models using gradient boosted trees (XGBoost, LightGBM) for programmatic advertising",
     "- Developed NLP pipeline for ad copy classification using BERT fine-tuning, replacing manual tagging process",
     "- Created feature store used by 4 different ML teams, standardising feature engineering across the organisation",
     "- Collaborated with data engineers to build real-time feature pipelines using Kafka and Apache Flink",
-    "Data Scientist — InsightMetrics, Boston, MA",
-    "June 2015 – June 2017",
+    "Data Scientist — InsightMetrics, Boston, MA, June 2015 – June 2017",
     "- Developed propensity models for customer lifetime value prediction using logistic regression and survival analysis",
     "- Conducted statistical analysis and hypothesis testing for product experiments",
     "- Presented findings to non-technical stakeholders including C-suite executives"
   ],
   "skill_gaps": {
-    "coverage_of_top_match": 0.177,
+    "coverage_of_top_match": 0.226,
     "strengths": [
-      "Amazon DynamoDB",
-      "Amazon Redshift",
-      "Amazon Web Services AWS SageMaker",
-      "Amazon Web Services AWS software",
-      "Apache Airflow",
-      "Apache Ant",
-      "Apache Cassandra",
-      "Apache Groovy",
-      "Apache HTTP Server",
-      "Apache Hadoop",
-      "Apache Hive",
-      "Apache Kafka",
-      "Apache MXNet",
-      "Apache Pig",
-      "Apache Solr",
-      "Apache Spark",
-      "Apache Struts",
-      "Apache Tomcat",
-      "Bash",
-      "BigQuery",
-      "Customer information control system CICS",
-      "Docker",
-      "Epic Systems",
-      "Geographic information system GIS software",
-      "Geographic information system GIS systems",
-      "Healthcare common procedure coding system HCPCS",
-      "IBM Power Systems software",
-      "Invivo Data EPX ePRO Management System",
-      "Kubeflow",
-      "Kubernetes",
-      "Management information systems MIS",
-      "Microsoft SQL Server",
-      "Microsoft SQL Server Integration Services SSIS",
-      "Microsoft SQL Server Reporting Services SSRS",
-      "Mlflow",
-      "Oracle PL/SQL",
-      "Oracle SQL Developer",
-      "Oracle SQL Loader",
-      "PostgreSQL",
-      "PyTorch",
-      "Python",
-      "Scala",
-      "Scikit-learn",
-      "Structured query language SQL",
-      "TensorFlow",
-      "Transact-SQL",
-      "XGBoost"
-    ],
-    "gaps": [
       {
-        "skill": "SAS",
-        "element_category": "Analytical or scientific software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "DynamoDB",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Microsoft Power BI",
-        "element_category": "Business intelligence and data analysis software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Redshift",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Salesforce software",
-        "element_category": "Customer relationship management CRM software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "AWS SageMaker",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Snowflake",
-        "element_category": "Data mining software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Airflow",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "Microsoft Azure software",
-        "element_category": "Development environment software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Kafka",
+        "implied": false,
+        "via": null
       },
       {
-        "skill": "SAP software",
-        "element_category": "Enterprise resource planning ERP software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "skill": "Spark",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Bash",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Data visualization",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Docker",
+        "implied": false,
+        "via": null
       },
       {
         "skill": "Git",
-        "element_category": "File versioning software",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "GitHub",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Kubernetes",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "SQL Server",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "PostgreSQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Python",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "PyTorch",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Scala",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Scikit-learn",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "SQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "TensorFlow",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "Transact-SQL",
+        "implied": false,
+        "via": null
+      },
+      {
+        "skill": "AWS CloudFormation",
+        "implied": true,
+        "via": "AWS SageMaker"
+      },
+      {
+        "skill": "AWS",
+        "implied": true,
+        "via": "AWS SageMaker"
+      },
+      {
+        "skill": "Subversion SVN",
+        "implied": true,
+        "via": "Git"
+      },
+      {
+        "skill": "Computational statistics",
+        "implied": true,
+        "via": "statistical analysis"
+      },
+      {
+        "skill": "GitLab",
+        "implied": true,
+        "via": "Git"
+      },
+      {
+        "skill": "SPSS Statistics",
+        "implied": true,
+        "via": "statistical analysis"
+      },
+      {
+        "skill": "Linux",
+        "implied": true,
+        "via": "TensorFlow"
+      },
+      {
+        "skill": "Azure",
+        "implied": true,
+        "via": "AWS SageMaker"
+      },
+      {
+        "skill": "MySQL",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Database",
+        "implied": true,
+        "via": "PostgreSQL"
+      },
+      {
+        "skill": "Java",
+        "implied": true,
+        "via": "Scala"
+      },
+      {
+        "skill": "pandas",
+        "implied": true,
+        "via": "scikit-learn"
+      },
+      {
+        "skill": "Shell scripting",
+        "implied": true,
+        "via": "bash"
+      },
+      {
+        "skill": "Snowflake",
+        "implied": true,
+        "via": "Redshift"
+      },
+      {
+        "skill": "Unix shell",
+        "implied": true,
+        "via": "bash"
+      }
+    ],
+    "highlights": [
+      "Senior Machine Learning Engineer at StreamVault (3 yrs)",
+      "Led a team of 12 people",
+      "Scaled platform to 8M users",
+      "Published in RecSys Workshop",
+      "Master's degree"
+    ],
+    "gaps": [
+      {
+        "skill": "Hadoop",
+        "element_category": "Data base management system software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0417,
+        "relevance": 0.602,
+        "priority": 0.7214
+      },
+      {
+        "skill": "Terraform",
+        "element_category": "Configuration management software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.404,
+        "priority": 0.5828
+      },
+      {
+        "skill": "Ansible",
+        "element_category": "Expert system software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.394,
+        "priority": 0.5758
+      },
+      {
+        "skill": "C",
+        "element_category": "Development environment software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.375,
+        "priority": 0.5625
+      },
+      {
+        "skill": "Grafana Cloud",
+        "element_category": "Graphical user interface development software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.364,
+        "priority": 0.5548
+      },
+      {
+        "skill": "UNIX",
+        "element_category": "Operating system software",
+        "is_hot": true,
+        "in_demand": false,
+        "demand_score": 2.0,
+        "market_share": 0.0125,
+        "relevance": 0.576,
+        "priority": 0.5508
+      },
+      {
+        "skill": "Prometheus",
+        "element_category": "Data base user interface and query software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0146,
+        "relevance": 0.336,
+        "priority": 0.5352
+      },
+      {
+        "skill": "Jenkins CI",
+        "element_category": "Enterprise application integration software",
+        "is_hot": true,
+        "in_demand": true,
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.331,
+        "priority": 0.5317
       },
       {
         "skill": "R",
         "element_category": "Object or component oriented development software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0,
+        "relevance": 0.329,
+        "priority": 0.5303
       },
       {
-        "skill": "Microsoft PowerPoint",
-        "element_category": "Presentation software",
+        "skill": "JavaScript",
+        "element_category": "Web platform development software",
         "is_hot": true,
         "in_demand": true,
-        "demand_score": 3.0
-      },
-      {
-        "skill": "Microsoft Excel",
-        "element_category": "Spreadsheet software",
-        "is_hot": true,
-        "in_demand": true,
-        "demand_score": 3.0
+        "demand_score": 3.0,
+        "market_share": 0.0292,
+        "relevance": 0.311,
+        "priority": 0.5177
       }
     ],
     "abstract_skills_required": [
       {
         "skill": "Critical Thinking",
-        "importance": 3.94
-      },
-      {
-        "skill": "Reading Comprehension",
-        "importance": 3.94
+        "importance": 4.0
       },
       {
         "skill": "Active Listening",
-        "importance": 3.88
+        "importance": 3.75
       },
       {
-        "skill": "Speaking",
-        "importance": 3.88
+        "skill": "Reading Comprehension",
+        "importance": 3.75
       },
       {
         "skill": "Active Learning",
-        "importance": 3.75
+        "importance": 3.5
       },
       {
-        "skill": "Writing",
-        "importance": 3.75
+        "skill": "Speaking",
+        "importance": 3.5
+      },
+      {
+        "skill": "Mathematics",
+        "importance": 3.38
       }
     ]
   },
+  "skill_strength": {
+    "score": 86,
+    "matched": 36,
+    "implied": 15,
+    "ignored_basic": 3,
+    "focus_skills": [
+      "Terraform",
+      "Prometheus",
+      "R"
+    ],
+    "breadth": 0.255,
+    "specialization": 0.613,
+    "complementarity": 0.409
+  },
   "recommendations": [
     {
-      "skill": "Git",
-      "element_category": "File versioning software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.967,
-      "complementarity": 0.407,
-      "effort_label": "days",
-      "difficulty_months": 0.5,
-      "priority_score": 2.901,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
+      "skill": "Terraform",
+      "rationale": "The candidate's experience with AWS SageMaker, Docker, and Kubernetes indicates they work with cloud infrastructure, and Terraform would enhance their ability to manage infrastructure-as-code across different clouds.",
+      "effort_label": "1-2 months",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Microsoft Excel",
-      "element_category": "Spreadsheet software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.967,
-      "complementarity": 0.398,
-      "effort_label": "days",
-      "difficulty_months": 0.5,
-      "priority_score": 2.901,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: days."
+      "skill": "Prometheus",
+      "rationale": "With their background in deploying real-time systems and leading teams, Prometheus would be a valuable tool for monitoring and optimizing system performance, directly complementing their existing skills in system design and deployment.",
+      "effort_label": "2-4 weeks",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Microsoft PowerPoint",
-      "element_category": "Presentation software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.964,
-      "complementarity": 0.27,
-      "effort_label": "days",
-      "difficulty_months": 0.5,
-      "priority_score": 2.892,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: days."
+      "skill": "R",
+      "rationale": "Although the candidate has a strong machine learning background, R's statistical depth and modeling libraries would provide them with additional tools for data analysis, particularly in research-oriented aspects of their target role.",
+      "effort_label": "1-2 months",
+      "demand_trend": "growing",
+      "source": "dataset",
+      "is_hot": true
     },
     {
-      "skill": "Microsoft Power BI",
-      "element_category": "Business intelligence and data analysis software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.89,
-      "complementarity": 0.245,
-      "effort_label": "weeks",
-      "difficulty_months": 1.5,
-      "priority_score": 2.67,
-      "rationale": "Hot technology in the current market, introduces a new area; plan dedicated study time. Estimated learning time: weeks."
+      "skill": "Airflow 2.x",
+      "rationale": "Given their experience with Airflow, updating their skills to the latest version would be beneficial, especially since they are involved in building end-to-end MLOps infrastructure and have experience with workflow management.",
+      "effort_label": "1-2 weeks",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
     },
     {
-      "skill": "Salesforce software",
-      "element_category": "Customer relationship management CRM software",
-      "is_hot": true,
-      "in_demand": true,
-      "feasibility": 0.809,
-      "complementarity": 0.469,
-      "effort_label": "1–6 months",
-      "difficulty_months": 3.0,
-      "priority_score": 2.427,
-      "rationale": "Hot technology in the current market, complements your current skill set. Estimated learning time: 1–6 months."
+      "skill": "Graph Neural Networks",
+      "rationale": "Expanding their machine learning toolkit with Graph Neural Networks would allow them to tackle more complex data structures and problems, aligning with the innovative nature of research in computer and information science.",
+      "effort_label": "2-3 months",
+      "demand_trend": "growing",
+      "source": "new",
+      "is_hot": true
     }
   ],
   "ai_displacement_exposure": {
-    "score": 0.6,
-    "level": "High",
-    "explanation": "Many tasks in this occupation are routine, rule-based, or data-processing in nature — areas where AI and automation are advancing rapidly."
+    "score": 0.501,
+    "level": "Medium",
+    "explanation": "This role contains a mix of routine tasks and tasks requiring human judgment. AI will augment rather than replace most of the work. In the field of Computer and Information Research Scientists, AI and automation are being used to optimize model training and deployment, with tools like MLflow and Kubeflow automating parts of the machine learning pipeline. This means that understanding how to work with and manage these automated systems is crucial for someone in this role."
   }
 }

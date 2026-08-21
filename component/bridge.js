@@ -75,6 +75,9 @@
       hideServerOnlyBits();
     }
     if (!args.report) { rendered = null; dismissed = false; }
+    if (typeof args.count === 'number' && window.setAnalysisCount) {
+      setAnalysisCount(args.count);
+    }
     requestAnimationFrame(function () { requestAnimationFrame(measure); });
     setTimeout(measure, 700);
     setTimeout(measure, 1800);

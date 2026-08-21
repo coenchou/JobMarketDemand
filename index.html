@@ -921,8 +921,7 @@ footer {
     </div>
 
     <p class="privacy"><span class="pv-dot"></span><span id="privacyText">Your
-      resume is never stored — it's analyzed in memory and deleted the moment
-      your report is ready. Only a running count of analyses is kept.</span></p>
+      resume is analyzed and deleted the moment your report is ready.</span></p>
 
     <div class="upload-actions" id="uploadActions">
       <button class="btn-primary" onclick="analyze()">Run analysis <span class="arr">→</span></button>
@@ -1200,17 +1199,18 @@ const TICKER_ROWS = [
 })();
 
 
+function setAnalysisCount(n) {
+  if (!(n > 0)) return;
+  $('privacyText').textContent =
+    `${n.toLocaleString()} resume${n === 1 ? '' : 's'} analyzed; your resume `
+    + `is analyzed and deleted the moment your report is ready.`;
+}
+
 (async function fetchStats() {
   try {
     const res = await fetch(API.replace('/analyze', '/stats'));
     if (!res.ok) return;
-    const n = (await res.json()).analyses;
-    if (n > 0) {
-      $('privacyText').textContent =
-        `${n.toLocaleString()} resume${n === 1 ? '' : 's'} analyzed so far — none kept. ` +
-        `Yours is analyzed in memory and deleted the moment your report is ready; ` +
-        `only that running count is stored.`;
-    }
+    setAnalysisCount((await res.json()).analyses);
   } catch (e) {  }
 })();
 

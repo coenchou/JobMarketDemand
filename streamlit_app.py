@@ -71,11 +71,15 @@ def _missing_data() -> list:
     return [name for name, path in REQUIRED_DATA.items() if not path.exists()]
 
 
-def _bump_count() -> None:
+def _read_count() -> int:
     try:
-        n = int(COUNTER.read_text().strip() or 0)
+        return int(COUNTER.read_text().strip() or 0)
     except (OSError, ValueError):
-        n = 0
+        return 0
+
+
+def _bump_count() -> None:
+    n = _read_count()
     try:
         COUNTER.parent.mkdir(parents=True, exist_ok=True)
         COUNTER.write_text(str(n + 1))
@@ -133,6 +137,7 @@ report = st.session_state.get("report")
 payload = hirely(
     report=report,
     elapsed=(report or {}).get("elapsed"),
+    count=_read_count(),
     default=None,
 )
 

@@ -2,15 +2,20 @@
 
 from __future__ import annotations
 
-import json
+import base64
 import os
 import tempfile
+import time
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 ROOT = Path(__file__).resolve().parent
 FRONTEND = ROOT / "index.html"
+BRIDGE = ROOT / "component" / "bridge.js"
+BUILD = Path(tempfile.mkdtemp(prefix='hirely-component-'))
+COUNTER = ROOT / "data" / "cache" / "analysis_count.txt"
 
 REQUIRED_DATA = {
     "O*NET software skills": ROOT / "data" / "raw" / "onet" / "Software Skills.xlsx",
@@ -24,15 +29,19 @@ st.set_page_config(page_title="Hirely — Resume Analysis", page_icon="📄",
 
 st.markdown(
     """<style>
-      #MainMenu, footer, header {visibility: hidden;}
-      .block-container {padding: 1.2rem 1rem 0 1rem; max-width: 1100px;}
+      [data-testid="stAppViewContainer"] { background: #fcfcfa; }
+      [data-testid="stHeader"], [data-testid="stToolbar"],
+      [data-testid="stDecoration"], #MainMenu, footer { display: none !important; }
+      .block-container { padding: 0 !important; max-width: 100% !important; }
+      [data-testid="stVerticalBlock"] { gap: 0 !important; }
+      iframe { display: block; border: none; }
     </style>""",
     unsafe_allow_html=True,
 )
 
 
-def _load_key() -> None:
-    """Streamlit stores secrets outside the environment; the pipeline reads env."""
+def _load_secrets() -> None:
+    """Streamlit keeps secrets outside the environment; the pipeline reads env."""
     try:
         for name in ("GROQ_API_KEY", "LLM_MODEL"):
             if name in st.secrets and not os.getenv(name):
@@ -42,46 +51,65 @@ def _load_key() -> None:
     os.environ.setdefault("LLM_CACHE", "0")
 
 
-COUNTER = ROOT / "data" / "cache" / "analysis_count.txt"
+def _build_component() -> str:
+    """
+    Serve the real page as the component, with a bridge appended.
 
-
-def _bump_count() -> int:
-    try:
-        n = int(COUNTER.read_text().strip() or 0)
-    except (OSError, ValueError):
-        n = 0
-    n += 1
-    try:
-        COUNTER.parent.mkdir(parents=True, exist_ok=True)
-        COUNTER.write_text(str(n))
-    except OSError:
-        pass
-    return n
-
-
-def _read_count() -> int:
-    try:
-        return int(COUNTER.read_text().strip() or 0)
-    except (OSError, ValueError):
-        return 0
+    The app is not rebuilt for Streamlit — the same index.html the FastAPI
+    service serves is used verbatim, so the deployed page is the page. The
+    bridge only replaces the one thing that cannot work inside a component:
+    the upload POST becomes a component value, and the report comes back as a
+    render argument.
+    """
+    html = FRONTEND.read_text()
+    bridge = BRIDGE.read_text()
+    (BUILD / "index.html").write_text(f"{html}\n<script>\n{bridge}\n</script>\n")
+    return str(BUILD)
 
 
 def _missing_data() -> list:
     return [name for name, path in REQUIRED_DATA.items() if not path.exists()]
 
 
-def _analyse(content: bytes, suffix: str, job_description: str) -> dict:
+def _bump_count() -> None:
+    try:
+        n = int(COUNTER.read_text().strip() or 0)
+    except (OSError, ValueError):
+        n = 0
+    try:
+        COUNTER.parent.mkdir(parents=True, exist_ok=True)
+        COUNTER.write_text(str(n + 1))
+    except OSError:
+        pass
+
+
+def _analyse(payload: dict) -> dict:
     """
-    Deliberately uncached. Caching would hold resume bytes in memory for the
-    session, and the page promises the opposite.
+    Run the pipeline on the uploaded bytes.
+
+    Deliberately uncached: caching would hold resume bytes for the session and
+    the page promises the opposite.
     """
     from src.pipeline import build_report
+
+    name = payload.get("filename") or "resume.txt"
+    suffix = Path(name).suffix.lower() or ".txt"
+    content = base64.b64decode(payload.get("data") or "")
 
     fd, tmp_path = tempfile.mkstemp(suffix=suffix)
     try:
         with os.fdopen(fd, "wb") as fh:
             fh.write(content)
-        return build_report(tmp_path, job_description=job_description or None)
+        started = time.perf_counter()
+        report = build_report(
+            tmp_path,
+            target_soc=(payload.get("target_soc") or "").strip() or None,
+            job_description=(payload.get("job_description") or "").strip() or None,
+        )
+        report["resume"] = name
+        report["elapsed"] = round(time.perf_counter() - started, 1)
+        _bump_count()
+        return report
     finally:
         try:
             os.unlink(tmp_path)
@@ -89,32 +117,7 @@ def _analyse(content: bytes, suffix: str, job_description: str) -> dict:
             pass
 
 
-def _render_report(report: dict) -> None:
-    """
-    Reuse the existing report UI. It already renders from a report object, so
-    the page is handed the JSON directly instead of fetching it — the controls
-    that would need an API are hidden, and switching between roles still works
-    because every role's analysis travels inside the report.
-    """
-    html = FRONTEND.read_text()
-    payload = json.dumps(report)
-    html += f"""
-<script>
-window.addEventListener('load', function () {{
-  renderReport({payload}, null);
-  ['rtJd', 'secJobs'].forEach(function (id) {{
-    var el = document.getElementById(id);
-    if (el) el.style.display = 'none';
-  }});
-  document.querySelectorAll('.rt-toggle, .rpt-actions').forEach(function (el) {{
-    el.style.display = 'none';
-  }});
-}});
-</script>"""
-    st.components.v1.html(html, height=3800, scrolling=True)
-
-
-_load_key()
+_load_secrets()
 
 missing = _missing_data()
 if missing:
@@ -125,27 +128,23 @@ if missing:
     )
     st.stop()
 
-if "report" not in st.session_state:
-    st.title("Hirely")
-    st.caption("AI-powered tailored resume advice using real world labor-market data.")
-    uploaded = st.file_uploader("Resume", type=["pdf", "txt"], label_visibility="collapsed")
-    with st.expander("Score against a specific job posting instead"):
-        jd = st.text_area("Paste the posting", height=160, label_visibility="collapsed")
-    analysed = _read_count()
-    st.caption(
-        (f"{analysed:,} resumes analyzed so far — none kept. " if analysed else "")
-        + "Your resume is never stored: it is analyzed in memory and discarded "
-        "once the report is built."
-    )
-    if uploaded is not None and st.button("Run analysis", type="primary"):
-        with st.spinner("Reading the resume, matching occupations, scoring…"):
-            st.session_state["report"] = _analyse(
-                uploaded.getvalue(), Path(uploaded.name).suffix.lower(), jd)
-            st.session_state["report"]["resume"] = uploaded.name
-            _bump_count()
+hirely = components.declare_component("hirely", path=_build_component())
+report = st.session_state.get("report")
+payload = hirely(
+    report=report,
+    elapsed=(report or {}).get("elapsed"),
+    default=None,
+)
+
+if isinstance(payload, dict) and payload.get("action") == "reset":
+    st.session_state.pop("report", None)
+    st.session_state.pop("token", None)
+
+elif isinstance(payload, dict) and payload.get("action") == "analyze":
+    token = payload.get("data", "")[:64] + payload.get("target_soc", "") + \
+        payload.get("job_description", "")[:64]
+    if st.session_state.get("token") != token:
+        st.session_state["token"] = token
+        with st.spinner(""):
+            st.session_state["report"] = _analyse(payload)
         st.rerun()
-else:
-    if st.button("← New analysis"):
-        del st.session_state["report"]
-        st.rerun()
-    _render_report(st.session_state["report"])

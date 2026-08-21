@@ -120,11 +120,13 @@ LLM_MODEL = "openai/gpt-oss-120b"
 The key is optional; without it the app falls back to the regex parser and
 dataset-derived recommendations.
 
-Streamlit runs the pipeline directly and hands the report to the same UI the
-FastAPI build serves, so the report looks identical and switching between roles
-still works. The two controls that need an HTTP endpoint — pasting a posting
-from inside the report, and live job search — are hidden there; paste a posting
-using the box on the upload screen instead.
+Streamlit serves `index.html` verbatim as a custom component, so the deployed
+page *is* the page — same landing, same report, same interactions. There is no
+second UI to keep in sync. `component/bridge.js` replaces the one thing that
+cannot work inside a component: the upload POST becomes a component value, and
+the finished report comes back as a render argument. Live job search is hidden
+there because it needs an HTTP endpoint; everything else, including switching
+between roles and pasting a posting, works.
 
 Two things to know about the free tier. It allocates about 1 GB of memory, and
 `sentence-transformers` pulls in torch, which is most of that; if the app is

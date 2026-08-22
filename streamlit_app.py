@@ -109,6 +109,7 @@ def _analyse(payload: dict) -> dict:
             tmp_path,
             target_soc=(payload.get("target_soc") or "").strip() or None,
             job_description=(payload.get("job_description") or "").strip() or None,
+            stage=(payload.get("stage") or "").strip() or None,
         )
         report["resume"] = name
         report["elapsed"] = round(time.perf_counter() - started, 1)
@@ -147,7 +148,7 @@ if isinstance(payload, dict) and payload.get("action") == "reset":
 
 elif isinstance(payload, dict) and payload.get("action") == "analyze":
     token = payload.get("data", "")[:64] + payload.get("target_soc", "") + \
-        payload.get("job_description", "")[:64]
+        payload.get("stage", "") + payload.get("job_description", "")[:64]
     if st.session_state.get("token") != token:
         st.session_state["token"] = token
         with st.spinner(""):

@@ -41,6 +41,15 @@ _OVERRIDES: Dict[str, str] = {
     "amazon web services aws software": "AWS",
     "microsoft office software": "Microsoft Office",
     "unix shell": "Unix shell",
+    "microsoft project": "Microsoft Project",
+    "microsoft access": "Microsoft Access",
+    "microsoft excel": "Microsoft Excel",
+    "microsoft word": "Microsoft Word",
+    "microsoft powerpoint": "Microsoft PowerPoint",
+    "microsoft outlook": "Microsoft Outlook",
+    "microsoft azure": "Microsoft Azure",
+    "google analytics": "Google Analytics",
+    "google cloud": "Google Cloud",
     "shell script": "Shell scripting",
 }
 

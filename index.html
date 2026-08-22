@@ -184,6 +184,24 @@ button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .drop-zone .dz-sub  { font-family: var(--mono); font-size: 12px; color: var(--faint); }
 #fileInput { display: none; }
 
+.stage-pick {
+  display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-top: 18px;
+}
+.sp-label {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--faint); margin-right: 2px;
+}
+.sp-opt {
+  font: inherit; font-size: 12.5px; padding: 5px 12px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg); color: var(--muted);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.sp-opt:hover { border-color: var(--primary); color: var(--ink); }
+.sp-opt.active {
+  border-color: var(--gold); background: var(--soft); color: var(--ink); font-weight: 500;
+}
+
 .privacy {
   display: flex; gap: 9px; align-items: baseline;
   font-family: var(--mono); font-size: 11px; line-height: 1.6;
@@ -767,6 +785,32 @@ footer {
 .rt-skill b { color: var(--ink); font-weight: 500; }
 
 
+.paths { display: grid; gap: 10px; }
+.path { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.path-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 3px; }
+.path-title { font-size: 14.5px; font-weight: 600; }
+.path-edu {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-dim); padding: 2px 7px; border-radius: 4px;
+}
+.path-stats {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  margin-left: auto; white-space: nowrap;
+}
+.path-stats .up { color: var(--ok); }
+.path-stats .down { color: var(--bad); }
+.path-desc { font-size: 12.5px; line-height: 1.55; color: var(--muted); margin: 6px 0 9px; }
+.path-skills { display: grid; gap: 4px; }
+.path-line { font-size: 12px; line-height: 1.5; }
+.path-line b {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--faint); font-weight: 400;
+  margin-right: 7px;
+}
+.path-line.have span { color: var(--ink); }
+.path-line.build span { color: var(--muted); }
+
 .tag-inferred { border-style: dashed; color: var(--muted); }
 .tag-mark { font-family: var(--mono); font-size: 10px; color: var(--gold);
   margin-left: 5px; }
@@ -918,6 +962,13 @@ footer {
     <div class="file-row" id="fileRow">
       <span class="fname" id="fileName"></span>
       <span class="fsize" id="fileSize"></span>
+    </div>
+
+    <div class="stage-pick" id="stagePick">
+      <span class="sp-label">I'm a</span>
+      <button class="sp-opt active" data-stage="" onclick="pickStage(this)">working professional</button>
+      <button class="sp-opt" data-stage="college" onclick="pickStage(this)">college student</button>
+      <button class="sp-opt" data-stage="high_school" onclick="pickStage(this)">high school student</button>
     </div>
 
     <p class="privacy"><span class="pv-dot"></span><span id="privacyText">Your
@@ -1077,9 +1128,18 @@ footer {
   </div>
 
 
+  <div class="sec rv" id="secPaths">
+    <div class="sec-head">
+      <span class="sec-num" id="pathsNum">04</span>
+      <span class="label">Career paths from here</span>
+      <span class="sec-note" id="pathsNote"></span>
+    </div>
+    <div class="paths" id="pathRows"></div>
+  </div>
+
   <div class="sec rv" id="secExposure">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num" id="exposureNum">04</span>
       <span class="label">Automation exposure</span>
     </div>
     <div class="exposure-grid">
@@ -1352,6 +1412,7 @@ async function analyze(opts = {}) {
 
   if (opts.targetSoc) form.append('target_soc', opts.targetSoc);
   if (opts.jobDescription) form.append('job_description', opts.jobDescription);
+  if (selectedStage) form.append('stage', selectedStage);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), ANALYZE_TIMEOUT_MS);
   try {
@@ -1381,6 +1442,14 @@ async function analyze(opts = {}) {
 
 let baseReport = null;
 let scoreNoun = 'hirability';
+let selectedStage = '';
+
+function pickStage(btn) {
+  document.querySelectorAll('.sp-opt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedStage = btn.dataset.stage || '';
+  window.selectedStage = selectedStage;
+}
 
 function swapTargets() {
 
@@ -1797,6 +1866,35 @@ function renderReport(d, elapsed, isSwitch) {
     $('secGaps').style.display = 'none';
   }
 
+
+  const paths = d.career_paths || [];
+  $('secPaths').style.display = paths.length ? '' : 'none';
+  if (paths.length) {
+    $('pathsNote').textContent = d.field
+      ? `within ${d.field.name.toLowerCase()}`
+      : '';
+    $('pathRows').innerHTML = paths.map((p, i) => {
+      const wage = p.median_wage
+        ? '$' + Math.round(p.median_wage / 1000) + 'k' : '';
+      const g = p.growth_pct;
+      const growth = (g == null) ? '' :
+        `<span class="${g >= 4 ? 'up' : (g > -1 ? '' : 'down')}">${g >= 0 ? '+' : ''}${g}%</span>`;
+      const stats = [wage, growth].filter(Boolean).join(' · ');
+      return `<div class="path stag" style="--d:${i * 0.06}s">
+        <div class="path-top">
+          <span class="path-title">${esc(p.title)}</span>
+          <span class="path-edu">${esc(p.education_short)}</span>
+          <span class="path-stats">${stats}</span>
+        </div>
+        ${p.description ? `<p class="path-desc">${esc(p.description.slice(0, 190))}${p.description.length > 190 ? '…' : ''}</p>` : ''}
+        <div class="path-skills">
+          ${p.have && p.have.length ? `<div class="path-line have"><b>you have</b><span>${p.have.map(esc).join(' · ')}</span></div>` : ''}
+          ${p.build && p.build.length ? `<div class="path-line build"><b>to build</b><span>${p.build.map(esc).join(' · ')}</span></div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+  }
+  $('exposureNum').textContent = paths.length ? '05' : '04';
 
   $('secExposure').style.display = exp.level ? '' : 'none';
   if (exp.level) {

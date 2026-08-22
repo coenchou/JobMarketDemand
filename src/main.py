@@ -139,11 +139,14 @@ def analyze_resume(
     file: UploadFile = File(...),
     target_soc: str = Form(""),
     job_description: str = Form(""),
+    stage: str = Form(""),
 ) -> Dict[str, Any]:
     """
     Analyse a resume. By default it is scored against the best-matching
     occupation; `target_soc` pins a different one and `job_description` scores
-    it against a pasted posting instead.
+    it against a pasted posting instead. `stage` lets the person say whether
+    they are a high school or college student rather than leaving it to
+    detection.
     """
     ext = Path(file.filename or "resume.txt").suffix.lower()
     if ext not in {".txt", ".pdf"}:
@@ -159,6 +162,7 @@ def analyze_resume(
             tmp_path,
             target_soc=target_soc.strip() or None,
             job_description=job_description.strip() or None,
+            stage=stage.strip() or None,
         )
         report["resume"] = file.filename
         _bump_count()

@@ -24,6 +24,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.career_stage import career_stage, score_track_record, stage_weights
+from src.career_paths import build_pathways, education_short
 from src.field_direction import infer_field
 from src.student_profile import (
     COLLEGE,
@@ -426,6 +427,79 @@ class FieldDirectionTests(unittest.TestCase):
 
     def test_no_signal_returns_none(self):
         self.assertIsNone(infer_field([]))
+
+
+class DeclaredStageTests(unittest.TestCase):
+    """Asking beats inferring: plenty of students never write "high school"."""
+
+    def test_declaration_overrides_detection(self):
+        d = detect_student(PRO_RESUME, education_level="Bachelor's",
+                           declared=HIGH_SCHOOL)
+        self.assertIsNotNone(d)
+        self.assertEqual(d["kind"], HIGH_SCHOOL)
+        self.assertEqual(d["confidence"], "declared")
+
+    def test_declaring_professional_suppresses_detection(self):
+        self.assertIsNone(detect_student(HS_RESUME, declared="professional"))
+
+    def test_declaration_matches_detection_on_a_real_student(self):
+        auto = detect_student(HS_RESUME)
+        declared = detect_student(HS_RESUME, declared=HIGH_SCHOOL)
+        self.assertEqual(auto["kind"], declared["kind"])
+
+    def test_unknown_declaration_falls_back_to_detection(self):
+        d = detect_student(HS_RESUME, declared="")
+        self.assertIsNotNone(d)
+        self.assertEqual(d["kind"], HIGH_SCHOOL)
+
+
+class CareerPathTests(unittest.TestCase):
+    """A student needs the range of options and what each one costs to reach."""
+
+    CANDIDATES = [
+        {"soc_code": "15-1254", "title": "Web Developers", "blended_score": 0.95,
+         "description": "Develop websites."},
+        {"soc_code": "15-2051", "title": "Data Scientists", "blended_score": 0.80,
+         "description": "Analyse data."},
+        {"soc_code": "15-1232", "title": "Computer User Support Specialists",
+         "blended_score": 0.60, "description": "Support users."},
+        {"soc_code": "15-1221", "title": "Computer and Information Research Scientists",
+         "blended_score": 0.55, "description": "Research computing."},
+        {"soc_code": "15-1299", "title": "Computer Occupations, All Other",
+         "blended_score": 0.90, "description": "Residual bucket."},
+    ]
+
+    @classmethod
+    def setUpClass(cls):
+        cls.paths = build_pathways(cls.CANDIDATES, DATA_ANALYST)
+
+    def test_returns_options(self):
+        self.assertTrue(self.paths)
+        self.assertTrue(all(p["title"] for p in self.paths))
+
+    def test_residual_buckets_are_not_offered(self):
+        titles = [p["title"] for p in self.paths]
+        self.assertNotIn("Computer Occupations, All Other", titles)
+
+    def test_carries_the_entry_requirement(self):
+        for p in self.paths:
+            with self.subTest(path=p["title"]):
+                self.assertIn("education_short", p)
+                self.assertTrue(p["education_short"])
+
+    def test_ordered_by_how_much_school_they_need(self):
+        ranks = [p["education_rank"] for p in self.paths]
+        self.assertEqual(ranks, sorted(ranks))
+
+    def test_names_the_students_own_skills_not_onet_entries(self):
+        have = [s for p in self.paths for s in p["have"]]
+        self.assertTrue(have, "no matched skills reported")
+        for skill in have:
+            self.assertIn(skill, DATA_ANALYST)
+
+    def test_education_labels_are_readable(self):
+        self.assertEqual(education_short("Bachelor's degree"), "bachelor's")
+        self.assertEqual(education_short(None), "varies")
 
 
 class NamingTests(unittest.TestCase):

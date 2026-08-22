@@ -51,7 +51,8 @@
       filename: currentFile.name,
       data: await toBase64(currentFile),
       target_soc: opts.targetSoc || '',
-      job_description: opts.jobDescription || ''
+      job_description: opts.jobDescription || '',
+      stage: (window.selectedStage || '')
     });
   };
 

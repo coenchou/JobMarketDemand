@@ -27,7 +27,7 @@ from src.career_stage import (
     stage_weights,
 )
 from src.naming import pretty_skill
-from src import field_direction, student_profile
+from src import career_paths, field_direction, student_profile
 from src.simulator import simulate_additions
 from src.target_role import occupation_frame, resolve_target
 from src.nlp_skills import (
@@ -592,6 +592,7 @@ def build_report(
     resume_path: str,
     target_soc: Optional[str] = None,
     job_description: Optional[str] = None,
+    stage: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Analyse a resume against a target.
@@ -623,16 +624,18 @@ def build_report(
         list(parsed.get("education_lines", [])) + exp_lines
         + list(parsed.get("highlights", [])) + skills)
     student = student_profile.detect_student(
-        resume_text, parsed.get("education_lines"), edu)
+        resume_text, parsed.get("education_lines"), edu, declared=stage)
     application = (
         student_profile.score_application(
             resume_text, parsed.get("highlights"), kind=student["kind"])
         if student else None)
 
     field: Optional[Dict] = None
+    pathways: List[Dict] = []
     if student:
         field = field_direction.infer_field(skills)
         enriched = _focus_on_field(skills, exp_lines, enriched, field)
+        pathways = career_paths.build_pathways(enriched, skills, field=field)
 
     role_options = _rank_roles(
         enriched, skills, years, edu, track, student, application)
@@ -817,6 +820,7 @@ def build_report(
         },
         "simulation": simulation,
         "field": field if student else None,
+        "career_paths": pathways if student else [],
         "student": {
             "kind": student["kind"],
             "grad_year": student.get("grad_year"),

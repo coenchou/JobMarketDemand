@@ -63,6 +63,7 @@ def detect_student(
     text: str,
     education_lines: Optional[List[str]] = None,
     education_level: Optional[str] = None,
+    declared: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
     """
     Decide whether this resume belongs to someone still in school.
@@ -70,7 +71,22 @@ def detect_student(
     Returns {kind, grad_year, confidence, signals} for a student, or None.
     A completed degree beats every enrolment marker: someone with a bachelor's
     who lists "coursework" is a graduate, not an undergraduate.
+
+    `declared` is what the person said about themselves and always wins.
+    Detection reads a résumé, and plenty of students never write "high school"
+    on theirs — asking is more reliable than inferring, so when the answer is
+    given it is not second-guessed.
     """
+    if declared in {HIGH_SCHOOL, COLLEGE}:
+        blob = " ".join([text or ""] + list(education_lines or [])).lower()
+        return {
+            "kind": declared,
+            "grad_year": _future_grad_year(blob),
+            "confidence": "declared",
+            "signals": ["you told us"],
+        }
+    if declared == "professional":
+        return None
     blob = " ".join([text or ""] + list(education_lines or [])).lower()
     if not blob.strip():
         return None

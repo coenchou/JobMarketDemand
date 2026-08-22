@@ -27,7 +27,7 @@ from src.career_stage import (
     stage_weights,
 )
 from src.naming import pretty_skill
-from src import career_paths, field_direction, student_profile
+from src import career_paths, field_direction, student_interests, student_profile
 from src.simulator import simulate_additions
 from src.target_role import occupation_frame, resolve_target
 from src.nlp_skills import (
@@ -588,6 +588,75 @@ def _market_snapshot(
     }
 
 
+def _resume_text(resume_path: Path, parsed: Dict) -> str:
+    """
+    The résumé as written. A high schooler's signal lives in prose — clubs,
+    volunteering, courses — most of which never reaches the parsed skill list,
+    so interest matching reads the document rather than the extraction.
+    """
+    try:
+        from src.parser import _extract_text
+        text = _extract_text(resume_path)
+        if text and text.strip():
+            return text
+    except Exception:
+        pass
+    return "\n".join(
+        list(parsed.get("education_lines", []))
+        + list(parsed.get("experience_lines", []))
+        + list(parsed.get("highlights", []))
+        + list(parsed.get("skills", []))
+    )
+
+
+def _explore_report(
+    resume_path: Path, parsed: Dict, raw_text: str, student: Dict,
+) -> Dict[str, Any]:
+    """
+    The high school report: career options, no score.
+
+    Nothing here ranks the person. A sixteen-year-old has not had the chance to
+    accumulate what a hiring model measures, and scoring them against it only
+    ever produces a low number with no action attached. What is useful at this
+    stage is the range of work their experience already points toward and what
+    each option would take, so that is the whole report.
+    """
+    interests = student_interests.infer_interests(raw_text)
+    groups = career_paths.explore_options(interests)
+
+    return {
+        "resume": resume_path.name,
+        "parser": parsed.get("parser", "regex"),
+        "mode": "explore",
+        "student": {
+            "kind": student["kind"],
+            "grad_year": student.get("grad_year"),
+            "confidence": student.get("confidence"),
+        },
+        "verdict": _explore_verdict(groups),
+        "interests": interests,
+        "explore": groups,
+        "education": parsed.get("education_lines", []),
+        "experience": parsed.get("experience_lines", []),
+        "skills": {"extracted": parsed.get("skills", [])},
+    }
+
+
+def _explore_verdict(groups: List[Dict]) -> str:
+    if not groups:
+        return ("Add a little more about what you have done — clubs, jobs, "
+                "volunteering, favourite courses — and this will show the kinds "
+                "of work it points toward.")
+    names = [g["name"].lower() for g in groups]
+    if len(names) == 1:
+        lead = names[0]
+    elif len(names) == 2:
+        lead = f"{names[0]} and {names[1]}"
+    else:
+        lead = f"{names[0]}, {names[1]} and {names[2]}"
+    return f"Your experience so far points toward {lead}. Here is where those lead."
+
+
 def build_report(
     resume_path: str,
     target_soc: Optional[str] = None,
@@ -608,6 +677,16 @@ def build_report(
     skills: List[str] = parsed["skills"]
     years: Optional[int] = parsed["years_experience"]
     edu: Optional[str] = parsed["education_level"]
+    exp_lines_early: List[str] = parsed.get("experience_lines", [])
+
+    raw_text = _resume_text(resume_path, parsed)
+    early_student = student_profile.detect_student(
+        "\n".join(list(parsed.get("education_lines", [])) + exp_lines_early
+                  + list(parsed.get("highlights", [])) + skills),
+        parsed.get("education_lines"), edu, declared=stage)
+
+    if early_student and early_student["kind"] == student_profile.HIGH_SCHOOL:
+        return _explore_report(resume_path, parsed, raw_text, early_student)
 
     candidates = score_soc_candidates(skills, top_n=10)
     enriched = _enrich_candidates(candidates)

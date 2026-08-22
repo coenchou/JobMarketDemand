@@ -16,6 +16,7 @@ Run with:
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -24,8 +25,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.career_stage import career_stage, score_track_record, stage_weights
-from src.career_paths import build_pathways, education_short
+from src.career_paths import build_pathways, education_short, explore_options, paths_for_interest
 from src.field_direction import infer_field
+from src.student_interests import infer_interests
 from src.student_profile import (
     COLLEGE,
     HIGH_SCHOOL,
@@ -33,7 +35,7 @@ from src.student_profile import (
     score_application,
 )
 from src.gap_engine import compute_skill_gaps
-from src.pipeline import _pick_default_role, _rank_roles
+from src.pipeline import _pick_default_role, _rank_roles, build_report
 from src.naming import pretty_skill
 from src.skill_difficulty import (
     _difficulty_from_table,
@@ -42,6 +44,7 @@ from src.skill_difficulty import (
 )
 from src.skill_implication import classify_occupation_tools, gap_priority
 from src.skill_matcher import match_skill_to_tools_strict, score_soc_candidates
+from src.parser import _decode, _extract_text
 from src.skill_score import compute_skill_capital
 from src.simulator import simulate_additions
 from src.target_role import extract_posting_skills, occupation_frame
@@ -519,6 +522,127 @@ class OccupationMatchTests(unittest.TestCase):
         ranked = score_soc_candidates(ML_ENGINEER, top_n=5)
         self.assertTrue(ranked)
         self.assertTrue(any(c["soc_code"].startswith("15-") for c in ranked))
+
+
+HS_PREMED = """Maya Torres
+Lincoln High School, Class of 2027
+
+EXPERIENCE
+Volunteer, Riverside Community Hospital (2024-present)
+- Assisted nurses with patient intake and transported patients
+Barista, Grind Coffee (summer 2024)
+- Handled cash register and customer orders during peak hours
+
+ACTIVITIES
+HOSA - Future Health Professionals, chapter member
+
+COURSES
+Courses: AP Biology, AP Chemistry
+"""
+
+HS_ROBOTICS = """I've been part of the robotics team for three years and last
+summer I worked at my uncle's auto repair shop helping with diagnostics and
+basic engine work. I'm interested in mechanical engineering or something
+hands-on after high school.
+"""
+
+
+class StudentInterestTests(unittest.TestCase):
+    """A high schooler's direction lives in prose, not in a skills list."""
+
+    def test_interests_come_from_experience_not_skills(self):
+        names = [i["name"] for i in infer_interests(HS_PREMED)]
+        self.assertEqual(names[0], "Healthcare")
+        self.assertIn("Science and Research", names)
+
+    def test_interest_is_backed_by_a_quote_from_the_resume(self):
+        healthcare = infer_interests(HS_PREMED)[0]
+        self.assertTrue(healthcare["evidence"])
+        for quote in healthcare["evidence"]:
+            self.assertIn(quote.lower(), HS_PREMED.lower().replace("\n", " "))
+            self.assertLessEqual(len(quote), 70)
+
+    def test_prose_without_headings_still_yields_a_direction(self):
+        names = [i["name"] for i in infer_interests(HS_ROBOTICS)]
+        self.assertTrue(names)
+        self.assertIn("Engineering and Architecture", names)
+
+    def test_a_passing_mention_does_not_headline_a_direction(self):
+        shares = {i["name"]: i["share"] for i in infer_interests(HS_PREMED)}
+        self.assertGreater(shares["Healthcare"], shares.get("Sales", 0))
+
+    def test_an_empty_resume_claims_nothing(self):
+        self.assertEqual(infer_interests("Chris\nHigh school student\n"), [])
+
+
+class ExploreOptionTests(unittest.TestCase):
+    def test_a_healthcare_interest_opens_a_ladder_of_education_levels(self):
+        paths = paths_for_interest("29")
+        self.assertTrue(paths)
+        self.assertTrue(all(p["soc_code"].startswith("29-") for p in paths))
+        self.assertGreater(len({p["education_short"] for p in paths}), 1)
+
+    def test_options_are_grouped_under_the_interest_that_produced_them(self):
+        groups = explore_options(infer_interests(HS_PREMED))
+        self.assertTrue(groups)
+        self.assertEqual(groups[0]["name"], "Healthcare")
+        self.assertTrue(groups[0]["options"])
+        self.assertTrue(groups[0]["evidence"])
+
+    def test_no_interests_means_no_options(self):
+        self.assertEqual(explore_options([]), [])
+
+
+class HighSchoolReportTests(unittest.TestCase):
+    """High schoolers get directions to explore, never a competitiveness rank."""
+
+    def _report(self, text: str) -> dict:
+        path = Path(tempfile.mkdtemp()) / "resume.txt"
+        path.write_text(text)
+        return build_report(path, stage="high_school")
+
+    def test_report_is_explore_mode_with_no_score(self):
+        report = self._report(HS_PREMED)
+        self.assertEqual(report["mode"], "explore")
+        self.assertNotIn("summary", report)
+        self.assertNotIn("application", report)
+        self.assertTrue(report["explore"])
+
+    def test_a_resume_with_no_listed_skills_still_gets_options(self):
+        report = self._report(HS_PREMED)
+        options = [o for g in report["explore"] for o in g["options"]]
+        self.assertTrue(options)
+        self.assertTrue(any("Nurse" in o["title"] for o in options))
+
+    def test_college_students_keep_their_score(self):
+        path = ROOT / "resumes" / "student_college.txt"
+        report = build_report(path, stage="college")
+        self.assertNotEqual(report.get("mode"), "explore")
+        self.assertIn("summary", report)
+
+
+class ResumeDecodingTests(unittest.TestCase):
+    """A resume saved from any editor has to survive the round trip."""
+
+    def _text(self, raw: bytes) -> str:
+        path = Path(tempfile.mkdtemp()) / "resume.txt"
+        path.write_bytes(raw)
+        return _extract_text(path)
+
+    def test_utf16_is_not_mistaken_for_latin1(self):
+        text = self._text("Hospital volunteer\n".encode("utf-16"))
+        self.assertNotIn("\x00", text)
+        self.assertIn("Hospital volunteer", text)
+
+    def test_windows_line_endings_are_normalised(self):
+        self.assertEqual(self._text(b"EDUCATION\r\nLincoln High\r\n"),
+                         "EDUCATION\nLincoln High\n")
+
+    def test_latin1_bytes_survive(self):
+        self.assertIn("Garc\xeda", self._text("Jos\xe9 Garc\xeda\n".encode("latin-1")))
+
+    def test_byte_order_marks_are_stripped(self):
+        self.assertEqual(_decode(b"\xef\xbb\xbfAlex Kim"), "Alex Kim")
 
 
 if __name__ == "__main__":

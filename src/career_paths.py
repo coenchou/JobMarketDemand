@@ -142,3 +142,80 @@ def build_pathways(
     chosen = chosen[:max_paths]
     chosen.sort(key=lambda p: (p["education_rank"], -p["fit"]))
     return chosen
+
+
+def paths_for_interest(
+    code: str, max_paths: int = 4, min_openings: float = 5.0,
+) -> List[Dict[str, Any]]:
+    """
+    Real occupations inside one family, for a student who has interests rather
+    than a toolchain.
+
+    Ranked by annual openings, because a sixteen-year-old exploring a field is
+    better served by the jobs that actually exist in volume than by the closest
+    match to a resume that has not been written yet. Spread across education
+    levels so the list shows what opens at each rung.
+    """
+    from src.labor_market import _load_market, outlook_label
+    from src.pipeline import _load_occ_data
+
+    occ = _load_occ_data()
+    titles = dict(zip(occ["soc_code"], occ["title"]))
+    descriptions = dict(zip(occ["soc_code"], occ["description"]))
+
+    rows = []
+    for soc, m in _load_market().items():
+        if not soc.startswith(code):
+            continue
+        title = titles.get(soc)
+        if not title or _is_residual(title):
+            continue
+        if (m.get("openings_k") or 0) < min_openings:
+            continue
+        rows.append({
+            "soc_code": soc,
+            "title": title,
+            "description": (descriptions.get(soc) or "").strip(),
+            "median_wage": m.get("median_wage"),
+            "growth_pct": m.get("growth_pct"),
+            "openings_k": m.get("openings_k"),
+            "outlook": outlook_label(m.get("growth_pct")),
+            "typical_education": m.get("typical_education"),
+            "education_short": education_short(m.get("typical_education")),
+            "education_rank": _education_rank(m.get("typical_education")),
+            "typical_experience": m.get("typical_experience"),
+        })
+
+    if not rows:
+        return []
+
+    rows.sort(key=lambda r: -(r["openings_k"] or 0))
+    chosen, seen = [], set()
+    for r in rows:
+        if r["education_rank"] not in seen:
+            seen.add(r["education_rank"])
+            chosen.append(r)
+    for r in rows:
+        if len(chosen) >= max_paths:
+            break
+        if r not in chosen:
+            chosen.append(r)
+    chosen = chosen[:max_paths]
+    chosen.sort(key=lambda r: (r["education_rank"], -(r["openings_k"] or 0)))
+    return chosen
+
+
+def explore_options(interests: List[Dict[str, Any]], max_fields: int = 3) -> List[Dict[str, Any]]:
+    """Career options grouped by the interest that suggested them."""
+    out = []
+    for interest in interests[:max_fields]:
+        paths = paths_for_interest(interest["code"])
+        if paths:
+            out.append({
+                "code": interest["code"],
+                "name": interest["name"],
+                "label": interest.get("label", ""),
+                "evidence": interest.get("evidence", [])[:2],
+                "options": paths,
+            })
+    return out

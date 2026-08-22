@@ -347,16 +347,56 @@ def _extract_pdf(path: Path) -> str:
         raise ValueError(f"Could not read PDF: {e}") from e
 
 
+_BOMS = (
+    (b"\xef\xbb\xbf", "utf-8-sig"),
+    (b"\xff\xfe\x00\x00", "utf-32"),
+    (b"\x00\x00\xfe\xff", "utf-32"),
+    (b"\xff\xfe", "utf-16"),
+    (b"\xfe\xff", "utf-16"),
+)
+
+
+def _decode(raw: bytes) -> str:
+    """
+    Decode resume bytes. A byte-order mark is checked first because latin-1
+    decodes anything without complaint: a UTF-16 file falls through the
+    try/except chain and comes back as text interleaved with NULs, which
+    parses to an empty resume rather than to an error anyone would notice.
+    """
+    for bom, enc in _BOMS:
+        if raw.startswith(bom):
+            try:
+                return raw.decode(enc)
+            except (UnicodeDecodeError, ValueError):
+                break
+    # UTF-16 without a BOM leaves every other byte NUL for ASCII text. Guessing
+    # it on bytes that hold no NUL turns a short latin-1 name into mojibake:
+    # b"Jos\xe9 Garc\xeda\n" decodes as valid UTF-16 and comes back as "潊...".
+    if b"\x00" in raw[:4096]:
+        for enc in ("utf-16-le", "utf-16-be"):
+            try:
+                text = raw.decode(enc)
+            except (UnicodeDecodeError, ValueError):
+                continue
+            if "\x00" not in text:
+                return text
+    for enc in ("utf-8", "latin-1"):
+        try:
+            return raw.decode(enc)
+        except (UnicodeDecodeError, ValueError):
+            continue
+    return raw.decode("utf-8", errors="ignore")
+
+
 def _extract_text(path: Path) -> str:
     """Read a resume file to text, robust to format and encoding."""
     if path.suffix.lower() == ".pdf":
         return _extract_pdf(path)
-    for enc in ("utf-8", "utf-8-sig", "latin-1"):
-        try:
-            return path.read_text(encoding=enc)
-        except (UnicodeDecodeError, ValueError):
-            continue
-    return path.read_bytes().decode("utf-8", errors="ignore")
+    text = _decode(path.read_bytes())
+    # Normalise line endings and drop control characters that survive a bad
+    # decode, so downstream matching sees the words and not the wrapper.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    return "".join(c for c in text if c == "\n" or c == "\t" or c >= " ")
 
 
 _SKILL_JUNK_RE = re.compile(r"https?://|www\.|@|\d{4,}")

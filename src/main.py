@@ -83,12 +83,19 @@ OPTIONAL_DATA = {
 def health() -> Dict[str, Any]:
     required = {k: v.exists() for k, v in REQUIRED_DATA.items()}
     optional = {k: v.exists() for k, v in OPTIONAL_DATA.items()}
+    from src.embeddings import _load_model, embeddings_enabled
+
     return {
         "ok": all(required.values()),
         "required": required,
         "optional": optional,
         "llm": bool(os.getenv("GROQ_API_KEY")),
         "model": os.getenv("LLM_MODEL", "openai/gpt-oss-120b"),
+        "embeddings_enabled": embeddings_enabled(),
+        # Reports whether the model is already resident. Calling _load_model()
+        # here would download 90 MB and allocate half a gigabyte on every
+        # health check, which is exactly what a health check must not do.
+        "embeddings_loaded": _load_model.cache_info().currsize > 0,
     }
 
 

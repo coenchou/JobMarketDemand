@@ -1245,6 +1245,8 @@ function showErr(msg) {
 }
 
 
+const ANALYZE_TIMEOUT_MS = 240000;
+
 const STAGES = [
   'reading document',
   'extracting skill entities',
@@ -1299,6 +1301,17 @@ function startLog(t0) {
     logTimers.push(setTimeout(() => addLine(stage), 900 + i * 3200));
   });
 
+  logTimers.push(setTimeout(() => {
+    const el = addLine('still working — first run loads the model');
+    let dots = 0;
+    const tick = setInterval(() => {
+      dots = (dots + 1) % 4;
+      el.querySelector('.txt').textContent =
+        'still working — first run loads the model' + '.'.repeat(dots);
+    }, 700);
+    logTimers.push(tick);
+  }, 900 + STAGES.length * 3200));
+
   const bar = document.createElement('div');
   bar.className = 'log-bar';
   bar.innerHTML = '<i></i>';
@@ -1339,19 +1352,29 @@ async function analyze(opts = {}) {
 
   if (opts.targetSoc) form.append('target_soc', opts.targetSoc);
   if (opts.jobDescription) form.append('job_description', opts.jobDescription);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), ANALYZE_TIMEOUT_MS);
   try {
-    const res = await fetch(API, { method: 'POST', body: form });
+    const res = await fetch(API, {
+      method: 'POST', body: form, signal: controller.signal,
+    });
+    clearTimeout(timeout);
     if (!res.ok) {
       const e = await res.json().catch(() => ({}));
-      throw new Error(e.detail || 'Analysis failed.');
+      throw new Error(e.detail || `Analysis failed (HTTP ${res.status}).`);
     }
     const data = await res.json();
     finishLog(true);
     setTimeout(() => { clearLog(); renderReport(data, (performance.now() - t0) / 1000); }, 450);
   } catch (e) {
+    clearTimeout(timeout);
     finishLog(false);
     $('uploadActions').classList.add('show');
-    showErr(e.message || 'Could not reach the analysis server.');
+    showErr(e.name === 'AbortError'
+      ? `The server did not respond within ${Math.round(ANALYZE_TIMEOUT_MS / 1000)}s. `
+        + 'It may be out of memory or still downloading the language model — '
+        + 'check the deployment logs and try again.'
+      : (e.message || 'Could not reach the analysis server.'));
   }
 }
 

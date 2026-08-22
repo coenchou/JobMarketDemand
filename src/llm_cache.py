@@ -27,6 +27,11 @@ MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")
 
 MAX_AGE_DAYS = 30
 
+# The SDK defaults to a 60s read timeout and retries twice, so a stalled
+# provider can hold a request open for minutes with no way for the caller to
+# tell. Two calls run per analysis, so this is bounded deliberately.
+TIMEOUT = float(os.getenv("LLM_TIMEOUT", "40"))
+
 
 def _key(model: str, prompt: str) -> str:
     digest = hashlib.sha256(f"{model}\x00{prompt}".encode("utf-8")).hexdigest()
@@ -93,7 +98,7 @@ def complete(
     if json_mode:
         kwargs["response_format"] = {"type": "json_object"}
 
-    resp = client.chat.completions.create(**kwargs)
+    resp = client.chat.completions.create(**kwargs, timeout=TIMEOUT)
     text = resp.choices[0].message.content
     put(model, prompt, text)
     return text

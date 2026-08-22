@@ -134,6 +134,25 @@ killed on load, drop that dependency and the code falls back to keyword
 matching everywhere it would have used embeddings. And the filesystem is
 ephemeral, so the analysis counter resets whenever the app redeploys or sleeps.
 
+### Railway, Render, Fly and friends
+
+`Procfile` already declares the start command. Two settings matter on a small
+container:
+
+```
+ENABLE_EMBEDDINGS=0     # skip the 500 MB embedding model
+GROQ_API_KEY=your-key   # optional
+```
+
+With embeddings on, one analysis peaks around **660 MB** and takes ~34s, and
+the first request also downloads ~90 MB of model weights while the caller
+waits. With `ENABLE_EMBEDDINGS=0` the same analysis is **185 MB and ~10s**, at
+the cost of semantic occupation matching — scores move by roughly a point.
+Turn it back on once the service has more than a gigabyte of memory.
+
+`GET /health` reports `embeddings_enabled` and `embeddings_loaded` without
+triggering a load, so it is safe to use as the platform health check.
+
 ### As a FastAPI service
 
 The API serves the frontend, so a single process is the whole app:

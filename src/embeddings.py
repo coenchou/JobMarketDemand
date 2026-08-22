@@ -9,6 +9,7 @@ when the model (or its download) is unavailable.
 
 from __future__ import annotations
 
+import os
 import re
 from functools import lru_cache
 from typing import Dict, List, Optional
@@ -16,9 +17,24 @@ from typing import Dict, List, Optional
 import numpy as np
 
 
+def embeddings_enabled() -> bool:
+    """
+    Whether semantic matching is switched on.
+
+    The model costs roughly half a gigabyte of resident memory and downloads
+    ~90 MB on first use. On a small container that is the difference between
+    an analysis finishing and the process being killed mid-request, so hosts
+    that cannot afford it set ENABLE_EMBEDDINGS=0 and every embedding call
+    falls back to keyword matching.
+    """
+    return os.getenv("ENABLE_EMBEDDINGS", "1").lower() not in {"0", "false", "off", "no"}
+
+
 @lru_cache(maxsize=1)
 def _load_model():
     """Load sentence-transformers model once per process; return None on failure."""
+    if not embeddings_enabled():
+        return None
     try:
         from sentence_transformers import SentenceTransformer
         return SentenceTransformer("all-MiniLM-L6-v2")
